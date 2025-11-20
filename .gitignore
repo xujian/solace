@@ -1,0 +1,13 @@
+**/node_modules
+**/dist
+**/build
+**/coverage
+**/logs
+**/temp
+**/cache
+**/temp
+**/cache
+**/temp
+**/cache
+
+**/.DS_Store

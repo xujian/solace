@@ -1,0 +1,15 @@
+packages:
+  - api
+  - cms
+  - storefront
+
+onlyBuiltDependencies:
+  - '@medusajs/telemetry'
+  - '@swc/core'
+  - better-sqlite3
+  - core-js-pure
+  - esbuild
+  - msgpackr-extract
+  - protobufjs
+  - sharp
+  - unrs-resolver
