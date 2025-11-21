@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_home_heros",
+  "info": {
+    "displayName": "Hero",
+    "icon": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "text",
+      "required": false
+    },
+    "cta": {
+      "displayName": "CTA",
+      "type": "component",
+      "repeatable": false,
+      "component": "home.cta"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
