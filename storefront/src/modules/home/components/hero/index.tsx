@@ -1,7 +1,7 @@
 import { Github } from '@medusajs/icons'
 import { Button, Heading } from '@medusajs/ui'
 import { Banner } from 'types/cms'
-import Image from 'next/image'
+import Image from '@modules/common/components/cms/image'
 
 const Hero = ({ data }: { data: Banner }) => {
   const { title, text, cta, image } = data
@@ -9,8 +9,7 @@ const Hero = ({ data }: { data: Banner }) => {
     <div className='h-[75vh] w-full border-b border-ui-border-base relative bg-ui-bg-subtle'>
       <div className='absolute inset-0 z-10 flex flex-col justify-center items-center text-center small:p-32 gap-6'>
         <span>
-          <Image 
-            src={'http://localhost:1337' + image.url}
+          <Image src={image.url}
             alt={image.alternativeText || ''}
             width={1000}
             height={600}/>
