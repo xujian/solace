@@ -1,6 +1,6 @@
 import { BannerData } from 'types/cms'
 import Image from '@modules/common/components/cms/image'
-import { Heading, Text } from '@medusajs/ui'
+import { Button } from '@lib/components/ui/button'
 
 
 export default function Banner({ data }: { data: BannerData }) {
@@ -11,8 +11,9 @@ export default function Banner({ data }: { data: BannerData }) {
         alt={image.alternativeText || ''}
         width={1000}
         height={600} />
-      <Heading level="h2">{title}</Heading>
-      <Text>{text}</Text>
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <Button variant="default">{cta.text}</Button>
     </div>
   )
 }
