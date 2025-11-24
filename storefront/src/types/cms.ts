@@ -16,7 +16,7 @@ export interface CmsData<T> {
   data: T
 }
 
-export type Banner = {
+export type BannerData = {
   title: string
   text: string
   cta: {
@@ -32,12 +32,12 @@ export type Banner = {
 
 export type BannerResponse<T extends string> = {
   data: {
-    [K in T]: Banner
+    [K in T]: BannerData
   }
 }
 
 export type HeroData = BannerResponse<'hero'>
-export type BannerData = BannerResponse<'banner'>
+export type MarketingData = BannerResponse<'marketing'>
 
 export type BlogPost = {
   title: string

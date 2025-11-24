@@ -11,10 +11,10 @@ export interface HomeCta extends Struct.ComponentSchema {
   };
 }
 
-export interface HomeHero extends Struct.ComponentSchema {
-  collectionName: 'components_home_heros';
+export interface HomeSection extends Struct.ComponentSchema {
+  collectionName: 'components_home_sections';
   info: {
-    displayName: 'Hero';
+    displayName: 'Section';
     icon: '';
   };
   attributes: {
@@ -92,7 +92,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'home.cta': HomeCta;
-      'home.hero': HomeHero;
+      'home.section': HomeSection;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

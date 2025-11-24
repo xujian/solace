@@ -598,7 +598,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 export interface ApiHomeHome extends Struct.SingleTypeSchema {
   collectionName: 'homes';
   info: {
-    description: '';
+    description: 'Content for the home page';
     displayName: 'Home';
     pluralName: 'homes';
     singularName: 'home';
@@ -607,14 +607,14 @@ export interface ApiHomeHome extends Struct.SingleTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    banner: Schema.Attribute.Component<'home.hero', false>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    hero: Schema.Attribute.Component<'home.hero', false>;
+    hero: Schema.Attribute.Component<'home.section', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::home.home'> &
       Schema.Attribute.Private;
+    marketing: Schema.Attribute.Component<'home.section', false>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

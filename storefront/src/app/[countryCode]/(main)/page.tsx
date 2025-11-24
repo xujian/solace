@@ -4,7 +4,8 @@ import FeaturedProducts from '@modules/home/components/featured-products'
 import Hero from '@modules/home/components/hero'
 import { listCollections } from '@lib/data/collections'
 import { getRegion } from '@lib/data/regions'
-import { getHero } from '@lib/data/cms'
+import { getHero, getMarketing } from '@lib/data/cms'
+import Banner from '@modules/home/components/banner'
 
 export const metadata: Metadata = {
   title: 'Ars Breeze',
@@ -30,21 +31,22 @@ export default async function Home(props: {
   }
 
   const [
-    {data}
+    { data: { hero } },
+    { data: { marketing } }
   ] = await Promise.all([
-    getHero()
+    getHero(),
+    getMarketing()
   ])
-
-  console.log('data.banner-------------------------------->', data)
 
   return (
     <>
-      <Hero data={data.hero} />
+      <Hero data={hero} />
       <div className='py-12'>
         <ul className='flex flex-col gap-x-6'>
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
+      {marketing && <Banner data={marketing} />}
     </>
   )
 }

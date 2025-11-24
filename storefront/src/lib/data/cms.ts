@@ -1,5 +1,6 @@
 import {
-  HeroData
+  HeroData,
+  MarketingData,
 } from 'types/cms'
 
 
@@ -40,5 +41,20 @@ export const getHero = async (): Promise<HeroData> => {
 
   console.log('res-------------------------------->', res)
 
+  return res.json()
+}
+
+export const getMarketing = async (): Promise<MarketingData> => {
+  const res = await fetchContent(
+    [
+      '/api/home?',
+      'populate[1]=marketing',
+      '&populate[2]=marketing.cta',
+      '&populate[3]=marketing.image',
+    ].join(''),
+    {
+      next: { tags: ['marketing'] },
+    }
+  )
   return res.json()
 }
