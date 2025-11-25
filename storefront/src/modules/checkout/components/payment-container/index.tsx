@@ -1,5 +1,5 @@
 import { Radio as RadioGroupOption } from "@headlessui/react"
-import { Text, clx } from "@medusajs/ui"
+import { cn } from "@lib/util"
 import React, { useContext, useMemo, type JSX } from "react"
 
 import Radio from "@modules/common/components/radio"
@@ -33,7 +33,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
       key={paymentProviderId}
       value={paymentProviderId}
       disabled={disabled}
-      className={clx(
+      className={cn(
         "flex flex-col gap-y-2 text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
         {
           "border-ui-border-interactive":
@@ -44,9 +44,9 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
       <div className="flex items-center justify-between ">
         <div className="flex items-center gap-x-4">
           <Radio checked={selectedPaymentOptionId === paymentProviderId} />
-          <Text className="text-base-regular">
+          <span className="text-base-regular">
             {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
-          </Text>
+          </span>
           {isManual(paymentProviderId) && isDevelopment && (
             <PaymentTest className="hidden small:block" />
           )}
@@ -107,9 +107,9 @@ export const StripeCardContainer = ({
       {selectedPaymentOptionId === paymentProviderId &&
         (stripeReady ? (
           <div className="my-4 transition-all duration-150 ease-in-out">
-            <Text className="txt-medium-plus text-ui-fg-base mb-1">
+            <span className="txt-medium-plus text-ui-fg-base mb-1">
               Enter your card details:
-            </Text>
+            </span>
             <CardElement
               options={useOptions as StripeCardElementOptions}
               onChange={(e) => {

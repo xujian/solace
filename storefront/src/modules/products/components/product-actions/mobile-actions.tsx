@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react"
-import { Button, clx } from "@medusajs/ui"
+import { Button } from "@lib/components/ui"
+import { cn } from "@lib/util"
 import React, { Fragment, useMemo } from "react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
@@ -55,7 +56,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   return (
     <>
       <div
-        className={clx("lg:hidden inset-x-0 bottom-0 fixed z-50", {
+        className={cn("lg:hidden inset-x-0 bottom-0 fixed z-50", {
           "pointer-events-none": !show,
         })}
       >
@@ -86,7 +87,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                     </p>
                   )}
                   <span
-                    className={clx({
+                    className={cn({
                       "text-ui-fg-interactive":
                         selectedPrice.price_type === "sale",
                     })}
@@ -98,8 +99,8 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                 <div></div>
               )}
             </div>
-            <div className={clx("grid grid-cols-2 w-full gap-x-4", {
-              "!grid-cols-1": isSimple
+            <div className={cn("grid grid-cols-2 w-full gap-x-4", {
+              "grid-cols-1!": isSimple
             })}>
               {!isSimple && <Button
                 onClick={open}
@@ -134,7 +135,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
         </Transition>
       </div>
       <Transition appear show={state} as={Fragment}>
-        <Dialog as="div" className="relative z-[75]" onClose={close}>
+        <Dialog as="div" className="relative z-75" onClose={close}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

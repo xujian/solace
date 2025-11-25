@@ -1,6 +1,6 @@
 "use client"
 
-import { Badge, Heading, Input, Label, Text } from "@medusajs/ui"
+import { Badge, Input, Label } from "@lib/components/ui"
 import React from "react"
 
 import { applyPromotions } from "@lib/data/cart"
@@ -104,9 +104,9 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
         {promotions.length > 0 && (
           <div className="w-full flex items-center">
             <div className="flex flex-col w-full">
-              <Heading className="txt-medium mb-2">
+              <h3 className="txt-medium mb-2">
                 Promotion(s) applied:
-              </Heading>
+              </h3>
 
               {promotions.map((promotion) => {
                 return (
@@ -115,11 +115,11 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                     className="flex items-center justify-between w-full max-w-full mb-2"
                     data-testid="discount-row"
                   >
-                    <Text className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
+                    <span className="flex gap-x-1 items-baseline txt-small-plus w-4/5 pr-1">
                       <span className="truncate" data-testid="discount-code">
                         <Badge
-                          color={promotion.is_automatic ? "green" : "grey"}
-                          size="small"
+                          variant={promotion.is_automatic ? "secondary" : "default"}
+                          className="text-xs"
                         >
                           {promotion.code}
                         </Badge>{" "}
@@ -146,7 +146,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
                           </Tooltip>
                         )} */}
                       </span>
-                    </Text>
+                    </span>
                     {!promotion.is_automatic && (
                       <button
                         className="flex items-center"

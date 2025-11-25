@@ -1,4 +1,4 @@
-import { Button } from "@medusajs/ui"
+import { Button } from "@lib/components/ui"
 import { useMemo } from "react"
 
 import Thumbnail from "@modules/products/components/thumbnail"

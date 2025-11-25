@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
-import { Button } from "@medusajs/ui"
+import { Button } from "@lib/components/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
@@ -194,7 +194,7 @@ const CartDropdown = ({
                   <LocalizedClientLink href="/cart" passHref>
                     <Button
                       className="w-full"
-                      size="large"
+                      size="lg"
                       data-testid="go-to-cart-button"
                     >
                       Go to cart

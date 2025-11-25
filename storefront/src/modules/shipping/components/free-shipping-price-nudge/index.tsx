@@ -8,7 +8,8 @@ import {
   StoreCartShippingOption,
   StorePrice,
 } from "@medusajs/types"
-import { Button, clx } from "@medusajs/ui"
+import { Button } from "@lib/components/ui"
+import { cn } from "@lib/util"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { useState } from "react"
 import { StoreFreeShippingPrice } from "types/global"
@@ -157,7 +158,7 @@ function FreeShippingInline({
           </div>
 
           <div
-            className={clx("visible", {
+            className={cn("visible", {
               "opacity-0 invisible": price.target_reached,
             })}
           >
@@ -173,7 +174,7 @@ function FreeShippingInline({
         </div>
         <div className="flex justify-between gap-1">
           <div
-            className={clx(
+            className={cn(
               "bg-gradient-to-r from-zinc-400 to-zinc-500 h-1 rounded-full max-w-full duration-500 ease-in-out",
               {
                 "from-green-400 to-green-500": price.target_reached,
@@ -199,7 +200,7 @@ function FreeShippingPopup({
 
   return (
     <div
-      className={clx(
+      className={cn(
         "fixed bottom-5 right-5 flex flex-col items-end gap-2 transition-all duration-500 ease-in-out z-10",
         {
           "opacity-0 invisible delay-1000": price.target_reached,
@@ -233,7 +234,7 @@ function FreeShippingPopup({
               </div>
 
               <div
-                className={clx("visible", {
+                className={cn("visible", {
                   "opacity-0 invisible": price.target_reached,
                 })}
               >
@@ -249,7 +250,7 @@ function FreeShippingPopup({
             </div>
             <div className="flex justify-between gap-1">
               <div
-                className={clx(
+                className={cn(
                   "bg-gradient-to-r from-zinc-400 to-zinc-500 h-1.5 rounded-full max-w-full duration-500 ease-in-out",
                   {
                     "from-green-400 to-green-500": price.target_reached,
@@ -270,8 +271,8 @@ function FreeShippingPopup({
             View cart
           </LocalizedClientLink>
 
-          <LocalizedClientLink
-            className="flex-grow rounded-2xl bg-white text-neutral-950 shadow-none outline-none border-[1px] border-white text-[15px] py-2.5 px-4 text-center"
+            <LocalizedClientLink
+            className="flex-grow rounded-2xl bg-white text-neutral-950 shadow-none outline-none border border-white text-[15px] py-2.5 px-4 text-center"
             href="/store"
           >
             View products

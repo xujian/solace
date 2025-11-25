@@ -2,8 +2,9 @@
 
 import { Popover, PopoverPanel, Transition } from "@headlessui/react"
 import { ArrowRightMini, XMark } from "@medusajs/icons"
-import { Text, clx, useToggleState } from "@medusajs/ui"
 import { Fragment } from "react"
+import { cn } from "@lib/util"
+import useToggleState from "@lib/hooks/use-toggle-state"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
@@ -23,7 +24,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
     <div className="h-full">
       <div className="flex items-center h-full">
         <Popover className="h-full flex">
-          {({ open, close }) => (
+          {({ open: popoverOpen, close: popoverClose }) => (
             <>
               <div className="relative flex h-full">
                 <Popover.Button
@@ -34,16 +35,16 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                 </Popover.Button>
               </div>
 
-              {open && (
+              {popoverOpen && (
                 <div
                   className="fixed inset-0 z-[50] bg-black/0 pointer-events-auto"
-                  onClick={close}
+                  onClick={popoverClose}
                   data-testid="side-menu-backdrop"
                 />
               )}
 
               <Transition
-                show={open}
+                show={popoverOpen}
                 as={Fragment}
                 enter="transition ease-out duration-150"
                 enterFrom="opacity-0"
@@ -58,7 +59,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                     className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6"
                   >
                     <div className="flex justify-end" id="xmark">
-                      <button data-testid="close-menu-button" onClick={close}>
+                      <button data-testid="close-menu-button" onClick={popoverClose}>
                         <XMark />
                       </button>
                     </div>
@@ -69,7 +70,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                             <LocalizedClientLink
                               href={href}
                               className="text-3xl leading-10 hover:text-ui-fg-disabled"
-                              onClick={close}
+                              onClick={popoverClose}
                               data-testid={`${name.toLowerCase()}-link`}
                             >
                               {name}
@@ -91,16 +92,16 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                           />
                         )}
                         <ArrowRightMini
-                          className={clx(
+                          className={cn(
                             "transition-transform duration-150",
                             toggleState.state ? "-rotate-90" : ""
                           )}
                         />
                       </div>
-                      <Text className="flex justify-between txt-compact-small">
+                      <p className="flex justify-between txt-compact-small">
                         © {new Date().getFullYear()} Medusa Store. All rights
                         reserved.
-                      </Text>
+                      </p>
                     </div>
                   </div>
                 </PopoverPanel>

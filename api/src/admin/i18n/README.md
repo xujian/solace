@@ -30,7 +30,7 @@ Finally, use translations in your admin widgets and routes using the `useTransla
 
 ```tsx
 import { defineWidgetConfig } from "@medusajs/admin-sdk"
-import { Button, Container, Heading } from "@medusajs/ui"
+import { Button, Container, Heading } from "@lib/components/ui"
 import { useTranslation } from "react-i18next"
 
 const ProductWidget = () => {

@@ -1,5 +1,3 @@
-import { Container } from "@medusajs/ui"
-
 import ChevronDown from "@modules/common/icons/chevron-down"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { convertToLocale } from "@lib/util/money"
@@ -84,7 +82,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                         <LocalizedClientLink
                           href={`/account/orders/details/${order.id}`}
                         >
-                          <Container className="bg-gray-50 flex justify-between items-center p-4">
+                          <div className="bg-gray-50 flex justify-between items-center p-4 border border-ui-border-base rounded-rounded">
                             <div className="grid grid-cols-3 grid-rows-2 text-small-regular gap-x-4 flex-1">
                               <span className="font-semibold">Date placed</span>
                               <span className="font-semibold">
@@ -118,7 +116,7 @@ const Overview = ({ customer, orders }: OverviewProps) => {
                               </span>
                               <ChevronDown className="-rotate-90" />
                             </button>
-                          </Container>
+                          </div>
                         </LocalizedClientLink>
                       </li>
                     )

@@ -1,7 +1,7 @@
 "use client"
 
 import { acceptTransferRequest, declineTransferRequest } from "@lib/data/orders"
-import { Button, Text } from "@medusajs/ui"
+import { Button } from "@lib/components/ui"
 import { useState } from "react"
 
 type TransferStatus = "pending" | "success" | "error"
@@ -39,19 +39,19 @@ const TransferActions = ({ id, token }: { id: string; token: string }) => {
   return (
     <div className="flex flex-col gap-y-4">
       {status?.accept === "success" && (
-        <Text className="text-emerald-500">
+        <p className="text-emerald-500">
           Order transferred successfully!
-        </Text>
+        </p>
       )}
       {status?.decline === "success" && (
-        <Text className="text-emerald-500">
+        <p className="text-emerald-500">
           Order transfer declined successfully!
-        </Text>
+        </p>
       )}
       {status?.accept !== "success" && status?.decline !== "success" && (
         <div className="flex gap-x-4">
           <Button
-            size="large"
+            size="lg"
             onClick={acceptTransfer}
             isLoading={status?.accept === "pending"}
             disabled={
@@ -61,7 +61,7 @@ const TransferActions = ({ id, token }: { id: string; token: string }) => {
             Accept transfer
           </Button>
           <Button
-            size="large"
+            size="lg"
             variant="secondary"
             onClick={declineTransfer}
             isLoading={status?.decline === "pending"}
@@ -73,7 +73,7 @@ const TransferActions = ({ id, token }: { id: string; token: string }) => {
           </Button>
         </div>
       )}
-      {errorMessage && <Text className="text-red-500">{errorMessage}</Text>}
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
     </div>
   )
 }

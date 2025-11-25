@@ -1,4 +1,4 @@
-import { Button, Heading } from '@medusajs/ui'
+
 import { BannerData } from 'types/cms'
 import Image from '@modules/common/components/cms/image'
 
@@ -12,12 +12,11 @@ const Hero = ({ data }: { data: BannerData }) => {
             alt={image.alternativeText || ''}
             width={1000}
             height={600} />
-          <Heading
-            level='h1'
+          <h1
             className='text-3xl leading-10 text-ui-fg-base font-normal'
           >
             {title}
-          </Heading>
+          </h1>
           <p
             className='text-3xl leading-10 text-ui-fg-subtle font-normal'
           >
