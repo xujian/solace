@@ -1,4 +1,4 @@
-import { ChevronUpDown } from "@medusajs/icons"
+import { ChevronsUpDown } from "lucide-react"
 import { cn } from "@lib/util"
 import { useMemo, useState } from "react"
 
@@ -47,7 +47,7 @@ const AddressSelect = ({
                 ? selectedAddress.address_1
                 : "Choose an address"}
             </span>
-            <ChevronUpDown
+            <ChevronsUpDown
               className={cn("transition-rotate duration-200", {
                 "transform rotate-180": open,
               })}

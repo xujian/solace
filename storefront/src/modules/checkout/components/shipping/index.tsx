@@ -3,7 +3,7 @@
 import { setShippingMethod } from "@lib/data/cart"
 import { calculatePriceForShippingOption } from "@lib/data/fulfillment"
 import { convertToLocale } from "@lib/util/money"
-import { CheckCircleSolid, Loader } from "@medusajs/icons"
+import { CheckCircle, RefreshCw as Loader } from "lucide-react"
 import { HttpTypes } from "@medusajs/types"
 import { Button,  RadioGroup, RadioGroupItem } from "@lib/components/ui"
 import { cn } from "@lib/util"
@@ -161,7 +161,7 @@ const Shipping: React.FC<ShippingProps> = ({
         >
           Delivery
           {!isOpen && (cart.shipping_methods?.length ?? 0) > 0 && (
-            <CheckCircleSolid />
+            <CheckCircle />
           )}
         </h2>
         {!isOpen &&

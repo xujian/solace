@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { deleteLineItem } from "@lib/data/cart"
-import { Spinner, Trash } from "@medusajs/icons"
+import { RefreshCw as Spinner, Trash2 as Trash } from "lucide-react"
 import { cn } from "@lib/util"
 
 const DeleteButton = ({

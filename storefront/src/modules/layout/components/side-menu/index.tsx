@@ -1,6 +1,6 @@
 "use client"
 
-import { ArrowRightMini, XMark } from "@medusajs/icons"
+import { ArrowRight, X } from "lucide-react"
 import { cn } from "@lib/util"
 import useToggleState from "@lib/hooks/use-toggle-state"
 import { Popover, PopoverContent, PopoverTrigger } from "@lib/components/ui"
@@ -55,7 +55,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
             >
               <div className="flex justify-end" id="xmark">
                 <button data-testid="close-menu-button" onClick={() => setPopoverOpen(false)}>
-                  <XMark />
+                  <X />
                 </button>
               </div>
               <ul className="flex flex-col gap-6 items-start justify-start">
@@ -86,7 +86,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                       regions={regions}
                     />
                   )}
-                  <ArrowRightMini
+                  <ArrowRight
                     className={cn(
                       "transition-transform duration-150",
                       toggleState.state ? "-rotate-90" : ""

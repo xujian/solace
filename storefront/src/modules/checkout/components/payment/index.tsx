@@ -2,7 +2,7 @@
 
 import { isStripeLike, paymentInfoMap } from "@lib/constants"
 import { initiatePaymentSession } from "@lib/data/cart"
-import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
+import { CheckCircle, CreditCard } from "lucide-react"
 import { Button, RadioGroup } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -117,7 +117,7 @@ const Payment = ({
           )}
         >
           Payment
-          {!isOpen && paymentReady && <CheckCircleSolid />}
+          {!isOpen && paymentReady && <CheckCircle />}
         </h2>
         {!isOpen && paymentReady && (
           <p>

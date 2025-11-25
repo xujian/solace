@@ -1,4 +1,4 @@
-import { ArrowUpRightMini } from "@medusajs/icons"
+import { ExternalLink } from "lucide-react"
 
 import { Metadata } from "next"
 import Link from "next/link"
@@ -20,7 +20,7 @@ export default function NotFound() {
         href="/"
       >
         <span className="text-ui-fg-interactive">Go to frontpage</span>
-        <ArrowUpRightMini
+        <ExternalLink
           className="group-hover:rotate-45 ease-in-out duration-150"
           color="var(--fg-interactive)"
         />

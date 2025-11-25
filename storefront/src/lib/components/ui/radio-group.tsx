@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Circle } from "lucide-react"
+import { CheckCircle } from "lucide-react"
 
 import { cn } from "@lib/util"
 
@@ -51,7 +51,7 @@ const RadioGroupItem = React.forwardRef<
       {...props}
     >
       <span className={cn("flex items-center justify-center", isChecked ? "block" : "hidden")}>
-        <Circle className="h-2.5 w-2.5 fill-current text-current" />
+        <CheckCircle className="h-2.5 w-2.5 fill-current text-current" />
       </span>
     </button>
   )

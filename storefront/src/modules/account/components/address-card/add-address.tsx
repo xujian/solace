@@ -1,6 +1,6 @@
 "use client"
 
-import { Plus } from "@medusajs/icons"
+import { Plus } from "lucide-react"
 import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
 import { useEffect, useState, useActionState } from "react"
 import X from "@modules/common/icons/x"

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState, useActionState } from "react"
-import { PencilSquare as Edit, Trash } from "@medusajs/icons"
+import { Edit, Trash2 as Trash } from "lucide-react"
 import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import X from "@modules/common/icons/x"

@@ -1,4 +1,4 @@
-import { EllipseMiniSolid } from "@medusajs/icons"
+import { MoreHorizontal } from "lucide-react"
 import { RadioGroup, RadioGroupItem, Label } from "@lib/components/ui"
 import { cn } from "@lib/util"
 
@@ -31,7 +31,7 @@ const FilterRadioGroup = ({
               "ml-[-23px]": i.value === value,
             })}
           >
-            {i.value === value && <EllipseMiniSolid />}
+            {i.value === value && <MoreHorizontal />}
             <RadioGroupItem
               value={i.value}
               className="hidden peer"
