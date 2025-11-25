@@ -2,7 +2,6 @@ import { ChevronUpDown } from "@medusajs/icons"
 import { cn } from "@lib/util"
 import { useMemo, useState } from "react"
 
-import Radio from "@modules/common/components/radio"
 import compareAddresses from "@lib/util/compare-addresses"
 import { HttpTypes } from "@medusajs/types"
 import { Popover, PopoverContent, PopoverTrigger } from "@lib/components/ui"

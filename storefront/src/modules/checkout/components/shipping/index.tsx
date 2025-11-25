@@ -9,7 +9,6 @@ import { Button,  RadioGroup, RadioGroupItem } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import Divider from "@modules/common/components/divider"
-import MedusaRadio from "@modules/common/components/radio"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 

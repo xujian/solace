@@ -1,11 +1,11 @@
 import { HttpTypes } from "@medusajs/types"
 
-import Checkbox from "@modules/common/components/checkbox"
 import { Input, Label } from "@lib/components/ui"
 import { mapKeys } from "lodash"
 import React, { useEffect, useMemo, useState } from "react"
 import AddressSelect from "../address-select"
 import CountrySelect from "../country-select"
+import { Checkbox } from "@lib/components/ui"
 
 const ShippingAddress = ({
   customer,
@@ -111,8 +111,8 @@ const ShippingAddress = ({
         </div>
       )}
       <div className="grid grid-cols-2 gap-4">
+        <Label htmlFor="shipping_address.first_name">First name</Label>
         <Input
-          label="First name"
           name="shipping_address.first_name"
           autoComplete="given-name"
           value={formData["shipping_address.first_name"]}
@@ -120,8 +120,8 @@ const ShippingAddress = ({
           required
           data-testid="shipping-first-name-input"
         />
+        <Label htmlFor="shipping_address.last_name">Last name</Label>
         <Input
-          label="Last name"
           name="shipping_address.last_name"
           autoComplete="family-name"
           value={formData["shipping_address.last_name"]}
@@ -129,8 +129,8 @@ const ShippingAddress = ({
           required
           data-testid="shipping-last-name-input"
         />
+        <Label htmlFor="shipping_address.address_1">Address</Label>
         <Input
-          label="Address"
           name="shipping_address.address_1"
           autoComplete="address-line1"
           value={formData["shipping_address.address_1"]}
@@ -138,16 +138,16 @@ const ShippingAddress = ({
           required
           data-testid="shipping-address-input"
         />
+        <Label htmlFor="shipping_address.company">Company</Label>
         <Input
-          label="Company"
           name="shipping_address.company"
           value={formData["shipping_address.company"]}
           onChange={handleChange}
           autoComplete="organization"
           data-testid="shipping-company-input"
         />
+        <Label htmlFor="shipping_address.postal_code">Postal code</Label>
         <Input
-          label="Postal code"
           name="shipping_address.postal_code"
           autoComplete="postal-code"
           value={formData["shipping_address.postal_code"]}
@@ -155,8 +155,8 @@ const ShippingAddress = ({
           required
           data-testid="shipping-postal-code-input"
         />
+        <Label htmlFor="shipping_address.city">City</Label>
         <Input
-          label="City"
           name="shipping_address.city"
           autoComplete="address-level2"
           value={formData["shipping_address.city"]}
@@ -173,8 +173,8 @@ const ShippingAddress = ({
           required
           data-testid="shipping-country-select"
         />
+        <Label htmlFor="shipping_address.province">State / Province</Label>
         <Input
-          label="State / Province"
           name="shipping_address.province"
           autoComplete="address-level1"
           value={formData["shipping_address.province"]}
@@ -183,8 +183,9 @@ const ShippingAddress = ({
         />
       </div>
       <div className="my-8">
+        <Label htmlFor="same_as_billing">Billing address same as shipping address</Label>
         <Checkbox
-          label="Billing address same as shipping address"
+          id="same_as_billing"
           name="same_as_billing"
           checked={checked}
           onChange={onChange}
@@ -192,8 +193,8 @@ const ShippingAddress = ({
         />
       </div>
       <div className="grid grid-cols-2 gap-4 mb-4">
+        <Label htmlFor="email">Email</Label>
         <Input
-          label="Email"
           name="email"
           type="email"
           title="Enter a valid email address."
@@ -203,8 +204,8 @@ const ShippingAddress = ({
           required
           data-testid="shipping-email-input"
         />
+        <Label htmlFor="shipping_address.phone">Phone</Label>
         <Input
-          label="Phone"
           name="shipping_address.phone"
           autoComplete="tel"
           value={formData["shipping_address.phone"]}
