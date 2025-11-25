@@ -1,7 +1,7 @@
 "use client"
 
 import { useActionState } from "react"
-import Input from "@modules/common/components/input"
+import { Input, Label } from "@lib/components/ui"
 import { LOGIN_VIEW } from "@modules/account/templates/login-template"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
@@ -29,43 +29,63 @@ const Register = ({ setCurrentView }: Props) => {
       </p>
       <form className="w-full flex flex-col" action={formAction}>
         <div className="flex flex-col w-full gap-y-2">
-          <Input
-            label="First name"
-            name="first_name"
-            required
-            autoComplete="given-name"
-            data-testid="first-name-input"
-          />
-          <Input
-            label="Last name"
-            name="last_name"
-            required
-            autoComplete="family-name"
-            data-testid="last-name-input"
-          />
-          <Input
-            label="Email"
-            name="email"
-            required
-            type="email"
-            autoComplete="email"
-            data-testid="email-input"
-          />
-          <Input
-            label="Phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            data-testid="phone-input"
-          />
-          <Input
-            label="Password"
-            name="password"
-            required
-            type="password"
-            autoComplete="new-password"
-            data-testid="password-input"
-          />
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="first_name">First name</Label>
+            <Input
+              id="first_name"
+              name="first_name"
+              placeholder="First name"
+              required
+              autoComplete="given-name"
+              data-testid="first-name-input"
+            />
+          </div>
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="last_name">Last name</Label>
+            <Input
+              id="last_name"
+              name="last_name"
+              placeholder="Last name"
+              required
+              autoComplete="family-name"
+              data-testid="last-name-input"
+            />
+          </div>
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              required
+              autoComplete="email"
+              data-testid="email-input"
+            />
+          </div>
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="phone">Phone</Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Phone"
+              autoComplete="tel"
+              data-testid="phone-input"
+            />
+          </div>
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              required
+              autoComplete="new-password"
+              data-testid="password-input"
+            />
+          </div>
         </div>
         <ErrorMessage error={message} data-testid="register-error" />
         <span className="text-center text-ui-fg-base text-small-regular mt-6">

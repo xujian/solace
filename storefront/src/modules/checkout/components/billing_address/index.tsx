@@ -1,5 +1,5 @@
 import { HttpTypes } from "@medusajs/types"
-import Input from "@modules/common/components/input"
+import { Input, Label } from "@lib/components/ui"
 import React, { useState } from "react"
 import CountrySelect from "../country-select"
 

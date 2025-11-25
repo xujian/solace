@@ -7,7 +7,7 @@ import { cn } from "@lib/util"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import CountrySelect from "@modules/checkout/components/country-select"
-import Input from "@modules/common/components/input"
+import { Input, Label } from "@lib/components/ui"
 import Modal from "@modules/common/components/modal"
 import Spinner from "@modules/common/icons/spinner"
 import { SubmitButton } from "@modules/checkout/components/submit-button"

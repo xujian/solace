@@ -2,7 +2,7 @@
 
 import React, { useEffect, useActionState } from "react";
 
-import Input from "@modules/common/components/input"
+import { Input, Label } from "@lib/components/ui"
 
 import AccountInfo from "../account-info"
 import { HttpTypes } from "@medusajs/types"
@@ -57,15 +57,19 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
         data-testid="account-email-editor"
       >
         <div className="grid grid-cols-1 gap-y-2">
-          <Input
-            label="Email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            defaultValue={customer.email}
-            data-testid="email-input"
-          />
+          <div className="flex flex-col gap-y-1">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Email"
+              autoComplete="email"
+              required
+              defaultValue={customer.email}
+              data-testid="email-input"
+            />
+          </div>
         </div>
       </AccountInfo>
     </form>
