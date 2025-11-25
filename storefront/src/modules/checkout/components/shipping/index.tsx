@@ -8,7 +8,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Button,  RadioGroup, RadioGroupItem } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import ErrorMessage from "@modules/checkout/components/error-message"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -411,7 +411,7 @@ const Shipping: React.FC<ShippingProps> = ({
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
+      <Separator className="mt-8" />
     </div>
   )
 }

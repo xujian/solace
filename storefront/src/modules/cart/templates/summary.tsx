@@ -3,7 +3,7 @@
 import { Button } from "@lib/components/ui"
 
 import CartTotals from "@modules/common/components/cart-totals"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import DiscountCode from "@modules/checkout/components/discount-code"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { HttpTypes } from "@medusajs/types"
@@ -33,7 +33,7 @@ const Summary = ({ cart }: SummaryProps) => {
         Summary
       </h2>
       <DiscountCode cart={cart} />
-      <Divider />
+      <Separator />
       <CartTotals totals={cart} />
       <LocalizedClientLink
         href={"/checkout?step=" + step}

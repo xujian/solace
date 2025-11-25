@@ -2,7 +2,7 @@ import repeat from "@lib/util/repeat"
 import { HttpTypes } from "@medusajs/types"
 import { Table, TableBody } from "@lib/components/ui"
 
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import Item from "@modules/order/components/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
@@ -15,7 +15,7 @@ const Items = ({ order }: ItemsProps) => {
 
   return (
     <div className="flex flex-col">
-      <Divider className="mb-0!" />
+      <Separator className="mb-0!" />
       <Table>
         <TableBody data-testid="products-table">
           {items?.length

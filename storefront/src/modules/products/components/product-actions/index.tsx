@@ -4,7 +4,7 @@ import { addToCart } from "@lib/data/cart"
 import { useIntersection } from "@lib/hooks/use-in-view"
 import { HttpTypes } from "@medusajs/types"
 import { Button } from "@lib/components/ui"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import OptionSelect from "@modules/products/components/product-actions/option-select"
 import { isEqual } from "lodash"
 import { useParams, usePathname, useSearchParams } from "next/navigation"
@@ -155,7 +155,7 @@ export default function ProductActions({
                   </div>
                 )
               })}
-              <Divider />
+              <Separator />
             </div>
           )}
         </div>

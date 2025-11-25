@@ -4,7 +4,7 @@ import { setAddresses } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { CheckCircleSolid } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import Spinner from "@modules/common/icons/spinner"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useActionState, useState } from "react"
@@ -175,7 +175,7 @@ const Addresses = ({
           </div>
         </div>
       )}
-      <Divider className="mt-8" />
+      <Separator className="mt-8" />
     </div>
   )
 }

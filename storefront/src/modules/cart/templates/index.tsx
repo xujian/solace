@@ -2,7 +2,7 @@ import ItemsTemplate from "./items"
 import Summary from "./summary"
 import EmptyCartMessage from "../components/empty-cart-message"
 import SignInPrompt from "../components/sign-in-prompt"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import { HttpTypes } from "@medusajs/types"
 
 const CartTemplate = ({
@@ -21,7 +21,7 @@ const CartTemplate = ({
               {!customer && (
                 <>
                   <SignInPrompt />
-                  <Divider />
+                  <Separator />
                 </>
               )}
               <ItemsTemplate cart={cart} />

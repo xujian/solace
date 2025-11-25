@@ -9,7 +9,7 @@ import ErrorMessage from "@modules/checkout/components/error-message"
 import PaymentContainer, {
   StripeCardContainer,
 } from "@modules/checkout/components/payment-container"
-import Divider from "@modules/common/components/divider"
+import { Separator } from "@lib/components/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"
 
@@ -250,7 +250,7 @@ const Payment = ({
           ) : null}
         </div>
       </div>
-      <Divider className="mt-8" />
+      <Separator className="mt-8" />
     </div>
   )
 }
