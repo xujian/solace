@@ -3,8 +3,8 @@ import { cn } from "@lib/util"
 import React, { useMemo } from "react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
-import ChevronDown from "@modules/common/icons/chevron-down"
-import X from "@modules/common/icons/x"
+import { ChevronDown } from "lucide-react"
+import { X } from "lucide-react"
 
 import { getProductPrice } from "@lib/util/get-product-price"
 import OptionSelect from "./option-select"

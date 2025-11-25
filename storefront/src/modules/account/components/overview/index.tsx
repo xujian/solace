@@ -1,4 +1,4 @@
-import ChevronDown from "@modules/common/icons/chevron-down"
+import { ChevronDown } from "lucide-react"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"

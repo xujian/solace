@@ -5,6 +5,8 @@ import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import Image from "next/image"
+import { ShoppingCartIcon, UserIcon } from "lucide-react"
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
@@ -24,18 +26,18 @@ export default async function Nav() {
             className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
             data-testid="nav-store-link"
           >
-            Ars Breeze
+            <Image src="/logo.svg" alt="Logo" width={100} height={100} />
           </LocalizedClientLink>
         </div>
 
         <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-          <div className="hidden small:flex items-center gap-x-6 h-full">
+          <div className="small:flex items-center gap-x-6 h-full">
             <LocalizedClientLink
               className="hover:text-ui-fg-base"
               href="/account"
               data-testid="nav-account-link"
             >
-              Account
+              <UserIcon />
             </LocalizedClientLink>
           </div>
           <Suspense
@@ -45,10 +47,9 @@ export default async function Nav() {
                 href="/cart"
                 data-testid="nav-cart-link"
               >
-                Cart (0)
+                <ShoppingCartIcon />
               </LocalizedClientLink>
-            }
-          >
+            }>
             <CartButton />
           </Suspense>
         </div>

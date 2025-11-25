@@ -2,7 +2,7 @@
 
 import { convertToLocale } from "@lib/util/money"
 import { HttpTypes } from "@medusajs/types"
-import { Button, Popover, PopoverContent, PopoverTrigger } from "@lib/components/ui"
+import { Badge, Button, Popover, PopoverContent, PopoverTrigger } from "@lib/components/ui"
 import DeleteButton from "@modules/common/components/delete-button"
 import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
@@ -10,6 +10,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import Thumbnail from "@modules/products/components/thumbnail"
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
+import { ShoppingCartIcon } from 'lucide-react'
 
 const CartDropdown = ({
   cart: cartState,
@@ -80,7 +81,10 @@ const CartDropdown = ({
               className="hover:text-ui-fg-base"
               href="/cart"
               data-testid="nav-cart-link"
-            >{`Cart (${totalItems})`}</LocalizedClientLink>
+            >
+              <ShoppingCartIcon />
+              <Badge className='h-5 min-w-5 rounded-full px-1 font-mono tabular-nums'>{totalItems}</Badge>
+            </LocalizedClientLink>
           </div>
         </PopoverTrigger>
         <PopoverContent

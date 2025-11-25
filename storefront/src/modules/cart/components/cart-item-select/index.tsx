@@ -10,7 +10,7 @@ import {
 } from "react"
 import { cn } from "@lib/util"
 
-import ChevronDown from "@modules/common/icons/chevron-down"
+import { ChevronDown } from "lucide-react"
 
 type NativeSelectProps = {
   placeholder?: string

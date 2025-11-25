@@ -1,4 +1,4 @@
-import Spinner from "@modules/common/icons/spinner"
+import { RefreshCw as Spinner } from "lucide-react"
 
 export default function Loading() {
   return (

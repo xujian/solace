@@ -3,7 +3,7 @@
 import { Plus } from "lucide-react"
 import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
 import { useEffect, useState, useActionState } from "react"
-import X from "@modules/common/icons/x"
+import { X } from "lucide-react"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import CountrySelect from "@modules/checkout/components/country-select"
