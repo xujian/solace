@@ -1,19 +1,18 @@
 "use client"
 
-import {
-  Listbox,
-  ListboxButton,
-  ListboxOption,
-  ListboxOptions,
-  Transition,
-} from "@headlessui/react"
-import { Fragment, useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import ReactCountryFlag from "react-country-flag"
 
 import { StateType } from "@lib/hooks/use-toggle-state"
 import { useParams, usePathname } from "next/navigation"
 import { updateRegion } from "@lib/data/cart"
 import { HttpTypes } from "@medusajs/types"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from "@lib/components/ui"
 
 type CountryOption = {
   country: string
@@ -57,23 +56,25 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
     }
   }, [options, countryCode])
 
-  const handleChange = (option: CountryOption) => {
-    updateRegion(option.country, currentPath)
-    close()
+  const handleChange = (value: string) => {
+    const option = options?.find((o) => o?.country === value)
+    if (option) {
+      updateRegion(option.country, currentPath)
+      close()
+    }
   }
 
   return (
     <div>
-      <Listbox
-        as="span"
-        onChange={handleChange}
-        defaultValue={
-          countryCode
-            ? options?.find((o) => o?.country === countryCode)
-            : undefined
-        }
+      <Select
+        value={(countryCode as string) || ""}
+        onValueChange={handleChange}
+        open={state}
+        onOpenChange={(open) => {
+          if (!open) close()
+        }}
       >
-        <ListboxButton className="py-1 w-full">
+        <SelectTrigger className="py-1 w-full border-none shadow-none focus:ring-0 p-0 h-auto">
           <div className="txt-compact-small flex items-start gap-x-2">
             <span>Shipping to:</span>
             {current && (
@@ -91,43 +92,32 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
               </span>
             )}
           </div>
-        </ListboxButton>
-        <div className="flex relative w-full min-w-[320px]">
-          <Transition
-            show={state}
-            as={Fragment}
-            leave="transition ease-in duration-150"
-            leaveFrom="opacity-100"
-            leaveTo="opacity-0"
-          >
-            <ListboxOptions
-              className="absolute -bottom-[calc(100%-36px)] left-0 xsmall:left-auto xsmall:right-0 max-h-[442px] overflow-y-scroll z-[900] bg-white drop-shadow-md text-small-regular uppercase text-black no-scrollbar rounded-rounded w-full"
-              static
-            >
-              {options?.map((o, index) => {
-                return (
-                  <ListboxOption
-                    key={index}
-                    value={o}
-                    className="py-2 hover:bg-gray-200 px-3 cursor-pointer flex items-center gap-x-2"
-                  >
-                    {/* @ts-ignore */}
-                    <ReactCountryFlag
-                      svg
-                      style={{
-                        width: "16px",
-                        height: "16px",
-                      }}
-                      countryCode={o?.country ?? ""}
-                    />{" "}
-                    {o?.label}
-                  </ListboxOption>
-                )
-              })}
-            </ListboxOptions>
-          </Transition>
-        </div>
-      </Listbox>
+        </SelectTrigger>
+        <SelectContent className="max-h-[442px] overflow-y-scroll z-[900] bg-white drop-shadow-md text-small-regular uppercase text-black no-scrollbar rounded-rounded w-full min-w-[320px]">
+          {options?.map((o, index) => {
+            return (
+              <SelectItem
+                key={index}
+                value={o?.country ?? ""}
+                className="py-2 hover:bg-gray-200 px-3 cursor-pointer"
+              >
+                <div className="flex items-center gap-x-2">
+                  {/* @ts-ignore */}
+                  <ReactCountryFlag
+                    svg
+                    style={{
+                      width: "16px",
+                      height: "16px",
+                    }}
+                    countryCode={o?.country ?? ""}
+                  />{" "}
+                  {o?.label}
+                </div>
+              </SelectItem>
+            )
+          })}
+        </SelectContent>
+      </Select>
     </div>
   )
 }

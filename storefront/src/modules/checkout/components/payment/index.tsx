@@ -1,10 +1,9 @@
 "use client"
 
-import { RadioGroup } from "@headlessui/react"
 import { isStripeLike, paymentInfoMap } from "@lib/constants"
 import { initiatePaymentSession } from "@lib/data/cart"
 import { CheckCircleSolid, CreditCard } from "@medusajs/icons"
-import { Button } from "@lib/components/ui"
+import { Button, RadioGroup } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import PaymentContainer, {
@@ -29,7 +28,7 @@ const Payment = ({
   const [error, setError] = useState<string | null>(null)
   const [cardBrand, setCardBrand] = useState<string | null>(null)
   const [cardComplete, setCardComplete] = useState(false)
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string>(
     activeSession?.provider_id ?? ""
   )
 
@@ -138,7 +137,7 @@ const Payment = ({
             <>
               <RadioGroup
                 value={selectedPaymentMethod}
-                onChange={(value: string) => setPaymentMethod(value)}
+                onValueChange={(value: string) => setPaymentMethod(value)}
               >
                 {availablePaymentMethods.map((paymentMethod) => (
                   <div key={paymentMethod.id}>

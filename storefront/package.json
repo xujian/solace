@@ -15,7 +15,6 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.0",
     "@hookform/resolvers": "^5.2.2",
     "@medusajs/icons": "^2.0.0",
     "@medusajs/js-sdk": "^2.0.0",

@@ -1,12 +1,11 @@
 "use client"
 
-import { Radio, RadioGroup } from "@headlessui/react"
 import { setShippingMethod } from "@lib/data/cart"
 import { calculatePriceForShippingOption } from "@lib/data/fulfillment"
 import { convertToLocale } from "@lib/util/money"
 import { CheckCircleSolid, Loader } from "@medusajs/icons"
 import { HttpTypes } from "@medusajs/types"
-import { Button } from "@lib/components/ui"
+import { Button,  RadioGroup, RadioGroupItem } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import Divider from "@modules/common/components/divider"
@@ -61,8 +60,8 @@ const Shipping: React.FC<ShippingProps> = ({
     Record<string, number>
   >({})
   const [error, setError] = useState<string | null>(null)
-  const [shippingMethodId, setShippingMethodId] = useState<string | null>(
-    cart.shipping_methods?.at(-1)?.shipping_option_id || null
+  const [shippingMethodId, setShippingMethodId] = useState<string | undefined>(
+    cart.shipping_methods?.at(-1)?.shipping_option_id || undefined
   )
 
   const searchParams = useSearchParams()
@@ -127,7 +126,7 @@ const Shipping: React.FC<ShippingProps> = ({
       setShowPickupOptions(PICKUP_OPTION_OFF)
     }
 
-    let currentId: string | null = null
+    let currentId: string | undefined = undefined
     setIsLoading(true)
     setShippingMethodId((prev) => {
       currentId = prev
@@ -197,7 +196,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 {hasPickupOptions && (
                   <RadioGroup
                     value={showPickupOptions}
-                    onChange={(value) => {
+                    onValueChange={(value) => {
                       const id = _pickupMethods.find(
                         (option) => !option.insufficient_inventory
                       )?.id
@@ -207,8 +206,7 @@ const Shipping: React.FC<ShippingProps> = ({
                       }
                     }}
                   >
-                    <Radio
-                      value={PICKUP_OPTION_ON}
+                    <div
                       data-testid="delivery-option-radio"
                       className={cn(
                         "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
@@ -217,6 +215,14 @@ const Shipping: React.FC<ShippingProps> = ({
                             showPickupOptions === PICKUP_OPTION_ON,
                         }
                       )}
+                      onClick={() => {
+                        const id = _pickupMethods.find(
+                          (option) => !option.insufficient_inventory
+                        )?.id
+                        if (id) {
+                          handleSetShippingMethod(id, "pickup")
+                        }
+                      }}
                     >
                       <div className="flex items-center gap-x-4">
                         <MedusaRadio
@@ -229,12 +235,12 @@ const Shipping: React.FC<ShippingProps> = ({
                       <span className="justify-self-end text-ui-fg-base">
                         -
                       </span>
-                    </Radio>
+                    </div>
                   </RadioGroup>
                 )}
                 <RadioGroup
                   value={shippingMethodId}
-                  onChange={(v) => {
+                  onValueChange={(v) => {
                     if (v) {
                       return handleSetShippingMethod(v, "shipping")
                     }
@@ -247,11 +253,9 @@ const Shipping: React.FC<ShippingProps> = ({
                       typeof calculatedPricesMap[option.id] !== "number"
 
                     return (
-                      <Radio
+                      <div
                         key={option.id}
-                        value={option.id}
                         data-testid="delivery-option-radio"
-                        disabled={isDisabled}
                         className={cn(
                           "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
                           {
@@ -261,6 +265,11 @@ const Shipping: React.FC<ShippingProps> = ({
                               isDisabled,
                           }
                         )}
+                        onClick={() => {
+                          if (!isDisabled && option.id) {
+                            handleSetShippingMethod(option.id, "shipping")
+                          }
+                        }}
                       >
                         <div className="flex items-center gap-x-4">
                           <MedusaRadio
@@ -287,7 +296,7 @@ const Shipping: React.FC<ShippingProps> = ({
                             "-"
                           )}
                         </span>
-                      </Radio>
+                      </div>
                     )
                   })}
                 </RadioGroup>
@@ -309,7 +318,7 @@ const Shipping: React.FC<ShippingProps> = ({
                 <div className="pb-8 md:pt-0 pt-2">
                   <RadioGroup
                     value={shippingMethodId}
-                    onChange={(v) => {
+                    onValueChange={(v) => {
                       if (v) {
                         return handleSetShippingMethod(v, "pickup")
                       }
@@ -317,10 +326,8 @@ const Shipping: React.FC<ShippingProps> = ({
                   >
                     {_pickupMethods?.map((option) => {
                       return (
-                        <Radio
+                        <div
                           key={option.id}
-                          value={option.id}
-                          disabled={option.insufficient_inventory}
                           data-testid="delivery-option-radio"
                           className={cn(
                             "flex items-center justify-between text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
@@ -331,6 +338,11 @@ const Shipping: React.FC<ShippingProps> = ({
                                 option.insufficient_inventory,
                             }
                           )}
+                          onClick={() => {
+                            if (!option.insufficient_inventory && option.id) {
+                              handleSetShippingMethod(option.id, "pickup")
+                            }
+                          }}
                         >
                           <div className="flex items-start gap-x-4">
                             <MedusaRadio
@@ -354,7 +366,7 @@ const Shipping: React.FC<ShippingProps> = ({
                               currency_code: cart?.currency_code,
                             })}
                           </span>
-                        </Radio>
+                        </div>
                       )
                     })}
                   </RadioGroup>

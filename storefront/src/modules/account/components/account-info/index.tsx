@@ -1,5 +1,4 @@
-import { Disclosure } from "@headlessui/react"
-import { Badge, Button } from "@lib/components/ui"
+import { Badge, Button, Collapsible, CollapsibleContent } from "@lib/components/ui"
 import { cn } from "@lib/util"
 import { useEffect } from "react"
 
@@ -70,9 +69,8 @@ const AccountInfo = ({
       </div>
 
       {/* Success state */}
-      <Disclosure>
-        <Disclosure.Panel
-          static
+      <Collapsible open={isSuccess}>
+        <CollapsibleContent
           className={cn(
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden",
             {
@@ -85,13 +83,12 @@ const AccountInfo = ({
           <Badge className="p-2 my-4" variant="secondary">
             <span>{label} updated succesfully</span>
           </Badge>
-        </Disclosure.Panel>
-      </Disclosure>
+        </CollapsibleContent>
+      </Collapsible>
 
       {/* Error state  */}
-      <Disclosure>
-        <Disclosure.Panel
-          static
+      <Collapsible open={isError}>
+        <CollapsibleContent
           className={cn(
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-hidden",
             {
@@ -104,12 +101,11 @@ const AccountInfo = ({
           <Badge className="p-2 my-4" variant="destructive">
             <span>{errorMessage}</span>
           </Badge>
-        </Disclosure.Panel>
-      </Disclosure>
+        </CollapsibleContent>
+      </Collapsible>
 
-      <Disclosure>
-        <Disclosure.Panel
-          static
+      <Collapsible open={state}>
+        <CollapsibleContent
           className={cn(
             "transition-[max-height,opacity] duration-300 ease-in-out overflow-visible",
             {
@@ -131,8 +127,8 @@ const AccountInfo = ({
               </Button>
             </div>
           </div>
-        </Disclosure.Panel>
-      </Disclosure>
+        </CollapsibleContent>
+      </Collapsible>
     </div>
   )
 }

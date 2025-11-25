@@ -1,4 +1,3 @@
-import { Radio as RadioGroupOption } from "@headlessui/react"
 import { cn } from "@lib/util"
 import React, { useContext, useMemo, type JSX } from "react"
 
@@ -29,10 +28,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   const isDevelopment = process.env.NODE_ENV === "development"
 
   return (
-    <RadioGroupOption
-      key={paymentProviderId}
-      value={paymentProviderId}
-      disabled={disabled}
+    <div
       className={cn(
         "flex flex-col gap-y-2 text-small-regular cursor-pointer py-4 border rounded-rounded px-8 mb-2 hover:shadow-borders-interactive-with-active",
         {
@@ -40,6 +36,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
             selectedPaymentOptionId === paymentProviderId,
         }
       )}
+      onClick={() => !disabled && paymentProviderId}
     >
       <div className="flex items-center justify-between ">
         <div className="flex items-center gap-x-4">
@@ -59,7 +56,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
         <PaymentTest className="small:hidden text-[10px]" />
       )}
       {children}
-    </RadioGroupOption>
+    </div>
   )
 }
 
