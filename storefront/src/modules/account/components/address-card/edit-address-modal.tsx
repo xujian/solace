@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState, useActionState } from "react"
 import { PencilSquare as Edit, Trash } from "@medusajs/icons"
-import { Button } from "@lib/components/ui"
+import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
 import { cn } from "@lib/util"
+import X from "@modules/common/icons/x"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import CountrySelect from "@modules/checkout/components/country-select"
 import { Input, Label } from "@lib/components/ui"
-import Modal from "@modules/common/components/modal"
 import Spinner from "@modules/common/icons/spinner"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import { HttpTypes } from "@medusajs/types"
@@ -122,13 +122,16 @@ const EditAddress: React.FC<EditAddressProps> = ({
         </div>
       </div>
 
-      <Modal isOpen={state} close={close} data-testid="edit-address-modal">
-        <Modal.Title>
-          <h2 className="text-3xl-regular mb-2">Edit address</h2>
-        </Modal.Title>
-        <form action={formAction}>
-          <input type="hidden" name="addressId" value={address.id} />
-          <Modal.Body>
+      <Dialog open={state} onOpenChange={(open) => !open && close()}>
+        <DialogContent className="max-w-3xl p-0" data-testid="edit-address-modal">
+          <DialogHeader className="flex items-center justify-between flex-row p-6 pb-4">
+            <DialogTitle className="text-3xl-regular">Edit address</DialogTitle>
+            <button onClick={close} data-testid="close-modal-button">
+              <X size={20} />
+            </button>
+          </DialogHeader>
+          <form action={formAction} className="px-6 pb-6">
+            <input type="hidden" name="addressId" value={address.id} />
             <div className="grid grid-cols-1 gap-y-2">
               <div className="grid grid-cols-2 gap-x-2">
                 <Input
@@ -216,8 +219,6 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 {formState.error}
               </div>
             )}
-          </Modal.Body>
-          <Modal.Footer>
             <div className="flex gap-3 mt-6">
               <Button
                 type="reset"
@@ -230,9 +231,9 @@ const EditAddress: React.FC<EditAddressProps> = ({
               </Button>
               <SubmitButton data-testid="save-button">Save</SubmitButton>
             </div>
-          </Modal.Footer>
-        </form>
-      </Modal>
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

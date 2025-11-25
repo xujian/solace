@@ -1,13 +1,13 @@
 "use client"
 
 import { Plus } from "@medusajs/icons"
-import { Button } from "@lib/components/ui"
+import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
 import { useEffect, useState, useActionState } from "react"
+import X from "@modules/common/icons/x"
 
 import useToggleState from "@lib/hooks/use-toggle-state"
 import CountrySelect from "@modules/checkout/components/country-select"
 import { Input, Label } from "@lib/components/ui"
-import Modal from "@modules/common/components/modal"
 import { SubmitButton } from "@modules/checkout/components/submit-button"
 import { HttpTypes } from "@medusajs/types"
 import { addCustomerAddress } from "@lib/data/customer"
@@ -57,12 +57,15 @@ const AddAddress = ({
         <Plus />
       </button>
 
-      <Modal isOpen={state} close={close} data-testid="add-address-modal">
-        <Modal.Title>
-          <h2 className="text-3xl-regular mb-2">Add address</h2>
-        </Modal.Title>
-        <form action={formAction}>
-          <Modal.Body>
+      <Dialog open={state} onOpenChange={(open) => !open && close()}>
+        <DialogContent className="max-w-3xl p-0" data-testid="add-address-modal">
+          <DialogHeader className="flex items-center justify-between flex-row p-6 pb-4">
+            <DialogTitle className="text-3xl-regular">Add address</DialogTitle>
+            <button onClick={close} data-testid="close-modal-button">
+              <X size={20} />
+            </button>
+          </DialogHeader>
+          <form action={formAction} className="px-6 pb-6">
             <div className="flex flex-col gap-y-2">
               <div className="grid grid-cols-2 gap-x-2">
                 <Input
@@ -143,8 +146,6 @@ const AddAddress = ({
                 {formState.error}
               </div>
             )}
-          </Modal.Body>
-          <Modal.Footer>
             <div className="flex gap-3 mt-6">
               <Button
                 type="reset"
@@ -157,9 +158,9 @@ const AddAddress = ({
               </Button>
               <SubmitButton data-testid="save-button">Save</SubmitButton>
             </div>
-          </Modal.Footer>
-        </form>
-      </Modal>
+          </form>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }
