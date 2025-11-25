@@ -1,8 +1,38 @@
 {
-  "arrowParens": "always",
-  "semi": false,
-  "endOfLine": "auto",
-  "singleQuote": false,
   "tabWidth": 2,
-  "trailingComma": "es5"
+  "semi": false,
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "printWidth": 120,
+  "arrowParens": "avoid",
+  "endOfLine": "auto",
+  "bracketSameLine": true,
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^next",
+    "^next/*",
+    "^react$",
+    "^react-dom$",
+    "<THIRD_PARTY_MODULES>",
+    "^@medusajs/(.*)$",
+    "^@lib/components/(.*)$",
+    "^@lib/context/(.*)$",
+    "^@lib/data/(.*)$",
+    "^@lib/hooks/(.*)$",
+    "^@lib/util/(.*)$",
+    "^@lib/(.*)$",
+    "^@modules/(.*)$",
+    "^@pages/(.*)$",
+    "^@/types/(.*)$",
+    "^@/(.*)$",
+    "^[../]",
+    "^[./]",
+    "lucide-react",
+    "^.+\\.(css|scss|sass|less)$"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": false
 }

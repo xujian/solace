@@ -12,5 +12,8 @@
     "api",
     "cms",
     "storefront"
-  ]
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.39.1"
+  }
 }
