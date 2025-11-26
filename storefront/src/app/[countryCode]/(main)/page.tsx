@@ -39,14 +39,14 @@ export default async function Home(props: {
   ])
 
   return (
-    <>
+    <main className='main w-full max-w-7xl mx-auto'>
       <Hero data={hero} />
-      <div className='py-12'>
+      <div className='featured p-6'>
         <ul className='flex flex-col gap-x-6'>
           <FeaturedProducts collections={collections} region={region} />
         </ul>
       </div>
       {marketing && <Banner data={marketing} />}
-    </>
+    </main>
   )
 }

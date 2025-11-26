@@ -1,50 +1,43 @@
 import Image from 'next/image'
 import { Suspense } from 'react'
-import { ShoppingCartIcon, UserIcon } from 'lucide-react'
 import { StoreRegion } from '@medusajs/types'
 import { listRegions } from '@lib/data/regions'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import CartButton from '@modules/layout/components/cart-button'
 import SideMenu from '@modules/layout/components/side-menu'
+import { ShoppingCartIcon, UserIcon } from 'lucide-react'
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
-    <header className="sticky top-0 z-50 group h-16 mx-auto border-b duration-200">
-      <nav className="content-container flex items-center justify-between w-full h-full text-small-regular">
-        <div className="flex-1 basis-0 h-full flex items-center">
-          <SideMenu regions={regions} />
-        </div>
+    <header className="sticky top-0 z-50 flex h-16 w-full items-center justify-around gap-2 px-4 duration-200">
+      <div className="flex h-full flex-1 basis-0 items-center">
+        <SideMenu regions={regions} />
+      </div>
 
-        <div className="flex items-center h-full">
-          <LocalizedClientLink
-            href="/"
-            className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
-            data-testid="nav-store-link">
-            <Image src="/logo.svg" alt="Logo" width={100} height={100} />
-          </LocalizedClientLink>
-        </div>
+      <div className="flex h-full items-center">
+        <LocalizedClientLink
+          href="/"
+          className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
+          data-testid="nav-store-link">
+          <Image src="/logo.svg" alt="Logo" width={100} height={100} />
+        </LocalizedClientLink>
+      </div>
 
-        <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-          <div className="small:flex items-center gap-x-6 h-full">
-            <LocalizedClientLink className="hover:text-ui-fg-base" href="/account" data-testid="nav-account-link">
-              <UserIcon />
+      <div className="flex h-full flex-1 items-center justify-end gap-2">
+        <LocalizedClientLink className="hover:text-ui-fg-base" href="/account" data-testid="nav-account-link">
+          <UserIcon />
+        </LocalizedClientLink>
+        <Suspense
+          fallback={
+            <LocalizedClientLink className="hover:text-ui-fg-base flex gap-2" href="/cart" data-testid="nav-cart-link">
+              <ShoppingCartIcon />
             </LocalizedClientLink>
-          </div>
-          <Suspense
-            fallback={
-              <LocalizedClientLink
-                className="hover:text-ui-fg-base flex gap-2"
-                href="/cart"
-                data-testid="nav-cart-link">
-                <ShoppingCartIcon />
-              </LocalizedClientLink>
-            }>
-            <CartButton />
-          </Suspense>
-        </div>
-      </nav>
+          }>
+          <CartButton />
+        </Suspense>
+      </div>
     </header>
   )
 }
