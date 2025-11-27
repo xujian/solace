@@ -4,6 +4,8 @@ import { ChevronDown, User as UserIcon } from 'lucide-react'
 import { cn } from '@lib/util'
 import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuLabel, 
   DropdownMenuSeparator, DropdownMenuTrigger } from '@lib/components/ui'
+import { ModeToggle } from './mode-toggle'
+import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu'
 
 const ProfileIcon = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -36,7 +38,7 @@ const ProfileIcon = () => {
           <UserIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-64 bg-card" align="end">
+      <DropdownMenuContent className="w-64 bg-popover text-popover-foreground" align="end">
         <DropdownMenuLabel>My Account</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>My Orders</DropdownMenuLabel>
@@ -44,6 +46,9 @@ const ProfileIcon = () => {
         <DropdownMenuLabel>Profile</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuLabel>Logout</DropdownMenuLabel>
+        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
+          <ModeToggle />
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu> 
   )
