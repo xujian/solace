@@ -2,7 +2,6 @@ import { getBaseURL } from '@lib/util/env'
 import { Metadata } from 'next'
 import { ThemeProvider } from '@modules/common/components/theme-provider'
 import { Toaster } from '@lib/components/ui/sonner'
-import 'styles/globals.css'
 import 'styles/app.css'
 
 export const metadata: Metadata = {

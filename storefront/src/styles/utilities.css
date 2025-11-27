@@ -1,0 +1,14 @@
+@layer base {
+  h2 {
+    @apply text-2xl font-bold leading-16;
+  }
+}
+
+.cover-image {
+  @apply h-[240px] max-h-[320px] sm:h-[240px] md:h-[320px];
+}
+
+.cover-image img {
+  @apply h-full w-full object-cover;
+}
+

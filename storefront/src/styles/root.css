@@ -1,16 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-  --color-primary: oklch(0.205 0 0);
-  --color-primary-foreground: oklch(0.985 0 0);
-  --color-secondary: oklch(0.97 0 0);
-  --color-secondary-foreground: oklch(0.205 0 0);
-  --color-positive: oklch(86.761% 0.28587 143.451);
-  --color-positive-foreground: oklch(30.519% 0.00003 271.152);
-  --color-negative: oklch(42.036% 0.16405 28.161);
-  --color-negative-foreground: oklch(77.944% 0.00009 271.152);
-}
-
 :root {
   --radius: 1rem;
   --background: oklch(1 0 0);
@@ -44,6 +33,12 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --radius-xs: 0.5rem;
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-base: 1rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.5rem;
 }
 
 .dark {
