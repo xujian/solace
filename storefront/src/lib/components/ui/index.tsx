@@ -24,5 +24,6 @@ export * from './tabs'
 export * from './tooltip'
 export * from './toggle'
 export * from './toggle-group'
+export * from './dropdown-menu'
 
 

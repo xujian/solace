@@ -5,7 +5,8 @@ import { listRegions } from '@lib/data/regions'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import CartButton from '@modules/layout/components/cart-button'
 import SideMenu from '@modules/layout/components/side-menu'
-import { ShoppingCartIcon, UserIcon } from 'lucide-react'
+import { ShoppingCartIcon } from 'lucide-react'
+import ProfileIcon from '@modules/common/components/profile-icon'
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
@@ -26,9 +27,7 @@ export default async function Nav() {
       </div>
 
       <div className="flex h-full flex-1 items-center justify-end gap-2">
-        <LocalizedClientLink className="hover:text-ui-fg-base" href="/account" data-testid="nav-account-link">
-          <UserIcon />
-        </LocalizedClientLink>
+        <ProfileIcon />
         <Suspense
           fallback={
             <LocalizedClientLink className="hover:text-ui-fg-base flex gap-2" href="/cart" data-testid="nav-cart-link">
