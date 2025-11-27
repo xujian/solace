@@ -11,8 +11,12 @@ export default function Banner({ data }: { data: BannerData }) {
       </div>
       <div className="banner-content p-6">
         <h2>{title}</h2>
-        <Button>{cta.text}</Button>
-        <p>{text}</p>
+        <div className="flex items-center gap-4">
+          <div className='flex-1 items-start'>
+            <Button className='rounded-full'>{cta.text}</Button>
+          </div>
+          <div className='flex-1 items-start'>{text}</div>
+        </div>
       </div>
     </section>
   )

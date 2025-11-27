@@ -14,7 +14,7 @@ const Hero = ({ data }: { data: BannerData }) => {
         <h2 className="">{title}</h2>
         <div className="flex items-center gap-4">
           <LocalizedClientLink href={cta.link} className="hover:text-ui-fg-base flex-1 items-start">
-            <Button className='bg-primary'>{cta.text}</Button>
+            <Button className='rounded-full'>{cta.text}</Button>
           </LocalizedClientLink>
           <p className="text-ui-fg-subtle text-base flex-1 text-gray-300 font-normal">{text}</p>
         </div>

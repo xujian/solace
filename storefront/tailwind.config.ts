@@ -7,6 +7,7 @@ const config: Config = {
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/modules/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/lib/**/*.{js,ts,jsx,tsx,mdx}',
     './node_modules/@medusajs/ui/dist/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
