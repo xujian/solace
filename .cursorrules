@@ -34,7 +34,7 @@ You are an expert senior software engineer and web developer specializing in Nex
   // usage: className={cn("base-class", condition && "conditional-class", className)}
   ```
 - Avoid inline styles.
-- Use CSS variables for theme colors (defined in `globals.css` or equivalent).
+- Use CSS variables for theme colors (defined in `root.css` or equivalent).
 
 ### Project Structure
 - `storefront/src/app`: Next.js App Router pages and layouts.

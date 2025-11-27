@@ -8,7 +8,7 @@
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "bracketSameLine": true,
-  "tailwindStylesheet": "./src/styles/globals.css",
+  "tailwindStylesheet": "./src/styles/root.css",
   "tailwindConfig": "./tailwind.config.ts",
   "plugins": [
     "@trivago/prettier-plugin-sort-imports",
