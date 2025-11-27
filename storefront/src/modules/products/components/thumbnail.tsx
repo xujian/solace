@@ -1,55 +1,50 @@
-import Image from "next/image"
-import React from "react"
-import { cn } from "@lib/util"
-
-import PlaceholderImage from "@modules/common/icons/placeholder-image"
+import Image from 'next/image'
+import React from 'react'
+import { cn } from '@lib/util'
+import PlaceholderImage from '@modules/common/icons/placeholder-image'
 
 type ThumbnailProps = {
   thumbnail?: string | null
   // TODO: Fix image typings
   images?: any[] | null
-  size?: "small" | "medium" | "large" | "full" | "square"
+  size?: 'small' | 'medium' | 'large' | 'full' | 'square'
   isFeatured?: boolean
   className?: string
-  "data-testid"?: string
+  'data-testid'?: string
 }
 
 const Thumbnail: React.FC<ThumbnailProps> = ({
   thumbnail,
   images,
-  size = "small",
+  size = 'small',
   isFeatured,
   className,
-  "data-testid": dataTestid,
+  'data-testid': dataTestid
 }) => {
   const initialImage = thumbnail || images?.[0]?.url
 
   return (
     <div
       className={cn(
-        "relative w-full overflow-hidden p-4 bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover transition-shadow ease-in-out duration-150 border border-ui-border-base",
+        'bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover border-ui-border-base relative w-full overflow-hidden border p-4 transition-shadow duration-150 ease-in-out rounded-xl',
         className,
         {
-          "aspect-11/14": isFeatured,
-          "aspect-9/16": !isFeatured && size !== "square",
-          "aspect-square": size === "square",
-          "w-[180px]": size === "small",
-          "w-[290px]": size === "medium",
-          "w-[440px]": size === "large",
-          "w-full": size === "full",
+          'aspect-11/14': isFeatured,
+          'aspect-9/16': !isFeatured && size !== 'square',
+          'aspect-square': size === 'square',
+          'w-[180px]': size === 'small',
+          'w-[290px]': size === 'medium',
+          'w-[440px]': size === 'large',
+          'w-full': size === 'full'
         }
       )}
-      data-testid={dataTestid}
-    >
+      data-testid={dataTestid}>
       <ImageOrPlaceholder image={initialImage} size={size} />
     </div>
   )
 }
 
-const ImageOrPlaceholder = ({
-  image,
-  size,
-}: Pick<ThumbnailProps, "size"> & { image?: string }) => {
+const ImageOrPlaceholder = ({ image, size }: Pick<ThumbnailProps, 'size'> & { image?: string }) => {
   return image ? (
     <Image
       src={image}
@@ -61,8 +56,8 @@ const ImageOrPlaceholder = ({
       fill
     />
   ) : (
-    <div className="w-full h-full absolute inset-0 flex items-center justify-center">
-      <PlaceholderImage size={size === "small" ? 16 : 24} />
+    <div className="absolute inset-0 flex h-full w-full items-center justify-center">
+      <PlaceholderImage size={size === 'small' ? 16 : 24} />
     </div>
   )
 }

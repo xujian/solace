@@ -14,27 +14,10 @@ const config: Config = {
     extend: {
       // Custom screens for responsive design
       screens: {
-        '2xsmall': '320px',
-        xsmall: '512px',
-        small: '1024px',
-        medium: '1280px',
-        large: '1440px',
-        xlarge: '1680px',
-        '2xlarge': '1920px'
       },
 
       // Typography
       fontFamily: {
-        sans: [
-          'Inter',
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Helvetica Neue',
-          'Ubuntu',
-          'sans-serif'
-        ]
       },
       fontSize: {
       },
@@ -45,7 +28,6 @@ const config: Config = {
 
       // Spacing & Layout
       maxWidth: {
-        '8xl': '100rem'
       },
 
       // Transitions

@@ -8,4 +8,6 @@
   --color-positive-foreground: oklch(30.519% 0.00003 271.152);
   --color-negative: oklch(42.036% 0.16405 28.161);
   --color-negative-foreground: oklch(77.944% 0.00009 271.152);
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-2xl: 100rem; /* 1600px */
 }
