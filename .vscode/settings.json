@@ -5,4 +5,5 @@
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "typescript.autoClosingTags": true,
+  "workbench.editor.revealIfOpen": true
 }
