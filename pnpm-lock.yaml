@@ -28,17 +28,17 @@ importers:
         version: 2.11.3(@emotion/is-prop-valid@1.2.2)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(typescript@5.9.3)
       '@medusajs/draft-order':
         specifier: ^2.11.3
-        version: 2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+        version: 2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       '@medusajs/framework':
         specifier: ^2.0.0
-        version: 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+        version: 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@medusajs/medusa':
         specifier: ^2.0.0
-        version: 2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)
+        version: 2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(sass@1.94.2)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)
     devDependencies:
       '@medusajs/test-utils':
         specifier: ^2.0.0
-        version: 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)
+        version: 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)
       '@swc/core':
         specifier: ^1.7.28
         version: 1.15.2(@swc/helpers@0.5.17)
@@ -77,7 +77,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^5
-        version: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+        version: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
       yalc:
         specifier: ^1.0.0-pre.53
         version: 1.0.0-pre.53
@@ -86,13 +86,13 @@ importers:
     dependencies:
       '@strapi/plugin-cloud':
         specifier: 5.31.1
-        version: 5.31.1(889e62499845d0727a02e43e8ffeec88)
+        version: 5.31.1(fa59311fe1ccce6f9f5d1e66e6c60e1a)
       '@strapi/plugin-users-permissions':
         specifier: 5.31.1
-        version: 5.31.1(74bc852fca788e37fb7a0515b4ff508a)
+        version: 5.31.1(c1b37bcbce7411eecf6f77f4e6053303)
       '@strapi/strapi':
         specifier: 5.31.1
-        version: 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
+        version: 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(sass@1.94.2)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
       better-sqlite3:
         specifier: 12.4.1
         version: 12.4.1
@@ -204,7 +204,7 @@ importers:
         version: 0.554.0(react@19.2.0)
       next:
         specifier: ^15.3.1
-        version: 15.5.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 15.5.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.2)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -226,6 +226,9 @@ importers:
       react-hook-form:
         specifier: ^7.66.1
         version: 7.66.1(react@19.2.0)
+      sass:
+        specifier: ^1.94.2
+        version: 1.94.2
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
@@ -259,7 +262,7 @@ importers:
         version: 3.3.1
       '@medusajs/types':
         specifier: ^2.0.0
-        version: 2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+        version: 2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^6.0.0
         version: 6.0.0(prettier@3.6.2)
@@ -302,6 +305,9 @@ importers:
       prettier:
         specifier: ^3.6.2
         version: 3.6.2
+      prettier-plugin-tailwindcss:
+        specifier: ^0.7.1
+        version: 0.7.1(@trivago/prettier-plugin-sort-imports@6.0.0(prettier@3.6.2))(prettier@3.6.2)
       tailwindcss:
         specifier: ^4.1.17
         version: 4.1.17
@@ -2833,6 +2839,88 @@ packages:
 
   '@paralleldrive/cuid2@2.2.2':
     resolution: {integrity: sha512-ZOBkgDwEdoYVlSeRbYYXs0S9MejQofiVYoTbKzy/6GQa39/q5tQU2IX46+shYnUkpEl3wc+J6wRlar7r2EK2xA==}
+
+  '@parcel/watcher-android-arm64@2.5.1':
+    resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm64]
+    os: [android]
+
+  '@parcel/watcher-darwin-arm64@2.5.1':
+    resolution: {integrity: sha512-eAzPv5osDmZyBhou8PoF4i6RQXAfeKL9tjb3QzYuccXFMQU0ruIc/POh30ePnaOyD1UXdlKguHBmsTs53tVoPw==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@parcel/watcher-darwin-x64@2.5.1':
+    resolution: {integrity: sha512-1ZXDthrnNmwv10A0/3AJNZ9JGlzrF82i3gNQcWOzd7nJ8aj+ILyW1MTxVk35Db0u91oD5Nlk9MBiujMlwmeXZg==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@parcel/watcher-freebsd-x64@2.5.1':
+    resolution: {integrity: sha512-SI4eljM7Flp9yPuKi8W0ird8TI/JK6CSxju3NojVI6BjHsTyK7zxA9urjVjEKJ5MBYC+bLmMcbAWlZ+rFkLpJQ==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [x64]
+    os: [freebsd]
+
+  '@parcel/watcher-linux-arm-glibc@2.5.1':
+    resolution: {integrity: sha512-RCdZlEyTs8geyBkkcnPWvtXLY44BCeZKmGYRtSgtwwnHR4dxfHRG3gR99XdMEdQ7KeiDdasJwwvNSF5jKtDwdA==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm]
+    os: [linux]
+
+  '@parcel/watcher-linux-arm-musl@2.5.1':
+    resolution: {integrity: sha512-6E+m/Mm1t1yhB8X412stiKFG3XykmgdIOqhjWj+VL8oHkKABfu/gjFj8DvLrYVHSBNC+/u5PeNrujiSQ1zwd1Q==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm]
+    os: [linux]
+
+  '@parcel/watcher-linux-arm64-glibc@2.5.1':
+    resolution: {integrity: sha512-LrGp+f02yU3BN9A+DGuY3v3bmnFUggAITBGriZHUREfNEzZh/GO06FF5u2kx8x+GBEUYfyTGamol4j3m9ANe8w==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@parcel/watcher-linux-arm64-musl@2.5.1':
+    resolution: {integrity: sha512-cFOjABi92pMYRXS7AcQv9/M1YuKRw8SZniCDw0ssQb/noPkRzA+HBDkwmyOJYp5wXcsTrhxO0zq1U11cK9jsFg==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@parcel/watcher-linux-x64-glibc@2.5.1':
+    resolution: {integrity: sha512-GcESn8NZySmfwlTsIur+49yDqSny2IhPeZfXunQi48DMugKeZ7uy1FX83pO0X22sHntJ4Ub+9k34XQCX+oHt2A==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [x64]
+    os: [linux]
+
+  '@parcel/watcher-linux-x64-musl@2.5.1':
+    resolution: {integrity: sha512-n0E2EQbatQ3bXhcH2D1XIAANAcTZkQICBPVaxMeaCVBtOpBZpWJuf7LwyWPSBDITb7In8mqQgJ7gH8CILCURXg==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [x64]
+    os: [linux]
+
+  '@parcel/watcher-win32-arm64@2.5.1':
+    resolution: {integrity: sha512-RFzklRvmc3PkjKjry3hLF9wD7ppR4AKcWNzH7kXR7GUe0Igb3Nz8fyPwtZCSquGrhU5HhUNDr/mKBqj7tqA2Vw==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@parcel/watcher-win32-ia32@2.5.1':
+    resolution: {integrity: sha512-c2KkcVN+NJmuA7CGlaGD1qJh1cLfDnQsHjE89E60vUEMlqduHGCdCLJCID5geFVM0dOtA3ZiIO8BoEQmzQVfpQ==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@parcel/watcher-win32-x64@2.5.1':
+    resolution: {integrity: sha512-9lHBdJITeNR++EvSQVUcaZoWupyHfXe1jZvGZ06O/5MflPcuPLtEphScIBL+AiCWBO46tDSHzWyD0uDmmZqsgA==}
+    engines: {node: '>= 10.0.0'}
+    cpu: [x64]
+    os: [win32]
+
+  '@parcel/watcher@2.5.1':
+    resolution: {integrity: sha512-dfUnCxiN9H4ap84DvD2ubjw+3vUNpstxa0TneY/Paat8a3R4uQZDLSvWjmznAY/DoahqTHl9V46HF/Zs3F29pg==}
+    engines: {node: '>= 10.0.0'}
 
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
@@ -7170,6 +7258,10 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
+  chokidar@4.0.3:
+    resolution: {integrity: sha512-Qgzu8kfBvo+cA4962jnP1KkS6Dop5NS6g7R5LFYJr4b8Ub94PPQXUksCw9PvXoeXPRRddRNC5C1JQUR2SMGtnA==}
+    engines: {node: '>= 14.16.0'}
+
   chownr@1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
 
@@ -7750,6 +7842,11 @@ packages:
   detect-indent@6.1.0:
     resolution: {integrity: sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==}
     engines: {node: '>=8'}
+
+  detect-libc@1.0.3:
+    resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
+    engines: {node: '>=0.10'}
+    hasBin: true
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -8858,6 +8955,9 @@ packages:
   immutable@3.7.6:
     resolution: {integrity: sha512-AizQPcaofEtO11RZhPPHBOJRdo/20MKQF9mBLnVkBoyHi1/zXK8fzVdnEpSV9gxqtnh6Qomfp3F0xT5qP/vThw==}
     engines: {node: '>=0.8.0'}
+
+  immutable@5.1.4:
+    resolution: {integrity: sha512-p6u1bG3YSnINT5RQmx/yRZBpenIl30kVxkTLDyHLIMk0gict704Q9n+thfDI7lTRm9vXdDYutVzXhzcThxTnXA==}
 
   import-fresh@3.3.1:
     resolution: {integrity: sha512-TR3KfrTZTYLPB6jUjfx6MF9WcWrHL9su5TObK4ZkYgBdWKPOFoSoQIdEuTuR82pmtxH2spWG9h6etwfr1pLBqQ==}
@@ -10395,6 +10495,9 @@ packages:
   node-abort-controller@3.1.1:
     resolution: {integrity: sha512-AGK2yQKIjRuqnc6VkX2Xj5d+QW8xZ87pa1UK6yA6ouUyuxfHuMP6umE5QK7UmTeOAymo+Zx1Fxiuw9rVx8taHQ==}
 
+  node-addon-api@7.1.1:
+    resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
+
   node-cache@5.1.2:
     resolution: {integrity: sha512-t1QzWwnk4sjLWaQAS8CHgOJ+RAfmHpxFWmc36IWTiWHQfs0w5JDMBS1b1ZxQteo0vVVuWJvIUKHDkkeK7vIGCg==}
     engines: {node: '>= 8.0.0'}
@@ -10996,6 +11099,61 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
+  prettier-plugin-tailwindcss@0.7.1:
+    resolution: {integrity: sha512-Bzv1LZcuiR1Sk02iJTS1QzlFNp/o5l2p3xkopwOrbPmtMeh3fK9rVW5M3neBQzHq+kGKj/4LGQMTNcTH4NGPtQ==}
+    engines: {node: '>=20.19'}
+    peerDependencies:
+      '@ianvs/prettier-plugin-sort-imports': '*'
+      '@prettier/plugin-hermes': '*'
+      '@prettier/plugin-oxc': '*'
+      '@prettier/plugin-pug': '*'
+      '@shopify/prettier-plugin-liquid': '*'
+      '@trivago/prettier-plugin-sort-imports': '*'
+      '@zackad/prettier-plugin-twig': '*'
+      prettier: ^3.0
+      prettier-plugin-astro: '*'
+      prettier-plugin-css-order: '*'
+      prettier-plugin-jsdoc: '*'
+      prettier-plugin-marko: '*'
+      prettier-plugin-multiline-arrays: '*'
+      prettier-plugin-organize-attributes: '*'
+      prettier-plugin-organize-imports: '*'
+      prettier-plugin-sort-imports: '*'
+      prettier-plugin-svelte: '*'
+    peerDependenciesMeta:
+      '@ianvs/prettier-plugin-sort-imports':
+        optional: true
+      '@prettier/plugin-hermes':
+        optional: true
+      '@prettier/plugin-oxc':
+        optional: true
+      '@prettier/plugin-pug':
+        optional: true
+      '@shopify/prettier-plugin-liquid':
+        optional: true
+      '@trivago/prettier-plugin-sort-imports':
+        optional: true
+      '@zackad/prettier-plugin-twig':
+        optional: true
+      prettier-plugin-astro:
+        optional: true
+      prettier-plugin-css-order:
+        optional: true
+      prettier-plugin-jsdoc:
+        optional: true
+      prettier-plugin-marko:
+        optional: true
+      prettier-plugin-multiline-arrays:
+        optional: true
+      prettier-plugin-organize-attributes:
+        optional: true
+      prettier-plugin-organize-imports:
+        optional: true
+      prettier-plugin-sort-imports:
+        optional: true
+      prettier-plugin-svelte:
+        optional: true
+
   prettier@3.3.3:
     resolution: {integrity: sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==}
     engines: {node: '>=14'}
@@ -11445,6 +11603,10 @@ packages:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}
     engines: {node: '>=8.10.0'}
 
+  readdirp@4.1.2:
+    resolution: {integrity: sha512-GDhwkLfywWL2s6vEjyhri+eXmfH6j1L7JE27WhqLeYzoh/A3DBaYGEj2H/HFZCn/kMfim73FXxEJTw06WtxQwg==}
+    engines: {node: '>= 14.18.0'}
+
   recast@0.23.11:
     resolution: {integrity: sha512-YTUo+Flmw4ZXiWfQKGcwwc11KnoRAYgzAE2E7mXKCjSviTKShtxBsN6YUUBB2gtaBzKzeKunxhUwNHQuRryhWA==}
     engines: {node: '>= 4'}
@@ -11665,6 +11827,11 @@ packages:
 
   sanitize-html@2.13.0:
     resolution: {integrity: sha512-Xff91Z+4Mz5QiNSLdLWwjgBDm5b1RU6xBT0+12rapjiaR7SwfRdjw8f+6Rir2MXKLrDicRFHdb51hGOAxmsUIA==}
+
+  sass@1.94.2:
+    resolution: {integrity: sha512-N+7WK20/wOr7CzA2snJcUSSNTCzeCGUTFY3OgeQP3mZ1aj9NMQ0mSTXwlrnd89j33zzQJGqIN52GIOmYrfq46A==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
 
   scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
@@ -13677,7 +13844,7 @@ snapshots:
       '@babel/types': 7.28.5
       '@jridgewell/remapping': 2.3.5
       convert-source-map: 2.0.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -13992,7 +14159,7 @@ snapshots:
       '@babel/parser': 7.28.5
       '@babel/template': 7.27.2
       '@babel/types': 7.28.5
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -14399,7 +14566,7 @@ snapshots:
   '@eslint/config-array@0.21.1':
     dependencies:
       '@eslint/object-schema': 2.1.7
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       minimatch: 3.1.2
     transitivePeerDependencies:
       - supports-color
@@ -14415,7 +14582,7 @@ snapshots:
   '@eslint/eslintrc@3.3.1':
     dependencies:
       ajv: 6.12.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       espree: 10.4.0
       globals: 14.0.0
       ignore: 5.3.2
@@ -15188,12 +15355,12 @@ snapshots:
 
   '@marijn/find-cluster-break@1.0.2': {}
 
-  '@medusajs/admin-bundler@2.11.3(@emotion/is-prop-valid@1.2.2)(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(lightningcss@1.30.2)(terser@5.44.1)(typescript@5.9.3)':
+  '@medusajs/admin-bundler@2.11.3(@emotion/is-prop-valid@1.2.2)(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)(typescript@5.9.3)':
     dependencies:
       '@medusajs/admin-shared': 2.11.3
-      '@medusajs/admin-vite-plugin': 2.11.3(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/admin-vite-plugin': 2.11.3(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@medusajs/dashboard': 2.11.3(@emotion/is-prop-valid@1.2.2)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(typescript@5.9.3)
-      '@vitejs/plugin-react': 4.7.0(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@vitejs/plugin-react': 4.7.0(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       autoprefixer: 10.4.22(postcss@8.5.6)
       compression: 1.8.1
       express: 4.21.2
@@ -15202,7 +15369,7 @@ snapshots:
       outdent: 0.8.0
       postcss: 8.5.6
       tailwindcss: 3.4.18
-      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
       - '@types/node'
@@ -15230,7 +15397,7 @@ snapshots:
 
   '@medusajs/admin-shared@2.11.3': {}
 
-  '@medusajs/admin-vite-plugin@2.11.3(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))':
+  '@medusajs/admin-vite-plugin@2.11.3(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))':
     dependencies:
       '@babel/parser': 7.25.6
       '@babel/traverse': 7.25.6
@@ -15241,76 +15408,76 @@ snapshots:
       magic-string: 0.30.5
       outdent: 0.8.0
       picocolors: 1.1.1
-      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
     transitivePeerDependencies:
       - picomatch
       - supports-color
 
-  '@medusajs/analytics-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/analytics-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/analytics-posthog@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(posthog-node@5.13.2)':
+  '@medusajs/analytics-posthog@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(posthog-node@5.13.2)':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       posthog-node: 5.13.2
 
-  '@medusajs/analytics@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/analytics@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/api-key@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/api-key@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/auth-emailpass@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/auth-emailpass@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       scrypt-kdf: 2.0.1
 
-  '@medusajs/auth-github@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/auth-github@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/auth-google@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/auth-google@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       jsonwebtoken: 9.0.2
 
-  '@medusajs/auth@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/auth@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/cache-inmemory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/cache-inmemory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/cache-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/cache-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       ioredis: 5.8.2
     transitivePeerDependencies:
       - supports-color
 
-  '@medusajs/caching-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/caching-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       ioredis: 5.8.2
       xxhash-wasm: 1.1.0
     transitivePeerDependencies:
       - supports-color
 
-  '@medusajs/caching@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(awilix@8.0.1)':
+  '@medusajs/caching@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(awilix@8.0.1)':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       awilix: 8.0.1
       fast-json-stable-stringify: 2.1.0
       node-cache: 5.1.2
       xxhash-wasm: 1.1.0
 
-  '@medusajs/cart@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/cart@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)':
     dependencies:
@@ -15352,20 +15519,20 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/core-flows@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/core-flows@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       csv-parse: 5.6.0
       json-2-csv: 5.5.10
       zod: 3.25.76
 
-  '@medusajs/currency@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/currency@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/customer@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/customer@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/dashboard@2.11.3(@emotion/is-prop-valid@1.2.2)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(typescript@5.9.3)':
     dependencies:
@@ -15443,12 +15610,12 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/draft-order@2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
+  '@medusajs/draft-order@2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@ariakit/react': 0.4.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@babel/runtime': 7.28.4
       '@hookform/resolvers': 3.4.2(react-hook-form@7.49.1(react@19.2.0))
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@medusajs/js-sdk': 2.11.3
       '@tanstack/react-query': 5.64.2(react@19.2.0)
       '@uiw/react-json-view': 2.0.0-alpha.39(@babel/runtime@7.28.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -15462,7 +15629,7 @@ snapshots:
       '@medusajs/admin-sdk': 2.11.3
       '@medusajs/cli': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)
       '@medusajs/icons': 2.11.3(react@19.2.0)
-      '@medusajs/test-utils': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)
+      '@medusajs/test-utils': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)
       '@medusajs/ui': 4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -15471,36 +15638,36 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@medusajs/event-bus-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/event-bus-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/event-bus-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/event-bus-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       bullmq: 5.13.0
       ioredis: 5.8.2
     transitivePeerDependencies:
       - supports-color
 
-  '@medusajs/file-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/file-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/file-s3@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/file-s3@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
       '@aws-sdk/client-s3': 3.936.0
       '@aws-sdk/s3-request-presigner': 3.936.0
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       ulid: 2.4.0
     transitivePeerDependencies:
       - aws-crt
 
-  '@medusajs/file@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/file@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))':
+  '@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))':
     dependencies:
       '@jercle/yargonaut': 1.1.5
       '@medusajs/cli': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)
@@ -15508,7 +15675,7 @@ snapshots:
       '@medusajs/modules-sdk': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)
       '@medusajs/orchestration': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)
       '@medusajs/telemetry': 2.11.3
-      '@medusajs/types': 2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/types': 2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@medusajs/utils': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)
       '@medusajs/workflows-sdk': 2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)
       '@types/express': 4.17.25
@@ -15529,7 +15696,7 @@ snapshots:
       zod-validation-error: 3.5.1(zod@3.25.76)
     optionalDependencies:
       ioredis: 5.8.2
-      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
     transitivePeerDependencies:
       - '@types/node'
       - better-sqlite3
@@ -15544,13 +15711,13 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/fulfillment-manual@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/fulfillment-manual@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/fulfillment@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/fulfillment@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/icons@2.11.3(react@18.3.1)':
     dependencies:
@@ -15561,93 +15728,93 @@ snapshots:
       react: 19.2.0
     optional: true
 
-  '@medusajs/index@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/index@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/inventory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/inventory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/js-sdk@2.11.3':
     dependencies:
       fetch-event-stream: 0.1.6
       qs: 6.14.0
 
-  '@medusajs/link-modules@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/link-modules@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/locking-postgres@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/locking-postgres@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/locking-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/locking-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       ioredis: 5.8.2
     transitivePeerDependencies:
       - supports-color
 
-  '@medusajs/locking@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/locking@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/medusa@2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)':
+  '@medusajs/medusa@2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(sass@1.94.2)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)':
     dependencies:
       '@inquirer/checkbox': 2.5.0
       '@inquirer/input': 2.3.0
-      '@medusajs/admin-bundler': 2.11.3(@emotion/is-prop-valid@1.2.2)(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(lightningcss@1.30.2)(terser@5.44.1)(typescript@5.9.3)
-      '@medusajs/analytics': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/analytics-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/analytics-posthog': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(posthog-node@5.13.2)
-      '@medusajs/api-key': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/auth': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/auth-emailpass': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/auth-github': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/auth-google': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/cache-inmemory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/cache-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/caching': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(awilix@8.0.1)
-      '@medusajs/caching-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/cart': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/core-flows': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/currency': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/customer': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/draft-order': 2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
-      '@medusajs/event-bus-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/event-bus-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/file': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/file-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/file-s3': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
-      '@medusajs/fulfillment': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/fulfillment-manual': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/index': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/inventory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/link-modules': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/locking': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/locking-postgres': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/locking-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/notification': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/notification-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/notification-sendgrid': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/order': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/payment': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@types/node@20.19.25)
-      '@medusajs/payment-stripe': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/pricing': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/product': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/promotion': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/region': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/sales-channel': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/settings': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/stock-location': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/store': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/tax': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
+      '@medusajs/admin-bundler': 2.11.3(@emotion/is-prop-valid@1.2.2)(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)(typescript@5.9.3)
+      '@medusajs/analytics': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/analytics-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/analytics-posthog': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(posthog-node@5.13.2)
+      '@medusajs/api-key': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/auth': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/auth-emailpass': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/auth-github': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/auth-google': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/cache-inmemory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/cache-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/caching': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(awilix@8.0.1)
+      '@medusajs/caching-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/cart': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/core-flows': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/currency': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/customer': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/draft-order': 2.11.3(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+      '@medusajs/event-bus-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/event-bus-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/file': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/file-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/file-s3': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
+      '@medusajs/fulfillment': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/fulfillment-manual': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/index': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/inventory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/link-modules': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/locking': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/locking-postgres': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/locking-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/notification': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/notification-local': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/notification-sendgrid': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/order': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/payment': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@types/node@20.19.25)
+      '@medusajs/payment-stripe': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/pricing': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/product': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/promotion': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/region': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/sales-channel': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/settings': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/stock-location': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/store': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/tax': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
       '@medusajs/telemetry': 2.11.3
-      '@medusajs/user': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/workflow-engine-inmemory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
-      '@medusajs/workflow-engine-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))
+      '@medusajs/user': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/workflow-engine-inmemory': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
+      '@medusajs/workflow-engine-redis': 2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))
       boxen: 5.1.2
       chalk: 4.1.2
       chokidar: 3.6.0
@@ -15716,20 +15883,20 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/notification-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/notification-local@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/notification-sendgrid@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/notification-sendgrid@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@sendgrid/mail': 8.1.6
     transitivePeerDependencies:
       - debug
 
-  '@medusajs/notification@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/notification@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/orchestration@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)':
     dependencies:
@@ -15750,57 +15917,57 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/order@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/order@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/payment-stripe@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/payment-stripe@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       stripe: 15.12.0
 
-  '@medusajs/payment@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@types/node@20.19.25)':
+  '@medusajs/payment@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@types/node@20.19.25)':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       stripe: 19.1.0(@types/node@20.19.25)
     transitivePeerDependencies:
       - '@types/node'
 
-  '@medusajs/pricing@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/pricing@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/product@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/product@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/promotion@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/promotion@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/region@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/region@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/sales-channel@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/sales-channel@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/settings@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/settings@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/stock-location@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/stock-location@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/store@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/store@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
-  '@medusajs/tax@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/tax@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
 
   '@medusajs/telemetry@2.11.3':
     dependencies:
@@ -15817,26 +15984,26 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
-  '@medusajs/test-utils@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)':
+  '@medusajs/test-utils@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/medusa@2.11.3)':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       '@types/express': 4.17.25
       axios: 1.13.2
       express: 4.21.2
       get-port: 5.1.1
       ulid: 2.4.0
     optionalDependencies:
-      '@medusajs/medusa': 2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)
+      '@medusajs/medusa': 2.11.3(@emotion/is-prop-valid@1.2.2)(@medusajs/admin-sdk@2.11.3)(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))(@medusajs/icons@2.11.3(react@19.2.0))(@medusajs/test-utils@2.11.3)(@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@swc/core@1.15.2(@swc/helpers@0.5.17))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(awilix@8.0.1)(lightningcss@1.30.2)(posthog-node@5.13.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.20.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(sass@1.94.2)(terser@5.44.1)(typescript@5.9.3)(yalc@1.0.0-pre.53)
     transitivePeerDependencies:
       - debug
       - supports-color
 
-  '@medusajs/types@2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))':
+  '@medusajs/types@2.11.3(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))':
     dependencies:
       bignumber.js: 9.3.1
     optionalDependencies:
       ioredis: 5.8.2
-      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
 
   '@medusajs/ui@4.0.27(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)':
     dependencies:
@@ -15893,9 +16060,9 @@ snapshots:
       - typescript
     optional: true
 
-  '@medusajs/user@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/user@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       jsonwebtoken: 9.0.2
 
   '@medusajs/utils@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1)(express@4.21.2)':
@@ -15929,15 +16096,15 @@ snapshots:
       - supports-color
       - tedious
 
-  '@medusajs/workflow-engine-inmemory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/workflow-engine-inmemory@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       cron-parser: 4.9.0
       ulid: 2.4.0
 
-  '@medusajs/workflow-engine-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)))':
+  '@medusajs/workflow-engine-redis@2.11.3(@medusajs/framework@2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)))':
     dependencies:
-      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@medusajs/framework': 2.11.3(@medusajs/cli@2.11.3(@types/node@20.19.25)(better-sqlite3@12.4.1))(@types/node@20.19.25)(better-sqlite3@12.4.1)(ioredis@5.8.2)(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       bullmq: 5.13.0
       ioredis: 5.8.2
       ulid: 2.4.0
@@ -16594,6 +16761,67 @@ snapshots:
   '@paralleldrive/cuid2@2.2.2':
     dependencies:
       '@noble/hashes': 1.8.0
+
+  '@parcel/watcher-android-arm64@2.5.1':
+    optional: true
+
+  '@parcel/watcher-darwin-arm64@2.5.1':
+    optional: true
+
+  '@parcel/watcher-darwin-x64@2.5.1':
+    optional: true
+
+  '@parcel/watcher-freebsd-x64@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-arm-glibc@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-arm-musl@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-arm64-glibc@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-arm64-musl@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-x64-glibc@2.5.1':
+    optional: true
+
+  '@parcel/watcher-linux-x64-musl@2.5.1':
+    optional: true
+
+  '@parcel/watcher-win32-arm64@2.5.1':
+    optional: true
+
+  '@parcel/watcher-win32-ia32@2.5.1':
+    optional: true
+
+  '@parcel/watcher-win32-x64@2.5.1':
+    optional: true
+
+  '@parcel/watcher@2.5.1':
+    dependencies:
+      detect-libc: 1.0.3
+      is-glob: 4.0.3
+      micromatch: 4.0.8
+      node-addon-api: 7.1.1
+    optionalDependencies:
+      '@parcel/watcher-android-arm64': 2.5.1
+      '@parcel/watcher-darwin-arm64': 2.5.1
+      '@parcel/watcher-darwin-x64': 2.5.1
+      '@parcel/watcher-freebsd-x64': 2.5.1
+      '@parcel/watcher-linux-arm-glibc': 2.5.1
+      '@parcel/watcher-linux-arm-musl': 2.5.1
+      '@parcel/watcher-linux-arm64-glibc': 2.5.1
+      '@parcel/watcher-linux-arm64-musl': 2.5.1
+      '@parcel/watcher-linux-x64-glibc': 2.5.1
+      '@parcel/watcher-linux-x64-musl': 2.5.1
+      '@parcel/watcher-win32-arm64': 2.5.1
+      '@parcel/watcher-win32-ia32': 2.5.1
+      '@parcel/watcher-win32-x64': 2.5.1
+    optional: true
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
@@ -21800,7 +22028,7 @@ snapshots:
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/permissions': 5.31.1
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/utils': 5.31.1
       '@testing-library/dom': 10.1.0
@@ -21997,7 +22225,7 @@ snapshots:
       '@strapi/database': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/utils': 5.31.1
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
@@ -22098,7 +22326,7 @@ snapshots:
       '@strapi/generators': 5.31.1(@types/node@20.19.25)
       '@strapi/logger': 5.31.1
       '@strapi/permissions': 5.31.1
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/utils': 5.31.1
       '@vercel/stega': 0.1.2
@@ -22396,12 +22624,12 @@ snapshots:
       qs: 6.11.1
       sift: 16.0.1
 
-  '@strapi/plugin-cloud@5.31.1(889e62499845d0727a02e43e8ffeec88)':
+  '@strapi/plugin-cloud@5.31.1(fa59311fe1ccce6f9f5d1e66e6c60e1a)':
     dependencies:
       '@strapi/admin': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@strapi/data-transfer@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4))(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(debug@4.3.4)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
-      '@strapi/strapi': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
+      '@strapi/strapi': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(sass@1.94.2)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       react-intl: 6.6.2(react@19.2.0)(typescript@5.9.3)
@@ -22421,11 +22649,11 @@ snapshots:
       - codemirror
       - typescript
 
-  '@strapi/plugin-users-permissions@5.31.1(74bc852fca788e37fb7a0515b4ff508a)':
+  '@strapi/plugin-users-permissions@5.31.1(c1b37bcbce7411eecf6f77f4e6053303)':
     dependencies:
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
-      '@strapi/strapi': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
+      '@strapi/strapi': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(sass@1.94.2)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)
       '@strapi/utils': 5.31.1
       bcryptjs: 2.4.3
       formik: 2.4.5(@types/react@19.2.6)(react@19.2.0)
@@ -22515,7 +22743,7 @@ snapshots:
       - redux
       - typescript
 
-  '@strapi/strapi@5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)':
+  '@strapi/strapi@5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@swc/helpers@0.5.17)(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(esbuild@0.25.12)(koa@2.16.1)(lightningcss@1.30.2)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(sass@1.94.2)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(terser@5.44.1)(type-fest@4.41.0)':
     dependencies:
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.15(react-refresh@0.14.0)(type-fest@4.41.0)(webpack-hot-middleware@2.26.1)(webpack@5.103.0(esbuild@0.25.12))
       '@strapi/admin': 5.31.1(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@emotion/is-prop-valid@1.2.2)(@strapi/data-transfer@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4))(@types/hoist-non-react-statics@3.3.7(@types/react@19.2.6))(@types/node@20.19.25)(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(better-sqlite3@12.4.1)(codemirror@5.65.20)(debug@4.3.4)(react-dom@19.2.0(react@19.2.0))(react-router-dom@6.30.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)(redux@4.2.1)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
@@ -22533,12 +22761,12 @@ snapshots:
       '@strapi/openapi': 5.31.1
       '@strapi/permissions': 5.31.1
       '@strapi/review-workflows': 5.31.1(2e5e5497c3df96a31049cb4e82682e57)
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/upload': 5.31.1(a876007fe5fbbdf726992d102b4a2519)
       '@strapi/utils': 5.31.1
       '@types/nodemon': 1.19.6
-      '@vitejs/plugin-react-swc': 3.6.0(@swc/helpers@0.5.17)(vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))
+      '@vitejs/plugin-react-swc': 3.6.0(@swc/helpers@0.5.17)(vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))
       boxen: 5.1.2
       browserslist: 4.28.0
       browserslist-to-esbuild: 1.2.0
@@ -22578,7 +22806,7 @@ snapshots:
       style-loader: 3.3.4(webpack@5.103.0(esbuild@0.25.12))
       styled-components: 6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       typescript: 5.4.4
-      vite: 5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
       webpack: 5.103.0(esbuild@0.25.12)
       webpack-bundle-analyzer: 4.10.2
       webpack-dev-middleware: 6.1.2(webpack@5.103.0(esbuild@0.25.12))
@@ -22636,6 +22864,36 @@ snapshots:
       - webpack-cli
       - webpack-dev-server
       - webpack-plugin-serve
+
+  '@strapi/types@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)':
+    dependencies:
+      '@casl/ability': 6.5.0
+      '@koa/cors': 5.0.0
+      '@koa/router': 12.0.2
+      '@strapi/database': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)
+      '@strapi/logger': 5.31.1
+      '@strapi/permissions': 5.31.1
+      '@strapi/utils': 5.31.1
+      commander: 8.3.0
+      json-logic-js: 2.0.5
+      koa: 2.16.1
+      koa-body: 6.0.1
+      node-schedule: 2.1.1
+      typedoc: 0.25.10(typescript@5.4.4)
+      typedoc-github-wiki-theme: 1.1.0(typedoc-plugin-markdown@3.17.1(typedoc@0.25.10(typescript@5.9.3)))(typedoc@0.25.10(typescript@5.9.3))
+      typedoc-plugin-markdown: 3.17.1(typedoc@0.25.10(typescript@5.9.3))
+      zod: 3.25.67
+    transitivePeerDependencies:
+      - '@types/node'
+      - better-sqlite3
+      - mysql
+      - mysql2
+      - pg
+      - pg-native
+      - sqlite3
+      - supports-color
+      - tedious
+      - typescript
 
   '@strapi/types@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)':
     dependencies:
@@ -23374,7 +23632,7 @@ snapshots:
       '@typescript-eslint/types': 8.47.0
       '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
       '@typescript-eslint/visitor-keys': 8.47.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       eslint: 9.39.1(jiti@2.6.1)
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -23384,7 +23642,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/tsconfig-utils': 8.47.0(typescript@5.9.3)
       '@typescript-eslint/types': 8.47.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       typescript: 5.9.3
     transitivePeerDependencies:
       - supports-color
@@ -23403,7 +23661,7 @@ snapshots:
       '@typescript-eslint/types': 8.47.0
       '@typescript-eslint/typescript-estree': 8.47.0(typescript@5.9.3)
       '@typescript-eslint/utils': 8.47.0(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       eslint: 9.39.1(jiti@2.6.1)
       ts-api-utils: 2.1.0(typescript@5.9.3)
       typescript: 5.9.3
@@ -23418,7 +23676,7 @@ snapshots:
       '@typescript-eslint/tsconfig-utils': 8.47.0(typescript@5.9.3)
       '@typescript-eslint/types': 8.47.0
       '@typescript-eslint/visitor-keys': 8.47.0
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       fast-glob: 3.3.3
       is-glob: 4.0.3
       minimatch: 9.0.5
@@ -23562,14 +23820,14 @@ snapshots:
 
   '@vercel/stega@0.1.2': {}
 
-  '@vitejs/plugin-react-swc@3.6.0(@swc/helpers@0.5.17)(vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))':
+  '@vitejs/plugin-react-swc@3.6.0(@swc/helpers@0.5.17)(vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))':
     dependencies:
       '@swc/core': 1.15.2(@swc/helpers@0.5.17)
-      vite: 5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
     transitivePeerDependencies:
       - '@swc/helpers'
 
-  '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1))':
+  '@vitejs/plugin-react@4.7.0(vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1))':
     dependencies:
       '@babel/core': 7.28.5
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.28.5)
@@ -23577,7 +23835,7 @@ snapshots:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1)
+      vite: 5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -24332,6 +24590,10 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
+  chokidar@4.0.3:
+    dependencies:
+      readdirp: 4.1.2
+
   chownr@1.1.4: {}
 
   chownr@2.0.0: {}
@@ -24813,10 +25075,6 @@ snapshots:
     dependencies:
       ms: 2.1.2
 
-  debug@4.4.3:
-    dependencies:
-      ms: 2.1.3
-
   debug@4.4.3(supports-color@5.5.0):
     dependencies:
       ms: 2.1.3
@@ -24898,6 +25156,9 @@ snapshots:
   detect-file@1.0.0: {}
 
   detect-indent@6.1.0: {}
+
+  detect-libc@1.0.3:
+    optional: true
 
   detect-libc@2.1.2: {}
 
@@ -25295,7 +25556,7 @@ snapshots:
   eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0)(eslint@9.39.1(jiti@2.6.1)):
     dependencies:
       '@nolyfill/is-core-module': 1.0.39
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       eslint: 9.39.1(jiti@2.6.1)
       get-tsconfig: 4.13.0
       is-bun-module: 2.0.0
@@ -25423,7 +25684,7 @@ snapshots:
       ajv: 6.12.6
       chalk: 4.1.2
       cross-spawn: 7.0.6
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       escape-string-regexp: 4.0.0
       eslint-scope: 8.4.0
       eslint-visitor-keys: 4.2.1
@@ -26323,6 +26584,8 @@ snapshots:
 
   immutable@3.7.6: {}
 
+  immutable@5.1.4: {}
+
   import-fresh@3.3.1:
     dependencies:
       parent-module: 1.0.1
@@ -26452,7 +26715,7 @@ snapshots:
     dependencies:
       '@ioredis/commands': 1.4.0
       cluster-key-slot: 1.1.2
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@5.5.0)
       denque: 2.1.0
       lodash.defaults: 4.2.0
       lodash.isarguments: 3.1.0
@@ -28181,7 +28444,7 @@ snapshots:
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
-  next@15.5.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  next@15.5.6(@babel/core@7.28.5)(@opentelemetry/api@1.9.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(sass@1.94.2):
     dependencies:
       '@next/env': 15.5.6
       '@swc/helpers': 0.5.15
@@ -28200,6 +28463,7 @@ snapshots:
       '@next/swc-win32-arm64-msvc': 15.5.6
       '@next/swc-win32-x64-msvc': 15.5.6
       '@opentelemetry/api': 1.9.0
+      sass: 1.94.2
       sharp: 0.34.5
     transitivePeerDependencies:
       - '@babel/core'
@@ -28215,6 +28479,9 @@ snapshots:
       semver: 7.7.3
 
   node-abort-controller@3.1.1: {}
+
+  node-addon-api@7.1.1:
+    optional: true
 
   node-cache@5.1.2:
     dependencies:
@@ -28848,6 +29115,12 @@ snapshots:
       which-pm: 2.0.0
 
   prelude-ls@1.2.1: {}
+
+  prettier-plugin-tailwindcss@0.7.1(@trivago/prettier-plugin-sort-imports@6.0.0(prettier@3.6.2))(prettier@3.6.2):
+    dependencies:
+      prettier: 3.6.2
+    optionalDependencies:
+      '@trivago/prettier-plugin-sort-imports': 6.0.0(prettier@3.6.2)
 
   prettier@3.3.3: {}
 
@@ -29657,6 +29930,8 @@ snapshots:
     dependencies:
       picomatch: 2.3.1
 
+  readdirp@4.1.2: {}
+
   recast@0.23.11:
     dependencies:
       ast-types: 0.16.1
@@ -29938,6 +30213,14 @@ snapshots:
       is-plain-object: 5.0.0
       parse-srcset: 1.0.2
       postcss: 8.5.6
+
+  sass@1.94.2:
+    dependencies:
+      chokidar: 4.0.3
+      immutable: 5.1.4
+      source-map-js: 1.2.1
+    optionalDependencies:
+      '@parcel/watcher': 2.5.1
 
   scheduler@0.23.0:
     dependencies:
@@ -30846,6 +31129,14 @@ snapshots:
       handlebars: 4.7.8
       typedoc: 0.25.10(typescript@5.9.3)
 
+  typedoc@0.25.10(typescript@5.4.4):
+    dependencies:
+      lunr: 2.3.9
+      marked: 4.3.0
+      minimatch: 9.0.5
+      shiki: 0.14.7
+      typescript: 5.4.4
+
   typedoc@0.25.10(typescript@5.9.3):
     dependencies:
       lunr: 2.3.9
@@ -31099,7 +31390,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1):
+  vite@5.4.19(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
@@ -31108,9 +31399,10 @@ snapshots:
       '@types/node': 20.19.25
       fsevents: 2.3.3
       lightningcss: 1.30.2
+      sass: 1.94.2
       terser: 5.44.1
 
-  vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(terser@5.44.1):
+  vite@5.4.21(@types/node@20.19.25)(lightningcss@1.30.2)(sass@1.94.2)(terser@5.44.1):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.5.6
@@ -31119,6 +31411,7 @@ snapshots:
       '@types/node': 20.19.25
       fsevents: 2.3.3
       lightningcss: 1.30.2
+      sass: 1.94.2
       terser: 5.44.1
 
   void-elements@3.1.0: {}

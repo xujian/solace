@@ -5,11 +5,15 @@ import Image from '@modules/common/components/cms/image'
 export default function Banner({ data }: { data: BannerData }) {
   const { title, text, cta, image } = data
   return (
-    <div className="banner h-[75vh] w-full">
-      <Image src={image.url} alt={image.alternativeText || ''} width={1000} height={600} />
-      <h2>{title}</h2>
-      <p>{text}</p>
-      <Button>{cta.text}</Button>
-    </div>
+    <section className="banner h-[75vh] w-full">
+      <div className="cover-image">
+        <Image src={image.url} alt={image.alternativeText || ''} width={1000} height={600} />
+      </div>
+      <div className="banner-content p-6">
+        <h2>{title}</h2>
+        <Button>{cta.text}</Button>
+        <p>{text}</p>
+      </div>
+    </section>
   )
 }
