@@ -10,7 +10,7 @@ export default async function Footer() {
   const productCategories = await listCategories()
 
   return (
-    <footer className="border-t border-ui-border-base w-full">
+    <footer className="w-full p-6">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
           <div>
@@ -118,7 +118,7 @@ export default async function Footer() {
           </div>
         </div>
         <div className="flex w-full mb-16 justify-between text-ui-fg-muted">
-          <p className="txt-compact-small">© {new Date().getFullYear()} Medusa Store. All rights reserved.</p>
+          <p className="txt-compact-small">© {new Date().getFullYear()} Ars Breeze. All rights reserved.</p>
         </div>
       </div>
     </footer>
