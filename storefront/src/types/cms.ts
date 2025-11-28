@@ -75,10 +75,6 @@ export type Collection = {
   description: string
 }
 
-export type CollectionsData = {
-  data: Collection[]
-}
-
 export type VariantColor = {
   id: number
   name: string
