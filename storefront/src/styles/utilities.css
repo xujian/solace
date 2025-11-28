@@ -2,6 +2,19 @@
   h2 {
     @apply text-2xl font-bold leading-16;
   }
+  .p {
+    @apply p-4;
+  }
+  .gap {
+    @apply gap-4;
+  }
+  .mt {
+    @apply mt-4;
+  }
+}
+
+.page-body section {
+  @apply mb-16;
 }
 
 .cover-image {
@@ -12,3 +25,6 @@
   @apply h-full w-full object-cover;
 }
 
+.full-bleed {
+  @apply -mx-body;
+}
