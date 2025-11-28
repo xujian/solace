@@ -29,7 +29,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       {customer && cart && <CartMismatchBanner customer={customer} cart={cart} />}
 
       {cart && <FreeShippingPriceNudge variant="popup" cart={cart} shippingOptions={shippingOptions} />}
-      <main className="main mx-auto w-full max-w-7xl">{props.children}</main>
+      <main className="page-body mx-auto w-full max-w-8xl px-body">{props.children}</main>
       <Footer />
     </>
   )

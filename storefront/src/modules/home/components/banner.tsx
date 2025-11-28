@@ -5,7 +5,7 @@ import Image from '@modules/common/components/cms/image'
 export default function Banner({ data }: { data: BannerData }) {
   const { title, text, cta, image } = data
   return (
-    <section className="banner h-[75vh] w-full">
+    <section className="banner h-[75vh] full-bleed">
       <div className="cover-image">
         <Image src={image.url} alt={image.alternativeText || ''} width={1000} height={600} />
       </div>

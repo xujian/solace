@@ -6,7 +6,7 @@ import { Button } from '@lib/components/ui'
 const Hero = ({ data }: { data: BannerData }) => {
   const { title, text, cta, image } = data
   return (
-    <section className="hero">
+    <section className="hero full-bleed">
       <div className="cover-image">
         <Image src={image.url} alt={image.alternativeText || ''} width={2048} height={400} />
       </div>

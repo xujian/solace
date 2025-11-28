@@ -1,11 +1,12 @@
 import { Metadata } from 'next'
 
-import FeaturedProducts from '@modules/home/components/featured-products'
 import Hero from '@modules/home/components/hero'
-import { listCollections } from '@lib/data/collections'
+import { listProducts } from '@lib/data/products'
 import { getRegion } from '@lib/data/regions'
-import { getHero, getMarketing } from '@lib/data/cms'
+import { getCollections, getHero, getMarketing } from '@lib/data/cms'
 import Banner from '@modules/home/components/banner'
+import Collections from '@modules/home/components/collections'
+import BestSellers from '@modules/home/components/best-sellers'
 
 export const metadata: Metadata = {
   title: 'Ars Breeze',
@@ -22,26 +23,34 @@ export default async function Home(props: {
 
   const region = await getRegion(countryCode)
 
-  const { collections } = await listCollections({
-    fields: 'id, handle, title',
-  })
+  const products = await listProducts({
+    countryCode,
+    queryParams: {
+      fields: 'id, handle, title, thumbnail'
+    }
+  }).then(({ response }) => response.products)
 
-  if (!collections || !region) {
+  console.log('------products', products)
+
+  if (!products || !region) {
     return null
   }
 
   const [
     { data: { hero } },
-    { data: { marketing } }
+    { data: { marketing } },
+    { data: collections }
   ] = await Promise.all([
     getHero(),
-    getMarketing()
+    getMarketing(),
+    getCollections()
   ])
 
   return (
     <>
       <Hero data={hero} />
-      <FeaturedProducts collections={collections} region={region} />
+      <Collections data={collections} />
+      <BestSellers data={products} />
       {marketing && <Banner data={marketing} />}
     </>
   )
