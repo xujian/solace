@@ -8,8 +8,8 @@ const Image = ({ src, alt, width, height, ...props }: ImageProps) => {
       className={props.className}
       src={url}
       alt={alt || ''}
-      width={width}
-      height={height}/>
+      width={width || 400}
+      height={height || 400}/>
   )
 }
 
