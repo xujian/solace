@@ -1,5 +1,5 @@
 'use client'
-
+import { useSession } from '@modules/common/components/session-context'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import ReactCountryFlag from 'react-country-flag'
@@ -16,10 +16,10 @@ type CountryOption = {
 
 type CountrySelectProps = {
   toggleState: StateType
-  regions: HttpTypes.StoreRegion[]
 }
 
-const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
+const CountrySelect = ({ toggleState }: CountrySelectProps) => {
+  const { region: regionData } = useSession()
   const [current, setCurrent] = useState<
     { country: string | undefined; region: string; label: string | undefined } | undefined
   >(undefined)
@@ -30,9 +30,9 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const { state, close } = toggleState
 
   const options = useMemo(() => {
-    return regions
+    return [regionData]
       ?.map(r => {
-        return r.countries?.map(c => ({
+        return r?.countries?.map(c => ({
           country: c.iso_2,
           region: r.id,
           label: c.display_name
@@ -40,7 +40,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
       })
       .flat()
       .sort((a, b) => (a?.label ?? '').localeCompare(b?.label ?? ''))
-  }, [regions])
+  }, [regionData])
 
   useEffect(() => {
     if (region) {

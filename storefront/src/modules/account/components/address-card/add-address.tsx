@@ -6,18 +6,14 @@ import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@lib/c
 import { Input, Label } from '@lib/components/ui'
 import { addCustomerAddress } from '@lib/data/customer'
 import useToggleState from '@lib/hooks/use-toggle-state'
+import { useSession } from '@modules/common/components/session-context'
 import CountrySelect from '@modules/checkout/components/country-select'
 import { SubmitButton } from '@modules/checkout/components/submit-button'
 import { Plus } from 'lucide-react'
 import { X } from 'lucide-react'
 
-const AddAddress = ({
-  region,
-  addresses
-}: {
-  region: HttpTypes.StoreRegion
-  addresses: HttpTypes.StoreCustomerAddress[]
-}) => {
+const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[] }) => {
+  const { region } = useSession()
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
@@ -107,7 +103,6 @@ const AddAddress = ({
               </div>
               <Input label="Province / State" name="province" autoComplete="address-level1" data-testid="state-input" />
               <CountrySelect
-                region={region}
                 name="country_code"
                 required
                 autoComplete="country"

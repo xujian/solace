@@ -1,14 +1,14 @@
 import { forwardRef, useImperativeHandle, useMemo, useRef } from 'react'
+import { useSession } from '@modules/common/components/session-context'
 import { HttpTypes } from '@medusajs/types'
 import NativeSelect, { NativeSelectProps } from '@modules/common/components/native-select'
 
 const CountrySelect = forwardRef<
   HTMLSelectElement,
-  NativeSelectProps & {
-    region?: HttpTypes.StoreRegion
-  }
->(({ placeholder = 'Country', region, defaultValue, ...props }, ref) => {
+  NativeSelectProps
+>(({ placeholder = 'Country', defaultValue, ...props }, ref) => {
   const innerRef = useRef<HTMLSelectElement>(null)
+  const { region } = useSession()
 
   useImperativeHandle<HTMLSelectElement | null, HTMLSelectElement | null>(ref, () => innerRef.current)
 

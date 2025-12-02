@@ -1,33 +1,26 @@
-"use client"
+'use client'
 
-import React, { useEffect, useState, useActionState } from "react"
-import { Edit, Trash2 as Trash } from "lucide-react"
-import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
-import { cn } from "@lib/util"
-import { X } from "lucide-react"
-
-import useToggleState from "@lib/hooks/use-toggle-state"
-import CountrySelect from "@modules/checkout/components/country-select"
-import { Input, Label } from "@lib/components/ui"
-import { RefreshCw as Spinner } from "lucide-react"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
-import { HttpTypes } from "@medusajs/types"
-import {
-  deleteCustomerAddress,
-  updateCustomerAddress,
-} from "@lib/data/customer"
+import React, { useEffect, useState, useActionState } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@lib/components/ui'
+import { Input, Label } from '@lib/components/ui'
+import { deleteCustomerAddress, updateCustomerAddress } from '@lib/data/customer'
+import useToggleState from '@lib/hooks/use-toggle-state'
+import { cn } from '@lib/util'
+import { useSession } from '@modules/common/components/session-context'
+import CountrySelect from '@modules/checkout/components/country-select'
+import { SubmitButton } from '@modules/checkout/components/submit-button'
+import { Edit, Trash2 as Trash } from 'lucide-react'
+import { X } from 'lucide-react'
+import { RefreshCw as Spinner } from 'lucide-react'
 
 type EditAddressProps = {
-  region: HttpTypes.StoreRegion
   address: HttpTypes.StoreCustomerAddress
   isActive?: boolean
 }
 
-const EditAddress: React.FC<EditAddressProps> = ({
-  region,
-  address,
-  isActive = false,
-}) => {
+const EditAddress: React.FC<EditAddressProps> = ({ address, isActive = false }) => {
+  const { region } = useSession()
   const [removing, setRemoving] = useState(false)
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
@@ -35,7 +28,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
   const [formState, formAction] = useActionState(updateCustomerAddress, {
     success: false,
     error: null,
-    addressId: address.id,
+    addressId: address.id
   })
 
   const close = () => {
@@ -66,29 +59,22 @@ const EditAddress: React.FC<EditAddressProps> = ({
     <>
       <div
         className={cn(
-          "border rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between transition-colors",
+          'rounded-rounded flex h-full min-h-[220px] w-full flex-col justify-between border p-5 transition-colors',
           {
-            "border-gray-900": isActive,
+            'border-gray-900': isActive
           }
         )}
-        data-testid="address-container"
-      >
+        data-testid="address-container">
         <div className="flex flex-col">
-          <h3
-            className="text-left text-base-semi"
-            data-testid="address-name"
-          >
+          <h3 className="text-base-semi text-left" data-testid="address-name">
             {address.first_name} {address.last_name}
           </h3>
           {address.company && (
-            <p
-              className="txt-compact-small text-ui-fg-base"
-              data-testid="address-company"
-            >
+            <p className="txt-compact-small text-ui-fg-base" data-testid="address-company">
               {address.company}
             </p>
           )}
-          <div className="flex flex-col text-left text-base-regular mt-2">
+          <div className="text-base-regular mt-2 flex flex-col text-left">
             <span data-testid="address-address">
               {address.address_1}
               {address.address_2 && <span>, {address.address_2}</span>}
@@ -106,25 +92,23 @@ const EditAddress: React.FC<EditAddressProps> = ({
           <button
             className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
             onClick={open}
-            data-testid="address-edit-button"
-          >
+            data-testid="address-edit-button">
             <Edit />
             Edit
           </button>
           <button
             className="text-small-regular text-ui-fg-base flex items-center gap-x-2"
             onClick={removeAddress}
-            data-testid="address-delete-button"
-          >
+            data-testid="address-delete-button">
             {removing ? <Spinner /> : <Trash />}
             Remove
           </button>
         </div>
       </div>
 
-      <Dialog open={state} onOpenChange={(open) => !open && close()}>
+      <Dialog open={state} onOpenChange={open => !open && close()}>
         <DialogContent className="max-w-3xl p-0" data-testid="edit-address-modal">
-          <DialogHeader className="flex items-center justify-between flex-row p-6 pb-4">
+          <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4">
             <DialogTitle className="text-3xl-regular">Edit address</DialogTitle>
             <button onClick={close} data-testid="close-modal-button">
               <X size={20} />
@@ -200,7 +184,6 @@ const EditAddress: React.FC<EditAddressProps> = ({
               />
               <CountrySelect
                 name="country_code"
-                region={region}
                 required
                 autoComplete="country"
                 defaultValue={address.country_code || undefined}
@@ -214,19 +197,9 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 data-testid="phone-input"
               />
             </div>
-            {formState.error && (
-              <div className="text-rose-500 text-small-regular py-2">
-                {formState.error}
-              </div>
-            )}
-            <div className="flex gap-3 mt-6">
-              <Button
-                type="reset"
-                variant="secondary"
-                onClick={close}
-                className="h-10"
-                data-testid="cancel-button"
-              >
+            {formState.error && <div className="text-small-regular py-2 text-rose-500">{formState.error}</div>}
+            <div className="mt-6 flex gap-3">
+              <Button type="reset" variant="secondary" onClick={close} className="h-10" data-testid="cancel-button">
                 Cancel
               </Button>
               <SubmitButton data-testid="save-button">Save</SubmitButton>

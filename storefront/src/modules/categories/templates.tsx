@@ -1,19 +1,18 @@
-import { notFound } from "next/navigation"
-import { Suspense } from "react"
-
-import InteractiveLink from "@modules/common/components/interactive-link"
-import SkeletonProductGrid from "@modules/skeletons/templates/skeleton-product-grid"
-import RefinementList from "@modules/store/components/refinement-list"
-import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
-import PaginatedProducts from "@modules/store/templates/paginated-products"
-import LocalizedClientLink from "@modules/common/components/localized-client-link"
-import { HttpTypes } from "@medusajs/types"
+import { notFound } from 'next/navigation'
+import { Suspense } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import InteractiveLink from '@modules/common/components/interactive-link'
+import LocalizedClientLink from '@modules/common/components/localized-client-link'
+import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
+import RefinementList from '@modules/store/components/refinement-list'
+import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
+import PaginatedProducts from '@modules/store/templates/paginated-products'
 
 export default function CategoryTemplate({
   category,
   sortBy,
   page,
-  region,
+  region
 }: {
   category: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
@@ -21,7 +20,7 @@ export default function CategoryTemplate({
   region: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
-  const sort = sortBy || "created_at"
+  const sort = sortBy || 'created_at'
 
   if (!category || !region) notFound()
 
@@ -38,20 +37,18 @@ export default function CategoryTemplate({
 
   return (
     <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
-      data-testid="category-container"
-    >
+      className="small:flex-row small:items-start content-container flex flex-col py-6"
+      data-testid="category-container">
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
-        <div className="flex flex-row mb-8 text-2xl-semi gap-4">
+        <div className="text-2xl-semi mb-8 flex flex-row gap-4">
           {parents &&
-            parents.map((parent) => (
+            parents.map(parent => (
               <span key={parent.id} className="text-ui-fg-subtle">
                 <LocalizedClientLink
                   className="mr-4 hover:text-black"
                   href={`/categories/${parent.handle}`}
-                  data-testid="sort-by-link"
-                >
+                  data-testid="sort-by-link">
                   {parent.name}
                 </LocalizedClientLink>
                 /
@@ -60,36 +57,23 @@ export default function CategoryTemplate({
           <h1 data-testid="category-page-title">{category.name}</h1>
         </div>
         {category.description && (
-          <div className="mb-8 text-base-regular">
+          <div className="text-base-regular mb-8">
             <p>{category.description}</p>
           </div>
         )}
         {category.category_children && (
-          <div className="mb-8 text-base-large">
+          <div className="text-base-large mb-8">
             <ul className="grid grid-cols-1 gap-2">
-              {category.category_children?.map((c) => (
+              {category.category_children?.map(c => (
                 <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
+                  <InteractiveLink href={`/categories/${c.handle}`}>{c.name}</InteractiveLink>
                 </li>
               ))}
             </ul>
           </div>
         )}
-        <Suspense
-          fallback={
-            <SkeletonProductGrid
-              numberOfProducts={category.products?.length ?? 8}
-            />
-          }
-        >
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            categoryId={category.id}
-            region={region}
-          />
+        <Suspense fallback={<SkeletonProductGrid numberOfProducts={category.products?.length ?? 8} />}>
+          <PaginatedProducts sortBy={sort} page={pageNumber} categoryId={category.id} region={region} />
         </Suspense>
       </div>
     </div>
