@@ -7,7 +7,7 @@ import CategoryTemplate from '@modules/categories/templates'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 
 type Props = {
-  params: Promise<{ category: string[]; region: string }>
+  params: Promise<{ category: string[]; country: string }>
   searchParams: Promise<{
     sortBy?: SortOptions
     page?: string
@@ -30,7 +30,7 @@ export async function generateStaticParams() {
   const staticParams = regionCodes
     ?.map((regionCode: string | undefined) =>
       categoryHandles.map((handle: any) => ({
-        region: regionCode,
+        country: regionCode,
         category: [handle]
       }))
     )
@@ -71,5 +71,5 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
-  return <CategoryTemplate category={productCategory} sortBy={sortBy} page={page} region={params.region} />
+  return <CategoryTemplate category={productCategory} sortBy={sortBy} page={page} region={params.country} />
 }

@@ -7,7 +7,7 @@ import CollectionTemplate from '@modules/collections/templates'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 
 type Props = {
-  params: Promise<{ handle: string; region: string }>
+  params: Promise<{ handle: string; country: string }>
   searchParams: Promise<{
     page?: string
     sortBy?: SortOptions
@@ -38,7 +38,7 @@ export async function generateStaticParams() {
   const staticParams = regionCodes
     ?.map((regionCode: string) =>
       collectionHandles.map((handle: string | undefined) => ({
-        region: regionCode,
+        country: regionCode,
         handle
       }))
     )
@@ -74,5 +74,5 @@ export default async function CollectionPage(props: Props) {
     notFound()
   }
 
-  return <CollectionTemplate collection={collection} page={page} sortBy={sortBy} region={params.region} />
+  return <CollectionTemplate collection={collection} page={page} sortBy={sortBy} region={params.country} />
 }

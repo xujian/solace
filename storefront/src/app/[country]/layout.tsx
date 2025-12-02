@@ -7,10 +7,10 @@ export default async function RegionLayout({
   params
 }: {
   children: React.ReactNode
-  params: Promise<{ region: string }>
+  params: Promise<{ country: string }>
 }) {
-  const { region: regionCode } = await params
-  const region = await getRegion(regionCode)
+  const { country } = await params
+  const region = await getRegion(country)
 
   if (!region) {
     return notFound()

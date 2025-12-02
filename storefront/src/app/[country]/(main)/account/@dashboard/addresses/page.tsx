@@ -9,10 +9,10 @@ export const metadata: Metadata = {
   description: 'View your addresses'
 }
 
-export default async function Addresses(props: { params: Promise<{ region: string }> }) {
+export default async function Addresses(props: { params: Promise<{ country: string }> }) {
   const params = await props.params
   const customer = await retrieveCustomer()
-  const region = await getRegion(params.region)
+  const region = await getRegion(params.country)
 
   if (!customer || !region) {
     notFound()
@@ -27,7 +27,7 @@ export default async function Addresses(props: { params: Promise<{ region: strin
           available during checkout.
         </p>
       </div>
-      <AddressBook customer={customer} region={region} />
+      <AddressBook customer={customer} />
     </div>
   )
 }

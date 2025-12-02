@@ -6,7 +6,7 @@ import { getRegion, listRegions } from '@lib/data/regions'
 import ProductTemplate from '@modules/products/templates'
 
 type Props = {
-  params: Promise<{ region: string; handle: string }>
+  params: Promise<{ country: string; handle: string }>
   searchParams: Promise<{ v_id?: string }>
 }
 
@@ -40,7 +40,7 @@ export async function generateStaticParams() {
     return countryProducts
       .flatMap(countryData =>
         countryData.products.map(product => ({
-          region: countryData.region,
+          country: countryData.region,
           handle: product.handle
         }))
       )
@@ -70,14 +70,14 @@ function getImagesForVariant(product: HttpTypes.StoreProduct, selectedVariantId?
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   const { handle } = params
-  const region = await getRegion(params.region)
+  const region = await getRegion(params.country)
 
   if (!region) {
     notFound()
   }
 
   const product = await listProducts({
-    region: params.region,
+    region: params.country,
     queryParams: { handle }
   }).then(({ response }) => response.products[0])
 
@@ -98,7 +98,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
 export default async function ProductPage(props: Props) {
   const params = await props.params
-  const region = await getRegion(params.region)
+  const region = await getRegion(params.country)
   const searchParams = await props.searchParams
 
   const selectedVariantId = searchParams.v_id
@@ -108,7 +108,7 @@ export default async function ProductPage(props: Props) {
   }
 
   const pricedProduct = await listProducts({
-    region: params.region,
+    region: params.country,
     queryParams: { handle: params.handle }
   }).then(({ response }) => response.products[0])
 

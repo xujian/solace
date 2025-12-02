@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   description: 'A performant frontend ecommerce starter template with Next.js and Medusa.'
 }
 
-export default async function Home(props: { params: Promise<{ region: string }> }) {
+export default async function Home(props: { params: Promise<{ country: string }> }) {
   const params = await props.params
 
-  const region = await getRegion(params.region)
+  const region = await getRegion(params.country)
 
   const products = await listProducts({
-    region: params.region,
+    region: params.country,
     queryParams: {
       fields: 'id, handle, title, thumbnail'
     }
