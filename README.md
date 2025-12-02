@@ -90,5 +90,5 @@ pnpm --filter storefront run lint
 
 - Customize Medusa workflows under `api/src/workflows`.
 - Extend Strapi components in `cms/src/components` to drive new landing pages.
-- Drop new modules into `storefront/src/modules` and wire them up via `app/[countryCode]`.
+- Drop new modules into `storefront/src/modules` and wire them up via `app/[country]`.
 

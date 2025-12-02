@@ -13,7 +13,7 @@ import { Plus } from 'lucide-react'
 import { X } from 'lucide-react'
 
 const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[] }) => {
-  const { region } = useSession()
+  const { country } = useSession()
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 

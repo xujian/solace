@@ -1,8 +1,8 @@
+import { notFound } from 'next/navigation'
 import { getRegion } from '@lib/data/regions'
 import { SessionProvider } from '@modules/common/components/session-context'
-import { notFound } from 'next/navigation'
 
-export default async function RegionLayout({
+export default async function CountryLayout({
   children,
   params
 }: {
@@ -13,8 +13,12 @@ export default async function RegionLayout({
   const region = await getRegion(country)
 
   if (!region) {
-    return notFound()
+    notFound()
   }
 
-  return <SessionProvider region={region}>{children}</SessionProvider>
+  return (
+    <SessionProvider country={country} region={region}>
+      {children}
+    </SessionProvider>
+  )
 }

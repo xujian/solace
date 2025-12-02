@@ -8,7 +8,7 @@ const CountrySelect = forwardRef<
   NativeSelectProps
 >(({ placeholder = 'Country', defaultValue, ...props }, ref) => {
   const innerRef = useRef<HTMLSelectElement>(null)
-  const { region } = useSession()
+  const { country, region } = useSession()
 
   useImperativeHandle<HTMLSelectElement | null, HTMLSelectElement | null>(ref, () => innerRef.current)
 

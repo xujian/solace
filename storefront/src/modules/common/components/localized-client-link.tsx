@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React from 'react'
+import { useSession } from './session-context'
 
 /**
  * Use this component to create a Next.js `<Link />` that persists the current country code in the url,
@@ -20,10 +21,10 @@ const LocalizedClientLink = ({
   passHref?: true
   [x: string]: any
 }) => {
-  const { region } = useParams()
+  const { country } = useSession()
 
   return (
-    <Link href={`/${region}${href}`} {...props}>
+    <Link href={`/${country}${href}`} {...props}>
       {children}
     </Link>
   )

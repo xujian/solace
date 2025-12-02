@@ -1,6 +1,6 @@
 'use client'
 
-import { useParams, usePathname, useSearchParams } from 'next/navigation'
+import { usePathname, useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { isEqual } from 'lodash'
@@ -9,6 +9,7 @@ import { Button } from '@lib/components/ui'
 import { Separator } from '@lib/components/ui'
 import { addToCart } from '@lib/data/cart'
 import { useIntersection } from '@lib/hooks/use-in-view'
+import { useSession } from '@modules/common/components/session-context'
 import OptionSelect from '@modules/products/components/product-actions/option-select'
 import ProductPrice from '../product-price'
 import MobileActions from './mobile-actions'
@@ -32,7 +33,7 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
-  const { region } = useParams()
+  const { region } = useSession()
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {

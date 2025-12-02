@@ -20,7 +20,7 @@ type EditAddressProps = {
 }
 
 const EditAddress: React.FC<EditAddressProps> = ({ address, isActive = false }) => {
-  const { region } = useSession()
+  const { country } = useSession()
   const [removing, setRemoving] = useState(false)
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)

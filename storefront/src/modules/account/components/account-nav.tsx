@@ -9,19 +9,20 @@ import { ChevronDown } from 'lucide-react'
 import { User } from 'lucide-react'
 import { MapPin } from 'lucide-react'
 import { Package } from 'lucide-react'
+import { useSession } from '@modules/common/components/session-context'
 
 const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) => {
   const route = usePathname()
-  const { region } = useParams() as { region: string }
+  const { country } = useSession()
 
   const handleLogout = async () => {
-    await signout(region)
+    await signout(country)
   }
 
   return (
     <div>
       <div className="small:hidden" data-testid="mobile-account-nav">
-        {route !== `/${region}/account` ? (
+        {route !== `/${country}/account` ? (
           <LocalizedClientLink
             href="/account"
             className="text-small-regular flex items-center gap-x-2 py-2"
@@ -142,9 +143,9 @@ type AccountNavLinkProps = {
 }
 
 const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: AccountNavLinkProps) => {
-  const { region }: { region: string } = useParams()
+  const { country } = useSession()
 
-  const active = route.split(region)[1] === href
+  const active = route.split(country)[1] === href
   return (
     <LocalizedClientLink
       href={href}

@@ -1,10 +1,11 @@
 'use client'
 
-import { HttpTypes } from '@medusajs/types'
+import { StoreRegion } from '@medusajs/types'
 import React, { createContext, useContext } from 'react'
 
 interface SessionContextProps {
-  region: HttpTypes.StoreRegion | null
+  country: string,
+  region: StoreRegion
 }
 
 const SessionContext = createContext<SessionContextProps | null>(null)
@@ -18,10 +19,11 @@ export const useSession = () => {
 }
 
 interface SessionProviderProps {
-  region: HttpTypes.StoreRegion
+  country: string
+  region: StoreRegion
   children: React.ReactNode
 }
 
-export const SessionProvider = ({ region, children }: SessionProviderProps) => {
-  return <SessionContext.Provider value={{ region }}>{children}</SessionContext.Provider>
+export const SessionProvider = ({ country, region, children }: SessionProviderProps) => {
+  return <SessionContext.Provider value={{ country, region }}>{children}</SessionContext.Provider>
 }

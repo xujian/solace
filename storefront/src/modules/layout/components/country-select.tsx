@@ -19,18 +19,17 @@ type CountrySelectProps = {
 }
 
 const CountrySelect = ({ toggleState }: CountrySelectProps) => {
-  const { region: regionData } = useSession()
+  const { country, region } = useSession()
   const [current, setCurrent] = useState<
     { country: string | undefined; region: string; label: string | undefined } | undefined
   >(undefined)
 
-  const { region } = useParams()
-  const currentPath = usePathname().split(`/${region}`)[1]
+  const currentPath = usePathname().split(`/${country}`)[1]
 
   const { state, close } = toggleState
 
   const options = useMemo(() => {
-    return [regionData]
+    return [region]
       ?.map(r => {
         return r?.countries?.map(c => ({
           country: c.iso_2,
@@ -40,11 +39,11 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
       })
       .flat()
       .sort((a, b) => (a?.label ?? '').localeCompare(b?.label ?? ''))
-  }, [regionData])
+  }, [])
 
   useEffect(() => {
     if (region) {
-      const option = options?.find(o => o?.region === region)
+      const option = options?.find(o => o?.region === region.id)
       setCurrent(option)
     }
   }, [options, region])
@@ -52,7 +51,7 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
   const handleChange = (value: string) => {
     const option = options?.find(o => o?.country === value)
     if (option) {
-      updateRegion(option.country, currentPath || '/')
+      updateRegion(option.country!, currentPath || '/')
       close()
     }
   }
@@ -60,7 +59,7 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
   return (
     <div>
       <Select
-        value={(region as string) || ''}
+        value={country || ''}
         onValueChange={handleChange}
         open={state}
         onOpenChange={open => {
