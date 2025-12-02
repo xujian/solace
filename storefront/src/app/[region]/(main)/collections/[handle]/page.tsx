@@ -74,5 +74,5 @@ export default async function CollectionPage(props: Props) {
     notFound()
   }
 
-  return <CollectionTemplate collection={collection} page={page} sortBy={sortBy} countryCode={params.region} />
+  return <CollectionTemplate collection={collection} page={page} sortBy={sortBy} region={params.region} />
 }

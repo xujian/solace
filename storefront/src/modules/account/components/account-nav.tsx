@@ -17,7 +17,7 @@ const AccountNav = ({
   customer: HttpTypes.StoreCustomer | null
 }) => {
   const route = usePathname()
-  const { countryCode } = useParams() as { countryCode: string }
+  const { region: countryCode } = useParams() as { region: string }
 
   const handleLogout = async () => {
     await signout(countryCode)
@@ -179,7 +179,7 @@ const AccountNavLink = ({
   children,
   "data-testid": dataTestId,
 }: AccountNavLinkProps) => {
-  const { countryCode }: { countryCode: string } = useParams()
+  const { region: countryCode }: { region: string } = useParams()
 
   const active = route.split(countryCode)[1] === href
   return (

@@ -5,15 +5,13 @@ import Product from "./product-preview"
 
 type RelatedProductsProps = {
   product: HttpTypes.StoreProduct
-  countryCode: string
+  region: HttpTypes.StoreRegion
 }
 
 export default async function RelatedProducts({
   product,
-  countryCode,
+  region,
 }: RelatedProductsProps) {
-  const region = await getRegion(countryCode)
-
   if (!region) {
     return null
   }
@@ -35,7 +33,7 @@ export default async function RelatedProducts({
 
   const products = await listProducts({
     queryParams,
-    countryCode,
+    region,
   }).then(({ response }) => {
     return response.products.filter(
       (responseProduct) => responseProduct.id !== product.id

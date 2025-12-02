@@ -71,5 +71,5 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
-  return <CategoryTemplate category={productCategory} sortBy={sortBy} page={page} countryCode={params.region} />
+  return <CategoryTemplate category={productCategory} sortBy={sortBy} page={page} region={params.region} />
 }

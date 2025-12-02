@@ -14,7 +14,7 @@ export const listProducts = async ({
 }: {
   pageParam?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductListParams
-  region: string
+  region: string | HttpTypes.StoreRegion
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
@@ -28,7 +28,11 @@ export const listProducts = async ({
   const _pageParam = Math.max(pageParam, 1)
   const offset = _pageParam === 1 ? 0 : (_pageParam - 1) * limit
 
-  const r = await getRegion(region)
+  let r: HttpTypes.StoreRegion | null | undefined = region as HttpTypes.StoreRegion
+  if (typeof region === 'string') {
+    r = await getRegion(region)
+  }
+
   if (!r) {
     return {
       response: { products: [], count: 0 },
@@ -85,7 +89,7 @@ export const listProductsWithSort = async ({
   page?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
   sortBy?: SortOptions
-  region: string
+  region: string | HttpTypes.StoreRegion
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null

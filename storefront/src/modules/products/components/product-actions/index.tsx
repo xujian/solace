@@ -15,7 +15,6 @@ import { useRouter } from "next/navigation"
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
-  region: HttpTypes.StoreRegion
   disabled?: boolean
 }
 
@@ -38,7 +37,7 @@ export default function ProductActions({
 
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
-  const countryCode = useParams().countryCode as string
+  const countryCode = useParams().region as string
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {
