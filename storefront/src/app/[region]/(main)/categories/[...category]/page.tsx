@@ -21,16 +21,16 @@ export async function generateStaticParams() {
     return []
   }
 
-  const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
+  const regionCodes = await listRegions().then((regions: StoreRegion[]) =>
     regions?.map(r => r.countries?.map(c => c.iso_2)).flat()
   )
 
   const categoryHandles = product_categories.map((category: any) => category.handle)
 
-  const staticParams = countryCodes
-    ?.map((countryCode: string | undefined) =>
+  const staticParams = regionCodes
+    ?.map((regionCode: string | undefined) =>
       categoryHandles.map((handle: any) => ({
-        region: countryCode,
+        region: regionCode,
         category: [handle]
       }))
     )

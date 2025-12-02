@@ -25,7 +25,7 @@ export async function generateStaticParams() {
     return []
   }
 
-  const countryCodes = await listRegions().then(
+  const regionCodes = await listRegions().then(
     (regions: StoreRegion[]) =>
       regions
         ?.map(r => r.countries?.map(c => c.iso_2))
@@ -35,10 +35,10 @@ export async function generateStaticParams() {
 
   const collectionHandles = collections.map((collection: StoreCollection) => collection.handle)
 
-  const staticParams = countryCodes
-    ?.map((countryCode: string) =>
+  const staticParams = regionCodes
+    ?.map((regionCode: string) =>
       collectionHandles.map((handle: string | undefined) => ({
-        region: countryCode,
+        region: regionCode,
         handle
       }))
     )

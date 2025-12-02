@@ -11,9 +11,8 @@ export const metadata: Metadata = {
 
 export default async function Addresses(props: { params: Promise<{ region: string }> }) {
   const params = await props.params
-  const { region: countryCode } = params
   const customer = await retrieveCustomer()
-  const region = await getRegion(countryCode)
+  const region = await getRegion(params.region)
 
   if (!customer || !region) {
     notFound()

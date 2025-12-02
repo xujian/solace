@@ -17,16 +17,16 @@ const AccountNav = ({
   customer: HttpTypes.StoreCustomer | null
 }) => {
   const route = usePathname()
-  const { region: countryCode } = useParams() as { region: string }
+  const { region } = useParams() as { region: string }
 
   const handleLogout = async () => {
-    await signout(countryCode)
+    await signout(region)
   }
 
   return (
     <div>
       <div className="small:hidden" data-testid="mobile-account-nav">
-        {route !== `/${countryCode}/account` ? (
+        {route !== `/${region}/account` ? (
           <LocalizedClientLink
             href="/account"
             className="flex items-center gap-x-2 text-small-regular py-2"
@@ -179,9 +179,9 @@ const AccountNavLink = ({
   children,
   "data-testid": dataTestId,
 }: AccountNavLinkProps) => {
-  const { region: countryCode }: { region: string } = useParams()
+  const { region }: { region: string } = useParams()
 
-  const active = route.split(countryCode)[1] === href
+  const active = route.split(region)[1] === href
   return (
     <LocalizedClientLink
       href={href}

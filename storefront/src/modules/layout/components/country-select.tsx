@@ -1,18 +1,12 @@
-"use client"
+'use client'
 
-import { useEffect, useMemo, useState } from "react"
-import ReactCountryFlag from "react-country-flag"
-
-import { StateType } from "@lib/hooks/use-toggle-state"
-import { useParams, usePathname } from "next/navigation"
-import { updateRegion } from "@lib/data/cart"
-import { HttpTypes } from "@medusajs/types"
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-} from "@lib/components/ui"
+import { useParams, usePathname } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
+import ReactCountryFlag from 'react-country-flag'
+import { HttpTypes } from '@medusajs/types'
+import { Select, SelectContent, SelectItem, SelectTrigger } from '@lib/components/ui'
+import { updateRegion } from '@lib/data/cart'
+import { StateType } from '@lib/hooks/use-toggle-state'
 
 type CountryOption = {
   country: string
@@ -27,39 +21,38 @@ type CountrySelectProps = {
 
 const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const [current, setCurrent] = useState<
-    | { country: string | undefined; region: string; label: string | undefined }
-    | undefined
+    { country: string | undefined; region: string; label: string | undefined } | undefined
   >(undefined)
 
-  const { region: countryCode } = useParams()
-  const currentPath = usePathname().split(`/${countryCode}`)[1]
+  const { region } = useParams()
+  const currentPath = usePathname().split(`/${region}`)[1]
 
   const { state, close } = toggleState
 
   const options = useMemo(() => {
     return regions
-      ?.map((r) => {
-        return r.countries?.map((c) => ({
+      ?.map(r => {
+        return r.countries?.map(c => ({
           country: c.iso_2,
           region: r.id,
-          label: c.display_name,
+          label: c.display_name
         }))
       })
       .flat()
-      .sort((a, b) => (a?.label ?? "").localeCompare(b?.label ?? ""))
+      .sort((a, b) => (a?.label ?? '').localeCompare(b?.label ?? ''))
   }, [regions])
 
   useEffect(() => {
-    if (countryCode) {
-      const option = options?.find((o) => o?.country === countryCode)
+    if (region) {
+      const option = options?.find(o => o?.region === region)
       setCurrent(option)
     }
-  }, [options, countryCode])
+  }, [options, region])
 
   const handleChange = (value: string) => {
-    const option = options?.find((o) => o?.country === value)
+    const option = options?.find(o => o?.country === value)
     if (option) {
-      updateRegion(option.country, currentPath || "/")
+      updateRegion(option.country, currentPath || '/')
       close()
     }
   }
@@ -67,14 +60,13 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   return (
     <div>
       <Select
-        value={(countryCode as string) || ""}
+        value={(region as string) || ''}
         onValueChange={handleChange}
         open={state}
-        onOpenChange={(open) => {
+        onOpenChange={open => {
           if (!open) close()
-        }}
-      >
-        <SelectTrigger className="py-1 w-full border-none shadow-none focus:ring-0 p-0 h-auto">
+        }}>
+        <SelectTrigger className="h-auto w-full border-none p-0 py-1 shadow-none focus:ring-0">
           <div className="txt-compact-small flex items-start gap-x-2">
             <span>Shipping to:</span>
             {current && (
@@ -83,34 +75,30 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
                 <ReactCountryFlag
                   svg
                   style={{
-                    width: "16px",
-                    height: "16px",
+                    width: '16px',
+                    height: '16px'
                   }}
-                  countryCode={current.country ?? ""}
+                  countryCode={current.country ?? ''}
                 />
                 {current.label}
               </span>
             )}
           </div>
         </SelectTrigger>
-        <SelectContent className="max-h-[442px] overflow-y-scroll z-[900] bg-white drop-shadow-md text-small-regular uppercase text-black no-scrollbar rounded-rounded w-full min-w-[320px]">
+        <SelectContent className="text-small-regular no-scrollbar rounded-rounded z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll bg-white text-black uppercase drop-shadow-md">
           {options?.map((o, index) => {
             return (
-              <SelectItem
-                key={index}
-                value={o?.country ?? ""}
-                className="py-2 hover:bg-gray-200 px-3 cursor-pointer"
-              >
+              <SelectItem key={index} value={o?.country ?? ''} className="cursor-pointer px-3 py-2 hover:bg-gray-200">
                 <div className="flex items-center gap-x-2">
                   {/* @ts-ignore */}
                   <ReactCountryFlag
                     svg
                     style={{
-                      width: "16px",
-                      height: "16px",
+                      width: '16px',
+                      height: '16px'
                     }}
-                    countryCode={o?.country ?? ""}
-                  />{" "}
+                    countryCode={o?.country ?? ''}
+                  />{' '}
                   {o?.label}
                 </div>
               </SelectItem>
