@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 import { getRegion } from '@lib/data/regions'
-import { SessionProvider } from '@modules/common/components/session-context'
+import { SessionProvider } from '@lib/context/session-context'
 
 export default async function CountryLayout({
   children,

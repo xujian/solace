@@ -6,7 +6,7 @@ import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@lib/c
 import { Input, Label } from '@lib/components/ui'
 import { addCustomerAddress } from '@lib/data/customer'
 import useToggleState from '@lib/hooks/use-toggle-state'
-import { useSession } from '@modules/common/components/session-context'
+import { useSession } from '@lib/context/session-context'
 import CountrySelect from '@modules/checkout/components/country-select'
 import { SubmitButton } from '@modules/checkout/components/submit-button'
 import { Plus } from 'lucide-react'

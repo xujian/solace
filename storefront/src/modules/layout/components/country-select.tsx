@@ -1,5 +1,5 @@
 'use client'
-import { useSession } from '@modules/common/components/session-context'
+import { useSession } from '@lib/context/session-context'
 import { useParams, usePathname } from 'next/navigation'
 import { useEffect, useMemo, useState } from 'react'
 import ReactCountryFlag from 'react-country-flag'

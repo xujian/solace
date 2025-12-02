@@ -9,7 +9,7 @@ import { ChevronDown } from 'lucide-react'
 import { User } from 'lucide-react'
 import { MapPin } from 'lucide-react'
 import { Package } from 'lucide-react'
-import { useSession } from '@modules/common/components/session-context'
+import { useSession } from '@lib/context/session-context'
 
 const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) => {
   const route = usePathname()

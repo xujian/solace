@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 import React from 'react'
-import { useSession } from './session-context'
+import { useSession } from '../../../lib/context/session-context'
 
 /**
  * Use this component to create a Next.js `<Link />` that persists the current country code in the url,
