@@ -25,7 +25,7 @@ export async function generateStaticParams() {
 
     const promises = regions.map(async region => {
       const { response } = await listProducts({
-        countryCode: region,
+        region,
         queryParams: { limit: 100, fields: 'handle' }
       })
 
@@ -108,7 +108,7 @@ export default async function ProductPage(props: Props) {
   }
 
   const pricedProduct = await listProducts({
-    countryCode: params.region,
+    region: params.region,
     queryParams: { handle: params.handle }
   }).then(({ response }) => response.products[0])
 
@@ -118,5 +118,5 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  return <ProductTemplate product={pricedProduct} region={region} countryCode={params.region} images={images} />
+  return <ProductTemplate product={pricedProduct} region={region} images={images} />
 }

@@ -18,7 +18,7 @@ export default async function Home(props: { params: Promise<{ region: string }> 
   const region = await getRegion(params.region)
 
   const products = await listProducts({
-    countryCode: params.region,
+    region: params.region,
     queryParams: {
       fields: 'id, handle, title, thumbnail'
     }
