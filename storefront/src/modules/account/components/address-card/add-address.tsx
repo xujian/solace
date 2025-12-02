@@ -1,20 +1,19 @@
-"use client"
+'use client'
 
-import { Plus } from "lucide-react"
-import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@lib/components/ui"
-import { useEffect, useState, useActionState } from "react"
-import { X } from "lucide-react"
-
-import useToggleState from "@lib/hooks/use-toggle-state"
-import CountrySelect from "@modules/checkout/components/country-select"
-import { Input, Label } from "@lib/components/ui"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
-import { HttpTypes } from "@medusajs/types"
-import { addCustomerAddress } from "@lib/data/customer"
+import { useEffect, useState, useActionState } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from '@lib/components/ui'
+import { Input, Label } from '@lib/components/ui'
+import { addCustomerAddress } from '@lib/data/customer'
+import useToggleState from '@lib/hooks/use-toggle-state'
+import CountrySelect from '@modules/checkout/components/country-select'
+import { SubmitButton } from '@modules/checkout/components/submit-button'
+import { Plus } from 'lucide-react'
+import { X } from 'lucide-react'
 
 const AddAddress = ({
   region,
-  addresses,
+  addresses
 }: {
   region: HttpTypes.StoreRegion
   addresses: HttpTypes.StoreCustomerAddress[]
@@ -25,7 +24,7 @@ const AddAddress = ({
   const [formState, formAction] = useActionState(addCustomerAddress, {
     isDefaultShipping: addresses.length === 0,
     success: false,
-    error: null,
+    error: null
   })
 
   const close = () => {
@@ -49,17 +48,16 @@ const AddAddress = ({
   return (
     <>
       <button
-        className="border border-ui-border-base rounded-rounded p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
+        className="border-ui-border-base rounded-rounded flex h-full min-h-[220px] w-full flex-col justify-between border p-5"
         onClick={open}
-        data-testid="add-address-button"
-      >
+        data-testid="add-address-button">
         <span className="text-base-semi">New address</span>
         <Plus />
       </button>
 
-      <Dialog open={state} onOpenChange={(open) => !open && close()}>
+      <Dialog open={state} onOpenChange={open => !open && close()}>
         <DialogContent className="max-w-3xl p-0" data-testid="add-address-modal">
-          <DialogHeader className="flex items-center justify-between flex-row p-6 pb-4">
+          <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4">
             <DialogTitle className="text-3xl-regular">Add address</DialogTitle>
             <button onClick={close} data-testid="close-modal-button">
               <X size={20} />
@@ -83,12 +81,7 @@ const AddAddress = ({
                   data-testid="last-name-input"
                 />
               </div>
-              <Input
-                label="Company"
-                name="company"
-                autoComplete="organization"
-                data-testid="company-input"
-              />
+              <Input label="Company" name="company" autoComplete="organization" data-testid="company-input" />
               <Input
                 label="Address"
                 name="address_1"
@@ -110,20 +103,9 @@ const AddAddress = ({
                   autoComplete="postal-code"
                   data-testid="postal-code-input"
                 />
-                <Input
-                  label="City"
-                  name="city"
-                  required
-                  autoComplete="locality"
-                  data-testid="city-input"
-                />
+                <Input label="City" name="city" required autoComplete="locality" data-testid="city-input" />
               </div>
-              <Input
-                label="Province / State"
-                name="province"
-                autoComplete="address-level1"
-                data-testid="state-input"
-              />
+              <Input label="Province / State" name="province" autoComplete="address-level1" data-testid="state-input" />
               <CountrySelect
                 region={region}
                 name="country_code"
@@ -131,29 +113,15 @@ const AddAddress = ({
                 autoComplete="country"
                 data-testid="country-select"
               />
-              <Input
-                label="Phone"
-                name="phone"
-                autoComplete="phone"
-                data-testid="phone-input"
-              />
+              <Input label="Phone" name="phone" autoComplete="phone" data-testid="phone-input" />
             </div>
             {formState.error && (
-              <div
-                className="text-rose-500 text-small-regular py-2"
-                data-testid="address-error"
-              >
+              <div className="text-small-regular py-2 text-rose-500" data-testid="address-error">
                 {formState.error}
               </div>
             )}
-            <div className="flex gap-3 mt-6">
-              <Button
-                type="reset"
-                variant="secondary"
-                onClick={close}
-                className="h-10"
-                data-testid="cancel-button"
-              >
+            <div className="mt-6 flex gap-3">
+              <Button type="reset" variant="secondary" onClick={close} className="h-10" data-testid="cancel-button">
                 Cancel
               </Button>
               <SubmitButton data-testid="save-button">Save</SubmitButton>
