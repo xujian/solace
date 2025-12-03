@@ -9,7 +9,7 @@ export default function ProductCard({ data }: { data: HttpTypes.StoreProduct }) 
       <CardContent className="px-0">
         <Link href={`/products/${data.handle}`}>
           <Image src={data.thumbnail!} alt={data.title} width={200} height={200}
-            className="aspect-square bg-cover rounded-md w-full h-full" />
+            className="aspect-square object-cover rounded-md w-full h-full" />
           <CardTitle className="mt">{data.title}</CardTitle>
         </Link>
       </CardContent>
