@@ -62,7 +62,7 @@ async function getRegionMap(cacheId: string) {
  * @param request
  * @param response
  */
-async function getRegionCode(request: NextRequest, regionMap: Map<string, HttpTypes.StoreRegion | number>) {
+async function getCountryCode(request: NextRequest, regionMap: Map<string, HttpTypes.StoreRegion | number>) {
   try {
     let countryCode
 
@@ -104,7 +104,7 @@ export async function middleware(request: NextRequest) {
 
   const regionMap = await getRegionMap(cacheId)
 
-  const countryCode = regionMap && (await getRegionCode(request, regionMap))
+  const countryCode = regionMap && (await getCountryCode(request, regionMap))
 
   const urlHasCountryCode = countryCode && request.nextUrl.pathname.split('/')[1].includes(countryCode)
 
