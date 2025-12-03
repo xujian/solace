@@ -19,15 +19,13 @@ export default async function PaginatedProducts({
   page,
   collectionId,
   categoryId,
-  productsIds,
-  region
+  productsIds
 }: {
   sortBy?: SortOptions
   page: number
   collectionId?: string
   categoryId?: string
   productsIds?: string[]
-  region: string
 }) {
   const queryParams: PaginatedProductsParams = {
     limit: 12
@@ -54,8 +52,7 @@ export default async function PaginatedProducts({
   } = await listProductsWithSort({
     page,
     queryParams,
-    sortBy,
-    region
+    sortBy
   })
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)

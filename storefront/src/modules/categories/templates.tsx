@@ -11,18 +11,16 @@ import PaginatedProducts from '@modules/store/templates/paginated-products'
 export default function CategoryTemplate({
   category,
   sortBy,
-  page,
-  region
+  page
 }: {
   category: HttpTypes.StoreProductCategory
   sortBy?: SortOptions
   page?: string
-  region: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || 'created_at'
 
-  if (!category || !region) notFound()
+  if (!category) notFound()
 
   const parents = [] as HttpTypes.StoreProductCategory[]
 
@@ -73,7 +71,7 @@ export default function CategoryTemplate({
           </div>
         )}
         <Suspense fallback={<SkeletonProductGrid numberOfProducts={category.products?.length ?? 8} />}>
-          <PaginatedProducts sortBy={sort} page={pageNumber} categoryId={category.id} region={region} />
+          <PaginatedProducts sortBy={sort} page={pageNumber} categoryId={category.id} />
         </Suspense>
       </div>
     </div>

@@ -1,6 +1,6 @@
 'use server'
 
-import { HttpTypes } from '@medusajs/types'
+import { HttpTypes, StoreRegion } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
 import { sdk } from '@lib/config'
 import { getCacheOptions } from './cookies'
@@ -37,16 +37,17 @@ export const retrieveRegion = async (id: string) => {
 
 const regionMap = new Map<string, HttpTypes.StoreRegion>()
 
-export const getRegion = async (code: string) => {
+export const getRegion = async (code: string): Promise<HttpTypes.StoreRegion> => {
+  const us = regionMap.get('us')!
   try {
     if (regionMap.has(code)) {
-      return regionMap.get(code)
+      return regionMap.get(code) || us
     }
 
     const regions = await listRegions()
 
     if (!regions) {
-      return null
+      return us
     }
 
     regions.forEach(region => {
@@ -57,8 +58,17 @@ export const getRegion = async (code: string) => {
 
     const region = code ? regionMap.get(code) : regionMap.get('us')
 
-    return region
+    return region || us
   } catch (e: any) {
-    return null
+    return us
   }
+}
+
+export const listCountries = async () => {
+  return listRegions()
+    .then(regions => 
+      regions.map(region => region.countries?.map(c => c.iso_2))
+      .flat()
+      .filter(Boolean) as string[]
+    )
 }

@@ -12,11 +12,10 @@ import ProductActionsWrapper from './product-actions-wrapper'
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
-  region: HttpTypes.StoreRegion
   images: HttpTypes.StoreProductImage[]
 }
 
-const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, region, images }) => {
+const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, images }) => {
   if (!product || !product.id) {
     return notFound()
   }
@@ -35,14 +34,14 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, region, imag
         </div>
         <div className="small:sticky small:top-48 small:py-0 small:max-w-[300px] flex w-full flex-col gap-y-12 py-8">
           <ProductOnboardingCta />
-          <Suspense fallback={<ProductActions disabled={true} product={product} region={region} />}>
-            <ProductActionsWrapper id={product.id} region={region} />
+          <Suspense fallback={<ProductActions disabled={true} product={product} />}>
+            <ProductActionsWrapper id={product.id} />
           </Suspense>
         </div>
       </div>
       <div className="content-container small:my-32 my-16" data-testid="related-products-container">
         <Suspense fallback={<SkeletonRelatedProducts />}>
-          <RelatedProducts product={product} region={region} />
+          <RelatedProducts product={product} />
         </Suspense>
       </div>
     </>

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { HttpTypes } from '@medusajs/types'
 import { listProducts } from '@lib/data/products'
-import { getRegion, listRegions } from '@lib/data/regions'
+import { listCountries } from '@lib/data/regions'
 import ProductTemplate from '@modules/products/templates'
 
 type Props = {
@@ -12,35 +12,30 @@ type Props = {
 
 export async function generateStaticParams() {
   try {
-    const regions = await listRegions().then(regions =>
-      regions
-        ?.map(r => r.countries?.map(c => c.iso_2))
-        .flat()
-        .filter(Boolean) as string[]
-    )
+    const countries = await listCountries()
 
-    if (!regions) {
+    if (!countries) {
       return []
     }
 
-    const promises = regions.map(async region => {
-      const { response } = await listProducts({
-        region,
-        queryParams: { limit: 100, fields: 'handle' }
+    const countryProducts = await Promise.all(
+      countries.map(async country => {
+        const { response } = await listProducts({
+          country,
+          queryParams: { limit: 100, fields: 'handle' }
+        })
+
+        return {
+          country,
+          products: response.products
+        }
       })
-
-      return {
-        region,
-        products: response.products
-      }
-    })
-
-    const countryProducts = await Promise.all(promises)
+    )
 
     return countryProducts
-      .flatMap(countryData =>
-        countryData.products.map(product => ({
-          country: countryData.region,
+      .flatMap(c =>
+        c.products.map(product => ({
+          country: c.country,
           handle: product.handle
         }))
       )
@@ -68,16 +63,9 @@ function getImagesForVariant(product: HttpTypes.StoreProduct, selectedVariantId?
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  const params = await props.params
-  const { handle } = params
-  const region = await getRegion(params.country)
-
-  if (!region) {
-    notFound()
-  }
+  const { handle } = await props.params
 
   const product = await listProducts({
-    region: params.country,
     queryParams: { handle }
   }).then(({ response }) => response.products[0])
 
@@ -97,19 +85,13 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function ProductPage(props: Props) {
-  const params = await props.params
-  const region = await getRegion(params.country)
+  const { handle } = await props.params
   const searchParams = await props.searchParams
 
   const selectedVariantId = searchParams.v_id
 
-  if (!region) {
-    notFound()
-  }
-
   const pricedProduct = await listProducts({
-    region: params.country,
-    queryParams: { handle: params.handle }
+    queryParams: { handle }
   }).then(({ response }) => response.products[0])
 
   const images = getImagesForVariant(pricedProduct, selectedVariantId)
@@ -118,5 +100,5 @@ export default async function ProductPage(props: Props) {
     notFound()
   }
 
-  return <ProductTemplate product={pricedProduct} region={region} images={images} />
+  return <ProductTemplate product={pricedProduct} images={images} />
 }

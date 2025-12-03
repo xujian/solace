@@ -1,8 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { StoreRegion } from '@medusajs/types'
 import { getCategoryByHandle, listCategories } from '@lib/data/categories'
-import { listRegions } from '@lib/data/regions'
+import { listCountries } from '@lib/data/regions'
 import CategoryTemplate from '@modules/categories/templates'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 
@@ -21,18 +20,16 @@ export async function generateStaticParams() {
     return []
   }
 
-  const regionCodes = await listRegions().then((regions: StoreRegion[]) =>
-    regions?.map(r => r.countries?.map(c => c.iso_2)).flat()
-  )
+  const countries = await listCountries()
 
   const categoryHandles = product_categories.map((category: any) => category.handle)
 
-  const staticParams = regionCodes
-    ?.map((regionCode: string | undefined) =>
+  const staticParams = countries
+    ?.map((country: string) =>
       categoryHandles.map((handle: any) => ({
-        country: regionCode,
+        country,
         category: [handle]
-      }))
+      })) 
     )
     .flat()
 
@@ -71,5 +68,5 @@ export default async function CategoryPage(props: Props) {
     notFound()
   }
 
-  return <CategoryTemplate category={productCategory} sortBy={sortBy} page={page} region={params.country} />
+  return <CategoryTemplate category={productCategory} page={page} sortBy={sortBy} />
 }

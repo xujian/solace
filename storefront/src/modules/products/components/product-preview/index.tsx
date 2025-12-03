@@ -1,5 +1,4 @@
 import { HttpTypes } from '@medusajs/types'
-import { listProducts } from '@lib/data/products'
 import { getProductPrice } from '@lib/util/get-product-price'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import Thumbnail from '../thumbnail'
@@ -12,7 +11,6 @@ export default async function ProductPreview({
   product: HttpTypes.StoreProduct
   isFeatured?: boolean
 }) {
-
   const { cheapestPrice } = getProductPrice({
     product
   })

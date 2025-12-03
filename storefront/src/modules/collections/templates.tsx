@@ -10,12 +10,10 @@ export default function CollectionTemplate({
   sortBy,
   collection,
   page,
-  region,
 }: {
   sortBy?: SortOptions
   collection: HttpTypes.StoreCollection
   page?: string
-  region: string
 }) {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || "created_at"
@@ -38,7 +36,6 @@ export default function CollectionTemplate({
             sortBy={sort}
             page={pageNumber}
             collectionId={collection.id}
-            region={region}
           />
         </Suspense>
       </div>

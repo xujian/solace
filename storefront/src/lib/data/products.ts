@@ -5,35 +5,29 @@ import { sortProducts } from '@lib/util/sort-products'
 import { sdk } from '@lib/config'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 import { getAuthHeaders, getCacheOptions } from './cookies'
-import { getRegion } from './regions'
+import { getRegion, retrieveRegion } from './regions'
+import { getCurrentCountry } from './server-context'
 
 export const listProducts = async ({
   pageParam = 1,
   queryParams,
-  region,
+  country
 }: {
   pageParam?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductListParams
-  region: string | HttpTypes.StoreRegion
+  country?: string
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductListParams
 }> => {
-  if (!region) {
-    throw new Error('Country code or region ID is required')
-  }
-
   const limit = queryParams?.limit || 12
   const _pageParam = Math.max(pageParam, 1)
   const offset = _pageParam === 1 ? 0 : (_pageParam - 1) * limit
 
-  let r: HttpTypes.StoreRegion | null | undefined = region as HttpTypes.StoreRegion
-  if (typeof region === 'string') {
-    r = await getRegion(region)
-  }
+  const region = await getRegion(country || await getCurrentCountry())
 
-  if (!r) {
+  if (!region) {
     return {
       response: { products: [], count: 0 },
       nextPage: null
@@ -54,7 +48,7 @@ export const listProducts = async ({
       query: {
         limit,
         offset,
-        region_id: r.id,
+        region_id: region.id,
         fields: '*variants.calculated_price,+variants.inventory_quantity,*variants.images,+metadata,+tags,',
         ...queryParams
       },
@@ -83,13 +77,11 @@ export const listProducts = async ({
 export const listProductsWithSort = async ({
   page = 0,
   queryParams,
-  sortBy = 'created_at',
-  region
+  sortBy = 'created_at'
 }: {
   page?: number
   queryParams?: HttpTypes.FindParams & HttpTypes.StoreProductParams
   sortBy?: SortOptions
-  region: string | HttpTypes.StoreRegion
 }): Promise<{
   response: { products: HttpTypes.StoreProduct[]; count: number }
   nextPage: number | null
@@ -104,8 +96,7 @@ export const listProductsWithSort = async ({
     queryParams: {
       ...queryParams,
       limit: 100
-    },
-    region
+    }
   })
 
   const sortedProducts = sortProducts(products, sortBy)

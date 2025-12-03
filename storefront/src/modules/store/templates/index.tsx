@@ -4,7 +4,7 @@ import RefinementList from '@modules/store/components/refinement-list'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 import PaginatedProducts from './paginated-products'
 
-const StoreTemplate = ({ sortBy, page, region }: { sortBy?: SortOptions; page?: string; region: string }) => {
+const StoreTemplate = ({ sortBy, page }: { sortBy?: SortOptions; page?: string }) => {
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || 'created_at'
 
@@ -18,7 +18,7 @@ const StoreTemplate = ({ sortBy, page, region }: { sortBy?: SortOptions; page?: 
           <h1 data-testid="store-page-title">All products</h1>
         </div>
         <Suspense fallback={<SkeletonProductGrid />}>
-          <PaginatedProducts sortBy={sort} page={pageNumber} region={region} />
+          <PaginatedProducts sortBy={sort} page={pageNumber} />
         </Suspense>
       </div>
     </div>
