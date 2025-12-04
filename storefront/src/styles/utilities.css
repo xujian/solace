@@ -1,4 +1,4 @@
-@layer base {
+@layer utilities {
   h2 {
     @apply text-2xl font-bold leading-16;
   }
@@ -10,6 +10,9 @@
   }
   .mt {
     @apply mt-4;
+  }
+  .rounded {
+    @apply rounded-md;
   }
 }
 
