@@ -1,5 +1,5 @@
-import { HttpTypes } from "@medusajs/types"
-import Image from "next/image"
+import Image from 'next/image'
+import { HttpTypes } from '@medusajs/types'
 
 type ImageGalleryProps = {
   images: HttpTypes.StoreProductImage[]
@@ -7,32 +7,27 @@ type ImageGalleryProps = {
 
 const ImageGallery = ({ images }: ImageGalleryProps) => {
   return (
-    <div className="flex items-start relative">
-      <div className="flex flex-col flex-1 small:mx-16 gap-y-4">
-        {images.map((image, index) => {
-          return (
-            <div
-              key={image.id}
-              className="relative aspect-29/34 w-full overflow-hidden bg-ui-bg-subtle border border-ui-border-base rounded-rounded"
-              id={image.id}
-            >
-              {!!image.url && (
-                <Image
-                  src={image.url}
-                  priority={index <= 2 ? true : false}
-                  className="absolute inset-0 rounded-rounded"
-                  alt={`Product image ${index + 1}`}
-                  fill
-                  sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              )}
-            </div>
-          )
-        })}
-      </div>
+    <div className="flex flex-col items-start gap">
+      {images.map((image, index) => {
+        return (
+          <div
+            key={image.id}
+            className="aspect-29/34 w-full overflow-hidden"
+            id={image.id}>
+            {!!image.url && (
+              <Image
+                src={image.url}
+                priority={index <= 2 ? true : false}
+                className="w-full h-full rounded object-cover"
+                alt={`Product image ${index + 1}`}
+                sizes="(max-width: 576px) 280px, (max-width: 768px) 360px, (max-width: 992px) 480px, 800px"
+                width={100}
+                height={100}
+              />
+            )}
+          </div>
+        )
+      })}
     </div>
   )
 }

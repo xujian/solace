@@ -1,8 +1,6 @@
 import { HttpTypes } from '@medusajs/types'
 import { listProducts } from '@lib/data/products'
-import { getRegion } from '@lib/data/regions'
-import Product from './product-preview'
-import { getCurrentRegion } from '@lib/data/server-context'
+import ProductCard from '@modules/products/components/product-card'
 
 type RelatedProductsProps = {
   product: HttpTypes.StoreProduct
@@ -37,10 +35,10 @@ export default async function RelatedProducts({ product }: RelatedProductsProps)
         <p className="text-2xl-regular text-ui-fg-base max-w-lg">You might also want to check out these products.</p>
       </div>
 
-      <ul className="small:grid-cols-3 medium:grid-cols-4 grid grid-cols-2 gap-x-6 gap-y-8">
+      <ul className="sm:grid-cols-3 md:grid-cols-4 grid grid-cols-2 gap-x-6 gap-y-8">
         {products.map(product => (
           <li key={product.id}>
-            <Product product={product} />
+            <ProductCard data={product} />
           </li>
         ))}
       </ul>

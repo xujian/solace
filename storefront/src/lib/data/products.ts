@@ -6,7 +6,15 @@ import { sdk } from '@lib/config'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 import { getAuthHeaders, getCacheOptions } from './cookies'
 import { getRegion, retrieveRegion } from './regions'
-import { getCurrentCountry } from './server-context'
+import { getCurrentCountry, getCurrentRegion } from './server-context'
+
+const fields = [
+  '*variants.calculated_price', 
+  '+variants.inventory_quantity', 
+  '*variants.images', '+metadata', 
+  '+tags',
+  '*categories'
+].join(',')
 
 export const listProducts = async ({
   pageParam = 1,
@@ -49,7 +57,7 @@ export const listProducts = async ({
         limit,
         offset,
         region_id: region.id,
-        fields: '*variants.calculated_price,+variants.inventory_quantity,*variants.images,+metadata,+tags,',
+        fields,
         ...queryParams
       },
       headers,
@@ -115,4 +123,41 @@ export const listProductsWithSort = async ({
     nextPage,
     queryParams
   }
+}
+
+export const retrieveProductByHandle = async (handle: string): Promise<HttpTypes.StoreProduct | null> => {
+  const region = await getCurrentRegion()
+
+  if (!region) {
+    return null
+  }
+
+  const headers = {
+    ...(await getAuthHeaders())
+  }
+
+  return sdk.store.product.list({
+    handle,
+    fields,
+    region_id: region.id
+  }).then(({ products }) => products[0])
+  .catch(() => null)
+}
+
+export const retrieveProduct = async (id: string): Promise<HttpTypes.StoreProduct | null> => {
+  const region = await getCurrentRegion()
+
+  if (!region) {
+    return null
+  }
+
+  const headers = {
+    ...(await getAuthHeaders())
+  }
+
+  return sdk.store.product.retrieve(id, {
+    fields,
+    region_id: region.id
+  }).then(({ product }) => product)
+  .catch(() => null)  
 }

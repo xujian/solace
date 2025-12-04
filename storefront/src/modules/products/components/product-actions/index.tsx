@@ -6,7 +6,6 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { isEqual } from 'lodash'
 import { HttpTypes } from '@medusajs/types'
 import { Button } from '@lib/components/ui'
-import { Separator } from '@lib/components/ui'
 import { addToCart } from '@lib/data/cart'
 import { useIntersection } from '@lib/hooks/use-in-view'
 import { useSession } from '@lib/context/session-context'
@@ -45,7 +44,7 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
 
   const selectedVariant = useMemo(() => {
     if (!product.variants || product.variants.length === 0) {
-      return
+      return undefined
     }
 
     return product.variants.find(v => {
@@ -128,57 +127,53 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
   }
 
   return (
-    <>
-      <div className="flex flex-col gap-y-2" ref={actionsRef}>
-        <div>
-          {(product.variants?.length ?? 0) > 1 && (
-            <div className="flex flex-col gap-y-4">
-              {(product.options || []).map(option => {
-                return (
-                  <div key={option.id}>
-                    <OptionSelect
-                      option={option}
-                      current={options[option.id]}
-                      updateOption={setOptionValue}
-                      title={option.title ?? ''}
-                      data-testid="product-options"
-                      disabled={!!disabled || isAdding}
-                    />
-                  </div>
-                )
-              })}
-              <Separator />
-            </div>
-          )}
-        </div>
-
-        <ProductPrice product={product} variant={selectedVariant} />
-
-        <Button
-          onClick={handleAddToCart}
-          disabled={!inStock || !selectedVariant || !!disabled || isAdding || !isValidVariant}
-          variant="default"
-          className="h-10 w-full"
-          isLoading={isAdding}
-          data-testid="add-product-button">
-          {!selectedVariant && !options
-            ? 'Select variant'
-            : !inStock || !isValidVariant
-              ? 'Out of stock'
-              : 'Add to cart'}
-        </Button>
-        <MobileActions
-          product={product}
-          variant={selectedVariant}
-          options={options}
-          updateOptions={setOptionValue}
-          inStock={inStock}
-          handleAddToCart={handleAddToCart}
-          isAdding={isAdding}
-          show={!inView}
-          optionsDisabled={!!disabled || isAdding}
-        />
+    <div className="flex flex-col gap-y-2" ref={actionsRef}>
+      <div>
+        {(product.variants?.length ?? 0) > 0 && (
+          <div className="flex flex-col gap-y-4">
+            {(product.options || []).map(option => {
+              return (
+                <div key={option.id}>
+                  <OptionSelect
+                    option={option}
+                    current={options[option.id]}
+                    updateOption={setOptionValue}
+                    title={option.title ?? ''}
+                    data-testid="product-options"
+                    disabled={!!disabled || isAdding}
+                  />
+                </div>
+              )
+            })}
+          </div>
+        )}
       </div>
-    </>
+      <ProductPrice product={product} variant={selectedVariant} />
+      <Button
+        onClick={handleAddToCart}
+        disabled={!inStock || !selectedVariant || !!disabled || isAdding || !isValidVariant}
+        variant="outline"
+        className="bg-positive h-10 w-full"
+        isLoading={isAdding}
+        data-testid="add-product-button">
+        {!selectedVariant && !options
+          ? 'Select variant'
+          : !inStock || !isValidVariant
+            ? 'Out of stock'
+            : 'Add to cart'}
+      </Button>
+      <p>&nbsp;</p>
+      <MobileActions
+        product={product}
+        variant={selectedVariant}
+        options={options}
+        updateOptions={setOptionValue}
+        inStock={inStock}
+        handleAddToCart={handleAddToCart}
+        isAdding={isAdding}
+        show={!inView}
+        optionsDisabled={!!disabled || isAdding}
+      />
+    </div>
   )
 }

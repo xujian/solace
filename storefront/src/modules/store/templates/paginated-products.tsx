@@ -1,6 +1,6 @@
 import { listProductsWithSort } from '@lib/data/products'
 
-import ProductPreview from '@modules/products/components/product-preview'
+import ProductCard from '@modules/products/components/product-card'
 import { Pagination } from '@modules/store/components/pagination'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 
@@ -65,7 +65,7 @@ export default async function PaginatedProducts({
         {products.map(p => {
           return (
             <li key={p.id}>
-              <ProductPreview product={p} />
+              <ProductCard data={p} />
             </li>
           )
         })}

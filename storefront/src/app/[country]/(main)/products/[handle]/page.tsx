@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { HttpTypes } from '@medusajs/types'
-import { listProducts } from '@lib/data/products'
+import { listProducts, retrieveProductByHandle } from '@lib/data/products'
 import { listCountries } from '@lib/data/regions'
 import ProductTemplate from '@modules/products/templates'
 
@@ -90,15 +90,15 @@ export default async function ProductPage(props: Props) {
 
   const selectedVariantId = searchParams.v_id
 
-  const pricedProduct = await listProducts({
-    queryParams: { handle }
-  }).then(({ response }) => response.products[0])
+  const product = await retrieveProductByHandle(handle)
 
-  const images = getImagesForVariant(pricedProduct, selectedVariantId)
+  const images = product ? 
+    getImagesForVariant(product, selectedVariantId) || [] 
+    : []
 
-  if (!pricedProduct) {
+  if (!product) {
     notFound()
   }
 
-  return <ProductTemplate product={pricedProduct} images={images} />
+  return <ProductTemplate product={product} images={images} />
 }
