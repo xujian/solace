@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { StoreCollection, StoreRegion } from '@medusajs/types'
+import { StoreCollection } from '@medusajs/types'
 import { getCollectionByHandle, listCollections } from '@lib/data/collections'
 import { listCountries } from '@lib/data/regions'
 import CollectionTemplate from '@modules/collections/templates'
@@ -27,7 +27,9 @@ export async function generateStaticParams() {
 
   const countries = await listCountries()
 
-  const collectionHandles = collections.map((collection: StoreCollection) => collection.handle)
+  const collectionHandles = collections.map(
+    (collection: StoreCollection) => collection.handle
+  )
 
   const staticParams = countries
     ?.map((country: string) =>
@@ -62,11 +64,15 @@ export default async function CollectionPage(props: Props) {
   const params = await props.params
   const { sortBy, page } = searchParams
 
-  const collection = await getCollectionByHandle(params.handle).then((collection: StoreCollection) => collection)
+  const collection = await getCollectionByHandle(params.handle).then(
+    (collection: StoreCollection) => collection
+  )
 
   if (!collection) {
     notFound()
   }
 
-  return <CollectionTemplate collection={collection} page={page} sortBy={sortBy} />
+  return (
+    <CollectionTemplate collection={collection} page={page} sortBy={sortBy} />
+  )
 }

@@ -1,6 +1,7 @@
 import { Collection } from 'types/cms'
 import { cn } from '@lib/util/cn'
 import Image from '@modules/common/components/cms/image'
+import Link from 'next/link'
 
 export interface CollectionsProps {
   data: Collection[]
@@ -17,19 +18,22 @@ export default function CollectionsGrid({ data: collections }: CollectionsProps)
           'lg:max-h-[640px]'
         ])}>
         {collections.map((collection, index) => (
-          <div
-            key={index}
-            className={cn([
-              'relative',
-              {
-                'sm:col-start-2 sm:row-start-1 sm:row-end-3': index === 2
-              }
-            ])}>
-            <Image className='h-full w-full object-cover rounded-md' src={collection.image.url} alt={collection.title} />
-            <div className="absolute bottom-4 left-4">
-              <h2>{collection.title}</h2>
+            <div
+              key={index}
+              className={cn([
+                'relative',
+                {
+                  'sm:col-start-2 sm:row-start-1 sm:row-end-3': index === 2
+                }
+              ])}>
+              
+              <Link href={`/collections/${collection.handle}`}>
+                <Image className='h-full w-full object-cover rounded-md' src={collection.image.url} alt={collection.title} />
+              </Link>
+              <div className="absolute bottom-4 left-4">
+                <h2>{collection.title}</h2>
+              </div>
             </div>
-          </div>
         ))}
       </div>
     </section>

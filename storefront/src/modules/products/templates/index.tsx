@@ -8,10 +8,10 @@ import ProductTabs from '@modules/products/components/product-details'
 import RelatedProducts from '@modules/products/components/related-products'
 import SkeletonRelatedProducts from '@modules/skeletons/templates/skeleton-related-products'
 import ProductActionsWrapper from './product-actions-wrapper'
-import ProductBreadcrumb from './product-breadcrumb'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import { Badge } from '@lib/components/ui'
 import ProductDetails from '@modules/products/components/product-details'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@lib/components/ui/breadcrumb'
 
 type ProductTemplateProps = {
   product: HttpTypes.StoreProduct
@@ -27,7 +27,25 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, images }) =>
 
   return (
     <div className="product-view flex flex-col gap-6">
-      <ProductBreadcrumb product={product} />
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href={`/categories/${product.categories?.[0].handle}`}>{product.categories?.[0].name}</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>{product.title}</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>   
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ImageGallery images={images} />
         <div className="attributes flex-col gap-6" data-testid="product-container">

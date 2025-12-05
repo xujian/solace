@@ -10,10 +10,13 @@ export const retrieveCollection = async (id: string) => {
   }
 
   return sdk.client
-    .fetch<{ collection: HttpTypes.StoreCollection }>(`/store/collections/${id}`, {
-      next,
-      cache: 'force-cache'
-    })
+    .fetch<{ collection: HttpTypes.StoreCollection }>(
+      `/store/collections/${id}`,
+      {
+        next,
+        cache: 'force-cache'
+      }
+    )
     .then(({ collection }) => collection)
 }
 
@@ -28,15 +31,20 @@ export const listCollections = async (
   queryParams.offset = queryParams.offset || '0'
 
   return sdk.client
-    .fetch<{ collections: HttpTypes.StoreCollection[]; count: number }>('/store/collections', {
-      query: queryParams,
-      next,
-      cache: 'force-cache'
-    })
+    .fetch<{ collections: HttpTypes.StoreCollection[]; count: number }>(
+      '/store/collections',
+      {
+        query: queryParams,
+        next,
+        cache: 'force-cache'
+      }
+    )
     .then(({ collections }) => ({ collections, count: collections.length }))
 }
 
-export const getCollectionByHandle = async (handle: string): Promise<HttpTypes.StoreCollection> => {
+export const getCollectionByHandle = async (
+  handle: string
+): Promise<HttpTypes.StoreCollection> => {
   const next = {
     ...(await getCacheOptions('collections'))
   }
