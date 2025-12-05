@@ -12,9 +12,11 @@ import { useSession } from '@lib/context/session-context'
 import OptionSelect from '@modules/products/components/product-actions/option-select'
 import ProductPrice from '../product-price'
 import MobileActions from './mobile-actions'
+import { VariantColor } from 'types/cms'
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
+  colors: VariantColor[]
   disabled?: boolean
 }
 
@@ -25,7 +27,7 @@ const optionsAsKeymap = (variantOptions: HttpTypes.StoreProductVariant['options'
   }, {})
 }
 
-export default function ProductActions({ product, disabled }: ProductActionsProps) {
+export default function ProductActions({ product, colors, disabled }: ProductActionsProps) {
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
@@ -36,7 +38,7 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
 
   // If there is only 1 variant, preselect the options
   useEffect(() => {
-    if (product.variants?.length === 1) {
+    if (product.variants?.length) {
       const variantOptions = optionsAsKeymap(product.variants[0].options)
       setOptions(variantOptions ?? {})
     }
@@ -133,16 +135,16 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
           <div className="flex flex-col gap-y-4">
             {(product.options || []).map(option => {
               return (
-                <div key={option.id}>
-                  <OptionSelect
-                    option={option}
-                    current={options[option.id]}
-                    updateOption={setOptionValue}
-                    title={option.title ?? ''}
-                    data-testid="product-options"
-                    disabled={!!disabled || isAdding}
-                  />
-                </div>
+                <OptionSelect
+                  key={option.id}
+                  option={option}
+                  colors={colors}
+                  current={options[option.id]}
+                  updateOption={setOptionValue}
+                  title={option.title ?? ''}
+                  data-testid="product-options"
+                  disabled={!!disabled || isAdding}
+                />
               )
             })}
           </div>
@@ -165,6 +167,7 @@ export default function ProductActions({ product, disabled }: ProductActionsProp
       <p>&nbsp;</p>
       <MobileActions
         product={product}
+        colors={colors}
         variant={selectedVariant}
         options={options}
         updateOptions={setOptionValue}

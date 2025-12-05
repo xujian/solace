@@ -7,11 +7,13 @@ import { isSimpleProduct } from '@lib/util/product'
 import { cn } from '@lib/util'
 import OptionSelect from './option-select'
 import { ChevronDown, X } from 'lucide-react'
+import { VariantColor } from 'types/cms'
 
 type MobileActionsProps = {
   product: HttpTypes.StoreProduct
   variant?: HttpTypes.StoreProductVariant
   options: Record<string, string | undefined>
+  colors: VariantColor[]
   updateOptions: (title: string, value: string) => void
   inStock?: boolean
   handleAddToCart: () => void
@@ -24,6 +26,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
   product,
   variant,
   options,
+  colors,
   updateOptions,
   inStock,
   handleAddToCart,
@@ -128,6 +131,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({
                     <div key={option.id}>
                       <OptionSelect
                         option={option}
+                        colors={colors}
                         current={options[option.id]}
                         updateOption={updateOptions}
                         title={option.title ?? ''}

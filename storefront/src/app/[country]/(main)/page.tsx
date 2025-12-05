@@ -30,7 +30,7 @@ export default async function Home(props: { params: Promise<{}> }) {
     {
       data: { marketing }
     },
-    { data: collections }
+    collections
   ] = await Promise.all([getHero(), getMarketing(), getCollections()])
 
   return (

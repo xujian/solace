@@ -59,7 +59,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, images }) =>
           <h1 data-testid="product-title">
             {product.title}
           </h1>
-          <Suspense fallback={<ProductActions disabled={true} product={product} />}>
+          <Suspense fallback={<ProductActions disabled={true} product={product} colors={[]} />}>
             <ProductActionsWrapper id={product.id} />
           </Suspense>
           <p className="text-medium text-ui-fg-subtle whitespace-pre-line" data-testid="product-description">

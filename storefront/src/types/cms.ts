@@ -78,17 +78,8 @@ export type Collection = {
 export type VariantColor = {
   id: number
   name: string
-  type: {
-    color?: string
-    image?: {
-      url: string
-      alternativeText?: string
-    }
-  }
-}
-
-export type VariantColorData = {
-  data: VariantColor[]
+  type: 'hex' | 'image'
+  value: string
 }
 
 export type ContentAttributes = {
