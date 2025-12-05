@@ -23,6 +23,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
+    dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
         protocol: "http",
