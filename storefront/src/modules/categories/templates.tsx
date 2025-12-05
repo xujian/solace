@@ -1,6 +1,13 @@
 import { notFound } from 'next/navigation'
 import { Suspense } from 'react'
 import { HttpTypes } from '@medusajs/types'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbSeparator
+} from '@lib/components/ui/breadcrumb'
 import InteractiveLink from '@modules/common/components/interactive-link'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
@@ -34,9 +41,25 @@ export default function CategoryTemplate({
   getParents(category)
 
   return (
-    <div
-      className="small:flex-row small:items-start content-container flex flex-col py-6"
-      data-testid="category-container">
+    <div className="category-view flex flex-col gap-4" data-testid="category-container">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/">Home</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="/collections">Collections</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href={`/collections/${category.handle}`}>
+              {category.name}
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <h1>{category.name}</h1>
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
       <div className="w-full">
         <div className="text-2xl-semi mb-8 flex flex-row gap-4">
@@ -52,7 +75,6 @@ export default function CategoryTemplate({
                 /
               </span>
             ))}
-          <h1 data-testid="category-page-title">{category.name}</h1>
         </div>
         {category.description && (
           <div className="text-base-regular mb-8">
@@ -64,14 +86,25 @@ export default function CategoryTemplate({
             <ul className="grid grid-cols-1 gap-2">
               {category.category_children?.map(c => (
                 <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>{c.name}</InteractiveLink>
+                  <InteractiveLink href={`/categories/${c.handle}`}>
+                    {c.name}
+                  </InteractiveLink>
                 </li>
               ))}
             </ul>
           </div>
         )}
-        <Suspense fallback={<SkeletonProductGrid numberOfProducts={category.products?.length ?? 8} />}>
-          <PaginatedProducts sortBy={sort} page={pageNumber} categoryId={category.id} />
+        <Suspense
+          fallback={
+            <SkeletonProductGrid
+              numberOfProducts={category.products?.length ?? 8}
+            />
+          }>
+          <PaginatedProducts
+            sortBy={sort}
+            page={pageNumber}
+            categoryId={category.id}
+          />
         </Suspense>
       </div>
     </div>

@@ -1,4 +1,7 @@
 @layer utilities {
+  h1 {
+    @apply my-4 text-4xl font-bold;
+  }
   h2 {
     @apply text-2xl font-bold leading-16;
   }

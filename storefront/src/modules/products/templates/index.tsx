@@ -56,9 +56,9 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product, images }) =>
               <Badge className='bg-amber-600 text-white hover:bg-amber-700 hover:border-white'>{product.collection.title}</Badge>
             </LocalizedClientLink>
           )}
-          <h2 className="text-3xl leading-20" data-testid="product-title">
+          <h1 data-testid="product-title">
             {product.title}
-          </h2>
+          </h1>
           <Suspense fallback={<ProductActions disabled={true} product={product} />}>
             <ProductActionsWrapper id={product.id} />
           </Suspense>
