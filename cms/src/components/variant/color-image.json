@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_variant_color_images",
+  "info": {
+    "displayName": "Variant Color Image",
+    "icon": "picture"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

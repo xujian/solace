@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variant_colors",
+  "info": {
+    "singularName": "variant-color",
+    "pluralName": "variant-colors",
+    "displayName": "Variant Color",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "dynamiczone",
+      "components": [
+        "variant.color-image",
+        "variant.color-hex"
+      ]
+    }
+  }
+}

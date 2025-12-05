@@ -88,6 +88,28 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface VariantColorHex extends Struct.ComponentSchema {
+  collectionName: 'components_variant_color_hexs';
+  info: {
+    displayName: 'Variant Color Hex';
+    icon: 'brush';
+  };
+  attributes: {
+    value: Schema.Attribute.String;
+  };
+}
+
+export interface VariantColorImage extends Struct.ComponentSchema {
+  collectionName: 'components_variant_color_images';
+  info: {
+    displayName: 'Variant Color Image';
+    icon: 'picture';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files'>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -98,6 +120,8 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'variant.color-hex': VariantColorHex;
+      'variant.color-image': VariantColorImage;
     }
   }
 }

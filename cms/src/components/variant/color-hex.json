@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_variant_color_hexs",
+  "info": {
+    "displayName": "Variant Color Hex",
+    "icon": "brush"
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
