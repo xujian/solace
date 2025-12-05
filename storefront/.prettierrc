@@ -4,7 +4,7 @@
   "useTabs": false,
   "singleQuote": true,
   "trailingComma": "none",
-  "printWidth": 120,
+  "printWidth": 80,
   "arrowParens": "avoid",
   "endOfLine": "auto",
   "bracketSameLine": true,
@@ -37,5 +37,7 @@
     "^.+\\.(css|scss|sass|less)$"
   ],
   "importOrderSeparation": false,
-  "importOrderSortSpecifiers": false
+  "importOrderSortSpecifiers": false,
+  "experimentalTernaries": false,
+  "offsetTernaryExpressions": true
 }

@@ -93,7 +93,7 @@ async function getCountryCode(request: NextRequest, regionMap: Map<string, HttpT
 /**
  * Middleware to handle region selection and onboarding status.
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let redirectUrl = request.nextUrl.href
 
   let response = NextResponse.redirect(redirectUrl, 307)
