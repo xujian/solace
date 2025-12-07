@@ -6,11 +6,11 @@ import Image from 'next/image'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@lib/components/ui'
 
 type OptionSelectProps = {
-  option: HttpTypes.StoreProductOption
+  option?: HttpTypes.StoreProductOption
   current: string | undefined
-  updateOption: (title: string, value: string) => void
-  title: string
-  disabled: boolean
+  updateOption?: (title: string, value: string) => void
+  title?: string
+  disabled?: boolean
   colors: VariantColor[]
   'data-testid'?: string
 }
@@ -57,24 +57,21 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
                           style={{
                             background: variantColor?.value
                           }}
-                          title={variantColor?.name}
-                          onClick={() => updateOption(option.id, v)}
+                          onClick={() => updateOption?.(option.id, v)}
                         />
                       )
                       : (
-                        <button
-                          onClick={() => updateOption(option.id, v)}
+                        <div
+                          onClick={() => updateOption?.(option.id, v)}
                           key={v}
                           className={
-                            cn('aspect-square h-12 w-12 rounded', selectedClasses)
+                            cn('cursor-pointer aspect-square h-12 w-12 rounded', selectedClasses)
                           }
                           style={{
                             background: variantColor?.value
                           }}
-                          title={variantColor?.name}
-                          disabled={disabled}
                           data-testid="option-button">
-                        </button>
+                        </div>
                       )
                   }
                 </TooltipTrigger>

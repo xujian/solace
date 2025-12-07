@@ -11,7 +11,6 @@ import { useIntersection } from '@lib/hooks/use-in-view'
 import { useSession } from '@lib/context/session-context'
 import OptionSelect from '@modules/products/components/product-actions/option-select'
 import ProductPrice from '../product-price'
-import MobileActions from './mobile-actions'
 import { VariantColor } from 'types/cms'
 
 type ProductActionsProps = {
@@ -165,18 +164,6 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
             : 'Add to cart'}
       </Button>
       <p>&nbsp;</p>
-      <MobileActions
-        product={product}
-        colors={colors}
-        variant={selectedVariant}
-        options={options}
-        updateOptions={setOptionValue}
-        inStock={inStock}
-        handleAddToCart={handleAddToCart}
-        isAdding={isAdding}
-        show={!inView}
-        optionsDisabled={!!disabled || isAdding}
-      />
     </div>
   )
 }
