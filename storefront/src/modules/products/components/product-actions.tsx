@@ -9,8 +9,8 @@ import { Button } from '@lib/components/ui'
 import { addToCart } from '@lib/data/cart'
 import { useIntersection } from '@lib/hooks/use-in-view'
 import { useSession } from '@lib/context/session-context'
-import OptionSelect from '@modules/products/components/product-actions/option-select'
-import ProductPrice from '../product-price'
+import OptionSelect from '@modules/products/components/option-select'
+import ProductPrice from './product-price'
 import { VariantColor } from 'types/cms'
 
 type ProductActionsProps = {
