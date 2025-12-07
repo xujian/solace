@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@lib/components/ui'
 
 type OptionSelectProps = {
-  option?: HttpTypes.StoreProductOption
+  option: HttpTypes.StoreProductOption
   current: string | undefined
   updateOption?: (title: string, value: string) => void
   title?: string
@@ -24,7 +24,6 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
   'data-testid': dataTestId,
   disabled
 }) => {
-  console.log('<><><><><><><><>colors', colors)
   const filteredOptions = (option.values ?? []).map(v => v.value)
   const matchVariantColor = (v: string) => 
     colors.find((c: VariantColor) => c.name === v)
@@ -76,7 +75,7 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
                   }
                 </TooltipTrigger>
                 <TooltipContent className='bg-surface text-primary'>
-                  <p>{variantColor?.name}</p>
+                  <p>{variantColor?.name} {option.id}</p>
                 </TooltipContent>
               </Tooltip>
           )

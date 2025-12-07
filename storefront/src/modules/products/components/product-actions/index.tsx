@@ -50,6 +50,7 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
 
     return product.variants.find(v => {
       const variantOptions = optionsAsKeymap(v.options)
+
       return isEqual(variantOptions, options)
     })
   }, [product.variants, options])
@@ -69,23 +70,6 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
       return isEqual(variantOptions, options)
     })
   }, [product.variants, options])
-
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams.toString())
-    const value = isValidVariant ? selectedVariant?.id : null
-
-    if (params.get('v_id') === value) {
-      return
-    }
-
-    if (value) {
-      params.set('v_id', value)
-    } else {
-      params.delete('v_id')
-    }
-
-    router.replace(pathname + '?' + params.toString())
-  }, [selectedVariant, isValidVariant])
 
   // check if the selected variant is in stock
   const inStock = useMemo(() => {
@@ -110,7 +94,7 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
 
   const actionsRef = useRef<HTMLDivElement>(null)
 
-  const inView = useIntersection(actionsRef, '0px')
+  // const inView = useIntersection(actionsRef, '0px')
 
   // add the selected variant to the cart
   const handleAddToCart = async () => {
@@ -129,23 +113,22 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
 
   return (
     <div className="flex flex-col gap-y-2" ref={actionsRef}>
+      [{isValidVariant}]
       <div>
         {(product.variants?.length ?? 0) > 0 && (
           <div className="flex flex-col gap-y-4">
-            {(product.options || []).map(option => {
-              return (
-                <OptionSelect
-                  key={option.id}
-                  option={option}
-                  colors={colors}
-                  current={options[option.id]}
-                  updateOption={setOptionValue}
-                  title={option.title ?? ''}
-                  data-testid="product-options"
-                  disabled={!!disabled || isAdding}
-                />
-              )
-            })}
+            {(product.options || []).map(option => (
+              <OptionSelect
+                key={option.id}
+                option={option}
+                colors={colors}
+                current={options[option.id]}
+                updateOption={setOptionValue}
+                title={option.title ?? ''}
+                data-testid={`product-options`}
+                disabled={!!disabled || isAdding}
+              />
+            ))}
           </div>
         )}
       </div>
