@@ -14,17 +14,19 @@ export const retrieveOrder = async (id: string) => {
     ...(await getCacheOptions("orders")),
   }
 
-  return sdk.client
-    .fetch<HttpTypes.StoreOrderResponse>(`/store/orders/${id}`, {
-      method: "GET",
-      query: {
+  return sdk.store.order
+    .retrieve(
+      id,
+      {
         fields:
           "*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product",
       },
-      headers,
-      next,
-      cache: "force-cache",
-    })
+      {
+        ...headers,
+        next,
+        cache: "force-cache",
+      } as any
+    )
     .then(({ order }) => order)
     .catch((err) => medusaError(err))
 }
@@ -42,20 +44,21 @@ export const listOrders = async (
     ...(await getCacheOptions("orders")),
   }
 
-  return sdk.client
-    .fetch<HttpTypes.StoreOrderListResponse>(`/store/orders`, {
-      method: "GET",
-      query: {
+  return sdk.store.order
+    .list(
+      {
         limit,
         offset,
         order: "-created_at",
         fields: "*items,+items.metadata,*items.variant,*items.product",
         ...filters,
       },
-      headers,
-      next,
-      cache: "force-cache",
-    })
+      {
+        ...headers,
+        next,
+        cache: "force-cache",
+      } as any
+    )
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))
 }

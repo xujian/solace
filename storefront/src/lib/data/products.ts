@@ -50,20 +50,21 @@ export const listProducts = async ({
     ...(await getCacheOptions('products'))
   }
 
-  return sdk.client
-    .fetch<{ products: HttpTypes.StoreProduct[]; count: number }>(`/store/products`, {
-      method: 'GET',
-      query: {
+  return sdk.store.product
+    .list(
+      {
         limit,
         offset,
-        region_id: region.id,
+        region_id: region?.id,
         fields,
         ...queryParams
       },
-      headers,
-      next,
-      cache: 'force-cache'
-    })
+      {
+        ...headers,
+        next,
+        cache: 'force-cache'
+      } as any
+    )
     .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null
 

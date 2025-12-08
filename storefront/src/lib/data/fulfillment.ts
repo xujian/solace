@@ -13,23 +13,18 @@ export const listCartShippingMethods = async (cartId: string) => {
     ...(await getCacheOptions("fulfillment")),
   }
 
-  return sdk.client
-    .fetch<HttpTypes.StoreShippingOptionListResponse>(
-      `/store/shipping-options`,
-      {
-        method: "GET",
-        query: {
-          cart_id: cartId,
-        },
-        headers,
-        next,
-        cache: "force-cache",
-      }
-    )
-    .then(({ shipping_options }) => shipping_options)
-    .catch(() => {
-      return null
-    })
+  return sdk.store.fulfillment.listCartOptions(
+    { cart_id: cartId },
+    {
+      ...headers,
+      next,
+      cache: "force-cache",
+    } as any
+  )
+  .then(({ shipping_options }) => shipping_options)
+  .catch(() => {
+    return null
+  })
 }
 
 export const calculatePriceForShippingOption = async (
@@ -51,18 +46,17 @@ export const calculatePriceForShippingOption = async (
     body.data = data
   }
 
-  return sdk.client
-    .fetch<{ shipping_option: HttpTypes.StoreCartShippingOption }>(
-      `/store/shipping-options/${optionId}/calculate`,
-      {
-        method: "POST",
-        body,
-        headers,
-        next,
-      }
-    )
-    .then(({ shipping_option }) => shipping_option)
-    .catch((e) => {
-      return null
-    })
+  return sdk.store.fulfillment.calculate(
+    optionId,
+    body,
+    undefined,
+    {
+      ...headers,
+      next,
+    } as any
+  )
+  .then(({ shipping_option }) => shipping_option)
+  .catch((e) => {
+    return null
+  })
 }

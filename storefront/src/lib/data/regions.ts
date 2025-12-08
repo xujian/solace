@@ -10,12 +10,14 @@ export const listRegions = async () => {
     ...(await getCacheOptions('regions'))
   }
 
-  return sdk.client
-    .fetch<{ regions: HttpTypes.StoreRegion[] }>(`/store/regions`, {
-      method: 'GET',
-      next,
-      cache: 'force-cache'
-    })
+  return sdk.store.region
+    .list(
+      {},
+      {
+        next,
+        cache: 'force-cache'
+      } as any
+    )
     .then(({ regions }) => regions)
     .catch(medusaError)
 }
@@ -25,12 +27,15 @@ export const retrieveRegion = async (id: string) => {
     ...(await getCacheOptions(['regions', id].join('-')))
   }
 
-  return sdk.client
-    .fetch<{ region: HttpTypes.StoreRegion }>(`/store/regions/${id}`, {
-      method: 'GET',
-      next,
-      cache: 'force-cache'
-    })
+  return sdk.store.region
+    .retrieve(
+      id,
+      {},
+      {
+        next,
+        cache: 'force-cache'
+      } as any
+    )
     .then(({ region }) => region)
     .catch(medusaError)
 }

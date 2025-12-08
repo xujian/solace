@@ -30,16 +30,18 @@ export async function retrieveCart(cartId?: string, fields?: string) {
     ...(await getCacheOptions('carts'))
   }
 
-  return await sdk.client
-    .fetch<HttpTypes.StoreCartResponse>(`/store/carts/${id}`, {
-      method: 'GET',
-      query: {
+  return await sdk.store.cart
+    .retrieve(
+      id,
+      {
         fields
       },
-      headers,
-      next,
-      cache: 'force-cache'
-    })
+      {
+        ...headers,
+        next,
+        cache: 'force-cache'
+      } as any
+    )
     .then(({ cart }: { cart: HttpTypes.StoreCart }) => cart)
     .catch(() => null)
 }
@@ -428,12 +430,12 @@ export async function listCartOptions() {
     ...(await getCacheOptions('shippingOptions'))
   }
 
-  return await sdk.client.fetch<{
-    shipping_options: HttpTypes.StoreCartShippingOption[]
-  }>('/store/shipping-options', {
-    query: { cart_id: cartId },
-    next,
-    headers,
-    cache: 'force-cache'
-  })
+  return await sdk.store.fulfillment.listCartOptions(
+    { cart_id: cartId },
+    {
+      ...headers,
+      next,
+      cache: 'force-cache'
+    } as any
+  ).then(({ shipping_options }) => ({ shipping_options }))
 }

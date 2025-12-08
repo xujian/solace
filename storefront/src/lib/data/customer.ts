@@ -28,16 +28,17 @@ export const retrieveCustomer = async (): Promise<HttpTypes.StoreCustomer | null
     ...(await getCacheOptions('customers'))
   }
 
-  return await sdk.client
-    .fetch<{ customer: HttpTypes.StoreCustomer }>(`/store/customers/me`, {
-      method: 'GET',
-      query: {
+  return await sdk.store.customer
+    .retrieve(
+      {
         fields: '*orders'
       },
-      headers,
-      next,
-      cache: 'force-cache'
-    })
+      {
+        ...headers,
+        next,
+        cache: 'force-cache'
+      } as any
+    )
     .then(({ customer }) => customer)
     .catch(() => null)
 }
