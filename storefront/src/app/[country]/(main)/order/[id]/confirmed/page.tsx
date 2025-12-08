@@ -3,12 +3,12 @@ import { notFound } from 'next/navigation'
 import { retrieveOrder } from '@lib/data/orders'
 import { cookies as nextCookies } from "next/headers"
 import CartTotals from "@modules/common/components/cart-totals"
-import Help from "@modules/order/components/help"
-import Items from "@modules/order/components/items"
-import OnboardingCta from "@modules/order/components/onboarding-cta"
-import OrderDetails from "@modules/order/components/order-details"
-import ShippingDetails from "@modules/order/components/shipping-details"
-import PaymentDetails from "@modules/order/components/payment-details"
+import Help from "@modules/order/help"
+import Items from "@modules/order/items"
+import OnboardingCta from "@modules/order/onboarding-cta"
+import OrderDetails from "@modules/order/order-details"
+import ShippingDetails from "@modules/order/shipping-details"
+import PaymentDetails from "@modules/order/payment-details"
 
 type Props = {
   params: Promise<{ id: string }>

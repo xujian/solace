@@ -1,5 +1,5 @@
-import TransferActions from '@modules/order/components/transfer-actions'
-import TransferImage from '@modules/order/components/transfer-image'
+import TransferActions from '@modules/order/transfer-actions'
+import TransferImage from '@modules/order/transfer-image'
 
 export default async function TransferPage({ params }: { params: { id: string; token: string } }) {
   const { id, token } = params

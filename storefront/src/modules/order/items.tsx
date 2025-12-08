@@ -3,7 +3,7 @@ import { HttpTypes } from "@medusajs/types"
 import { Table, TableBody } from "@lib/components/ui"
 
 import { Separator } from "@lib/components/ui"
-import Item from "@modules/order/components/item"
+import Item from "@modules/order/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 
 type ItemsProps = {

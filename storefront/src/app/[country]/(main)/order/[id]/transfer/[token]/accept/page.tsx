@@ -1,5 +1,5 @@
 import { acceptTransferRequest } from '@lib/data/orders'
-import TransferImage from '@modules/order/components/transfer-image'
+import TransferImage from '@modules/order/transfer-image'
 
 export default async function TransferPage({ params }: { params: { id: string; token: string } }) {
   const { id, token } = params
