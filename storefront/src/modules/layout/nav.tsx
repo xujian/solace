@@ -12,8 +12,8 @@ export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
-    <header className="sticky top-0 z-50 flex h-16 w-full items-center justify-around gap-2 px-4 duration-200">
-      <div className="flex h-full flex-1 basis-0 items-center">
+    <header className="sticky top-0 z-50 flex h-16 w-full items-center justify-around gap-2 px-2 duration-200 glass">
+      <div className="flex h-full flex-1 items-center">
         <SideMenu regions={regions} />
       </div>
 
@@ -26,7 +26,7 @@ export default async function Nav() {
         </LocalizedClientLink>
       </div>
 
-      <div className="flex h-full flex-1 items-center justify-end gap-2">
+      <div className="flex h-full flex-1 items-center gap-2 justify-end">
         <ProfileIcon />
         <Suspense
           fallback={

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { HttpTypes } from '@medusajs/types'
-import { Popover, PopoverContent, PopoverTrigger } from '@lib/components/ui'
+import { Button, Popover, PopoverContent, PopoverTrigger } from '@lib/components/ui'
 import useToggleState from '@lib/hooks/use-toggle-state'
 import { cn } from '@lib/util'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
@@ -24,11 +24,9 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
     <div className="flex items-center h-full">
       <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
         <PopoverTrigger asChild>
-          <button
-            data-testid="nav-menu-button"
-            className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
+          <Button variant="ghost" size="icon" className="">
             <MenuIcon />
-          </button>
+          </Button>
         </PopoverTrigger>
 
         {popoverOpen && (

@@ -32,7 +32,7 @@ const ProfileIcon = () => {
         <Button
           onClick={toggleDropdown}
           size="icon"
-          className="bg-dark text-ui-fg-base hover:bg-ui-bg-hover"
+          className="bg-dark text-ui-fg-base"
           aria-expanded={isOpen}
           aria-haspopup="menu">
           <UserIcon />

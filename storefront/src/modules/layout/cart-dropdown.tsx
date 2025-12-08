@@ -67,14 +67,16 @@ const CartDropdown = ({ cart: cartState }: { cart?: HttpTypes.StoreCart | null }
       <Popover open={cartDropdownOpen} onOpenChange={setCartDropdownOpen}>
         <PopoverTrigger asChild className="relative">
           <LocalizedClientLink className="hover:text-ui-fg-base" href="/cart" data-testid="nav-cart-link">
-            <ShoppingCartIcon />
-            <Badge className="absolute -top-4 -right-4" variant={'secondary'}>
+            <Button variant="ghost" size="icon">
+              <ShoppingCartIcon />
+            </Button>
+            <Badge className="absolute top-0 right-0 h-4 w-4 text-xs items-center justify-center bg-green-600" variant={'secondary'}>
               {totalItems}
             </Badge>
           </LocalizedClientLink>
         </PopoverTrigger>
         <PopoverContent
-          className="small:block text-ui-fg-base absolute top-[calc(100%+1px)] right-0 hidden w-[420px] border-x border-b border-gray-200 bg-white p-0"
+          className="small:block text-ui-fg-base absolute top-[calc(100%+1px)] right-0 hidden w-[420px] border-x border-b p-0"
           data-testid="nav-cart-dropdown"
           align="end"
           sideOffset={1}
