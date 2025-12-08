@@ -2,7 +2,7 @@
 
 import { loadStripe } from "@stripe/stripe-js"
 import React from "react"
-import StripeWrapper from "./stripe-wrapper"
+import StripeWrapper from "./components/stripe-wrapper"
 import { HttpTypes } from "@medusajs/types"
 import { isStripeLike } from "@lib/constants"
 

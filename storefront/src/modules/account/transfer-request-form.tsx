@@ -3,7 +3,7 @@
 import { useActionState } from "react"
 import { createTransferRequest } from "@lib/data/orders"
 import { Button, Input } from "@lib/components/ui"
-import { SubmitButton } from "@modules/checkout/components/submit-button"
+import { SubmitButton } from "@modules/checkout/submit-button"
 import { CheckCircle, XCircle } from "lucide-react"
 import { useEffect, useState } from "react"
 

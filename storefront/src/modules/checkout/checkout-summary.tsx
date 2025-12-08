@@ -1,7 +1,7 @@
 import { repeat } from 'lodash'
 import { Separator, Table, TableBody } from '@lib/components/ui'
 import Item from '@modules/cart/item'
-import DiscountCode from '@modules/checkout/components/discount-code'
+import DiscountCode from '@modules/checkout/discount-code'
 import CartTotals from '@modules/common/components/cart-totals'
 import SkeletonLineItem from '@modules/skeletons/components/skeleton-line-item'
 

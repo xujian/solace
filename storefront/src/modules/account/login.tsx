@@ -2,8 +2,8 @@ import { useActionState } from 'react'
 import { Input, Label } from '@lib/components/ui'
 import { login } from '@lib/data/customer'
 import { LOGIN_VIEW } from '@modules/account/login-signup'
-import ErrorMessage from '@modules/checkout/components/error-message'
-import { SubmitButton } from '@modules/checkout/components/submit-button'
+import ErrorMessage from '@modules/checkout/error-message'
+import { SubmitButton } from '@modules/checkout/submit-button'
 
 type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void

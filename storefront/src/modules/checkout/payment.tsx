@@ -5,10 +5,10 @@ import { initiatePaymentSession } from "@lib/data/cart"
 import { CheckCircle, CreditCard } from "lucide-react"
 import { Button, RadioGroup } from "@lib/components/ui"
 import { cn } from "@lib/util"
-import ErrorMessage from "@modules/checkout/components/error-message"
+import ErrorMessage from "@modules/checkout/error-message"
 import PaymentContainer, {
   StripeCardContainer,
-} from "@modules/checkout/components/payment-container"
+} from "@modules/checkout/payment-container"
 import { Separator } from "@lib/components/ui"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useCallback, useEffect, useState } from "react"

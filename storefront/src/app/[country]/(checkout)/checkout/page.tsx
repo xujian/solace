@@ -4,12 +4,12 @@ import { retrieveCart } from '@lib/data/cart'
 import { retrieveCustomer } from '@lib/data/customer'
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
-import PaymentWrapper from '@modules/checkout/components/payment-wrapper'
-import CheckoutSummary from '@modules/checkout/components/checkout-summary'
-import Addresses from "@modules/checkout/components/addresses"
-import Payment from "@modules/checkout/components/payment"
-import Review from "@modules/checkout/components/review"
-import Shipping from "@modules/checkout/components/shipping"
+import PaymentWrapper from '@modules/checkout/payment-wrapper'
+import CheckoutSummary from '@modules/checkout/checkout-summary'
+import Addresses from "@modules/checkout/addresses"
+import Payment from "@modules/checkout/payment"
+import Review from "@modules/checkout/review"
+import Shipping from "@modules/checkout/shipping"
 
 export const metadata: Metadata = {
   title: 'Checkout'
