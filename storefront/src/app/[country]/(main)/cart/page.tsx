@@ -7,9 +7,9 @@ import { retrieveCustomer } from '@lib/data/customer'
 import { HttpTypes } from "@medusajs/types"
 import { Table, TableBody, TableHeader, TableRow, TableHead } from "@lib/components/ui"
 import repeat from "@lib/util/repeat"
-import EmptyCartMessage from '@modules/cart/components/empty-cart-message'
-import SignInPrompt from '@modules/cart/components/sign-in-prompt'
-import Item from "@modules/cart/components/item"
+import EmptyCartMessage from '@modules/cart/empty-cart-message'
+import SignInPrompt from '@modules/cart/sign-in-prompt'
+import Item from "@modules/cart/item"
 import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
 import DiscountCode from '@modules/checkout/components/discount-code'
 import CartTotals from '@modules/common/components/cart-totals'
