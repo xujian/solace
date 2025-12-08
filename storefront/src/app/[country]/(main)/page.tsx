@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
 import { getCollections, getHero, getMarketing } from '@lib/data/cms'
 import { listProducts } from '@lib/data/products'
-import Banner from '@modules/home/components/banner'
-import BestSellers from '@modules/home/components/best-sellers'
-import Collections from '@modules/home/components/collections'
-import Hero from '@modules/home/components/hero'
+import Banner from '@modules/home/banner'
+import BestSellers from '@modules/home/best-sellers'
+import Collections from '@modules/home/collections'
+import Hero from '@modules/home/hero'
 
 export const metadata: Metadata = {
   title: 'Ars Breeze',
