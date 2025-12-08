@@ -1,6 +1,9 @@
 import { Metadata } from 'next'
+import { Suspense } from 'react'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
-import StoreTemplate from '@modules/store/templates'
+import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
+import RefinementList from '@modules/store/components/refinement-list'
+import PaginatedProducts from '@modules/store/templates/paginated-products'
 
 export const metadata: Metadata = {
   title: 'Store',
@@ -20,6 +23,23 @@ type Params = {
 export default async function StorePage(props: Params) {
   const searchParams = await props.searchParams
   const { sortBy, page } = searchParams
+  
+  const pageNumber = page ? parseInt(page) : 1
+  const sort = sortBy || 'created_at'
 
-  return <StoreTemplate sortBy={sortBy} page={page} />
+  return (
+    <div
+      className="small:flex-row small:items-start content-container flex flex-col py-6"
+      data-testid="category-container">
+      <RefinementList sortBy={sort} />
+      <div className="w-full">
+        <div className="text-2xl-semi mb-8">
+          <h1 data-testid="store-page-title">All products</h1>
+        </div>
+        <Suspense fallback={<SkeletonProductGrid />}>
+          <PaginatedProducts sortBy={sort} page={pageNumber} />
+        </Suspense>
+      </div>
+    </div>
+  )
 }

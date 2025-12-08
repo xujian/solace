@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react'
 
 export default function CheckoutLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="small:min-h-screen relative w-full bg-white">
-      <div className="h-16 border-b bg-white">
+    <div className="small:min-h-screen relative w-full">
+      <div className="h-16">
         <nav className="content-container flex h-full items-center justify-between">
           <LocalizedClientLink
             href="/cart"
