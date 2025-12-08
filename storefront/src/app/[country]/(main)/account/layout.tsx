@@ -1,6 +1,6 @@
 import { retrieveCustomer } from '@lib/data/customer'
 import UnderlineLink from '@modules/common/components/interactive-link'
-import AccountNav from '@modules/account/components/account-nav'
+import AccountNav from '@modules/account/account-nav'
 
 export default async function AccountPageLayout({
   dashboard,

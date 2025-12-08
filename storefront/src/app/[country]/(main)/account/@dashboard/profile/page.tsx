@@ -2,11 +2,11 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { retrieveCustomer } from '@lib/data/customer'
 import { listRegions } from '@lib/data/regions'
-import ProfilePhone from '@modules/account//components/profile-phone'
-import ProfileBillingAddress from '@modules/account/components/profile-billing-address'
-import ProfileEmail from '@modules/account/components/profile-email'
-import ProfileName from '@modules/account/components/profile-name'
-import ProfilePassword from '@modules/account/components/profile-password'
+import ProfilePhone from '@modules/account/profile-phone'
+import ProfileBillingAddress from '@modules/account/profile-billing-address'
+import ProfileEmail from '@modules/account/profile-email'
+import ProfileName from '@modules/account/profile-name'
+import ProfilePassword from '@modules/account/profile-password'
 
 export const metadata: Metadata = {
   title: 'Profile',

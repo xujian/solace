@@ -5,7 +5,7 @@ import { retrieveCustomer } from '@lib/data/customer'
 import { listCartShippingMethods } from "@lib/data/fulfillment"
 import { listCartPaymentMethods } from "@lib/data/payment"
 import PaymentWrapper from '@modules/checkout/components/payment-wrapper'
-import CheckoutSummary from '@modules/checkout/templates/checkout-summary'
+import CheckoutSummary from '@modules/checkout/components/checkout-summary'
 import Addresses from "@modules/checkout/components/addresses"
 import Payment from "@modules/checkout/components/payment"
 import Review from "@modules/checkout/components/review"
