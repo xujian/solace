@@ -9,7 +9,7 @@ export enum LOGIN_VIEW {
   REGISTER = 'register'
 }
 
-const LoginTemplate = () => {
+const LoginSignup = () => {
   const [currentView, setCurrentView] = useState('sign-in')
 
   return (
@@ -23,4 +23,4 @@ const LoginTemplate = () => {
   )
 }
 
-export default LoginTemplate
+export default LoginSignup

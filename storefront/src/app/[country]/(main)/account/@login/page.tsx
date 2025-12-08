@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import LoginTemplate from '@modules/account/templates/login-template'
+import LoginSignup from '@modules/account/components/login-signup'
 
 export const metadata: Metadata = {
   title: 'Sign in',
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 }
 
 export default function Login() {
-  return <LoginTemplate />
+  return <LoginSignup />
 }
