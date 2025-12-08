@@ -1,7 +1,7 @@
 import React from 'react'
 import { HttpTypes } from '@medusajs/types'
-import AddAddress from '../add-address'
-import EditAddress from '../edit-address-modal'
+import AddAddress from './add-address'
+import EditAddress from './edit-address-modal'
 
 type AddressBookProps = {
   customer: HttpTypes.StoreCustomer

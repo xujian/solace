@@ -14,7 +14,7 @@ import {
 } from '@lib/components/ui/breadcrumb'
 import InteractiveLink from '@modules/common/components/interactive-link'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
-import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
+import SkeletonProductGrid from '@modules/skeletons/components/skeleton-product-grid'
 import RefinementList from '@modules/store/refinement-list'
 import PaginatedProducts from '@modules/store/paginated-products'
 

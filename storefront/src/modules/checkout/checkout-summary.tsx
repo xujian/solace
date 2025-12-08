@@ -1,4 +1,4 @@
-import { repeat } from 'lodash'
+import repeat from '@lib/util/repeat'
 import { Separator, Table, TableBody } from '@lib/components/ui'
 import Item from '@modules/cart/item'
 import DiscountCode from '@modules/checkout/discount-code'

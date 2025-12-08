@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
 import { SortOptions } from '@modules/store/sort-products'
-import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
+import SkeletonProductGrid from '@modules/skeletons/components/skeleton-product-grid'
 import RefinementList from '@modules/store/refinement-list'
 import PaginatedProducts from '@modules/store/paginated-products'
 
