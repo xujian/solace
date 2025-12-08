@@ -1,12 +1,13 @@
-import { useState } from "react"
-import { deleteLineItem } from "@lib/data/cart"
-import { RefreshCw as Spinner, Trash2 as Trash } from "lucide-react"
-import { cn } from "@lib/util"
+import { useState } from 'react'
+import { Button } from '@lib/components/ui'
+import { deleteLineItem } from '@lib/data/cart'
+import { cn } from '@lib/util'
+import { RefreshCw as Spinner, X } from 'lucide-react'
 
 const DeleteButton = ({
   id,
   children,
-  className,
+  className
 }: {
   id: string
   children?: React.ReactNode
@@ -16,26 +17,19 @@ const DeleteButton = ({
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
-    await deleteLineItem(id).catch((err) => {
+    await deleteLineItem(id).catch(err => {
       setIsDeleting(false)
     })
   }
 
   return (
-    <div
-      className={cn(
-        "flex items-center justify-between text-small-regular",
-        className
-      )}
-    >
-      <button
-        className="flex gap-x-1 text-ui-fg-subtle hover:text-ui-fg-base cursor-pointer"
-        onClick={() => handleDelete(id)}
-      >
-        {isDeleting ? <Spinner className="animate-spin" /> : <Trash />}
-        <span>{children}</span>
-      </button>
-    </div>
+    <Button
+      size="icon"
+      variant="ghost"
+      className="bg-negtive cursor-pointer gap-x-1"
+      onClick={() => handleDelete(id)}>
+      {isDeleting ? <Spinner className="animate-spin" /> : <X />}
+    </Button>
   )
 }
 

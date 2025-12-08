@@ -2,10 +2,9 @@
 
 import { useState } from 'react'
 import { HttpTypes } from '@medusajs/types'
-import { TableCell, TableRow } from '@lib/components/ui'
+import { Select, TableCell, TableRow } from '@lib/components/ui'
 import { updateLineItem } from '@lib/data/cart'
 import { cn } from '@lib/util'
-import CartItemSelect from '@modules/cart/cart-item-select'
 import ErrorMessage from '@modules/checkout/error-message'
 import DeleteButton from '@modules/common/components/delete-button'
 import LineItemOptions from '@modules/common/components/line-item-options'
@@ -14,6 +13,7 @@ import LineItemUnitPrice from '@modules/common/components/line-item-unit-price'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import Thumbnail from '@modules/products/thumbnail'
 import { RefreshCw as Spinner } from 'lucide-react'
+import Quantity from '@modules/cart/quantity'
 
 type ItemProps = {
   item: HttpTypes.StoreCartLineItem
@@ -74,28 +74,10 @@ const Item = ({ item, type = 'full', currencyCode }: ItemProps) => {
       {type === 'full' && (
         <TableCell>
           <div className="flex w-28 items-center gap-2">
-            <DeleteButton id={item.id} data-testid="product-delete-button" />
-            <CartItemSelect
+            <Quantity
               value={item.quantity}
-              onChange={value => changeQuantity(parseInt(value.target.value))}
-              className="h-10 w-14 p-4"
-              data-testid="product-select-button">
-              {/* TODO: Update this with the v2 way of managing inventory */}
-              {Array.from(
-                {
-                  length: Math.min(maxQuantity, 10)
-                },
-                (_, i) => (
-                  <option value={i + 1} key={i}>
-                    {i + 1}
-                  </option>
-                )
-              )}
-
-              <option value={1} key={1}>
-                1
-              </option>
-            </CartItemSelect>
+              onChange={value => changeQuantity(value)}
+              data-testid="product-select-button" />
             {updating && <Spinner />}
           </div>
           <ErrorMessage error={error} data-testid="product-error-message" />
@@ -133,6 +115,9 @@ const Item = ({ item, type = 'full', currencyCode }: ItemProps) => {
             currencyCode={currencyCode}
           />
         </span>
+      </TableCell>
+      <TableCell>
+        <DeleteButton id={item.id} data-testid="product-delete-button" />
       </TableCell>
     </TableRow>
   )

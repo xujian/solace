@@ -1,19 +1,26 @@
-"use client"
+'use client'
 
-import { Button } from "@lib/components/ui"
-import React from "react"
-import { useFormStatus } from "react-dom"
+import React from 'react'
+import { useFormStatus } from 'react-dom'
+import { Button } from '@lib/components/ui'
 
 export function SubmitButton({
   children,
-  variant = "default",
+  variant = 'default',
   className,
-  "data-testid": dataTestId,
+  'data-testid': dataTestId
 }: {
   children: React.ReactNode
-  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null
+  variant?:
+    | 'default'
+    | 'destructive'
+    | 'outline'
+    | 'secondary'
+    | 'ghost'
+    | 'link'
+    | null
   className?: string
-  "data-testid"?: string
+  'data-testid'?: string
 }) {
   const { pending } = useFormStatus()
 
@@ -23,9 +30,8 @@ export function SubmitButton({
       className={className}
       type="submit"
       isLoading={pending}
-      variant={variant || "default"}
-      data-testid={dataTestId}
-    >
+      variant={variant || 'default'}
+      data-testid={dataTestId}>
       {children}
     </Button>
   )

@@ -26,7 +26,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
   return (
     <div
       className={cn(
-        'bg-ui-bg-subtle shadow-elevation-card-rest rounded-large group-hover:shadow-elevation-card-hover border-ui-border-base relative w-full overflow-hidden border p-4 transition-shadow duration-150 ease-in-out rounded-xl',
+        'relative w-full p-4',
         className,
         {
           'aspect-11/14': isFeatured,
