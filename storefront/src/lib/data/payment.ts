@@ -1,7 +1,7 @@
 'use server'
 
 import { HttpTypes } from '@medusajs/types'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 
 export const listCartPaymentMethods = async (regionId: string) => {
   return sdk.client

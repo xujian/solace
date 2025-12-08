@@ -1,6 +1,6 @@
 "use server"
 
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 import { HttpTypes } from "@medusajs/types"
 
 

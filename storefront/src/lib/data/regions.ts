@@ -2,7 +2,7 @@
 
 import { HttpTypes, StoreRegion } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 
 
 export const listRegions = async () => {

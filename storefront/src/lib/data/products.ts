@@ -2,7 +2,7 @@
 
 import { HttpTypes } from '@medusajs/types'
 import { sortProducts } from '@lib/util/sort-products'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 import { SortOptions } from '@modules/store/sort-products'
 import { getAuthHeaders } from './cookies'
 import { getRegion, retrieveRegion } from './regions'

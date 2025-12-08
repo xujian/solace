@@ -4,7 +4,7 @@ import { revalidateTag } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { HttpTypes } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 import { getCartId, removeCartId, setCartId } from './cookies'
 import { getRegion } from './regions'
 

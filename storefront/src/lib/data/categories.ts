@@ -1,5 +1,5 @@
 import { HttpTypes } from '@medusajs/types'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 
 export const listCategories = async (query?: Record<string, any>) => {
   const limit = query?.limit || 100

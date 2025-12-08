@@ -1,6 +1,6 @@
 'use server'
 
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 
 export const listCartShippingMethods = async (cartId: string) => {
   return sdk.store.fulfillment

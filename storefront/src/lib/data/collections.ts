@@ -1,7 +1,7 @@
 'use server'
 
 import { HttpTypes } from '@medusajs/types'
-import { sdk } from '@lib/config'
+import { sdk } from '@lib/sdk'
 
 
 export const retrieveCollection = async (id: string) => {
