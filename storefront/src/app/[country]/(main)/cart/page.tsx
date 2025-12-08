@@ -10,7 +10,7 @@ import repeat from "@lib/util/repeat"
 import EmptyCartMessage from '@modules/cart/empty-cart-message'
 import SignInPrompt from '@modules/cart/sign-in-prompt'
 import Item from "@modules/cart/item"
-import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import SkeletonLineItem from "@modules/skeletons/skeleton-line-item"
 import DiscountCode from '@modules/checkout/discount-code'
 import CartTotals from '@modules/common/components/cart-totals'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'

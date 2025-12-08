@@ -2,7 +2,7 @@ import { cn } from "@lib/util"
 import React, { useContext, useMemo, type JSX } from "react"
 
 import { isManual } from "@lib/constants"
-import SkeletonCardDetails from "@modules/skeletons/components/skeleton-card-details"
+import SkeletonCardDetails from "@modules/skeletons/skeleton-card-details"
 import { CardElement } from "@stripe/react-stripe-js"
 import { StripeCardElementOptions } from "@stripe/stripe-js"
 import PaymentTest from "./payment-test"

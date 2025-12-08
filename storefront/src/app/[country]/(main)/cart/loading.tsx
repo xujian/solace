@@ -6,9 +6,9 @@ import {
   TableRow
 } from '@lib/components/ui'
 import repeat from '@lib/util/repeat'
-import SkeletonCartItem from '@modules/skeletons/components/skeleton-cart-item'
-import SkeletonCodeForm from '@modules/skeletons/components/skeleton-code-form'
-import SkeletonOrderSummary from '@modules/skeletons/components/skeleton-order-summary'
+import SkeletonCartItem from '@modules/skeletons/skeleton-cart-item'
+import SkeletonCodeForm from '@modules/skeletons/skeleton-code-form'
+import SkeletonOrderSummary from '@modules/skeletons/skeleton-order-summary'
 
 export default function Loading() {
   return (

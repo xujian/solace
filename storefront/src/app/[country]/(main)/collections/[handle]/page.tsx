@@ -12,7 +12,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from '@lib/components/ui/breadcrumb'
-import SkeletonProductGrid from '@modules/skeletons/components/skeleton-product-grid'
+import SkeletonProductGrid from '@modules/skeletons/skeleton-product-grid'
 import RefinementList from '@modules/store/refinement-list'
 import PaginatedProducts from '@modules/store/paginated-products'
 

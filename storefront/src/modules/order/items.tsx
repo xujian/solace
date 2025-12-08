@@ -4,7 +4,7 @@ import { Table, TableBody } from "@lib/components/ui"
 
 import { Separator } from "@lib/components/ui"
 import Item from "@modules/order/item"
-import SkeletonLineItem from "@modules/skeletons/components/skeleton-line-item"
+import SkeletonLineItem from "@modules/skeletons/skeleton-line-item"
 
 type ItemsProps = {
   order: HttpTypes.StoreOrder
