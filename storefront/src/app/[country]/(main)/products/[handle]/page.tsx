@@ -2,7 +2,8 @@ import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import React, { Suspense } from 'react'
 import { HttpTypes } from '@medusajs/types'
-import { listProducts, retrieveProductByHandle } from '@lib/data/products'
+import { listProducts, retrieveProductByHandle, retrieveProduct } from '@lib/data/products'
+import { getVariantColors } from '@lib/data/cms'
 import { listCountries } from '@lib/data/regions'
 import ImageGallery from '@modules/products/components/image-gallery'
 import ProductActions from '@modules/products/components/product-actions'
@@ -10,7 +11,6 @@ import ProductOnboardingCta from '@modules/products/components/product-onboardin
 import ProductDetails from '@modules/products/components/product-details'
 import RelatedProducts from '@modules/products/components/related-products'
 import SkeletonRelatedProducts from '@modules/skeletons/templates/skeleton-related-products'
-import ProductActionsWrapper from '@modules/products/templates/product-actions-wrapper'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import { Badge } from '@lib/components/ui'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@lib/components/ui/breadcrumb'
@@ -74,6 +74,8 @@ function getImagesForVariant(product: HttpTypes.StoreProduct, selectedVariantId?
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { handle } = await props.params
+
+  const variantColors = await getVariantColors()
 
   const product = await listProducts({
     queryParams: { handle }
@@ -145,7 +147,7 @@ export default async function ProductPage(props: Props) {
             {product.title}
           </h1>
           <Suspense fallback={<ProductActions disabled={true} product={product} colors={[]} />}>
-            <ProductActionsWrapper id={product.id} />
+            <ProductActions product={product} colors={variantColors} />
           </Suspense>
           <p className="text-medium text-ui-fg-subtle whitespace-pre-line" data-testid="product-description">
             {product.description}
