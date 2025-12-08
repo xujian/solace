@@ -1,5 +1,5 @@
 import { HttpTypes } from '@medusajs/types'
-import ProductCard from '@modules/products/components/product-card'
+import ProductCard from '@modules/products/product-card'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@lib/components/ui/carousel'
 
 export interface BestSellersProps {

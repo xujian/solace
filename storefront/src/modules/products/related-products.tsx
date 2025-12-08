@@ -1,6 +1,6 @@
 import { HttpTypes } from '@medusajs/types'
 import { listProducts } from '@lib/data/products'
-import ProductCard from '@modules/products/components/product-card'
+import ProductCard from '@modules/products/product-card'
 
 type RelatedProductsProps = {
   product: HttpTypes.StoreProduct

@@ -6,7 +6,7 @@ import { getBaseURL } from '@lib/util/env'
 import CartMismatchBanner from '@modules/layout/cart-mismatch-banner'
 import Footer from '@modules/layout/footer'
 import Nav from '@modules/layout/nav'
-import FreeShippingPriceNudge from '@modules/shipping/components/free-shipping-price-nudge'
+import FreeShippingPriceNudge from '@modules/shipping/free-shipping-price-nudge'
 
 export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL())

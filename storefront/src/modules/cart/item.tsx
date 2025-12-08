@@ -12,7 +12,7 @@ import LineItemOptions from '@modules/common/components/line-item-options'
 import LineItemPrice from '@modules/common/components/line-item-price'
 import LineItemUnitPrice from '@modules/common/components/line-item-unit-price'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
-import Thumbnail from '@modules/products/components/thumbnail'
+import Thumbnail from '@modules/products/thumbnail'
 import { RefreshCw as Spinner } from 'lucide-react'
 
 type ItemProps = {

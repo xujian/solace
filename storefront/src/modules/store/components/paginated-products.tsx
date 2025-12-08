@@ -1,5 +1,5 @@
 import { listProductsWithSort } from '@lib/data/products'
-import ProductCard from '@modules/products/components/product-card'
+import ProductCard from '@modules/products/product-card'
 import { Pagination } from '@modules/store/components/pagination'
 import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
 
