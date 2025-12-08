@@ -1,7 +1,7 @@
 import { listProductsWithSort } from '@lib/data/products'
 import ProductCard from '@modules/products/product-card'
-import { Pagination } from '@modules/store/components/pagination'
-import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
+import { Pagination } from '@modules/store/pagination'
+import { SortOptions } from '@modules/store/sort-products'
 
 const PRODUCT_LIMIT = 12
 

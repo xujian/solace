@@ -4,7 +4,7 @@ import { Suspense } from 'react'
 import { HttpTypes } from '@medusajs/types'
 import { getCategoryByHandle, listCategories } from '@lib/data/categories'
 import { listCountries } from '@lib/data/regions'
-import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
+import { SortOptions } from '@modules/store/sort-products'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -15,8 +15,8 @@ import {
 import InteractiveLink from '@modules/common/components/interactive-link'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
-import RefinementList from '@modules/store/components/refinement-list'
-import PaginatedProducts from '@modules/store/components/paginated-products'
+import RefinementList from '@modules/store/refinement-list'
+import PaginatedProducts from '@modules/store/paginated-products'
 
 type Props = {
   params: Promise<{ category: string[]; country: string }>

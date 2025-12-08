@@ -1,9 +1,9 @@
 import { Metadata } from 'next'
 import { Suspense } from 'react'
-import { SortOptions } from '@modules/store/components/refinement-list/sort-products'
+import { SortOptions } from '@modules/store/sort-products'
 import SkeletonProductGrid from '@modules/skeletons/templates/skeleton-product-grid'
-import RefinementList from '@modules/store/components/refinement-list'
-import PaginatedProducts from '@modules/store/components/paginated-products'
+import RefinementList from '@modules/store/refinement-list'
+import PaginatedProducts from '@modules/store/paginated-products'
 
 export const metadata: Metadata = {
   title: 'Store',
