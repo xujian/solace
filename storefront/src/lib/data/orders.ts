@@ -2,16 +2,12 @@
 
 import { sdk } from "@lib/config"
 import medusaError from "@lib/util/medusa-error"
-import { getAuthHeaders, getCacheOptions } from "./cookies"
+import { getAuthHeaders } from "./cookies"
 import { HttpTypes } from "@medusajs/types"
 
 export const retrieveOrder = async (id: string) => {
   const headers = {
     ...(await getAuthHeaders()),
-  }
-
-  const next = {
-    ...(await getCacheOptions("orders")),
   }
 
   return sdk.store.order
@@ -23,9 +19,8 @@ export const retrieveOrder = async (id: string) => {
       },
       {
         ...headers,
-        next,
-        cache: "force-cache",
-      } as any
+        next: { tags: ['orders'] }
+      }
     )
     .then(({ order }) => order)
     .catch((err) => medusaError(err))
@@ -40,10 +35,6 @@ export const listOrders = async (
     ...(await getAuthHeaders()),
   }
 
-  const next = {
-    ...(await getCacheOptions("orders")),
-  }
-
   return sdk.store.order
     .list(
       {
@@ -55,9 +46,8 @@ export const listOrders = async (
       },
       {
         ...headers,
-        next,
-        cache: "force-cache",
-      } as any
+        next: { tags: ['orders'] }
+      }
     )
     .then(({ orders }) => orders)
     .catch((err) => medusaError(err))

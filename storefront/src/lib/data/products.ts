@@ -4,7 +4,7 @@ import { HttpTypes } from '@medusajs/types'
 import { sortProducts } from '@lib/util/sort-products'
 import { sdk } from '@lib/config'
 import { SortOptions } from '@modules/store/sort-products'
-import { getAuthHeaders, getCacheOptions } from './cookies'
+import { getAuthHeaders } from './cookies'
 import { getRegion, retrieveRegion } from './regions'
 import { getCurrentCountry, getCurrentRegion } from './server-context'
 
@@ -46,10 +46,6 @@ export const listProducts = async ({
     ...(await getAuthHeaders())
   }
 
-  const next = {
-    ...(await getCacheOptions('products'))
-  }
-
   return sdk.store.product
     .list(
       {
@@ -61,9 +57,8 @@ export const listProducts = async ({
       },
       {
         ...headers,
-        next,
-        cache: 'force-cache'
-      } as any
+        next: { tags: ['products'] }
+      }
     )
     .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null

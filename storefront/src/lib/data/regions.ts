@@ -3,38 +3,28 @@
 import { HttpTypes, StoreRegion } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
 import { sdk } from '@lib/config'
-import { getCacheOptions } from './cookies'
+
 
 export const listRegions = async () => {
-  const next = {
-    ...(await getCacheOptions('regions'))
-  }
-
   return sdk.store.region
     .list(
       {},
       {
-        next,
-        cache: 'force-cache'
-      } as any
+        next: { tags: ['regions'] }
+      }
     )
     .then(({ regions }) => regions)
     .catch(medusaError)
 }
 
 export const retrieveRegion = async (id: string) => {
-  const next = {
-    ...(await getCacheOptions(['regions', id].join('-')))
-  }
-
   return sdk.store.region
     .retrieve(
       id,
       {},
       {
-        next,
-        cache: 'force-cache'
-      } as any
+        next: { tags: [['regions', id].join('-')] }
+      }
     )
     .then(({ region }) => region)
     .catch(medusaError)
