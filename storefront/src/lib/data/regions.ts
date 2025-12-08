@@ -6,6 +6,7 @@ import { sdk } from '@lib/config'
 
 
 export const listRegions = async () => {
+
   return sdk.store.region
     .list(
       {},
@@ -18,6 +19,7 @@ export const listRegions = async () => {
 }
 
 export const retrieveRegion = async (id: string) => {
+
   return sdk.store.region
     .retrieve(
       id,

@@ -1,17 +1,17 @@
-import { sdk } from "@lib/config"
-import { HttpTypes } from "@medusajs/types"
-
+import { HttpTypes } from '@medusajs/types'
+import { sdk } from '@lib/config'
 
 export const listCategories = async (query?: Record<string, any>) => {
   const limit = query?.limit || 100
+
 
   return sdk.store.category
     .list(
       {
         fields:
-          "*category_children, *products, *parent_category, *parent_category.parent_category",
+          '*category_children, *products, *parent_category, *parent_category.parent_category',
         limit,
-        ...query,
+        ...query
       },
       {
         next: { tags: ['categories'] }
@@ -21,13 +21,14 @@ export const listCategories = async (query?: Record<string, any>) => {
 }
 
 export const getCategoryByHandle = async (categoryHandle: string[]) => {
-  const handle = `${categoryHandle.join("/")}`
+  const handle = `${categoryHandle.join('/')}`
+
 
   return sdk.store.category
     .list(
       {
-        fields: "*category_children, *products",
-        handle,
+        fields: '*category_children, *products',
+        handle
       },
       {
         next: { tags: ['categories'] }

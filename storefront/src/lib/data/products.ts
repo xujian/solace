@@ -42,9 +42,8 @@ export const listProducts = async ({
     }
   }
 
-  const headers = {
-    ...(await getAuthHeaders())
-  }
+
+
 
   return sdk.store.product
     .list(
@@ -56,10 +55,8 @@ export const listProducts = async ({
         ...queryParams
       },
       {
-        ...headers,
         next: { tags: ['products'] }
-      }
-    )
+      })
     .then(({ products, count }) => {
       const nextPage = count > offset + limit ? pageParam + 1 : null
 
@@ -128,9 +125,8 @@ export const retrieveProductByHandle = async (handle: string): Promise<HttpTypes
     return null
   }
 
-  const headers = {
-    ...(await getAuthHeaders())
-  }
+
+
 
   return sdk.store.product.list({
     handle,
@@ -147,9 +143,8 @@ export const retrieveProduct = async (id: string): Promise<HttpTypes.StoreProduc
     return null
   }
 
-  const headers = {
-    ...(await getAuthHeaders())
-  }
+
+
 
   return sdk.store.product.retrieve(id, {
     fields,

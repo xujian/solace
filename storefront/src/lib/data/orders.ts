@@ -1,29 +1,24 @@
-"use server"
+'use server'
 
-import { sdk } from "@lib/config"
-import medusaError from "@lib/util/medusa-error"
-import { getAuthHeaders } from "./cookies"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes } from '@medusajs/types'
+import medusaError from '@lib/util/medusa-error'
+import { sdk } from '@lib/config'
 
 export const retrieveOrder = async (id: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
 
   return sdk.store.order
     .retrieve(
       id,
       {
         fields:
-          "*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product",
+          '*payment_collections.payments,*items,*items.metadata,*items.variant,*items.product'
       },
       {
-        ...headers,
         next: { tags: ['orders'] }
       }
     )
     .then(({ order }) => order)
-    .catch((err) => medusaError(err))
+    .catch(err => medusaError(err))
 }
 
 export const listOrders = async (
@@ -31,26 +26,22 @@ export const listOrders = async (
   offset: number = 0,
   filters?: Record<string, any>
 ) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
 
   return sdk.store.order
     .list(
       {
         limit,
         offset,
-        order: "-created_at",
-        fields: "*items,+items.metadata,*items.variant,*items.product",
-        ...filters,
+        order: '-created_at',
+        fields: '*items,+items.metadata,*items.variant,*items.product',
+        ...filters
       },
       {
-        ...headers,
         next: { tags: ['orders'] }
       }
     )
     .then(({ orders }) => orders)
-    .catch((err) => medusaError(err))
+    .catch(err => medusaError(err))
 }
 
 export const createTransferRequest = async (
@@ -65,41 +56,40 @@ export const createTransferRequest = async (
   error: string | null
   order: HttpTypes.StoreOrder | null
 }> => {
-  const id = formData.get("order_id") as string
+  const id = formData.get('order_id') as string
 
   if (!id) {
-    return { success: false, error: "Order ID is required", order: null }
+    return { success: false, error: 'Order ID is required', order: null }
   }
 
-  const headers = await getAuthHeaders()
+
 
   return await sdk.store.order
     .requestTransfer(
       id,
       {},
       {
-        fields: "id, email",
-      },
-      headers
+        fields: 'id, email'
+      }
     )
     .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
+    .catch(err => ({ success: false, error: err.message, order: null }))
 }
 
 export const acceptTransferRequest = async (id: string, token: string) => {
-  const headers = await getAuthHeaders()
+
 
   return await sdk.store.order
-    .acceptTransfer(id, { token }, {}, headers)
+    .acceptTransfer(id, { token })
     .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
+    .catch(err => ({ success: false, error: err.message, order: null }))
 }
 
 export const declineTransferRequest = async (id: string, token: string) => {
-  const headers = await getAuthHeaders()
+
 
   return await sdk.store.order
-    .declineTransfer(id, { token }, {}, headers)
+    .declineTransfer(id, { token })
     .then(({ order }) => ({ success: true, error: null, order }))
-    .catch((err) => ({ success: false, error: err.message, order: null }))
+    .catch(err => ({ success: false, error: err.message, order: null }))
 }

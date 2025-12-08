@@ -1,21 +1,15 @@
-"use server"
+'use server'
 
-import { sdk } from "@lib/config"
-import { getAuthHeaders } from "./cookies"
-import { HttpTypes } from "@medusajs/types"
+import { HttpTypes } from '@medusajs/types'
+import { sdk } from '@lib/config'
 
 export const listCartPaymentMethods = async (regionId: string) => {
-  const headers = {
-    ...(await getAuthHeaders()),
-  }
-
   return sdk.client
     .fetch<HttpTypes.StorePaymentProviderListResponse>(
       `/store/payment-providers`,
       {
-        method: "GET",
+        method: 'GET',
         query: { region_id: regionId },
-        headers,
         next: { tags: ['payment_providers'] }
       }
     )

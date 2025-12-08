@@ -2,12 +2,20 @@ import 'server-only'
 
 import { cookies as nextCookies } from 'next/headers'
 
+export const AUTH_COOKIE_NAME = '_medusa_jwt'
+export const AUTH_COOKIE_OPTIONS = {
+  maxAge: 60 * 60 * 24 * 7,
+  httpOnly: true,
+  sameSite: 'strict',
+  secure: process.env.NODE_ENV === 'production'
+} as const
+
 export const getAuthHeaders = async (): Promise<
   { authorization: string } | {}
 > => {
   try {
     const cookies = await nextCookies()
-    const token = cookies.get('_medusa_jwt')?.value
+    const token = cookies.get(AUTH_COOKIE_NAME)?.value
 
     if (!token) {
       return {}
@@ -19,21 +27,14 @@ export const getAuthHeaders = async (): Promise<
   }
 }
 
-
-
 export const setAuthToken = async (token: string) => {
   const cookies = await nextCookies()
-  cookies.set('_medusa_jwt', token, {
-    maxAge: 60 * 60 * 24 * 7,
-    httpOnly: true,
-    sameSite: 'strict',
-    secure: process.env.NODE_ENV === 'production'
-  })
+  cookies.set(AUTH_COOKIE_NAME, token, AUTH_COOKIE_OPTIONS)
 }
 
 export const removeAuthToken = async () => {
   const cookies = await nextCookies()
-  cookies.set('_medusa_jwt', '', {
+  cookies.set(AUTH_COOKIE_NAME, '', {
     maxAge: -1
   })
 }

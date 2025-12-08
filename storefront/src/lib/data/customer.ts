@@ -6,21 +6,11 @@ import { HttpTypes } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
 import { sdk } from '@lib/config'
 import {
-  getAuthHeaders,
   getCartId,
-  removeAuthToken,
-  removeCartId,
-  setAuthToken
+  removeCartId
 } from './cookies'
 
 export const retrieveCustomer = async (): Promise<HttpTypes.StoreCustomer | null> => {
-  const authHeaders = await getAuthHeaders()
-
-  if (!authHeaders) return null
-
-  const headers = {
-    ...authHeaders
-  }
 
   return await sdk.store.customer
     .retrieve(
@@ -28,7 +18,6 @@ export const retrieveCustomer = async (): Promise<HttpTypes.StoreCustomer | null
         fields: '*orders'
       },
       {
-        ...headers,
         next: { tags: ['customers'] }
       }
     )
@@ -37,12 +26,9 @@ export const retrieveCustomer = async (): Promise<HttpTypes.StoreCustomer | null
 }
 
 export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
-  const headers = {
-    ...(await getAuthHeaders())
-  }
 
   const updateRes = await sdk.store.customer
-    .update(body, {}, headers)
+    .update(body)
     .then(({ customer }) => customer)
     .catch(medusaError)
 
@@ -61,25 +47,18 @@ export async function signup(_currentState: unknown, formData: FormData) {
   }
 
   try {
+  
     const token = await sdk.auth.register('customer', 'emailpass', {
       email: customerForm.email,
       password: password
     })
 
-    await setAuthToken(token as string)
+    const { customer: createdCustomer } = await sdk.store.customer.create(customerForm)
 
-    const headers = {
-      ...(await getAuthHeaders())
-    }
-
-    const { customer: createdCustomer } = await sdk.store.customer.create(customerForm, {}, headers)
-
-    const loginToken = await sdk.auth.login('customer', 'emailpass', {
+    await sdk.auth.login('customer', 'emailpass', {
       email: customerForm.email,
       password
     })
-
-    await setAuthToken(loginToken as string)
 
     revalidateTag('customers')
 
@@ -96,8 +75,8 @@ export async function login(_currentState: unknown, formData: FormData) {
   const password = formData.get('password') as string
 
   try {
-    await sdk.auth.login('customer', 'emailpass', { email, password }).then(async token => {
-      await setAuthToken(token as string)
+  
+    await sdk.auth.login('customer', 'emailpass', { email, password }).then(async () => {
       revalidateTag('customers')
     })
   } catch (error: any) {
@@ -112,9 +91,8 @@ export async function login(_currentState: unknown, formData: FormData) {
 }
 
 export async function signout(region: string) {
-  await sdk.auth.logout()
 
-  await removeAuthToken()
+  await sdk.auth.logout()
 
   revalidateTag('customers')
 
@@ -132,9 +110,8 @@ export async function transferCart() {
     return
   }
 
-  const headers = await getAuthHeaders()
 
-  await sdk.store.cart.transferCart(cartId, {}, headers)
+  await sdk.store.cart.transferCart(cartId)
 
   revalidateTag('carts')
 }
@@ -158,12 +135,9 @@ export const addCustomerAddress = async (currentState: Record<string, unknown>, 
     is_default_shipping: isDefaultShipping
   }
 
-  const headers = {
-    ...(await getAuthHeaders())
-  }
 
   return sdk.store.customer
-    .createAddress(address, {}, headers)
+    .createAddress(address, {})
     .then(async ({ customer }) => {
       revalidateTag('customers')
       return { success: true, error: null }
@@ -174,12 +148,10 @@ export const addCustomerAddress = async (currentState: Record<string, unknown>, 
 }
 
 export const deleteCustomerAddress = async (addressId: string): Promise<void> => {
-  const headers = {
-    ...(await getAuthHeaders())
-  }
+
 
   await sdk.store.customer
-    .deleteAddress(addressId, headers)
+    .deleteAddress(addressId)
     .then(async () => {
       revalidateTag('customers')
       return { success: true, error: null }
@@ -217,12 +189,9 @@ export const updateCustomerAddress = async (
     address.phone = phone
   }
 
-  const headers = {
-    ...(await getAuthHeaders())
-  }
 
   return sdk.store.customer
-    .updateAddress(addressId, address, {}, headers)
+    .updateAddress(addressId, address)
     .then(async () => {
       revalidateTag('customers')
       return { success: true, error: null }
