@@ -3,10 +3,11 @@
 import { HttpTypes } from '@medusajs/types'
 import { sortProducts } from '@lib/util/sort-products'
 import { sdk } from '@lib/sdk'
-import { SortOptions } from '@modules/store/sort-products'
+import { SortOptions } from '@modules/products/sort'
 import { getAuthHeaders } from './cookies'
 import { getRegion, retrieveRegion } from './regions'
 import { getCurrentCountry, getCurrentRegion } from './server-context'
+import { Filters } from 'types/global'
 
 const fields = [
   '*variants.calculated_price', 
@@ -41,9 +42,6 @@ export const listProducts = async ({
       nextPage: null
     }
   }
-
-
-
 
   return sdk.store.product
     .list(
@@ -124,10 +122,6 @@ export const retrieveProductByHandle = async (handle: string): Promise<HttpTypes
   if (!region) {
     return null
   }
-
-
-
-
   return sdk.store.product.list({
     handle,
     fields,
@@ -143,12 +137,18 @@ export const retrieveProduct = async (id: string): Promise<HttpTypes.StoreProduc
     return null
   }
 
-
-
-
   return sdk.store.product.retrieve(id, {
     fields,
     region_id: region.id
   }).then(({ product }) => product)
   .catch(() => null)  
+}
+
+export const retrieveFilters = async (): Promise<StoreFilters> => {
+  const headers = {
+    ...(await getAuthHeaders()),
+  }
+  return sdk.client.fetch<StoreFilters>('/store/filters', {
+    headers
+  })
 }
