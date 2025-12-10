@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Login from '@modules/account/login'
+import Login from '@modules/account/signin'
 import Signup from '@modules/account/signup'
 
 export enum LOGIN_VIEW {
@@ -9,7 +9,7 @@ export enum LOGIN_VIEW {
   REGISTER = 'register'
 }
 
-const LoginSignup = () => {
+const Auth = () => {
   const [currentView, setCurrentView] = useState('sign-in')
 
   return (
@@ -23,4 +23,4 @@ const LoginSignup = () => {
   )
 }
 
-export default LoginSignup
+export default Auth

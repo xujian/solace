@@ -11,7 +11,7 @@ import {
   Label
 } from '@lib/components/ui'
 import { signup } from '@lib/data/customer'
-import { LOGIN_VIEW } from '@modules/account/login-signup'
+import { LOGIN_VIEW } from '@modules/account/auth'
 import ErrorMessage from '@modules/checkout/error-message'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 

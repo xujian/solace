@@ -1,7 +1,7 @@
 import { useActionState } from 'react'
 import { Button, CardContent, CardFooter, Input, Label } from '@lib/components/ui'
 import { login } from '@lib/data/customer'
-import { LOGIN_VIEW } from '@modules/account/login-signup'
+import { LOGIN_VIEW } from '@modules/account/auth'
 import ErrorMessage from '@modules/checkout/error-message'
 import { Card, CardHeader } from '@lib/components/ui'
 
@@ -9,7 +9,7 @@ type Props = {
   setCurrentView: (view: LOGIN_VIEW) => void
 }
 
-const Login = ({ setCurrentView }: Props) => {
+const Signin = ({ setCurrentView }: Props) => {
   const [message, formAction, isPending] = useActionState(login, null)
 
   return (
@@ -76,4 +76,4 @@ const Login = ({ setCurrentView }: Props) => {
   )
 }
 
-export default Login
+export default Signin

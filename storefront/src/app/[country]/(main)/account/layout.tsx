@@ -3,14 +3,14 @@ import AccountNav from '@modules/account/account-nav'
 
 export default async function AccountPageLayout({
   dashboard,
-  login
+  auth
 }: {
   dashboard?: React.ReactNode
-  login?: React.ReactNode
+  auth?: React.ReactNode
 }) {
   const customer = await retrieveCustomer().catch(() => null)
   
-  const children = customer ? dashboard : login
+  const children = customer ? dashboard : auth
 
   return (
     <div className="flex flex-col gap-y-4" data-testid="account-page">
