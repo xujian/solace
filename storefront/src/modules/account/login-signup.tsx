@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Login from '@modules/account/login'
-import Register from '@modules/account/register'
+import Signup from '@modules/account/signup'
 
 export enum LOGIN_VIEW {
   SIGN_IN = 'sign-in',
@@ -13,11 +13,11 @@ const LoginSignup = () => {
   const [currentView, setCurrentView] = useState('sign-in')
 
   return (
-    <div className="flex w-full justify-start px-8 py-8">
+    <div className="flex w-full justify-center">
       {currentView === 'sign-in' ? (
         <Login setCurrentView={setCurrentView} />
       ) : (
-        <Register setCurrentView={setCurrentView} />
+        <Signup setCurrentView={setCurrentView} />
       )}
     </div>
   )

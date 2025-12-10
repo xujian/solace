@@ -4,14 +4,13 @@ import { setAddresses } from "@lib/data/cart"
 import compareAddresses from "@lib/util/compare-addresses"
 import { CheckCircle } from "lucide-react"
 import { HttpTypes } from "@medusajs/types"
-import { Separator } from "@lib/components/ui"
+import { Button, Separator } from "@lib/components/ui"
 import { RefreshCw as Spinner } from "lucide-react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { useActionState, useState } from "react"
 import BillingAddress from "./billing_address"
 import ErrorMessage from "./error-message"
 import ShippingAddress from "./shipping-address"
-import { SubmitButton } from "./submit-button"
 
 const Addresses = ({
   cart,
@@ -38,7 +37,7 @@ const Addresses = ({
     router.push(pathname + "?step=address")
   }
 
-  const [message, formAction] = useActionState(setAddresses, null)
+  const [message, formAction, isPending] = useActionState(setAddresses, null)
 
   return (
     <div className="bg-white">
@@ -82,9 +81,9 @@ const Addresses = ({
                 <BillingAddress cart={cart} />
               </div>
             )}
-            <SubmitButton className="mt-6" data-testid="submit-address-button">
+            <Button className="mt-6" data-testid="submit-address-button" type="submit" isLoading={isPending}>
               Continue to delivery
-            </SubmitButton>
+            </Button>
             <ErrorMessage error={message} data-testid="address-error-message" />
           </div>
         </form>

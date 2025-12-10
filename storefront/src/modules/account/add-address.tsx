@@ -8,7 +8,6 @@ import { addCustomerAddress } from '@lib/data/customer'
 import useToggleState from '@lib/hooks/use-toggle-state'
 import { useSession } from '@lib/context/session-context'
 import CountrySelect from '@modules/checkout/country-select'
-import { SubmitButton } from '@modules/checkout/submit-button'
 import { Plus } from 'lucide-react'
 import { X } from 'lucide-react'
 
@@ -17,7 +16,7 @@ const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[]
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction] = useActionState(addCustomerAddress, {
+  const [formState, formAction, isPending] = useActionState(addCustomerAddress, {
     isDefaultShipping: addresses.length === 0,
     success: false,
     error: null
@@ -119,7 +118,9 @@ const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[]
               <Button type="reset" variant="secondary" onClick={close} className="h-10" data-testid="cancel-button">
                 Cancel
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <Button data-testid="save-button" type="submit" isLoading={isPending}>
+                Save
+              </Button>
             </div>
           </form>
         </DialogContent>

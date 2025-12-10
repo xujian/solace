@@ -9,7 +9,6 @@ import useToggleState from '@lib/hooks/use-toggle-state'
 import { cn } from '@lib/util'
 import { useSession } from '@lib/context/session-context'
 import CountrySelect from '@modules/checkout/country-select'
-import { SubmitButton } from '@modules/checkout/submit-button'
 import { Edit, Trash2 as Trash } from 'lucide-react'
 import { X } from 'lucide-react'
 import { RefreshCw as Spinner } from 'lucide-react'
@@ -25,7 +24,7 @@ const EditAddress: React.FC<EditAddressProps> = ({ address, isActive = false }) 
   const [successState, setSuccessState] = useState(false)
   const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction] = useActionState(updateCustomerAddress, {
+  const [formState, formAction, isPending] = useActionState(updateCustomerAddress, {
     success: false,
     error: null,
     addressId: address.id
@@ -202,7 +201,9 @@ const EditAddress: React.FC<EditAddressProps> = ({ address, isActive = false }) 
               <Button type="reset" variant="secondary" onClick={close} className="h-10" data-testid="cancel-button">
                 Cancel
               </Button>
-              <SubmitButton data-testid="save-button">Save</SubmitButton>
+              <Button data-testid="save-button" type="submit" isLoading={isPending}>
+                Save
+              </Button>
             </div>
           </form>
         </DialogContent>

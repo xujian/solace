@@ -20,6 +20,9 @@
   .glass {
     @apply backdrop-blur-lg backdrop-saturate-100 backdrop-contrast-100;
   }
+  .text-neutral {
+    @apply text-neutral-500;
+  }
 }
 
 .page-body section {

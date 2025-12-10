@@ -3,14 +3,13 @@
 import { useActionState } from "react"
 import { createTransferRequest } from "@lib/data/orders"
 import { Button, Input } from "@lib/components/ui"
-import { SubmitButton } from "@modules/checkout/submit-button"
 import { CheckCircle, XCircle } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export default function TransferRequestForm() {
   const [showSuccess, setShowSuccess] = useState(false)
 
-  const [state, formAction] = useActionState(createTransferRequest, {
+  const [state, formAction, isPending] = useActionState(createTransferRequest, {
     success: false,
     error: null,
     order: null,
@@ -40,12 +39,14 @@ export default function TransferRequestForm() {
         >
           <div className="flex flex-col gap-y-2 w-full">
             <Input className="w-full" name="order_id" label="Order ID" />
-            <SubmitButton
+            <Button
               variant="secondary"
               className="w-fit whitespace-nowrap self-end"
+              type="submit"
+              isLoading={isPending}
             >
               Request transfer
-            </SubmitButton>
+            </Button>
           </div>
         </form>
       </div>
