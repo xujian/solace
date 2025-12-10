@@ -16,7 +16,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
       <Suspense fallback={null}>
         <CartCustomerLayer />
       </Suspense>
-      <main className="page-body max-w-8xl px-body mx-auto w-full">{props.children}</main>
+      <main className="page-body">{props.children}</main>
       <Footer />
     </>
   )
