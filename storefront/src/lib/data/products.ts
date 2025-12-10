@@ -144,11 +144,100 @@ export const retrieveProduct = async (id: string): Promise<HttpTypes.StoreProduc
   .catch(() => null)  
 }
 
-export const retrieveFilters = async (): Promise<StoreFilters> => {
+export const retrieveFilters = async (): Promise<Filters> => {
   const headers = {
     ...(await getAuthHeaders()),
   }
   return sdk.client.fetch<StoreFilters>('/store/filters', {
     headers
   })
+}
+
+export type SearchParams = {
+  currency: string
+  page?: number
+  limit?: number
+  sort?: string
+  category?: string[]
+  collection?: string[]
+  material?: string[]
+  price?: string[]
+  q?: string
+}
+
+export async function search({
+  currency,
+  page,
+  limit,
+  sort = 'relevance',
+  category,
+  collection,
+  material,
+  price,
+  q,
+}: SearchParams): Promise<{products: HttpTypes.StoreProduct[], count: number}> {
+  const sorting =
+    sort === 'price_asc'
+      ? 'calculated_price'
+      : sort === 'price_desc'
+        ? '-calculated_price'
+        : sort === 'created_at'
+          ? '-created_at'
+          : sort
+
+  const searchParams = new URLSearchParams({
+    currency,
+    sort: sorting,
+    offset: `${((page || 1) - 1) * 10}`,
+    limit: '10',
+  })
+
+  if (category && Array.isArray(category)) {
+    category.forEach((id) => {
+      searchParams.append('category[]', id)
+    })
+  }
+  if (collection && Array.isArray(collection)) {
+    collection.forEach((id) => {
+      searchParams.append('collection[]', id)
+    })
+  }
+  if (material && Array.isArray(material)) {
+    material.forEach((id) => {
+      searchParams.append('material[]', id)
+    })
+  }
+  if (price && Array.isArray(price)) {
+    price.forEach((range) => {
+      switch (range) {
+        case 'under-100':
+          searchParams.append('price[]', '100')
+          break
+        case '100-500':
+          searchParams.append('price[]', '100')
+          searchParams.append('price[]', '500')
+          break
+        case '501-1000':
+          searchParams.append('price[]', '501')
+          break
+        case 'more-than-1000':
+          searchParams.append('price[]', '1000')
+          break
+      }
+    })
+  }
+  if (q) {
+    searchParams.append('q', decodeURIComponent(q))
+  }
+
+  const search = searchParams.toString()
+
+  // console.log('///////////////////search', search)
+  const results = await sdk.client.fetch(
+    `/store/search?${search}`,
+    {
+      cache: 'no-store',
+    }
+  )
+  return results
 }
