@@ -135,7 +135,7 @@ const Signup = ({ setCurrentView }: Props) => {
           </Button>
         </form>{' '}
       </CardContent>
-      <CardFooter className="bg-neutral-700">
+      <CardFooter className="bg-secondary">
         <div className="flex w-full flex-col items-center justify-center">
           <p className="text-neutral my-4">Already a member?</p>
           <Button

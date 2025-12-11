@@ -23,6 +23,9 @@
   .text-neutral {
     @apply text-neutral-500;
   }
+  .border {
+    border-color: var(--color-border);
+  }
 }
 
 .page-body section {

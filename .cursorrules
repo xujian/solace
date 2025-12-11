@@ -59,3 +59,5 @@ You are an expert senior software engineer and web developer specializing in Nex
 - **Do not** use `<div>` when a semantic tag (e.g., `<section>`, `<article>`, `<header>`) is appropriate.
 - **Do not** leave `console.log` statements in production code.
 - **Do not** use `any` type unless absolutely necessary; strive for strict typing.
+- **Do not** use `use @radix-ui components directly; use `@lib/components/ui` instead.
+

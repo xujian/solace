@@ -46,15 +46,15 @@ const ProfileIcon = () => {
         <Button
           onClick={toggleDropdown}
           size="icon"
-          className="bg-dark"
+          variant="ghost"
           aria-expanded={isOpen}
           aria-haspopup="menu">
           <UserIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-64">
+      <DropdownMenuContent className="w-32">
         {user ? (
-          <DropdownMenuGroup>
+          <DropdownMenuGroup className="flex flex-col gap-1">
             <DropdownMenuItem>
               <LocalizedClientLink href="/account">
                 My Account
@@ -75,15 +75,15 @@ const ProfileIcon = () => {
             </DropdownMenuItem>
           </DropdownMenuGroup>
         ) : (
-          <DropdownMenuGroup>
-            <DropdownMenuItem>
+          <DropdownMenuGroup className="flex flex-col gap-1">
+            <DropdownMenuItem className="bg-primary">
               <LocalizedClientLink className='w-full' href="/account?mode=signin">
-                <Button className="w-full">Sign in</Button>
+                Sign in
               </LocalizedClientLink>
             </DropdownMenuItem>
-            <DropdownMenuItem>
+            <DropdownMenuItem className="bg-primary">
               <LocalizedClientLink className='w-full' href="/account?mode=signup">
-                <Button className="w-full">Sign up</Button>
+                Sign up
               </LocalizedClientLink>
             </DropdownMenuItem>
           </DropdownMenuGroup>

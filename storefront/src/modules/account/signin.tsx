@@ -75,11 +75,11 @@ const Signin = ({ setCurrentView }: Props) => {
             </Button>
           </form>
         </CardContent>
-        <CardFooter className="flex flex-col items-center justify-center gap-y-2 bg-neutral-900">
+        <CardFooter className="flex flex-col items-center justify-center gap-y-2 bg-secondary">
           <p className="text-neutral my-4">Don't have an account?</p>
           <Button
-            className="w-full bg-secondary"
-            onClick={() => setCurrentView(LOGIN_VIEW.REGISTER)}
+            className="w-full"
+            onClick={() => setCurrentView(LOGIN_VIEW.SIGNUP)}
             data-testid="register-button">
             Join us
           </Button>
