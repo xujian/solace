@@ -1,20 +1,34 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import { ChevronDown, User as UserIcon } from 'lucide-react'
+import {
+  Button,
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@lib/components/ui'
 import { cn } from '@lib/util'
-import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuLabel, 
-  DropdownMenuSeparator, DropdownMenuTrigger } from '@lib/components/ui'
 import { ModeToggle } from './mode-toggle'
-import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu'
+import { signout } from '@lib/data/customer'
+import { ChevronDown, User as UserIcon } from 'lucide-react'
+import LocalizedClientLink from './localized-client-link'
+import { useSession } from '@lib/context/session-context'
 
 const ProfileIcon = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { country } = useSession()
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const toggleDropdown = () => setIsOpen(!isOpen)
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsOpen(false)
     }
   }
@@ -32,25 +46,31 @@ const ProfileIcon = () => {
         <Button
           onClick={toggleDropdown}
           size="icon"
-          className="bg-dark text-ui-fg-base"
+          className="bg-dark"
           aria-expanded={isOpen}
           aria-haspopup="menu">
           <UserIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-64 bg-popover text-popover-foreground" align="end">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+      <DropdownMenuContent className="w-64">
+        <DropdownMenuGroup>
+          <DropdownMenuItem>
+            <LocalizedClientLink href="/account">My Account</LocalizedClientLink>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <LocalizedClientLink href="/account/profile">Profile</LocalizedClientLink>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <LocalizedClientLink href="/account/orders">Orders</LocalizedClientLink>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <a onClick={() => signout(country)}>Sign out</a>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
         <DropdownMenuSeparator />
-        <DropdownMenuLabel>My Orders</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuLabel>Profile</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuLabel>Logout</DropdownMenuLabel>
-        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>
-          <ModeToggle />
-        </DropdownMenuItem>
+        <ModeToggle />
       </DropdownMenuContent>
-    </DropdownMenu> 
+    </DropdownMenu>
   )
 }
 

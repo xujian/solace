@@ -1,17 +1,4 @@
 
 @theme {
-  --color-primary: oklch(26.323% 0.15553 271.156);
-  --color-primary-foreground: oklch(0.985 0 0);
-  --color-secondary: oklch(0.97 0 0);
-  --color-secondary-foreground: oklch(0.205 0 0);
-  --color-positive: oklch(75.757% 0.21628 145.424);
-  --color-positive-foreground: oklch(30.519% 0.00003 271.152);
-  --color-negative: oklch(42.036% 0.16405 28.161);
-  --color-negative-foreground: oklch(77.944% 0.00009 271.152);
-  --color-surface: oklch(98.039% 0 0);
-  --breakpoint-xs: 30rem; /* 480px */
-  --breakpoint-2xl: 100rem; /* 1600px */
-  --spacing-body: 1rem;
-  --gap-base: 1rem;
-  --mt-base: 1rem;
+
 }

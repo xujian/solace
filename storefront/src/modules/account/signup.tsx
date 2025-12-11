@@ -7,6 +7,9 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
+  Field,
+  FieldContent,
+  FieldLabel,
   Input,
   Label
 } from '@lib/components/ui'
@@ -24,7 +27,7 @@ const Signup = ({ setCurrentView }: Props) => {
 
   return (
     <Card
-      className="flex max-w-[480px] flex-col overflow-hidden"
+      className="flex max-w-[600px] flex-col overflow-hidden"
       data-testid="register-page">
       <CardHeader>
         <h1 className="text-large-semi mb-6 uppercase">
@@ -36,32 +39,38 @@ const Signup = ({ setCurrentView }: Props) => {
         </p>
       </CardHeader>
       <CardContent>
-        <form className="flex w-full flex-col" action={formAction}>
-          <div className="flex w-full flex-col gap-y-4">
-            <div className="flex flex-col gap-y-2">
-              <Label htmlFor="first_name">First name</Label>
-              <Input
-                id="first_name"
-                name="first_name"
-                placeholder="First name"
-                required
-                autoComplete="given-name"
-                data-testid="first-name-input"
-              />
-            </div>
-            <div className="flex flex-col gap-y-2">
-              <Label htmlFor="last_name">Last name</Label>
-              <Input
-                id="last_name"
-                name="last_name"
-                placeholder="Last name"
-                required
-                autoComplete="family-name"
-                data-testid="last-name-input"
-              />
-            </div>
-            <div className="flex flex-col gap-y-2">
-              <Label htmlFor="email">Email</Label>
+        <form className="flex w-full flex-col gap-4" action={formAction}>
+          <div className="flex w-full gap-4">
+            <Field>
+              <FieldLabel>First name</FieldLabel>
+              <FieldContent>
+                <Input
+                  id="first_name"
+                  name="first_name"
+                  placeholder="First name"
+                  required
+                  autoComplete="given-name"
+                  data-testid="first-name-input"
+                />
+              </FieldContent>
+            </Field>
+            <Field>
+              <FieldLabel>Last name</FieldLabel>
+              <FieldContent>
+                <Input
+                  id="last_name"
+                  name="last_name"
+                  placeholder="Last name"
+                  required
+                  autoComplete="family-name"
+                  data-testid="last-name-input"
+                />
+              </FieldContent>
+            </Field>
+          </div>
+          <Field>
+            <FieldLabel>Email</FieldLabel>
+            <FieldContent>
               <Input
                 id="email"
                 name="email"
@@ -71,9 +80,11 @@ const Signup = ({ setCurrentView }: Props) => {
                 autoComplete="email"
                 data-testid="email-input"
               />
-            </div>
-            <div className="flex flex-col gap-y-2">
-              <Label htmlFor="phone">Phone</Label>
+            </FieldContent>
+          </Field>
+          <Field>
+            <FieldLabel>Phone</FieldLabel>
+            <FieldContent>
               <Input
                 id="phone"
                 name="phone"
@@ -82,9 +93,11 @@ const Signup = ({ setCurrentView }: Props) => {
                 autoComplete="tel"
                 data-testid="phone-input"
               />
-            </div>
-            <div className="flex flex-col gap-y-2">
-              <Label htmlFor="password">Password</Label>
+            </FieldContent>
+          </Field>
+          <Field>
+            <FieldLabel>Password</FieldLabel>
+            <FieldContent>
               <Input
                 id="password"
                 name="password"
@@ -94,11 +107,11 @@ const Signup = ({ setCurrentView }: Props) => {
                 autoComplete="new-password"
                 data-testid="password-input"
               />
-            </div>
-          </div>
+            </FieldContent>
+          </Field>
           <ErrorMessage error={message} data-testid="register-error" />
 
-          <span className="text-ui-fg-base text-small-regular mt-6 text-center">
+          <p className="text-neutral mt-6">
             By creating an account, you agree to Medusa Store&apos;s{' '}
             <LocalizedClientLink
               href="/content/privacy-policy"
@@ -112,7 +125,7 @@ const Signup = ({ setCurrentView }: Props) => {
               Terms of Use
             </LocalizedClientLink>
             .
-          </span>
+          </p>
           <Button
             className="mt-6 w-full"
             data-testid="register-button"
@@ -123,7 +136,7 @@ const Signup = ({ setCurrentView }: Props) => {
         </form>{' '}
       </CardContent>
       <CardFooter className="bg-neutral-700">
-        <div className="w-full flex flex-col items-center justify-center">
+        <div className="flex w-full flex-col items-center justify-center">
           <p className="text-neutral my-4">Already a member?</p>
           <Button
             className="w-full"

@@ -1,6 +1,7 @@
 'use client'
 import { useParams, usePathname } from 'next/navigation'
 import { HttpTypes } from '@medusajs/types'
+import { useSession } from '@lib/context/session-context'
 import { signout } from '@lib/data/customer'
 import { cn } from '@lib/util'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
@@ -9,9 +10,12 @@ import { ChevronDown } from 'lucide-react'
 import { User } from 'lucide-react'
 import { MapPin } from 'lucide-react'
 import { Package } from 'lucide-react'
-import { useSession } from '@lib/context/session-context'
 
-const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) => {
+const AccountNav = ({
+  customer
+}: {
+  customer: HttpTypes.StoreCustomer | null
+}) => {
   const route = usePathname()
   const { country } = useSession()
 
@@ -27,20 +31,20 @@ const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) 
             href="/account"
             className="text-small-regular flex items-center gap-x-2 py-2"
             data-testid="account-main-link">
-            <>
-              <ChevronDown className="rotate-90 transform" />
-              <span>Account</span>
-            </>
+            <ChevronDown className="rotate-90 transform" />
+            <span>Account</span>
           </LocalizedClientLink>
         ) : (
           <>
-            <div className="text-xl-semi mb-4 px-8">Hello {customer?.first_name}</div>
+            <div className="text-xl-semi mb-4 px-8">
+              Hello {customer?.first_name}
+            </div>
             <div className="text-base-regular">
               <ul>
                 <li>
                   <LocalizedClientLink
                     href="/account/profile"
-                    className="flex items-center justify-between border-b border-gray-200 px-8 py-4"
+                    className="flex items-center justify-between px-8 py-4"
                     data-testid="profile-link">
                     <>
                       <div className="flex items-center gap-x-2">
@@ -54,7 +58,7 @@ const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) 
                 <li>
                   <LocalizedClientLink
                     href="/account/addresses"
-                    className="flex items-center justify-between border-b border-gray-200 px-8 py-4"
+                    className="flex items-center justify-between px-8 py-4"
                     data-testid="addresses-link">
                     <>
                       <div className="flex items-center gap-x-2">
@@ -68,7 +72,7 @@ const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) 
                 <li>
                   <LocalizedClientLink
                     href="/account/orders"
-                    className="flex items-center justify-between border-b border-gray-200 px-8 py-4"
+                    className="flex items-center justify-between px-8 py-4"
                     data-testid="orders-link">
                     <div className="flex items-center gap-x-2">
                       <Package size={20} />
@@ -80,7 +84,7 @@ const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) 
                 <li>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between border-b border-gray-200 px-8 py-4"
+                    className="flex w-full items-center justify-between px-8 py-4"
                     onClick={handleLogout}
                     data-testid="logout-button">
                     <div className="flex items-center gap-x-2">
@@ -103,27 +107,42 @@ const AccountNav = ({ customer }: { customer: HttpTypes.StoreCustomer | null }) 
           <div className="text-base-regular">
             <ul className="mb-0 flex flex-col items-start justify-start gap-y-4">
               <li>
-                <AccountNavLink href="/account" route={route!} data-testid="overview-link">
+                <AccountNavLink
+                  href="/account"
+                  route={route!}
+                  data-testid="overview-link">
                   Overview
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink href="/account/profile" route={route!} data-testid="profile-link">
+                <AccountNavLink
+                  href="/account/profile"
+                  route={route!}
+                  data-testid="profile-link">
                   Profile
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink href="/account/addresses" route={route!} data-testid="addresses-link">
+                <AccountNavLink
+                  href="/account/addresses"
+                  route={route!}
+                  data-testid="addresses-link">
                   Addresses
                 </AccountNavLink>
               </li>
               <li>
-                <AccountNavLink href="/account/orders" route={route!} data-testid="orders-link">
+                <AccountNavLink
+                  href="/account/orders"
+                  route={route!}
+                  data-testid="orders-link">
                   Orders
                 </AccountNavLink>
               </li>
               <li className="text-grey-700">
-                <button type="button" onClick={handleLogout} data-testid="logout-button">
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  data-testid="logout-button">
                   Log out
                 </button>
               </li>
@@ -142,7 +161,12 @@ type AccountNavLinkProps = {
   'data-testid'?: string
 }
 
-const AccountNavLink = ({ href, route, children, 'data-testid': dataTestId }: AccountNavLinkProps) => {
+const AccountNavLink = ({
+  href,
+  route,
+  children,
+  'data-testid': dataTestId
+}: AccountNavLinkProps) => {
   const { country } = useSession()
 
   const active = route.split(country)[1] === href

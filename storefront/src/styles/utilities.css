@@ -38,5 +38,5 @@
 }
 
 .full-bleed {
-  @apply -mx-body;
+  @apply -mx-4;
 }
