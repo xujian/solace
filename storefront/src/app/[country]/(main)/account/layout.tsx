@@ -1,7 +1,7 @@
 import { retrieveCustomer } from '@lib/data/customer'
 import AccountNav from '@modules/account/account-nav'
 
-export default async function AccountPageLayout({
+export default async function AccountLayout({
   dashboard,
   auth
 }: {
@@ -9,12 +9,12 @@ export default async function AccountPageLayout({
   auth?: React.ReactNode
 }) {
   const customer = await retrieveCustomer().catch(() => null)
-  
-  const children = customer ? dashboard : auth
+  const authed = !!customer
+  const children = authed ? dashboard : auth
 
   return (
     <div className="flex flex-col gap-y-4" data-testid="account-page">
-      <div>{customer && <AccountNav customer={customer} />}</div>
+      <div>{authed && <AccountNav customer={customer} />}</div>
       <div className="flex-1">{children}</div>
     </div>
   )

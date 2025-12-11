@@ -10,6 +10,7 @@ import { ChevronDown } from 'lucide-react'
 import { User } from 'lucide-react'
 import { MapPin } from 'lucide-react'
 import { Package } from 'lucide-react'
+import { Button } from '@lib/components/ui'
 
 const AccountNav = ({
   customer
@@ -17,7 +18,7 @@ const AccountNav = ({
   customer: HttpTypes.StoreCustomer | null
 }) => {
   const route = usePathname()
-  const { country } = useSession()
+  const { country, user } = useSession()
 
   const handleLogout = async () => {
     await signout(country)
@@ -81,8 +82,8 @@ const AccountNav = ({
                     <ChevronDown className="-rotate-90 transform" />
                   </LocalizedClientLink>
                 </li>
-                <li>
-                  <button
+                { customer && <li>
+                  <Button
                     type="button"
                     className="flex w-full items-center justify-between px-8 py-4"
                     onClick={handleLogout}
@@ -92,8 +93,8 @@ const AccountNav = ({
                       <span>Log out</span>
                     </div>
                     <ChevronDown className="-rotate-90 transform" />
-                  </button>
-                </li>
+                  </Button>
+                </li>}
               </ul>
             </div>
           </>
@@ -138,14 +139,14 @@ const AccountNav = ({
                   Orders
                 </AccountNavLink>
               </li>
-              <li className="text-grey-700">
+              {user && <li className="text-grey-700">
                 <button
                   type="button"
                   onClick={handleLogout}
                   data-testid="logout-button">
                   Log out
                 </button>
-              </li>
+              </li>}
             </ul>
           </div>
         </div>

@@ -5,34 +5,30 @@ import { redirect } from 'next/navigation'
 import { HttpTypes } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
 import { sdk } from '@lib/sdk'
-import {
-  getCartId,
-  removeCartId
-} from './cookies'
+import { getCartId, removeCartId } from './cookies'
 
-export const retrieveCustomer = async (): Promise<HttpTypes.StoreCustomer | null> => {
-
-  return await sdk.store.customer
-    .retrieve(
-      {
-        fields: '*orders'
-      },
-      {
-        next: { tags: ['customers'] }
-      }
-    )
-    .then(({ customer }) => customer)
-    .catch(() => null)
-}
+export const retrieveCustomer =
+  async (): Promise<HttpTypes.StoreCustomer | null> => {
+    return await sdk.store.customer
+      .retrieve(
+        {
+          fields: '*orders'
+        },
+        {
+          next: { tags: ['customers'] }
+        }
+      )
+      .then(({ customer }) => customer)
+      .catch(() => null)
+  }
 
 export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
-
   const updateRes = await sdk.store.customer
     .update(body)
     .then(({ customer }) => customer)
     .catch(medusaError)
 
-  revalidateTag('customers')
+  revalidateTag('customers', 'max')
 
   return updateRes
 }
@@ -47,20 +43,20 @@ export async function signup(_currentState: unknown, formData: FormData) {
   }
 
   try {
-  
     const token = await sdk.auth.register('customer', 'emailpass', {
       email: customerForm.email,
       password: password
     })
 
-    const { customer: createdCustomer } = await sdk.store.customer.create(customerForm)
+    const { customer: createdCustomer } =
+      await sdk.store.customer.create(customerForm)
 
     await sdk.auth.login('customer', 'emailpass', {
       email: customerForm.email,
       password
     })
 
-    revalidateTag('customers')
+    revalidateTag('customers', 'max')
 
     await transferCart()
 
@@ -75,10 +71,11 @@ export async function login(_currentState: unknown, formData: FormData) {
   const password = formData.get('password') as string
 
   try {
-  
-    await sdk.auth.login('customer', 'emailpass', { email, password }).then(async () => {
-      revalidateTag('customers')
-    })
+    await sdk.auth
+      .login('customer', 'emailpass', { email, password })
+      .then(async () => {
+        revalidateTag('customers', 'max')
+      })
   } catch (error: any) {
     return error.toString()
   }
@@ -91,14 +88,13 @@ export async function login(_currentState: unknown, formData: FormData) {
 }
 
 export async function signout(region: string) {
-
   await sdk.auth.logout()
 
-  revalidateTag('customers')
+  revalidateTag('customers', 'max')
 
   await removeCartId()
 
-  revalidateTag('carts')
+  revalidateTag('carts', 'max')
 
   redirect(`/${region}/account`)
 }
@@ -110,13 +106,15 @@ export async function transferCart() {
     return
   }
 
-
   await sdk.store.cart.transferCart(cartId)
 
-  revalidateTag('carts')
+  revalidateTag('carts', 'max')
 }
 
-export const addCustomerAddress = async (currentState: Record<string, unknown>, formData: FormData): Promise<any> => {
+export const addCustomerAddress = async (
+  currentState: Record<string, unknown>,
+  formData: FormData
+): Promise<any> => {
   const isDefaultBilling = (currentState.isDefaultBilling as boolean) || false
   const isDefaultShipping = (currentState.isDefaultShipping as boolean) || false
 
@@ -135,11 +133,10 @@ export const addCustomerAddress = async (currentState: Record<string, unknown>, 
     is_default_shipping: isDefaultShipping
   }
 
-
   return sdk.store.customer
     .createAddress(address, {})
     .then(async ({ customer }) => {
-      revalidateTag('customers')
+      revalidateTag('customers', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -147,13 +144,13 @@ export const addCustomerAddress = async (currentState: Record<string, unknown>, 
     })
 }
 
-export const deleteCustomerAddress = async (addressId: string): Promise<void> => {
-
-
+export const deleteCustomerAddress = async (
+  addressId: string
+): Promise<void> => {
   await sdk.store.customer
     .deleteAddress(addressId)
     .then(async () => {
-      revalidateTag('customers')
+      revalidateTag('customers', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -165,7 +162,8 @@ export const updateCustomerAddress = async (
   currentState: Record<string, unknown>,
   formData: FormData
 ): Promise<any> => {
-  const addressId = (currentState.addressId as string) || (formData.get('addressId') as string)
+  const addressId =
+    (currentState.addressId as string) || (formData.get('addressId') as string)
 
   if (!addressId) {
     return { success: false, error: 'Address ID is required' }
@@ -189,11 +187,10 @@ export const updateCustomerAddress = async (
     address.phone = phone
   }
 
-
   return sdk.store.customer
     .updateAddress(addressId, address)
     .then(async () => {
-      revalidateTag('customers')
+      revalidateTag('customers', 'max')
       return { success: true, error: null }
     })
     .catch(err => {

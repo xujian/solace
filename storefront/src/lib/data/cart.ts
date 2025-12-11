@@ -57,12 +57,12 @@ export async function getOrSetCart(regionCode: string) {
 
     await setCartId(cart.id)
 
-    revalidateTag('carts')
+    revalidateTag('carts', 'max')
   }
 
   if (cart && cart?.region_id !== region.id) {
     await sdk.store.cart.update(cart.id, { region_id: region.id })
-    revalidateTag('carts')
+    revalidateTag('carts', 'max')
   }
 
   return cart
@@ -79,8 +79,8 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   return sdk.store.cart
     .update(cartId, data)
     .then(async ({ cart }: { cart: HttpTypes.StoreCart }) => {
-      revalidateTag('carts')
-      revalidateTag('fulfillment')
+      revalidateTag('carts', 'max')
+      revalidateTag('fulfillment', 'max')
 
       return cart
     })
@@ -116,8 +116,8 @@ export async function addToCart({
       }
     )
     .then(async () => {
-      revalidateTag('carts')
-      revalidateTag('fulfillment')
+      revalidateTag('carts', 'max')
+      revalidateTag('fulfillment', 'max')
     })
     .catch(medusaError)
 }
@@ -143,8 +143,8 @@ export async function updateLineItem({
   await sdk.store.cart
     .updateLineItem(cartId, lineId, { quantity })
     .then(async () => {
-      revalidateTag('carts')
-      revalidateTag('fulfillment')
+      revalidateTag('carts', 'max')
+      revalidateTag('fulfillment', 'max')
     })
     .catch(medusaError)
 }
@@ -164,8 +164,8 @@ export async function deleteLineItem(lineId: string) {
   await sdk.store.cart
     .deleteLineItem(cartId, lineId)
     .then(async () => {
-      revalidateTag('carts')
-      revalidateTag('fulfillment')
+      revalidateTag('carts', 'max')
+      revalidateTag('fulfillment', 'max')
     })
     .catch(medusaError)
 }
@@ -181,7 +181,7 @@ export async function setShippingMethod({
   return sdk.store.cart
     .addShippingMethod(cartId, { option_id: shippingMethodId })
     .then(async () => {
-      revalidateTag('carts')
+      revalidateTag('carts', 'max')
     })
     .catch(medusaError)
 }
@@ -194,7 +194,7 @@ export async function initiatePaymentSession(
   return sdk.store.payment
     .initiatePaymentSession(cart, data)
     .then(async resp => {
-      revalidateTag('carts')
+      revalidateTag('carts', 'max')
       return resp
     })
     .catch(medusaError)
@@ -211,8 +211,8 @@ export async function applyPromotions(codes: string[]) {
   return sdk.store.cart
     .update(cartId, { promo_codes: codes })
     .then(async () => {
-      revalidateTag('carts')
-      revalidateTag('fulfillment')
+      revalidateTag('carts', 'max')
+      revalidateTag('fulfillment', 'max')
     })
     .catch(medusaError)
 }
@@ -341,7 +341,7 @@ export async function placeOrder(cartId?: string) {
   const cartRes = await sdk.store.cart
     .complete(id)
     .then(async cartRes => {
-      revalidateTag('carts')
+      revalidateTag('carts', 'max')
       return cartRes
     })
     .catch(medusaError)
@@ -349,7 +349,7 @@ export async function placeOrder(cartId?: string) {
   if (cartRes?.type === 'order') {
     const region = cartRes.order.shipping_address?.country_code?.toLowerCase()
 
-    revalidateTag('orders')
+    revalidateTag('orders', 'max')
 
     removeCartId()
     redirect(`/${region}/order/${cartRes?.order.id}/confirmed`)
@@ -373,11 +373,11 @@ export async function updateRegion(code: string, currentPath: string) {
 
   if (cartId) {
     await updateCart({ region_id: region.id })
-    revalidateTag('carts')
+    revalidateTag('carts', 'max')
   }
 
-  revalidateTag('regions')
-  revalidateTag('products')
+  revalidateTag('regions', 'max')
+  revalidateTag('products', 'max')
 
   redirect(`/${code}${currentPath}`)
 }
