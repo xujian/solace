@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import { StoreCollection } from '@medusajs/types'
 import { getCollectionByHandle, listCollections } from '@lib/data/collections'
 import { listCountries } from '@lib/data/regions'
-import { SortOptions } from '@modules/store/sort-products'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,8 +12,8 @@ import {
   BreadcrumbSeparator
 } from '@lib/components/ui/breadcrumb'
 import SkeletonProductGrid from '@modules/skeletons/skeleton-product-grid'
-import RefinementList from '@modules/store/refinement-list'
-import PaginatedProducts from '@modules/store/paginated-products'
+import { SortOptions } from '@modules/products/sort'
+import ProductGrid from '@modules/products/product-grid'
 
 type Props = {
   params: Promise<{ handle: string; country: string }>
@@ -74,14 +73,11 @@ export default async function CollectionPage(props: Props) {
   const params = await props.params
   const { sortBy, page } = searchParams
 
-  const collection = await getCollectionByHandle(params.handle).then(
-    (collection: StoreCollection) => collection
-  )
+  const collection = await getCollectionByHandle(params.handle)
 
   if (!collection) {
     notFound()
   }
-
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || 'created_at'
 
@@ -94,7 +90,7 @@ export default async function CollectionPage(props: Props) {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/collections">Collections</BreadcrumbLink>
+            <BreadcrumbLink>Collections</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -105,18 +101,8 @@ export default async function CollectionPage(props: Props) {
         </BreadcrumbList>
       </Breadcrumb>
       <h1>{collection.title}</h1>
-      <RefinementList sortBy={sort} />
-      <Suspense
-        fallback={
-          <SkeletonProductGrid
-            numberOfProducts={collection.products?.length}
-          />
-        }>
-        <PaginatedProducts
-          sortBy={sort}
-          page={pageNumber}
-          collectionId={collection.id}
-        />
+      <Suspense fallback={<SkeletonProductGrid number={10} />}>
+        <ProductGrid data={collection.products!} />
       </Suspense>
     </div>
   )

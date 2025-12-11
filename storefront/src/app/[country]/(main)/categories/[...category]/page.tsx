@@ -12,11 +12,9 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator
 } from '@lib/components/ui/breadcrumb'
-import InteractiveLink from '@modules/common/components/interactive-link'
-import LocalizedClientLink from '@modules/common/components/localized-client-link'
+import ProductFilters from '@modules/products/product-filters'
+import ProductGrid from '@modules/products/product-grid'
 import SkeletonProductGrid from '@modules/skeletons/skeleton-product-grid'
-import RefinementList from '@modules/store/refinement-list'
-import PaginatedProducts from '@modules/store/paginated-products'
 
 type Props = {
   params: Promise<{ category: string[]; country: string }>
@@ -75,13 +73,11 @@ export default async function CategoryPage(props: Props) {
   const params = await props.params
   const { sortBy, page } = searchParams
 
-  const productCategory = await getCategoryByHandle(params.category)
+  const category = await getCategoryByHandle(params.category)
 
-  if (!productCategory) {
+  if (!category) {
     notFound()
   }
-
-  const category = productCategory
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || 'created_at'
 
@@ -93,11 +89,10 @@ export default async function CategoryPage(props: Props) {
       getParents(category.parent_category)
     }
   }
-
   getParents(category)
 
   return (
-    <div className="category-view flex flex-col gap-4" data-testid="category-container">
+    <div className="category-page flex flex-col gap-4" data-testid="category-container">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
@@ -105,7 +100,7 @@ export default async function CategoryPage(props: Props) {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbLink href="/collections">Collections</BreadcrumbLink>
+            <BreadcrumbLink>Categories</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
@@ -116,53 +111,9 @@ export default async function CategoryPage(props: Props) {
         </BreadcrumbList>
       </Breadcrumb>
       <h1>{category.name}</h1>
-      <RefinementList sortBy={sort} data-testid="sort-by-container" />
-      <div className="w-full">
-        <div className="text-2xl-semi mb-8 flex flex-row gap-4">
-          {parents &&
-            parents.map(parent => (
-              <span key={parent.id} className="text-ui-fg-subtle">
-                <LocalizedClientLink
-                  className="mr-4 hover:text-black"
-                  href={`/categories/${parent.handle}`}
-                  data-testid="sort-by-link">
-                  {parent.name}
-                </LocalizedClientLink>
-                /
-              </span>
-            ))}
-        </div>
-        {category.description && (
-          <div className="text-base-regular mb-8">
-            <p>{category.description}</p>
-          </div>
-        )}
-        {category.category_children && (
-          <div className="text-base-large mb-8">
-            <ul className="grid grid-cols-1 gap-2">
-              {category.category_children?.map(c => (
-                <li key={c.id}>
-                  <InteractiveLink href={`/categories/${c.handle}`}>
-                    {c.name}
-                  </InteractiveLink>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <Suspense
-          fallback={
-            <SkeletonProductGrid
-              numberOfProducts={category.products?.length ?? 8}
-            />
-          }>
-          <PaginatedProducts
-            sortBy={sort}
-            page={pageNumber}
-            categoryId={category.id}
-          />
-        </Suspense>
-      </div>
+      <Suspense fallback={<SkeletonProductGrid number={10} />}>
+        <ProductGrid data={category.products!} />
+      </Suspense>
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import repeat from '@lib/util/repeat'
-import SkeletonProductPreview from '@modules/skeletons/skeleton-product-preview'
+import SkeletonProductPreview from '@modules/skeletons/skeleton-product'
 
 const SkeletonProductGrid = ({
-  numberOfProducts = 8
+  number = 8
 }: {
-  numberOfProducts?: number
+  number?: number
 }) => {
   return (
     <ul
-      className="small:grid-cols-3 medium:grid-cols-4 grid flex-1 grid-cols-2 gap-x-6 gap-y-8"
+      className="grid-auto"
       data-testid="products-list-loader">
-      {repeat(numberOfProducts).map(index => (
+      {repeat(number).map(index => (
         <li key={index}>
           <SkeletonProductPreview />
         </li>

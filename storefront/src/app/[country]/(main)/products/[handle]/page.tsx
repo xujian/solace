@@ -25,7 +25,7 @@ import ProductActions from '@modules/products/product-actions'
 import ProductDetails from '@modules/products/product-details'
 import ProductOnboardingCta from '@modules/products/product-onboarding-cta'
 import RelatedProducts from '@modules/products/related-products'
-import SkeletonProductPreview from '@modules/skeletons/skeleton-product-preview'
+import SkeletonProductPreview from '@modules/skeletons/skeleton-product'
 
 type Props = {
   params: Promise<{ country: string; handle: string }>

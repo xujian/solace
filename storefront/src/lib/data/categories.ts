@@ -22,8 +22,6 @@ export const listCategories = async (query?: Record<string, any>) => {
 
 export const getCategoryByHandle = async (categoryHandle: string[]) => {
   const handle = `${categoryHandle.join('/')}`
-
-
   return sdk.store.category
     .list(
       {
