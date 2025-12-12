@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@lib/components/ui'
-import { deleteLineItem } from '@lib/data/cart'
+import { deleteItem } from '@lib/data/cart'
 import { cn } from '@lib/util'
 import { RefreshCw as Spinner, X } from 'lucide-react'
 
@@ -17,7 +17,7 @@ const DeleteButton = ({
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
-    await deleteLineItem(id).catch(err => {
+    await deleteItem(id).catch(err => {
       setIsDeleting(false)
     })
   }

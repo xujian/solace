@@ -9,15 +9,20 @@ export const metadata: Metadata = {
   metadataBase: new URL(getBaseURL())
 }
 
+import { retrieveCart } from '@lib/data/cart'
+import { CartProvider } from '@lib/context/cart-context'
+
 export default async function PageLayout(props: { children: React.ReactNode }) {
+  const cart = await retrieveCart()
+
   return (
-    <>
+    <CartProvider cart={cart}>
       <Nav />
       <Suspense fallback={null}>
         <CartCustomerLayer />
       </Suspense>
       <main className="page-body">{props.children}</main>
       <Footer />
-    </>
+    </CartProvider>
   )
 }

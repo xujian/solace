@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 import { HttpTypes } from '@medusajs/types'
-import { Badge, Button, Popover, PopoverContent, PopoverTrigger } from '@lib/components/ui'
+import { Badge, Button, Card, CardContent, CardHeader, Popover, PopoverContent, PopoverTrigger, Spinner } from '@lib/components/ui'
 import { convertToLocale } from '@lib/util/money'
 import LineItemOptions from '@modules/common/components/line-item-options'
 import LineItemPrice from '@modules/common/components/line-item-price'
@@ -11,19 +11,24 @@ import LocalizedClientLink from '@modules/common/components/localized-client-lin
 import Thumbnail from '@modules/products/thumbnail'
 import { ShoppingCartIcon, X } from 'lucide-react'
 
-const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
+import { useCart } from '@lib/context/cart-context'
+import { deleteItem } from '@lib/data/cart'
+
+const CartDropdown = () => {
+  const { cart, refreshCart } = useCart()
   const [activeTimer, setActiveTimer] = useState<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [visible, setVisible] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
 
   const open = () => setVisible(true)
   const close = () => setVisible(false)
 
   const total =
-    data?.items?.reduce((acc, item) => {
+    cart?.items?.reduce((acc, item) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = data?.subtotal ?? 0
+  const subtotal = cart?.subtotal ?? 0
   const totalRef = useRef<number>(total || 0)
 
   const timedOpen = () => {
@@ -44,7 +49,6 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
   const pathname = usePathname()
 
   // open cart dropdown when modifying the cart items, but only if we're not on the cart page
-  // open cart dropdown when modifying the cart items, but only if we're not on the cart page
   useEffect(() => {
     if (totalRef.current !== total) {
       if (!pathname.includes('/cart')) {
@@ -56,12 +60,20 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
   }, [total, pathname])
 
   const onOpenChange = (value: boolean) => {
-    console.log('open', value)
     if (!value) {
       close()
     } else {
       open()
     }
+  }
+
+  const handleDeleteItem = async (id: string) => {
+    setIsDeleting(true)
+    await deleteItem(id).catch(err => {
+      setIsDeleting(false)
+    })
+    refreshCart()
+    setIsDeleting(false)
   }
 
   return (
@@ -76,15 +88,14 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
           </Badge>
         </div>
       </PopoverTrigger>
-      <PopoverContent
-        className="sm:block absolute right-0 hidden w-[480px]"
+      <PopoverContent className="sm:block absolute right-0 hidden w-[480px]"
         data-testid="nav-cart-dropdown"
         align="end">
-        <h2>Cart</h2>
-        {data && data.items?.length ? (
+        <h2 className="text-lg font-semibold mb-4">Cart</h2>
+        {cart && cart.items?.length ? (
           <>
             <div className="items w-full flex flex-col gap-4 mb-4">
-              {data.items
+              {cart.items
                 .sort((a, b) => {
                   return (a.created_at ?? '') > (b.created_at ?? '') ? -1 : 1
                 })
@@ -106,7 +117,7 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
                         data-testid="cart-item-variant"
                         data-value={item.variant}
                       />
-                      <LineItemPrice item={item} style="tight" currencyCode={data.currency_code} />
+                      <LineItemPrice item={item} style="tight" currencyCode={cart.currency_code} />
                     </div>
                     <div className="flex-0">
                       <Badge>{item.quantity}</Badge>
@@ -114,10 +125,9 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="ml-auto"
-                      onClick={() => {
-                      }}>
-                      <X />
+                      className="ml-auto h-6 w-6"
+                      onClick={() => handleDeleteItem(item.id)}>
+                      {isDeleting ? <Spinner className="animate-spin" /> : <X />}
                     </Button>
                   </div>
                 ))}
@@ -130,7 +140,7 @@ const CartDropdown = ({ data }: { data?: HttpTypes.StoreCart | null }) => {
                 <span className="" data-testid="cart-subtotal" data-value={subtotal}>
                   {convertToLocale({
                     amount: subtotal,
-                    currency_code: data.currency_code
+                    currency_code: cart.currency_code
                   })}
                 </span>
               </div>

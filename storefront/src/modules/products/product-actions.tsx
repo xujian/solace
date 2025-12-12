@@ -1,7 +1,5 @@
 'use client'
 
-import { usePathname, useSearchParams } from 'next/navigation'
-import { useRouter } from 'next/navigation'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { isEqual } from 'lodash'
 import { HttpTypes } from '@medusajs/types'
@@ -12,6 +10,7 @@ import { useSession } from '@lib/context/session-context'
 import OptionSelect from '@modules/products/option-select'
 import ProductPrice from './product-price'
 import { VariantColor } from 'types/cms'
+import { useCart } from '@lib/context/cart-context'
 
 type ProductActionsProps = {
   product: HttpTypes.StoreProduct
@@ -27,14 +26,10 @@ const optionsAsKeymap = (variantOptions: HttpTypes.StoreProductVariant['options'
 }
 
 export default function ProductActions({ product, colors, disabled }: ProductActionsProps) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
   const { region } = useSession()
-
+  const { refreshCart } = useCart()
   // If there is only 1 variant, preselect the options
   useEffect(() => {
     if (product.variants?.length) {
@@ -47,10 +42,8 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
     if (!product.variants || product.variants.length === 0) {
       return undefined
     }
-
     return product.variants.find(v => {
       const variantOptions = optionsAsKeymap(v.options)
-
       return isEqual(variantOptions, options)
     })
   }, [product.variants, options])
@@ -88,11 +81,8 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
     // Otherwise, we can't add to cart
     return false
   }, [selectedVariant])
-
   const actionsRef = useRef<HTMLDivElement>(null)
-
   // const inView = useIntersection(actionsRef, '0px')
-
   // add the selected variant to the cart
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null
@@ -102,8 +92,8 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
       quantity: 1,
       region
     })
+    await refreshCart()
     setIsAdding(false)
-    router.refresh() // make cart popover update
   }
 
   return (
@@ -132,7 +122,7 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
         onClick={handleAddToCart}
         disabled={!inStock || !selectedVariant || !!disabled || isAdding || !isValidVariant}
         variant="outline"
-        className="bg-positive h-10 w-full"
+        className="bg-positive w-full"
         isLoading={isAdding}
         data-testid="add-product-button">
         {!selectedVariant && !options

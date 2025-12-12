@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import { StoreRegion } from '@medusajs/types'
 import { listRegions } from '@lib/data/regions'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
-import CartButton from '@modules/layout/cart-button'
+import CartDropdown from '@modules/layout/cart-dropdown'
 import SideMenu from '@modules/layout/side-menu'
 import { ShoppingCartIcon } from 'lucide-react'
 import ProfileIcon from '@modules/common/components/profile-icon'
@@ -34,7 +34,7 @@ export default async function Nav() {
               <ShoppingCartIcon />
             </LocalizedClientLink>
           }>
-        <CartButton />
+        <CartDropdown />
         </Suspense>
       </div>
     </header>
