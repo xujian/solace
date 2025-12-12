@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { isEqual } from 'lodash'
 import { HttpTypes } from '@medusajs/types'
 import { Button } from '@lib/components/ui'
-import { addToCart } from '@lib/data/cart'
+
 import { useIntersection } from '@lib/hooks/use-in-view'
 import { useSession } from '@lib/context/session-context'
 import OptionSelect from '@modules/products/option-select'
@@ -28,8 +28,7 @@ const optionsAsKeymap = (variantOptions: HttpTypes.StoreProductVariant['options'
 export default function ProductActions({ product, colors, disabled }: ProductActionsProps) {
   const [options, setOptions] = useState<Record<string, string | undefined>>({})
   const [isAdding, setIsAdding] = useState(false)
-  const { region } = useSession()
-  const { refreshCart } = useCart()
+  const cart = useCart()
   // If there is only 1 variant, preselect the options
   useEffect(() => {
     if (product.variants?.length) {
@@ -87,12 +86,10 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null
     setIsAdding(true)
-    await addToCart({
-      variantId: selectedVariant.id,
-      quantity: 1,
-      region
+    await cart.add({
+      variant: selectedVariant.id,
+      quantity: 1
     })
-    await refreshCart()
     setIsAdding(false)
   }
 

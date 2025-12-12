@@ -2,14 +2,18 @@
 
 import { HttpTypes } from '@medusajs/types'
 import { createContext, useContext, useEffect, useState } from 'react'
-import { retrieveCart } from '@lib/data/cart'
+import { retrieveCart, addToCart, deleteItem, updateLineItem } from '@lib/data/cart'
+import { useSession } from './session-context'
 
-interface CartContextProps {
-  cart: HttpTypes.StoreCart | null
-  refreshCart: () => Promise<void>
+interface CartContextData {
+  data: HttpTypes.StoreCart | null
+  refresh: () => Promise<void>
+  add: (item: { variant: string, quantity: number }) => Promise<void>
+  remove: (lineId: string) => Promise<void>
+  update: (lineId: string, quantity: number) => Promise<void>
 }
 
-const CartContext = createContext<CartContextProps | null>(null)
+const CartContext = createContext<CartContextData | null>(null)
 
 export const useCart = () => {
   const context = useContext(CartContext)
@@ -20,26 +24,48 @@ export const useCart = () => {
 }
 
 export const CartProvider = ({
-  cart: initialCart,
+  data: initialData,
   children
 }: {
-  cart: HttpTypes.StoreCart | null
+  data: HttpTypes.StoreCart | null
   children: React.ReactNode
 }) => {
-  const [cart, setCart] = useState<HttpTypes.StoreCart | null>(initialCart)
+  const [data, setData] = useState<HttpTypes.StoreCart | null>(initialData)
+  const { region } = useSession()
 
-  const refreshCart = async () => {
-    const newCart = await retrieveCart()
-    setCart(newCart)
+  const refresh = async () => {
+    const newData = await retrieveCart()
+    setData(newData)
   }
 
-  // Sync initialCart if it changes from upstream (e.g. server re-render)
+  // Actually, I cannot easily add imports with multi_replace if they are at the top and I am replacing the body.
+  // I will first update the interface and the Provider body.
+  // Then I will add imports.
+  
+  // Let's rewrite the body properly.
+  
+  const add = async ({ variant, quantity }: { variant: string; quantity: number }) => {
+    await addToCart({ variantId: variant, quantity, region })
+    await refresh()
+  }
+
+  const remove = async (line: string) => {
+    await deleteItem(line)
+    await refresh()
+  }
+
+  const update = async (line: string, quantity: number) => {
+    await updateLineItem({ lineId: line, quantity })
+    await refresh()
+  }
+
+  // Sync initialData if it changes from upstream (e.g. server re-render)
   useEffect(() => {
-    setCart(initialCart)
-  }, [initialCart])
+    setData(initialData)
+  }, [initialData])
 
   return (
-    <CartContext.Provider value={{ cart, refreshCart }}>
+    <CartContext.Provider value={{ data, refresh, add, remove, update }}>
       {children}
     </CartContext.Provider>
   )

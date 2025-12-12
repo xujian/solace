@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@lib/components/ui'
-import { deleteItem } from '@lib/data/cart'
+
 import { cn } from '@lib/util'
 import { RefreshCw as Spinner, X } from 'lucide-react'
 import { useCart } from '@lib/context/cart-context'
@@ -15,14 +15,13 @@ const DeleteButton = ({
   className?: string
 }) => {
   const [isDeleting, setIsDeleting] = useState(false)
-  const { refreshCart } = useCart()
+  const cart = useCart()
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
-    await deleteItem(id).catch(err => {
+    await cart.remove(id).catch(err => {
       setIsDeleting(false)
     })
-    await refreshCart()
     setIsDeleting(false)
   }
 

@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { HttpTypes } from '@medusajs/types'
 import { Select, Spinner, TableCell, TableRow } from '@lib/components/ui'
-import { updateLineItem } from '@lib/data/cart'
+
 import { cn } from '@lib/util'
 import ErrorMessage from '@modules/checkout/error-message'
 import DeleteButton from '@modules/cart/delete-button'
@@ -24,20 +24,19 @@ type ItemProps = {
 const Item = ({ item: initialItem, type = 'full', currencyCode }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const { cart, refreshCart } = useCart()
+  const cart = useCart()
 
-  const item = cart?.items?.find((i) => i.id === initialItem.id) || initialItem
+  const item = cart.data?.items?.find((i) => i.id === initialItem.id) || initialItem
 
   const changeQuantity = async (quantity: number) => {
     setError(null)
     setUpdating(true)
-    await updateLineItem({
-      lineId: item.id,
+    await cart.update(
+      item.id,
       quantity
-    }).catch(err => {
+    ).catch(err => {
       setError(err.message)
     })
-    await refreshCart()
     setUpdating(false)
   }
 

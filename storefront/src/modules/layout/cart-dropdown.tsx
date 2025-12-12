@@ -12,10 +12,9 @@ import { cn } from '@lib/util'
 import { ShoppingCartIcon, X } from 'lucide-react'
 
 import { useCart } from '@lib/context/cart-context'
-import { deleteItem } from '@lib/data/cart'
 
 const CartDropdown = () => {
-  const { cart, refreshCart } = useCart()
+  const cart = useCart()
   const [activeTimer, setActiveTimer] = useState<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [visible, setVisible] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
@@ -24,11 +23,11 @@ const CartDropdown = () => {
   const close = () => setVisible(false)
 
   const total =
-    cart?.items?.reduce((acc, item) => {
+    cart?.data?.items?.reduce((acc, item) => {
       return acc + item.quantity
     }, 0) || 0
 
-  const subtotal = cart?.subtotal ?? 0
+  const subtotal = cart?.data?.subtotal ?? 0
   const totalRef = useRef<number>(total || 0)
 
   const timedOpen = () => {
@@ -69,10 +68,9 @@ const CartDropdown = () => {
 
   const handleDeleteItem = async (id: string) => {
     setIsDeleting(true)
-    await deleteItem(id).catch(err => {
+    await cart.remove(id).catch(err => {
       setIsDeleting(false)
     })
-    refreshCart()
     setIsDeleting(false)
   }
 
@@ -93,10 +91,10 @@ const CartDropdown = () => {
         data-testid="nav-cart-dropdown"
         align="end">
         <h2 className="text-lg font-semibold mb-4">Cart</h2>
-        {cart && cart.items?.length ? (
+        {cart.data && cart.data.items?.length ? (
           <>
             <div className="items w-full flex flex-col gap-4 mb-4">
-              {cart.items
+              {cart.data.items
                 .sort((a, b) => {
                   return (a.created_at ?? '') > (b.created_at ?? '') ? -1 : 1
                 })
@@ -141,7 +139,7 @@ const CartDropdown = () => {
                 <span className="" data-testid="cart-subtotal" data-value={subtotal}>
                   {convertToLocale({
                     amount: subtotal,
-                    currency_code: cart.currency_code
+                    currency_code: cart.data?.currency_code
                   })}
                 </span>
               </div>

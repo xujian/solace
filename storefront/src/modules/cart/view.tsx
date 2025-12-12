@@ -29,16 +29,16 @@ function getCheckoutStep(cart: HttpTypes.StoreCart) {
   }
 }
 
-export default function CartTemplate({
+export default function CartView({
   customer
 }: {
   customer: HttpTypes.StoreCustomer | null
 }) {
-  const { cart } = useCart()
+  const cart = useCart()
 
   return (
     <div className="cart-page">
-      {cart?.items?.length ? (
+      {cart?.data?.items?.length ? (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           {!customer && <SignInPrompt />}
           <div className="flex flex-col gap-y-6 py-6">
@@ -59,8 +59,8 @@ export default function CartTemplate({
                 </TableRow>
               </TableHeader>
               <TableBody className="gap-4">
-                {cart.items
-                  ? cart.items
+                {cart.data.items
+                  ? cart.data.items
                       .sort((a, b) => {
                         return (a.created_at ?? '') > (b.created_at ?? '')
                           ? -1
@@ -80,12 +80,12 @@ export default function CartTemplate({
                     })}
               </TableBody>
             </Table>
-            {cart && cart.region && (
+            {cart.data && cart.data.region && (
               <div className="flex flex-col gap-y-4">
-                <DiscountCode cart={cart as any} />
-                <CartTotals totals={cart} />
+                <DiscountCode cart={cart.data as any} />
+                <CartTotals totals={cart.data} />
                 <LocalizedClientLink
-                  href={'/checkout?step=' + getCheckoutStep(cart)}
+                  href={'/checkout?step=' + getCheckoutStep(cart.data)}
                   data-testid="checkout-button">
                   <Button className="w-full">Go to checkout</Button>
                 </LocalizedClientLink>
