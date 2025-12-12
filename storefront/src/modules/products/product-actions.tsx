@@ -77,17 +77,14 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
     if (selectedVariant && !selectedVariant.manage_inventory) {
       return true
     }
-
     // If we allow back orders on the variant, we can add to cart
     if (selectedVariant?.allow_backorder) {
       return true
     }
-
     // If there is inventory available, we can add to cart
     if (selectedVariant?.manage_inventory && (selectedVariant?.inventory_quantity || 0) > 0) {
       return true
     }
-
     // Otherwise, we can't add to cart
     return false
   }, [selectedVariant])
@@ -99,16 +96,14 @@ export default function ProductActions({ product, colors, disabled }: ProductAct
   // add the selected variant to the cart
   const handleAddToCart = async () => {
     if (!selectedVariant?.id) return null
-
     setIsAdding(true)
-
     await addToCart({
       variantId: selectedVariant.id,
       quantity: 1,
       region
     })
-
     setIsAdding(false)
+    router.refresh() // make cart popover update
   }
 
   return (

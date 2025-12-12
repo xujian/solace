@@ -34,7 +34,7 @@ export default async function Nav() {
               <ShoppingCartIcon />
             </LocalizedClientLink>
           }>
-          <CartButton />
+        <CartButton />
         </Suspense>
       </div>
     </header>

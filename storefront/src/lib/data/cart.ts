@@ -2,7 +2,7 @@
 
 import { revalidateTag } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { HttpTypes } from '@medusajs/types'
+import { HttpTypes, StoreRegion } from '@medusajs/types'
 import medusaError from '@lib/util/medusa-error'
 import { sdk } from '@lib/sdk'
 import { getCartId, removeCartId, setCartId } from './cookies'
@@ -16,13 +16,13 @@ import { getRegion } from './regions'
 export async function retrieveCart(cartId?: string, fields?: string) {
   const id = cartId || (await getCartId())
   fields ??=
-    '*items, *region, *items.product, *items.variant, *items.thumbnail, *items.metadata, +items.total, *promotions, +shipping_methods.name'
-
+    [
+      '*items, *region, *items.product, *items.variant, *items.thumbnail',
+      '*items.metadata, +items.total, *promotions, +shipping_methods.name'
+    ].join(',')
   if (!id) {
     return null
   }
-
-
   return await sdk.store.cart
     .retrieve(
       id,
@@ -39,43 +39,28 @@ export async function retrieveCart(cartId?: string, fields?: string) {
 
 export async function getOrSetCart(regionCode: string) {
   const region = await getRegion(regionCode)
-
   if (!region) {
     throw new Error(`Region not found for region code: ${regionCode}`)
   }
-
   let cart = await retrieveCart(undefined, 'id,region_id')
-
-
-
   if (!cart) {
-    const cartResp = await sdk.store.cart.create(
-      { region_id: region.id },
-      {}
-    )
+    const cartResp = await sdk.store.cart.create({ region_id: region.id }, {})
     cart = cartResp.cart
-
     await setCartId(cart.id)
-
     revalidateTag('carts', 'max')
   }
-
   if (cart && cart?.region_id !== region.id) {
     await sdk.store.cart.update(cart.id, { region_id: region.id })
     revalidateTag('carts', 'max')
   }
-
   return cart
 }
 
 export async function updateCart(data: HttpTypes.StoreUpdateCart) {
   const cartId = await getCartId()
-
   if (!cartId) {
     throw new Error('No existing cart found, please create one before updating')
   }
-
-
   return sdk.store.cart
     .update(cartId, data)
     .then(async ({ cart }: { cart: HttpTypes.StoreCart }) => {
@@ -99,22 +84,15 @@ export async function addToCart({
   if (!variantId) {
     throw new Error('Missing variant ID when adding to cart')
   }
-
-  const cart = await getOrSetCart(region)
-
+  const cart = await getOrSetCart(region.id)
   if (!cart) {
     throw new Error('Error retrieving or creating cart')
   }
-
-
   await sdk.store.cart
-    .createLineItem(
-      cart.id,
-      {
-        variant_id: variantId,
-        quantity
-      }
-    )
+    .createLineItem(cart.id, {
+      variant_id: variantId,
+      quantity
+    })
     .then(async () => {
       revalidateTag('carts', 'max')
       revalidateTag('fulfillment', 'max')
@@ -132,14 +110,10 @@ export async function updateLineItem({
   if (!lineId) {
     throw new Error('Missing lineItem ID when updating line item')
   }
-
   const cartId = await getCartId()
-
   if (!cartId) {
     throw new Error('Missing cart ID when updating line item')
   }
-
-
   await sdk.store.cart
     .updateLineItem(cartId, lineId, { quantity })
     .then(async () => {
@@ -153,14 +127,10 @@ export async function deleteLineItem(lineId: string) {
   if (!lineId) {
     throw new Error('Missing lineItem ID when deleting line item')
   }
-
   const cartId = await getCartId()
-
   if (!cartId) {
     throw new Error('Missing cart ID when deleting line item')
   }
-
-
   await sdk.store.cart
     .deleteLineItem(cartId, lineId)
     .then(async () => {
@@ -177,7 +147,6 @@ export async function setShippingMethod({
   cartId: string
   shippingMethodId: string
 }) {
-
   return sdk.store.cart
     .addShippingMethod(cartId, { option_id: shippingMethodId })
     .then(async () => {
@@ -190,7 +159,6 @@ export async function initiatePaymentSession(
   cart: HttpTypes.StoreCart,
   data: HttpTypes.StoreInitializePaymentSession
 ) {
-
   return sdk.store.payment
     .initiatePaymentSession(cart, data)
     .then(async resp => {
@@ -202,12 +170,9 @@ export async function initiatePaymentSession(
 
 export async function applyPromotions(codes: string[]) {
   const cartId = await getCartId()
-
   if (!cartId) {
     throw new Error('No existing cart found')
   }
-
-
   return sdk.store.cart
     .update(cartId, { promo_codes: codes })
     .then(async () => {
@@ -282,7 +247,6 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!cartId) {
       throw new Error('No existing cart found when setting addresses')
     }
-
     const data = {
       shipping_address: {
         first_name: formData.get('shipping_address.first_name'),
@@ -332,12 +296,9 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
  */
 export async function placeOrder(cartId?: string) {
   const id = cartId || (await getCartId())
-
   if (!id) {
     throw new Error('No existing cart found when placing an order')
   }
-
-
   const cartRes = await sdk.store.cart
     .complete(id)
     .then(async cartRes => {
@@ -345,12 +306,9 @@ export async function placeOrder(cartId?: string) {
       return cartRes
     })
     .catch(medusaError)
-
   if (cartRes?.type === 'order') {
     const region = cartRes.order.shipping_address?.country_code?.toLowerCase()
-
     revalidateTag('orders', 'max')
-
     removeCartId()
     redirect(`/${region}/order/${cartRes?.order.id}/confirmed`)
   }
@@ -366,30 +324,23 @@ export async function placeOrder(cartId?: string) {
 export async function updateRegion(code: string, currentPath: string) {
   const cartId = await getCartId()
   const region = await getRegion(code)
-
   if (!region) {
     throw new Error(`Region not found for region code: ${code}`)
   }
-
   if (cartId) {
     await updateCart({ region_id: region.id })
     revalidateTag('carts', 'max')
   }
-
   revalidateTag('regions', 'max')
   revalidateTag('products', 'max')
-
   redirect(`/${code}${currentPath}`)
 }
 
 export async function listCartOptions() {
   const cartId = await getCartId()
-
   if (!cartId) {
     return null
   }
-
-
   return await sdk.store.fulfillment
     .listCartOptions(
       { cart_id: cartId },
