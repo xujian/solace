@@ -2,13 +2,13 @@
 
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
-import { HttpTypes } from '@medusajs/types'
-import { Badge, Button, Card, CardContent, CardHeader, Popover, PopoverContent, PopoverTrigger, Spinner } from '@lib/components/ui'
+import { Badge, Button, Popover, PopoverContent, PopoverTrigger, Spinner } from '@lib/components/ui'
 import { convertToLocale } from '@lib/util/money'
-import LineItemOptions from '@modules/common/components/line-item-options'
+import LineItemOptions from '@modules/cart/line-item-options'
 import LineItemPrice from '@modules/common/components/line-item-price'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import Thumbnail from '@modules/products/thumbnail'
+import { cn } from '@lib/util'
 import { ShoppingCartIcon, X } from 'lucide-react'
 
 import { useCart } from '@lib/context/cart-context'
@@ -88,7 +88,8 @@ const CartDropdown = () => {
           </Badge>
         </div>
       </PopoverTrigger>
-      <PopoverContent className="sm:block absolute right-0 hidden w-[480px]"
+      <PopoverContent
+        className="sm:block w-[480px]"
         data-testid="nav-cart-dropdown"
         align="end">
         <h2 className="text-lg font-semibold mb-4">Cart</h2>

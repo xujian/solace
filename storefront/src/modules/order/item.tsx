@@ -1,7 +1,7 @@
 import { HttpTypes } from "@medusajs/types"
 import { TableCell, TableRow } from "@lib/components/ui/table"
 
-import LineItemOptions from "@modules/common/components/line-item-options"
+import LineItemOptions from "@modules/cart/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LineItemUnitPrice from "@modules/common/components/line-item-unit-price"
 import Thumbnail from "@modules/products/thumbnail"

@@ -15,7 +15,7 @@ export const retrieveCustomer =
           fields: '*orders'
         },
         {
-          next: { tags: ['customers'] }
+          next: { tags: ['customer'] }
         }
       )
       .then(({ customer }) => customer)
@@ -28,7 +28,7 @@ export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
     .then(({ customer }) => customer)
     .catch(medusaError)
 
-  revalidateTag('customers', 'max')
+  revalidateTag('customer', 'max')
 
   return updateRes
 }
@@ -41,13 +41,11 @@ export async function signup(_currentState: unknown, formData: FormData) {
     last_name: formData.get('last_name') as string,
     phone: formData.get('phone') as string
   }
-
   try {
     const token = await sdk.auth.register('customer', 'emailpass', {
       email: customerForm.email,
       password: password
     })
-
     const { customer: createdCustomer } =
       await sdk.store.customer.create(customerForm)
 
@@ -55,11 +53,8 @@ export async function signup(_currentState: unknown, formData: FormData) {
       email: customerForm.email,
       password
     })
-
-    revalidateTag('customers', 'max')
-
+    revalidateTag('customer', 'max')
     await transferCart()
-
     return createdCustomer
   } catch (error: any) {
     return error.toString()
@@ -69,17 +64,15 @@ export async function signup(_currentState: unknown, formData: FormData) {
 export async function login(_currentState: unknown, formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
-
   try {
     await sdk.auth
       .login('customer', 'emailpass', { email, password })
       .then(async () => {
-        revalidateTag('customers', 'max')
+        revalidateTag('customer', 'max')
       })
   } catch (error: any) {
     return error.toString()
   }
-
   try {
     await transferCart()
   } catch (error: any) {
@@ -89,13 +82,9 @@ export async function login(_currentState: unknown, formData: FormData) {
 
 export async function signout(region: string) {
   await sdk.auth.logout()
-
-  revalidateTag('customers', 'max')
-
+  revalidateTag('customer', 'max')
   await removeCartId()
-
-  revalidateTag('carts', 'max')
-
+  revalidateTag('cart', 'max')
   redirect(`/${region}/account`)
 }
 
@@ -105,10 +94,8 @@ export async function transferCart() {
   if (!cartId) {
     return
   }
-
   await sdk.store.cart.transferCart(cartId)
-
-  revalidateTag('carts', 'max')
+  revalidateTag('cart', 'max')
 }
 
 export const addCustomerAddress = async (
@@ -136,7 +123,7 @@ export const addCustomerAddress = async (
   return sdk.store.customer
     .createAddress(address, {})
     .then(async ({ customer }) => {
-      revalidateTag('customers', 'max')
+      revalidateTag('customer', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -150,7 +137,7 @@ export const deleteCustomerAddress = async (
   await sdk.store.customer
     .deleteAddress(addressId)
     .then(async () => {
-      revalidateTag('customers', 'max')
+      revalidateTag('customer', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -190,7 +177,7 @@ export const updateCustomerAddress = async (
   return sdk.store.customer
     .updateAddress(addressId, address)
     .then(async () => {
-      revalidateTag('customers', 'max')
+      revalidateTag('customer', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
