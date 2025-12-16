@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 import { retrieveCart } from '@lib/data/cart'
 import { CartProvider } from '@lib/context/cart-context'
 
-export default async function PageLayout(props: { children: React.ReactNode }) {
+export default async function PageLayout(props: { children: React.ReactNode, modal: React.ReactNode }) {
   const cart = await retrieveCart()
 
   return (
@@ -22,6 +22,7 @@ export default async function PageLayout(props: { children: React.ReactNode }) {
         <CartCustomerLayer />
       </Suspense>
       <main className="page-body">{props.children}</main>
+      {props.modal}
       <Footer />
     </CartProvider>
   )

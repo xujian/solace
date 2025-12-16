@@ -1,4 +1,7 @@
 'use client'
+
+
+import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import {
   Button,
@@ -45,10 +48,10 @@ const ProfileIcon = () => {
           </div>
         ) : (
           <div className="flex flex-col gap-1">
-            <LocalizedClientLink
-              href="/account?mode=signin">
+            <Link
+              href="/login">
               <Button className="w-full">Sign in</Button>
-            </LocalizedClientLink>
+            </Link>
             <LocalizedClientLink
               href="/account?mode=signup">
               <Button className="w-full">Sign up</Button>
