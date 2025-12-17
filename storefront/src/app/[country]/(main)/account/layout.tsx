@@ -10,12 +10,16 @@ export default async function AccountLayout({
   const customer = await retrieveCustomer().catch(() => null)
 
   if (!customer) {
-    return <LoginButton />
+    return <div className="w-full h-full flex flex-col py-8 justify-center items-center">
+      <LoginButton />
+    </div>
   }
 
   return (
-    <div className="flex flex-col gap-y-4" data-testid="account-page">
-      <div><AccountNav customer={customer} /></div>
+    <div className="" data-testid="account-page">
+      <div className="w-full flex flex-col py-8 justify-center items-center">
+        <AccountNav customer={customer} />
+      </div>
       <div className="flex-1">{children}</div>
     </div>
   )
