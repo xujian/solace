@@ -1,16 +1,12 @@
 'use client'
-import { useParams, usePathname } from 'next/navigation'
-import { HttpTypes } from '@medusajs/types'
+import { Button } from '@lib/components/ui'
 import { useSession } from '@lib/context/session-context'
 import { signout } from '@lib/data/customer'
 import { cn } from '@lib/util'
+import { HttpTypes } from '@medusajs/types'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
-import { LogOut } from 'lucide-react'
-import { ChevronDown } from 'lucide-react'
-import { User } from 'lucide-react'
-import { MapPin } from 'lucide-react'
-import { Package } from 'lucide-react'
-import { Button } from '@lib/components/ui'
+import { ChevronDown, LogOut, MapPin, Package, User } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 const AccountNav = ({
   customer
@@ -82,19 +78,21 @@ const AccountNav = ({
                     <ChevronDown className="-rotate-90 transform" />
                   </LocalizedClientLink>
                 </li>
-                { customer && <li>
-                  <Button
-                    type="button"
-                    className="flex w-full items-center justify-between px-8 py-4"
-                    onClick={handleLogout}
-                    data-testid="logout-button">
-                    <div className="flex items-center gap-x-2">
-                      <LogOut />
-                      <span>Log out</span>
-                    </div>
-                    <ChevronDown className="-rotate-90 transform" />
-                  </Button>
-                </li>}
+                {customer && (
+                  <li>
+                    <Button
+                      type="button"
+                      className="flex w-full items-center justify-between px-8 py-4"
+                      onClick={handleLogout}
+                      data-testid="logout-button">
+                      <div className="flex items-center gap-x-2">
+                        <LogOut />
+                        <span>Log out</span>
+                      </div>
+                      <ChevronDown className="-rotate-90 transform" />
+                    </Button>
+                  </li>
+                )}
               </ul>
             </div>
           </>
@@ -139,14 +137,16 @@ const AccountNav = ({
                   Orders
                 </AccountNavLink>
               </li>
-              {user && <li className="text-grey-700">
-                <button
-                  type="button"
-                  onClick={handleLogout}
-                  data-testid="logout-button">
-                  Log out
-                </button>
-              </li>}
+              {user && (
+                <li className="text-grey-700">
+                  <button
+                    type="button"
+                    onClick={handleLogout}
+                    data-testid="logout-button">
+                    Log out
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>

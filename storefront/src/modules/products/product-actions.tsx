@@ -1,12 +1,10 @@
 'use client'
-
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { isEqual } from 'lodash'
 import { HttpTypes } from '@medusajs/types'
 import { Button } from '@lib/components/ui'
 
 import { useIntersection } from '@lib/hooks/use-in-view'
-import { useSession } from '@lib/context/session-context'
 import OptionSelect from '@modules/products/option-select'
 import ProductPrice from './product-price'
 import { VariantColor } from 'types/cms'

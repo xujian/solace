@@ -1,12 +1,10 @@
-"use client"
+'use client'
 
-import React, { useEffect, useActionState } from "react";
-
-import { Input, Label } from "@lib/components/ui"
-
-import AccountInfo from "./account-info"
-import { HttpTypes } from "@medusajs/types"
-import { updateCustomer } from "@lib/data/customer"
+import React, { useEffect, useActionState } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import { Input, Label } from '@lib/components/ui'
+import { updateCustomer } from '@lib/data/customer'
+import AccountInfo from './account-info'
 
 type MyInformationProps = {
   customer: HttpTypes.StoreCustomer
@@ -20,8 +18,8 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
     formData: FormData
   ) => {
     const customer = {
-      first_name: formData.get("first_name") as string,
-      last_name: formData.get("last_name") as string,
+      first_name: formData.get('first_name') as string,
+      last_name: formData.get('last_name') as string
     }
 
     try {
@@ -34,7 +32,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
 
   const [state, formAction] = useActionState(updateCustomerName, {
     error: false,
-    success: false,
+    success: false
   })
 
   const clearState = () => {
@@ -53,8 +51,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
         isSuccess={successState}
         isError={!!state?.error}
         clearState={clearState}
-        data-testid="account-name-editor"
-      >
+        data-testid="account-name-editor">
         <div className="grid grid-cols-2 gap-x-4">
           <div className="flex flex-col gap-y-1">
             <Label htmlFor="first_name">First name</Label>
@@ -63,7 +60,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
               name="first_name"
               placeholder="First name"
               required
-              defaultValue={customer.first_name ?? ""}
+              defaultValue={customer.first_name ?? ''}
               data-testid="first-name-input"
             />
           </div>
@@ -74,7 +71,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
               name="last_name"
               placeholder="Last name"
               required
-              defaultValue={customer.last_name ?? ""}
+              defaultValue={customer.last_name ?? ''}
               data-testid="last-name-input"
             />
           </div>
