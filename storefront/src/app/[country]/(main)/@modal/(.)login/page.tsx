@@ -2,9 +2,7 @@
 
 import {
   Dialog,
-  DialogContent, DialogHeader, DialogTitle,
-  DialogFooter, DialogClose,
-  Button
+  DialogContent, DialogHeader, DialogTitle
 } from '@lib/components/ui'
 import { useState } from 'react'
 import LoginForm from '@modules/account/login-form'
@@ -30,10 +28,6 @@ export default function Login() {
           </DialogTitle>
         </DialogHeader>
         <LoginForm />
-        <DialogFooter>
-          <Button variant="outline" onClick={() => handleClose(false)}>Cancel</Button>
-          <Button type="submit">Submit</Button>
-        </DialogFooter>
       </DialogContent>
     </Dialog>
   )

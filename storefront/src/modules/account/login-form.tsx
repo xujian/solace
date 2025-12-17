@@ -1,18 +1,27 @@
+'use client'
+
+import { useActionState } from 'react'
 import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
   Field,
   FieldLabel,
   FieldContent,
   Input,
-  Button,
+  Button
 } from '@lib/components/ui'
+import { login } from '@lib/data/customer'
+import ErrorMessage from '@modules/checkout/error-message'
+import { useRouter } from 'next/navigation'
 
 export default function LoginForm() {
+  const [message, action, pending] = useActionState(login, null)
+  const router = useRouter()
+
+  const back = () => {
+    router.back()
+  }
+
   return (
-    <form className="mb-4 flex w-full flex-col gap-y-2">
+    <form className="flex w-full flex-col gap-y-2" action={action}>
       <Field>
         <FieldLabel>Email</FieldLabel>
         <FieldContent>
@@ -41,13 +50,18 @@ export default function LoginForm() {
             data-testid="password-input"
           />
         </FieldContent>
-      </Field>          
-      <Button
-        data-testid="sign-in-button"
-        className="mt-6 w-full"
-        type="submit">
-        Sign in
-      </Button>
+      </Field>
+      <ErrorMessage error={message} data-testid="login-error-message" />
+      <div className='flex gap-2 justify-end items-center my-4'>
+        <Button variant="outline" onClick={back} className='flex-1'>Cancel</Button>
+        <Button
+          isLoading={pending}
+          data-testid="sign-in-button"
+          className="flex-1"
+          type="submit">
+          Sign in
+        </Button>
+      </div>
     </form>
   )
 }

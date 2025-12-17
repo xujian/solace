@@ -31,9 +31,6 @@
   }
 }
 
-.page-body section {
-  @apply mb-16;
-}
 
 .cover-image {
   @apply h-[240px] max-h-[320px] sm:h-[240px] md:h-[320px];
