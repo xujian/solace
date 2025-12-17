@@ -1,12 +1,20 @@
 @layer utilities {
   h1 {
-    @apply my-4 text-4xl font-bold;
+    @apply my-4 text-4xl font-bold leading-8;
   }
   h2 {
-    @apply text-2xl font-bold leading-8;
+    @apply my-4 text-2xl font-bold leading-8;
+  }
+  h3 {
+    @apply my-4 text-xl font-bold leading-8;
   }
   .p {
     @apply p-4;
+  }
+  h1 + .caption,
+  h2 + .caption,
+  h3 + .caption {
+    @apply -mt-4;
   }
   .gap {
     @apply gap-4;
