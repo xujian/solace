@@ -1,5 +1,5 @@
 .page-body {
-  @apply px-4 max-w-[1280px] h-100 min-h-[calc(100vh-4rem)] mx-auto w-full;
+  @apply px-4 max-w-[1280px] min-h-[calc(100vh-4rem)] mx-auto w-full;
 }
 .page-body section {
   @apply mb-16;
