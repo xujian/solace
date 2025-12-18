@@ -265,14 +265,14 @@ function FreeShippingPopup({
 
         <div className="flex gap-3">
           <LocalizedClientLink
-            className="rounded-2xl bg-transparent shadow-none outline-none border-[1px] border-white text-[15px] py-2.5 px-4"
+            className="rounded-2xl bg-transparent shadow-none outline-none border-[1px] text-[15px] py-2.5 px-4"
             href="/cart"
           >
             View cart
           </LocalizedClientLink>
 
             <LocalizedClientLink
-            className="flex-grow rounded-2xl bg-white text-neutral-950 shadow-none outline-none border border-white text-[15px] py-2.5 px-4 text-center"
+            className="flex-grow rounded-2xl  text-neutral-950 shadow-none outline-none border border-white text-[15px] py-2.5 px-4 text-center"
             href="/store"
           >
             View products

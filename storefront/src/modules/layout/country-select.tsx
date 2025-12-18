@@ -57,19 +57,37 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
   }
 
   return (
-    <div>
-      <Select
-        value={country || ''}
-        onValueChange={handleChange}
-        open={state}
-        onOpenChange={open => {
-          if (!open) close()
-        }}>
-        <SelectTrigger className="h-auto w-full border-none p-0 py-1 shadow-none focus:ring-0">
-          <div className="txt-compact-small flex items-start gap-x-2">
-            <span>Shipping to:</span>
-            {current && (
-              <span className="txt-compact-small flex items-center gap-x-2">
+    <Select
+      value={country || ''}
+      onValueChange={handleChange}
+      open={state}
+      onOpenChange={open => {
+        if (!open) close()
+      }}>
+      <SelectTrigger className="h-auto w-full border-none p-0 py-1 shadow-none focus:ring-0">
+        <div className="txt-compact-small flex items-start gap-x-2">
+          <span>Shipping to:</span>
+          {current && (
+            <span className="txt-compact-small flex items-center gap-x-2">
+              {/* @ts-ignore */}
+              <ReactCountryFlag
+                svg
+                style={{
+                  width: '16px',
+                  height: '16px'
+                }}
+                countryCode={current.country ?? ''}
+              />
+              {current.label}
+            </span>
+          )}
+        </div>
+      </SelectTrigger>
+      <SelectContent className="text-small-regular no-scrollbar rounded-rounded z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll text-black uppercase drop-shadow-md">
+        {options?.map((o, index) => {
+          return (
+            <SelectItem key={index} value={o?.country ?? ''} className="cursor-pointer px-3 py-2 hover:bg-gray-200">
+              <div className="flex items-center gap-x-2">
                 {/* @ts-ignore */}
                 <ReactCountryFlag
                   svg
@@ -77,35 +95,15 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
                     width: '16px',
                     height: '16px'
                   }}
-                  countryCode={current.country ?? ''}
-                />
-                {current.label}
-              </span>
-            )}
-          </div>
-        </SelectTrigger>
-        <SelectContent className="text-small-regular no-scrollbar rounded-rounded z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll bg-white text-black uppercase drop-shadow-md">
-          {options?.map((o, index) => {
-            return (
-              <SelectItem key={index} value={o?.country ?? ''} className="cursor-pointer px-3 py-2 hover:bg-gray-200">
-                <div className="flex items-center gap-x-2">
-                  {/* @ts-ignore */}
-                  <ReactCountryFlag
-                    svg
-                    style={{
-                      width: '16px',
-                      height: '16px'
-                    }}
-                    countryCode={o?.country ?? ''}
-                  />{' '}
-                  {o?.label}
-                </div>
-              </SelectItem>
-            )
-          })}
-        </SelectContent>
-      </Select>
-    </div>
+                  countryCode={o?.country ?? ''}
+                />{' '}
+                {o?.label}
+              </div>
+            </SelectItem>
+          )
+        })}
+      </SelectContent>
+    </Select>
   )
 }
 
