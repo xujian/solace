@@ -9,7 +9,11 @@ export const paymentInfoMap: Record<
   string,
   { title: string; icon: React.JSX.Element }
 > = {
-  pp_stripe_stripe: {
+  'pp_stripe_stripe': {
+    title: 'Credit card',
+    icon: <CreditCard />
+  },
+  'stripe': {
     title: 'Credit card',
     icon: <CreditCard />
   },
@@ -29,7 +33,11 @@ export const paymentInfoMap: Record<
     title: 'PayPal',
     icon: <PayPal />
   },
-  pp_system_default: {
+  'pp_system_default': {
+    title: 'Manual Payment',
+    icon: <CreditCard />
+  },
+  'manual': {
     title: 'Manual Payment',
     icon: <CreditCard />
   }
@@ -47,7 +55,7 @@ export const isPaypal = (providerId?: string) => {
   return providerId?.startsWith('pp_paypal')
 }
 export const isManual = (providerId?: string) => {
-  return providerId?.startsWith('pp_system_default')
+  return providerId?.startsWith('manual') || providerId === 'pp_system_default'
 }
 
 // Add currencies that don't need to be divided by 100
