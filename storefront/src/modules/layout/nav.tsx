@@ -8,13 +8,17 @@ import SideMenu from '@modules/layout/side-menu'
 import { ShoppingCartIcon } from 'lucide-react'
 import ProfileIcon from '@modules/common/components/profile-icon'
 
-export default async function Nav() {
+export type NavProps = {
+  minimal?: boolean
+}
+
+export default async function Nav({ minimal = false }: NavProps) {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
 
   return (
     <header className="sticky top-0 z-50 flex h-16 w-full items-center justify-around gap-2 px-2 duration-200 glass">
       <div className="flex h-full flex-1 items-center">
-        <SideMenu regions={regions} />
+        {!minimal && <SideMenu regions={regions} />}
       </div>
 
       <div className="flex h-full items-center">
@@ -27,15 +31,15 @@ export default async function Nav() {
       </div>
 
       <div className="flex h-full flex-1 items-center gap-2 justify-end">
-        <ProfileIcon />
-        <Suspense
+        {!minimal && <ProfileIcon />}
+        {!minimal && <Suspense
           fallback={
             <LocalizedClientLink className="hover:text-ui-fg-base flex gap-2" href="/cart" data-testid="nav-cart-link">
               <ShoppingCartIcon />
             </LocalizedClientLink>
           }>
         <CartDropdown />
-        </Suspense>
+        </Suspense>}
       </div>
     </header>
   )
