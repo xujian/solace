@@ -1,4 +1,4 @@
-import { Badge } from "@lib/components/ui"
+import { Badge } from '@lib/components/ui'
 
 const PaymentTest = ({ className }: { className?: string }) => {
   return (

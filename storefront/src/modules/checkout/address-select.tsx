@@ -39,7 +39,7 @@ const AddressSelect = ({
       <div className="relative">
         <PopoverTrigger asChild>
           <button
-            className="relative w-full flex justify-between items-center px-4 py-[10px] text-left bg-white cursor-default focus:outline-none border rounded-rounded focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base-regular"
+            className="relative w-full flex justify-between items-center px-4 py-[10px] text-lef cursor-default focus:outline-none border rounded-rounded focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base-regular"
             data-testid="shipping-address-select"
           >
             <span className="block truncate">
@@ -55,7 +55,7 @@ const AddressSelect = ({
           </button>
         </PopoverTrigger>
         <PopoverContent
-          className="absolute z-20 w-full overflow-auto text-small-regular bg-white border border-top-0 max-h-60 focus:outline-none sm:text-sm p-0"
+          className="absolute z-20 w-full overflow-auto text-small-regular border border-top-0 max-h-60 focus:outline-none sm:text-sm p-0"
           data-testid="shipping-address-options"
           align="start"
           sideOffset={0}
