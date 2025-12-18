@@ -28,5 +28,7 @@ export * from './toggle'
 export * from './toggle-group'
 export * from './dropdown-menu'
 export * from './command'
+export * from './input-group'
+export * from './native-select'
 
 
