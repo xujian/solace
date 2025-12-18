@@ -8,6 +8,37 @@ import { sdk } from '@lib/sdk'
 import { getCartId, removeCartId, setCartId } from './cookies'
 import { getRegion } from './regions'
 
+const DEFAULT_CART_FIELDS = [
+  'id',
+  'email',
+  'currency_code',
+  'region_id',
+  'customer_id',
+  'status',
+  'type',
+  'metadata',
+  'created_at',
+  'updated_at',
+  'items.id',
+  'items.quantity',
+  'items.variant_id',
+  'items.thumbnail',
+  'items.title',
+  'items.unit_price',
+  'items.product.id',
+  'items.product.title',
+  'items.product.handle',
+  'items.variant.id',
+  'items.variant.title',
+  'items.variant.sku',
+  'region.id',
+  'region.name',
+  'region.currency_code',
+  'shipping_methods.id',
+  'shipping_methods.name',
+  'shipping_methods.amount'
+].join(',')
+
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
  * @param cartId - optional - The ID of the cart to retrieve.
@@ -15,11 +46,7 @@ import { getRegion } from './regions'
  */
 export async function retrieveCart(cartId?: string, fields?: string) {
   const id = cartId || (await getCartId())
-  fields ??=
-    [
-      '*items, *region, *items.product, *items.variant, *items.thumbnail',
-      '*items.metadata, +items.total, *promotions, +shipping_methods.name'
-    ].join(',')
+  fields ??= DEFAULT_CART_FIELDS
   if (!id) {
     return null
   }
@@ -44,7 +71,10 @@ export async function getOrSetCart(regionCode: string) {
   }
   let cart = await retrieveCart(undefined, 'id,region_id')
   if (!cart) {
-    const cartResp = await sdk.store.cart.create({ region_id: region.id }, {})
+    const cartResp = await sdk.store.cart.create(
+      { region_id: region.id },
+      { fields: 'id,region_id' }
+    )
     cart = cartResp.cart
     await setCartId(cart.id)
     revalidateTag('cart', 'max')
@@ -62,7 +92,7 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
     throw new Error('No existing cart found, please create one before updating')
   }
   return sdk.store.cart
-    .update(cartId, data)
+    .update(cartId, data, { fields: DEFAULT_CART_FIELDS })
     .then(async ({ cart }: { cart: HttpTypes.StoreCart }) => {
       revalidateTag('cart', 'max')
       revalidateTag('fulfillment', 'max')
@@ -88,10 +118,14 @@ export async function addToCart({
     throw new Error('Error retrieving or creating cart')
   }
   await sdk.store.cart
-    .createLineItem(cart.id, {
-      variant_id: variantId,
-      quantity
-    })
+    .createLineItem(
+      cart.id,
+      {
+        variant_id: variantId,
+        quantity
+      },
+      { fields: DEFAULT_CART_FIELDS }
+    )
     .then(async () => {
       revalidateTag('cart', 'max')
       revalidateTag('fulfillment', 'max')
@@ -114,7 +148,12 @@ export async function updateLineItem({
     throw new Error('Missing cart ID when updating line item')
   }
   await sdk.store.cart
-    .updateLineItem(cartId, lineId, { quantity })
+    .updateLineItem(
+      cartId,
+      lineId,
+      { quantity },
+      { fields: DEFAULT_CART_FIELDS }
+    )
     .then(async () => {
       revalidateTag('cart', 'max')
       revalidateTag('fulfillment', 'max')
@@ -131,7 +170,7 @@ export async function deleteItem(lineId: string) {
     throw new Error('Missing cart ID when deleting line item')
   }
   await sdk.store.cart
-    .deleteLineItem(cartId, lineId)
+    .deleteLineItem(cartId, lineId, { fields: DEFAULT_CART_FIELDS })
     .then(async () => {
       revalidateTag('cart', 'max')
       revalidateTag('fulfillment', 'max')
@@ -246,7 +285,7 @@ export async function setAddresses(currentState: unknown, formData: FormData) {
     if (!cartId) {
       throw new Error('No existing cart found when setting addresses')
     }
-    const data = {
+    const data: any = {
       shipping_address: {
         first_name: formData.get('shipping_address.first_name'),
         last_name: formData.get('shipping_address.last_name'),

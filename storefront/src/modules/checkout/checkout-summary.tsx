@@ -7,7 +7,7 @@ import SkeletonLineItem from '@modules/skeletons/skeleton-line-item'
 
 const CheckoutSummary = ({ cart }: { cart: any }) => {
   return (
-    <div className="sticky top-0 flex w-full flex-col">
+    <div className="flex w-full flex-col">
       <h2>In your Cart</h2>
       <CartTotals totals={cart} />
       <Table>

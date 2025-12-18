@@ -59,7 +59,8 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-radix": "^4.0.2",
     "vaul": "^1.1.2",
-    "webpack": "^5"
+    "webpack": "^5",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",

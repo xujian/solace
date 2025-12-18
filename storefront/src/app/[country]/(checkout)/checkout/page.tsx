@@ -42,14 +42,18 @@ export default async function Checkout() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <PaymentWrapper cart={cart}>
-        <div className="w-full grid grid-cols-1 gap-y-8">
+        <div className="w-full grid grid-cols-1 gap-y-4 pb-10">
           <Addresses cart={cart} customer={customer} />
           <Shipping cart={cart} availableShippingMethods={shippingMethods} />
           <Payment cart={cart} availablePaymentMethods={paymentMethods} />
           <PaymentButton cart={cart} data-testid="submit-order-button" />
         </div>
       </PaymentWrapper>
-      <CheckoutSummary cart={cart} />
+      <div className="block relative">
+        <div className="bg-muted px-4 rounded sticky top-16">
+          <CheckoutSummary cart={cart} />
+        </div>
+      </div>
     </div>
   )
 }

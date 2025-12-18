@@ -27,7 +27,7 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   return (
     <div
       className={cn(
-        'text-small-regular rounded hover:shadow-borders-interactive-with-active mb-2 flex cursor-pointer flex-col gap-y-2 border px-8 py-4',
+        'rounded hover:shadow-borders-interactive-with-active flex cursor-pointer flex-col gap-y-2 border p-4',
         {
           'border-ui-border-interactive':
             selectedPaymentOptionId === paymentProviderId
@@ -39,17 +39,11 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
           <span className="text-base-regular">
             {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
           </span>
-          {isManual(paymentProviderId) && isDevelopment && (
-            <PaymentTest className="sm:block hidden" />
-          )}
         </div>
         <span className="text-ui-fg-base justify-self-end">
           {paymentInfoMap[paymentProviderId]?.icon}
         </span>
       </div>
-      {isManual(paymentProviderId) && isDevelopment && (
-        <PaymentTest className="sm:hidden text-[10px]" />
-      )}
       {children}
     </div>
   )

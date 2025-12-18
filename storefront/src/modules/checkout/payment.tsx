@@ -11,7 +11,8 @@ import ErrorMessage from '@modules/checkout/error-message'
 import PaymentContainer, {
   StripeCardContainer
 } from '@modules/checkout/payment-container'
-import { CheckCircle, CreditCard } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
+import CreditCard from '@modules/payment/credit-card'
 
 const Payment = ({
   cart,
@@ -104,9 +105,7 @@ const Payment = ({
 
   return (
     <div className="payment">
-      <h2>
-        Payment
-      </h2>
+      <h2>Payment</h2>
       {!paidByGiftcard && availablePaymentMethods?.length && (
         <RadioGroup
           value={selectedPaymentMethod}
@@ -127,7 +126,9 @@ const Payment = ({
                   paymentInfoMap={paymentInfoMap}
                   paymentProviderId={paymentMethod.id}
                   selectedPaymentOptionId={selectedPaymentMethod}
-                />
+                >
+                  <CreditCard />
+                </PaymentContainer>
               )}
             </div>
           ))}
