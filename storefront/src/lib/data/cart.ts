@@ -41,7 +41,7 @@ const DEFAULT_CART_FIELDS = [
   // 'shipping_methods.amount',
   'payment_collection.id',
   'payment_collection.amount',
-  'payment_collection.payment_sessions',
+  'payment_collection.payment_sessions.*',
   // 'gift_cards.id',
   // 'gift_cards.code',
   // 'gift_cards.amount',
