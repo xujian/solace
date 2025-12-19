@@ -49,7 +49,7 @@ export default async function CheckoutPage() {
         <div className="grid w-full grid-cols-1 gap-y-4">
           <Addresses cart={cart} customer={customer} />
           <Shipping cart={cart} methods={shippingMethods} />
-          <Payment cart={cart} availablePaymentMethods={paymentMethods} />
+          <Payment cart={cart} methods={paymentMethods} />
           <PaymentButton cart={cart} data-testid="submit-order-button" />
         </div>
       </PaymentWrapper>
