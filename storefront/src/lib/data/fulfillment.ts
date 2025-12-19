@@ -3,15 +3,21 @@
 import { sdk } from '@lib/sdk'
 
 export const listCartShippingMethods = async (cartId: string) => {
+  console.log('Fetching shipping options for cartId:', cartId)
   return sdk.store.fulfillment
     .listCartOptions(
-      { cart_id: cartId },
+      { 
+        cart_id: cartId,
+      },
       {
+        fields: '*service_zone.fulfillment_set',
         next: { tags: ['fulfillment'] }
       }
     )
-    .then(({ shipping_options }) => shipping_options)
-    .catch(() => {
+    .then(({ shipping_options }) => {
+      return shipping_options
+    })
+    .catch((e) => {
       return null
     })
 }

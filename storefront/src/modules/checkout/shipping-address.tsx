@@ -67,14 +67,12 @@ const ShippingAddress = ({
         'shipping_address.province': address?.province || '',
         'shipping_address.phone': address?.phone || ''
       }))
-
     email &&
       setFormData((prevState: Record<string, any>) => ({
         ...prevState,
         email: email
       }))
   }
-
   useEffect(() => {
     // Ensure cart is not null and has a shipping_address before setting form data
     if (cart && cart.shipping_address) {
@@ -182,6 +180,16 @@ const ShippingAddress = ({
           />
         </InputGroup>
         <InputGroup>
+          <InputGroupAddon align="block-start">State / Province</InputGroupAddon>
+          <InputGroupInput
+            name="shipping_address.province"
+            autoComplete="address-level1"
+            value={formData['shipping_address.province']}
+            onChange={handleChange}
+            data-testid="shipping-province-input"
+          />
+        </InputGroup>
+        <InputGroup>
           <InputGroupAddon align="block-start">Country</InputGroupAddon>
           <CountrySelect
             name="shipping_address.country_code"
@@ -192,18 +200,8 @@ const ShippingAddress = ({
             data-testid="shipping-country-select"
           />
         </InputGroup>
-        <InputGroup>
-          <InputGroupAddon align="block-start">State / Province</InputGroupAddon>
-          <InputGroupInput
-            name="shipping_address.province"
-            autoComplete="address-level1"
-            value={formData['shipping_address.province']}
-            onChange={handleChange}
-            data-testid="shipping-province-input"
-          />
-        </InputGroup>
       </div>
-      <div className="flex items-center justify-between gap-2 h-20">
+      <div className="flex items-center justify-start gap-2 h-20">
         <Checkbox
           id="same_as_billing"
           name="same_as_billing"
@@ -233,7 +231,9 @@ const ShippingAddress = ({
           <InputGroupAddon align="block-start">Phone</InputGroupAddon>
           <InputGroupInput
             name="shipping_address.phone"
+            type="tel"
             autoComplete="tel"
+            placeholder="+1 (555) 000-0000"
             value={formData['shipping_address.phone']}
             onChange={handleChange}
             data-testid="shipping-phone-input"

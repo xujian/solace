@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
-import { RefreshCw } from "lucide-react"
+import { LoaderCircle } from "lucide-react"
 import { cn } from "@lib/util/index"
 
 const buttonVariants = cva(
@@ -52,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isLoading || props.disabled}
         {...props}
       >
-        {isLoading && <RefreshCw className="mr-2 h-4 w-4 animate-spin" />}
+        {isLoading && <LoaderCircle className="mr-2 h-4 w-4 animate-spin" />}
         {children}
       </Comp>
     )

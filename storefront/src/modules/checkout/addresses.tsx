@@ -24,42 +24,35 @@ const Addresses = ({
   )
   const toggleSameAsBilling = () => setSameAsBilling(!sameAsBilling)
 
-  const [message, formAction, isPending] = useActionState(setAddresses, null)
+  const [message, action, pending] = useActionState(setAddresses, null)
 
   return (
-    <div>
-      <div className="mb-6 flex flex-row items-center justify-between">
-        <h2 className="flex flex-row gap-2">Address</h2>
-      </div>
-      <form action={formAction}>
-        <div className="pb-8">
-          <ShippingAddress
-            customer={customer}
-            checked={sameAsBilling}
-            onChange={toggleSameAsBilling}
-            cart={cart}
-          />
-          {!sameAsBilling && (
-            <div>
-              <h2 className="text-3xl-regular gap-x-4 pt-8 pb-6">
-                Billing address
-              </h2>
-
-              <BillingAddress cart={cart} />
-            </div>
-          )}
-          <Button
-            className="w-full"
-            data-testid="submit-address-button"
-            type="submit"
-            isLoading={isPending}>
-            <ArrowDown />
-            Continue to delivery
-          </Button>
-          <ErrorMessage error={message} data-testid="address-error-message" />
-        </div>
+    <section className="checkout-address-section">
+      <h2>Address</h2>
+      <form action={action}>
+        <ShippingAddress
+          customer={customer}
+          checked={sameAsBilling}
+          onChange={toggleSameAsBilling}
+          cart={cart}
+        />
+        {!sameAsBilling && (
+          <>
+            <h2>Billing address</h2>
+            <BillingAddress cart={cart} />
+          </>
+        )}
+        <Button
+          className="w-full"
+          data-testid="submit-address-button"
+          type="submit"
+          isLoading={pending}>
+          <ArrowDown />
+          Continue to delivery
+        </Button>
+        <ErrorMessage error={message} data-testid="address-error-message" />
       </form>
-    </div>
+    </section>
   )
 }
 

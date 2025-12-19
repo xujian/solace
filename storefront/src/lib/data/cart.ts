@@ -19,6 +19,8 @@ const DEFAULT_CART_FIELDS = [
   'metadata',
   'created_at',
   'updated_at',
+  'shipping_address.*',
+  'billing_address.*',
   'items.id',
   'items.quantity',
   'items.variant_id',
@@ -34,10 +36,27 @@ const DEFAULT_CART_FIELDS = [
   'region.id',
   'region.name',
   'region.currency_code',
-  'shipping_methods.id',
-  'shipping_methods.name',
-  'shipping_methods.amount'
+  'shipping_methods.*',
+  // 'shipping_methods.name',
+  // 'shipping_methods.amount',
+  'payment_collection.id',
+  'payment_collection.amount',
+  'payment_collection.payment_sessions',
+  // 'gift_cards.id',
+  // 'gift_cards.code',
+  // 'gift_cards.amount',
+  'total',
+  'subtotal',
+  'tax_total',
+  'discount_total',
+  'shipping_total',
+  'gift_card_total'
 ].join(',')
+
+//*items, *region, *items.product, *items.variant, 
+// *items.thumbnail, *items.metadata, +items.total, 
+// *promotions, 
+// +shipping_methods.name
 
 /**
  * Retrieves a cart by its ID. If no ID is provided, it will use the cart ID from the cookies.
@@ -92,8 +111,9 @@ export async function updateCart(data: HttpTypes.StoreUpdateCart) {
     throw new Error('No existing cart found, please create one before updating')
   }
   return sdk.store.cart
-    .update(cartId, data, { fields: DEFAULT_CART_FIELDS })
+    .update(cartId, data)
     .then(async ({ cart }: { cart: HttpTypes.StoreCart }) => {
+      console.log('[][][][][][]cart', cart)
       revalidateTag('cart', 'max')
       revalidateTag('fulfillment', 'max')
       return cart
@@ -124,7 +144,6 @@ export async function addToCart({
         variant_id: variantId,
         quantity
       },
-      { fields: DEFAULT_CART_FIELDS }
     )
     .then(async () => {
       revalidateTag('cart', 'max')
@@ -277,11 +296,12 @@ export async function submitPromotionForm(
 
 // TODO: Pass a POJO instead of a form entity here
 export async function setAddresses(currentState: unknown, formData: FormData) {
+  console.log('/////////////////////setAddresses', formData)
   try {
     if (!formData) {
       throw new Error('No form data found when setting addresses')
     }
-    const cartId = getCartId()
+    const cartId = await getCartId()
     if (!cartId) {
       throw new Error('No existing cart found when setting addresses')
     }

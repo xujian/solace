@@ -11,7 +11,7 @@ import ErrorMessage from '@modules/checkout/error-message'
 import PaymentContainer, {
   StripeCardContainer
 } from '@modules/checkout/payment-container'
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle, CreditCard as CreditCardIcon } from 'lucide-react'
 import CreditCard from '@modules/payment/credit-card'
 
 const Payment = ({
@@ -126,9 +126,7 @@ const Payment = ({
                   paymentInfoMap={paymentInfoMap}
                   paymentProviderId={paymentMethod.id}
                   selectedPaymentOptionId={selectedPaymentMethod}
-                >
-                  <CreditCard />
-                </PaymentContainer>
+                />
               )}
             </div>
           ))}
@@ -186,7 +184,7 @@ const Payment = ({
               data-testid="payment-details-summary">
               <div className="bg-ui-button-neutral-hover flex h-7 w-fit items-center p-2">
                 {paymentInfoMap[selectedPaymentMethod]?.icon || (
-                  <CreditCard />
+                  <CreditCardIcon />
                 )}
               </div>
               <p>
