@@ -15,16 +15,6 @@ import { ArrowDown, LoaderCircle } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
-const Radio = ({ checked }: { checked: boolean }) => (
-  <div
-    className={cn(
-      'flex h-4 w-4 items-center justify-center rounded-full border border-primary',
-      checked ? 'bg-primary' : 'bg-transparent'
-    )}>
-    {checked && <div className="h-2 w-2 rounded-full bg-white" />}
-  </div>
-)
-
 type ShippingProps = {
   cart: HttpTypes.StoreCart
   methods: HttpTypes.StoreCartShippingOptionWithServiceZone[] | null
@@ -284,7 +274,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart, methods }) => {
                     }
                   }}>
                   <div className="flex items-start gap-x-4">
-                    <Radio checked={method.id === pickupMethodId} />
+                    <RadioGroupItem value={method.id} />
                     <div className="flex flex-col">
                       <h4 className="text-base-regular">{method.name}</h4>
                       <p className="caption">

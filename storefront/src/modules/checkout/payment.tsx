@@ -35,6 +35,7 @@ const Payment = ({
   const pathname = usePathname()
 
   const setPaymentMethod = async (method: string) => {
+    console.log('setPaymentMethod------------------------', method)
     setError(null)
     setSelectedPaymentMethod(method)
     if (isStripeLike(method)) {
@@ -119,7 +120,8 @@ const Payment = ({
                 value={selectedPaymentMethod}
                 onValueChange={(value: string) => setPaymentMethod(value)}>
                 {methods.map(paymentMethod => (
-                  <div key={paymentMethod.id}>
+                  <div key={paymentMethod.id}
+                    onClick={() => setPaymentMethod(paymentMethod.id)}>
                     {isStripeLike(paymentMethod.id) ? (
                       <StripeCardContainer
                         paymentProviderId={paymentMethod.id}

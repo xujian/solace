@@ -55,7 +55,6 @@ const StripePaymentButton = ({
 }) => {
   const [submitting, setSubmitting] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
-
   const onPaymentCompleted = async () => {
     await placeOrder()
       .catch(err => {
@@ -65,11 +64,9 @@ const StripePaymentButton = ({
         setSubmitting(false)
       })
   }
-
   const stripe = useStripe()
   const elements = useElements()
   const card = elements?.getElement('card')
-
   const session = cart.payment_collection?.payment_sessions?.find(
     s => s.status === 'pending'
   )
@@ -78,12 +75,10 @@ const StripePaymentButton = ({
 
   const handlePayment = async () => {
     setSubmitting(true)
-
     if (!stripe || !elements || !card || !cart) {
       setSubmitting(false)
       return
     }
-
     await stripe
       .confirmCardPayment(session?.data.client_secret as string, {
         payment_method: {
@@ -107,27 +102,24 @@ const StripePaymentButton = ({
         }
       })
       .then(({ error, paymentIntent }) => {
+        console.log('stripe.confirmCardPayment///////////then', error, paymentIntent)
         if (error) {
           const pi = error.payment_intent
-
           if (
             (pi && pi.status === 'requires_capture') ||
             (pi && pi.status === 'succeeded')
           ) {
             onPaymentCompleted()
           }
-
           setErrorMessage(error.message || null)
           return
         }
-
         if (
           (paymentIntent && paymentIntent.status === 'requires_capture') ||
           paymentIntent.status === 'succeeded'
         ) {
           return onPaymentCompleted()
         }
-
         return
       })
   }
@@ -166,7 +158,6 @@ const ManualTestPaymentButton = ({ notReady }: { notReady: boolean }) => {
 
   const handlePayment = () => {
     setSubmitting(true)
-
     onPaymentCompleted()
   }
 

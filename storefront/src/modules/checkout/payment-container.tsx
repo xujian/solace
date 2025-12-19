@@ -6,6 +6,7 @@ import { cn } from '@lib/util'
 import SkeletonCardDetails from '@modules/skeletons/skeleton-card-details'
 import PaymentTest from './payment-test'
 import { StripeContext } from './stripe-wrapper'
+import { RadioGroupItem } from '@lib/components/ui'
 
 type PaymentContainerProps = {
   paymentProviderId: string
@@ -27,22 +28,19 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
   return (
     <div
       className={cn(
-        'rounded hover:shadow-borders-interactive-with-active flex cursor-pointer flex-col gap-y-2 border p-4',
+        'rounded hover:shadow-borders-interactive-with-active',
+        'flex cursor-pointer flex-col gap-y-2 border p-4',
         {
           'border-ui-border-interactive':
             selectedPaymentOptionId === paymentProviderId
         }
-      )}
-      onClick={() => !disabled && paymentProviderId}>
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-x-4">
-          <span className="text-base-regular">
-            {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
-          </span>
-        </div>
-        <span className="text-ui-fg-base justify-self-end">
-          {paymentInfoMap[paymentProviderId]?.icon}
-        </span>
+      )}>
+      <div className="flex items-center justify-between gap-2">
+        <RadioGroupItem value={paymentProviderId} />
+        <h4 className="flex-1">
+          {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
+        </h4>
+        {paymentInfoMap[paymentProviderId]?.icon}
       </div>
       {children}
     </div>
@@ -65,7 +63,6 @@ export const StripeCardContainer = ({
   setCardComplete: (complete: boolean) => void
 }) => {
   const stripeReady = useContext(StripeContext)
-
   const useOptions: StripeCardElementOptions = useMemo(() => {
     return {
       style: {
@@ -78,7 +75,7 @@ export const StripeCardContainer = ({
         }
       },
       classes: {
-        base: 'pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded-md appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out'
+        base: 'pt-3 pb-1 block w-full h-11 px-4 mt-0 bg-ui-bg-field border rounded appearance-none focus:outline-none focus:ring-0 focus:shadow-borders-interactive-with-active border-ui-border-base hover:bg-ui-bg-field-hover transition-all duration-300 ease-in-out'
       }
     }
   }, [])
@@ -91,10 +88,7 @@ export const StripeCardContainer = ({
       disabled={disabled}>
       {selectedPaymentOptionId === paymentProviderId &&
         (stripeReady ? (
-          <div className="my-4 transition-all duration-150 ease-in-out">
-            <span className="txt-medium-plus text-ui-fg-base mb-1">
-              Enter your card details:
-            </span>
+          <div className="transition-all duration-150 ease-in-out">
             <CardElement
               options={useOptions as StripeCardElementOptions}
               onChange={e => {
