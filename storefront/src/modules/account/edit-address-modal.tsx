@@ -11,7 +11,7 @@ import { useSession } from '@lib/context/session-context'
 import CountrySelect from '@modules/checkout/country-select'
 import { Edit, Trash2 as Trash } from 'lucide-react'
 import { X } from 'lucide-react'
-import { RefreshCw as Spinner } from 'lucide-react'
+import { LoaderCircle as Spinner } from 'lucide-react'
 
 type EditAddressProps = {
   address: HttpTypes.StoreCustomerAddress

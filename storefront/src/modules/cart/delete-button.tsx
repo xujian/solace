@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Button } from '@lib/components/ui'
 
 import { cn } from '@lib/util'
-import { RefreshCw as Spinner, X } from 'lucide-react'
+import { LoaderCircle as Spinner, X } from 'lucide-react'
 import { useCart } from '@lib/context/cart-context'
 
 const DeleteButton = ({

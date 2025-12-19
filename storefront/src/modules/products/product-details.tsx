@@ -4,7 +4,7 @@ import { HttpTypes } from '@medusajs/types'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@lib/components/ui'
 import { ArrowLeft as Back } from 'lucide-react'
 import { Truck as FastDelivery } from 'lucide-react'
-import { RefreshCw as Refresh } from 'lucide-react'
+import { LoaderCircle as Refresh } from 'lucide-react'
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
