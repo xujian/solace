@@ -1,5 +1,5 @@
-import { HttpTypes } from "@medusajs/types"
-
+import { Badge, Card, CardContent, CardHeader, CardTitle } from '@lib/components/ui'
+import { HttpTypes } from '@medusajs/types'
 
 type OrderDetailsProps = {
   order: HttpTypes.StoreOrder
@@ -8,54 +8,41 @@ type OrderDetailsProps = {
 
 const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
   const formatStatus = (str: string) => {
-    const formatted = str.split("_").join(" ")
-
+    const formatted = str.split('_').join(' ')
     return formatted.slice(0, 1).toUpperCase() + formatted.slice(1)
   }
 
-  return (
-    <div>
-      <p>
-        We have sent the order confirmation details to{" "}
-        <span
-          className="text-ui-fg-medium-plus font-semibold"
-          data-testid="order-email"
-        >
-          {order.email}
-        </span>
-        .
-      </p>
-      <p className="mt-2">
-        Order date:{" "}
-        <span data-testid="order-date">
-          {new Date(order.created_at).toDateString()}
-        </span>
-      </p>
-      <p className="mt-2 text-ui-fg-interactive">
-        Order number: <span data-testid="order-id">{order.display_id}</span>
-      </p>
+  const facts = [
+    {
+      label: 'Order date',
+      value: new Date(order.created_at).toDateString()
+    },
+    {
+      label: 'Order number',
+      value: order.display_id
+    },
+    {
+      label: 'Order status',
+      value: formatStatus(order.fulfillment_status)
+    },
+    {
+      label: 'Payment status',
+      value: formatStatus(order.payment_status)
+    }
+  ]
 
-      <div className="flex items-center text-compact-small gap-x-4 mt-4">
-        {showStatus && (
-          <>
-            <p>
-              Order status:{" "}
-              <span className="text-ui-fg-subtle " data-testid="order-status">
-                {formatStatus(order.fulfillment_status)}
-              </span>
-            </p>
-            <p>
-              Payment status:{" "}
-              <span
-                className="text-ui-fg-subtle "
-                sata-testid="order-payment-status"
-              >
-                {formatStatus(order.payment_status)}
-              </span>
-            </p>
-          </>
-        )}
-      </div>
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      {facts.map((fact, index) => (
+        <Card key={index}>
+          <CardHeader className="p-4">
+            <CardTitle className="text-muted-foreground text-sm">{fact.label}</CardTitle>
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <Badge>{fact.value}</Badge>
+        </CardContent>
+      </Card>)
+      )}
     </div>
   )
 }

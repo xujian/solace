@@ -30,5 +30,6 @@ export * from './dropdown-menu'
 export * from './command'
 export * from './input-group'
 export * from './native-select'
+export * from './breadcrumb'
 
 

@@ -1,8 +1,7 @@
-import { convertToLocale } from "@lib/util/money"
-import { HttpTypes } from "@medusajs/types"
-
-
-import { Separator } from "@lib/components/ui"
+import { Card, CardContent, CardHeader, CardTitle } from '@lib/components/ui'
+import { convertToLocale } from '@lib/util/money'
+import { HttpTypes } from '@medusajs/types'
+import { MapPin, Phone, Truck } from 'lucide-react'
 
 type ShippingDetailsProps = {
   order: HttpTypes.StoreOrder
@@ -10,63 +9,61 @@ type ShippingDetailsProps = {
 
 const ShippingDetails = ({ order }: ShippingDetailsProps) => {
   return (
-    <div>
-      <h2 className="flex flex-row text-3xl-regular my-6">
-        Delivery
-      </h2>
-      <div className="flex items-start gap-x-8">
-        <div
-          className="flex flex-col w-1/3"
-          data-testid="shipping-address-summary"
-        >
-          <p className="txt-medium-plus text-ui-fg-base mb-1">
-            Shipping Address
-          </p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {order.shipping_address?.first_name}{" "}
-            {order.shipping_address?.last_name}
-          </p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {order.shipping_address?.address_1}{" "}
-            {order.shipping_address?.address_2}
-          </p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {order.shipping_address?.postal_code},{" "}
-            {order.shipping_address?.city}
-          </p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {order.shipping_address?.country_code?.toUpperCase()}
-          </p>
-        </div>
-
-        <div
-          className="flex flex-col w-1/3 "
-          data-testid="shipping-contact-summary"
-        >
-          <p className="txt-medium-plus text-ui-fg-base mb-1">Contact</p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {order.shipping_address?.phone}
-          </p>
-          <p className="txt-medium text-ui-fg-subtle">{order.email}</p>
-        </div>
-
-        <div
-          className="flex flex-col w-1/3"
-          data-testid="shipping-method-summary"
-        >
-          <p className="txt-medium-plus text-ui-fg-base mb-1">Method</p>
-          <p className="txt-medium text-ui-fg-subtle">
-            {(order as any).shipping_methods[0]?.name} (
-            {convertToLocale({
-              amount: order.shipping_methods?.[0].total ?? 0,
-              currency_code: order.currency_code,
-            })}
-            )
-          </p>
-        </div>
+    <>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Card>
+          <CardHeader>
+            <MapPin />
+            <CardTitle className="text-muted-foreground text-sm">Shipping Address</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="">
+              {order.shipping_address?.first_name}{' '}
+              {order.shipping_address?.last_name}
+            </p>
+            <p className="">
+              {order.shipping_address?.address_1}{' '}
+              {order.shipping_address?.address_2}
+            </p>
+            <p className="">
+              {order.shipping_address?.postal_code},{' '}
+              {order.shipping_address?.city}
+            </p>
+            <p className="">
+              {order.shipping_address?.country_code?.toUpperCase()}
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <Phone />
+            <CardTitle className="text-muted-foreground text-sm">Contact</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="">
+              {order.shipping_address?.phone}
+            </p>
+            <p className="">{order.email}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <Truck />
+            <CardTitle className="text-muted-foreground text-sm">Method</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="">
+              {(order as any).shipping_methods[0]?.name} (
+              {convertToLocale({
+                amount: order.shipping_methods?.[0].total ?? 0,
+                currency_code: order.currency_code
+              })}
+              )
+            </p>
+          </CardContent>
+        </Card>
       </div>
-      <Separator className="mt-8" />
-    </div>
+    </>
   )
 }
 

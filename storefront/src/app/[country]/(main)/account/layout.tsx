@@ -20,7 +20,7 @@ export default async function AccountLayout({
       <div className="w-full flex flex-col py-8 justify-center items-center">
         <AccountNav customer={customer} />
       </div>
-      <div className="flex-1">{children}</div>
+      {children}
     </div>
   )
 }

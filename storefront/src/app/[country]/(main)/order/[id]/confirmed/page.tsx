@@ -1,14 +1,14 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import { retrieveOrder } from '@lib/data/orders'
-import { cookies as nextCookies } from "next/headers"
-import CartTotals from "@modules/common/components/cart-totals"
-import Help from "@modules/order/help"
-import Items from "@modules/order/items"
-import OnboardingCta from "@modules/order/onboarding-cta"
-import OrderDetails from "@modules/order/order-details"
-import ShippingDetails from "@modules/order/shipping-details"
-import PaymentDetails from "@modules/order/payment-details"
+import CartTotals from '@modules/common/components/cart-totals'
+import Help from '@modules/order/help'
+import Items from '@modules/order/items'
+import OnboardingCta from '@modules/order/onboarding-cta'
+import OrderDetails from '@modules/order/order-details'
+import PaymentDetails from '@modules/order/payment-details'
+import ShippingDetails from '@modules/order/shipping-details'
+import { Metadata } from 'next'
+import { cookies as nextCookies } from 'next/headers'
+import { notFound } from 'next/navigation'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -27,30 +27,23 @@ export default async function OrderConfirmedPage(props: Props) {
   }
 
   const cookies = await nextCookies()
-  const isOnboarding = cookies.get("_medusa_onboarding")?.value === "true"
+  const isOnboarding = cookies.get('_medusa_onboarding')?.value === 'true'
 
   return (
-    <div className="py-6 min-h-[calc(100vh-64px)]">
-      <div className="content-container flex flex-col justify-center items-center gap-y-10 max-w-4xl h-full w-full">
-        {isOnboarding && <OnboardingCta orderId={order.id} />}
-        <div
-          className="flex flex-col gap-4 max-w-4xl h-full bg-white w-full py-10"
-          data-testid="order-complete-container"
-        >
-          <h1 className="flex flex-col gap-y-3 text-ui-fg-base text-3xl mb-4">
-            <span>Thank you!</span>
-            <span>Your order was placed successfully.</span>
-          </h1>
-          <OrderDetails order={order} />
-          <h2 className="flex flex-row text-3xl-regular">
-            Summary
-          </h2>
-          <Items order={order} />
-          <CartTotals totals={order} />
-          <ShippingDetails order={order} />
-          <PaymentDetails order={order} />
-          <Help />
-        </div>
+    <div className="order-confirmed-page">
+      {isOnboarding && <OnboardingCta orderId={order.id} />}
+      <div
+        className="flex h-full w-full max-w-4xl flex-col gap-4 py-10"
+        data-testid="order-complete-container">
+        <h1>Thank you!</h1>
+        <p className="caption">Your order was placed successfully.</p>
+        <OrderDetails order={order} />
+        <h2 className="text-3xl-regular flex flex-row">Summary</h2>
+        <Items order={order} />
+        <CartTotals totals={order} />
+        <ShippingDetails order={order} />
+        <PaymentDetails order={order} />
+        <Help />
       </div>
     </div>
   )

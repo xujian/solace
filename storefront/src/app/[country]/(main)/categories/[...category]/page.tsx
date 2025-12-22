@@ -11,7 +11,7 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbSeparator
-} from '@lib/components/ui/breadcrumb'
+} from '@lib/components/ui'
 import ProductFilters from '@modules/products/product-filters'
 import ProductGrid from '@modules/products/product-grid'
 import SkeletonProductGrid from '@modules/skeletons/skeleton-product-grid'
@@ -51,11 +51,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params
   try {
     const productCategory = await getCategoryByHandle(params.category)
-
     const title = productCategory.name + ' | Medusa Store'
-
     const description = productCategory.description ?? `${title} category.`
-
     return {
       title: `${title} | Medusa Store`,
       description,
@@ -72,17 +69,13 @@ export default async function CategoryPage(props: Props) {
   const searchParams = await props.searchParams
   const params = await props.params
   const { sortBy, page } = searchParams
-
   const category = await getCategoryByHandle(params.category)
-
   if (!category) {
     notFound()
   }
   const pageNumber = page ? parseInt(page) : 1
   const sort = sortBy || 'created_at'
-
   const parents = [] as HttpTypes.StoreProductCategory[]
-
   const getParents = (category: HttpTypes.StoreProductCategory) => {
     if (category.parent_category) {
       parents.push(category.parent_category)
@@ -90,7 +83,6 @@ export default async function CategoryPage(props: Props) {
     }
   }
   getParents(category)
-
   return (
     <div className="category-page flex flex-col gap-4" data-testid="category-container">
       <Breadcrumb>

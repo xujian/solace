@@ -1,4 +1,6 @@
-import { StorePrice } from "@medusajs/types"
+import { StorePrice } from '@medusajs/types'
+
+export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export type FeaturedProduct = {
   id: string
