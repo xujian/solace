@@ -21,7 +21,7 @@ import {
 import { deleteAddress, updateAddress } from '@lib/data/customer'
 import useToggleState from '@lib/hooks/use-toggle-state'
 import { cn } from '@lib/util'
-import AddressForm from './components/address-form'
+import AddressForm from './address-form'
 import {
   Edit,
   MoreVertical,

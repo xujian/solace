@@ -7,7 +7,7 @@ import { addAddress } from '@lib/data/customer'
 import useToggleState from '@lib/hooks/use-toggle-state'
 import { Plus } from 'lucide-react'
 import { DialogTrigger } from '@radix-ui/react-dialog'
-import AddressForm from './components/address-form'
+import AddressForm from './address-form'
 
 const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[] }) => {
   const [successState, setSuccessState] = useState(false)
