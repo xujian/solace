@@ -31,5 +31,6 @@ export * from './command'
 export * from './input-group'
 export * from './native-select'
 export * from './breadcrumb'
+export * from './flip-words'
 
 
