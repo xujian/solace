@@ -1,33 +1,45 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { retrieveCustomer } from '@lib/data/customer'
-import { getRegion } from '@lib/data/regions'
-import AddressBook from '@modules/account/address-book'
+import { retrieveAddresses } from '@lib/data/customer'
+import AddAddress from '@modules/account/add-address'
+import AddressCard from '@modules/account/address-card'
 
 export const metadata: Metadata = {
   title: 'Addresses',
   description: 'View your addresses'
 }
 
-export default async function Addresses(props: { params: Promise<{ country: string }> }) {
-  const params = await props.params
-  const customer = await retrieveCustomer()
-  const region = await getRegion(params.country)
+export default async function AddressesPage () {
+  const addresses = await retrieveAddresses()
 
-  if (!customer || !region) {
+  if (!addresses) {
     notFound()
   }
 
+
   return (
-    <div className="w-full" data-testid="addresses-page-wrapper">
-      <div className="mb-8 flex flex-col gap-y-4">
-        <h1>Shipping Addresses</h1>
-        <p className="caption">
-          View and update your shipping addresses, you can add as many as you like. Saving your addresses will make them
-          available during checkout.
-        </p>
+    <>
+      <h1>Shipping Addresses</h1>
+      <p className="caption">
+        View and update your shipping addresses, you can add as many as you like. Saving your addresses will make them
+        available during checkout.
+      </p>
+      <p>&nbsp;</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {addresses.map(address => {
+          return <AddressCard data={address} key={address.id} />
+        })}
       </div>
-      <AddressBook customer={customer} />
-    </div>
+      {
+        addresses.length === 0 && (
+          <div className="empty py-50 flex items-center justify-center">
+            <p>You have no addresses saved.</p>
+          </div>
+        )
+      }
+      <div className="flex items-center justify-center py-10 gap-y-4">
+        <AddAddress addresses={addresses} />
+      </div>
+    </>
   )
 }

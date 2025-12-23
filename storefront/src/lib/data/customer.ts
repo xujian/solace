@@ -12,14 +12,19 @@ export const retrieveCustomer =
     return await sdk.store.customer
       .retrieve(
         {
-          fields: '*orders'
+          fields: 'id,email,first_name,last_name,phone,addresses.*'
         },
         {
           next: { tags: ['customer'] }
         }
       )
-      .then(({ customer }) => customer)
-      .catch(() => null)
+      .then(({ customer }) => {
+        console.debug('===========================DEBUG3: retrieveCustomer')
+        return customer
+      })
+      .catch((e) => {
+        return null
+      })
   }
 
 export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
@@ -27,9 +32,7 @@ export const updateCustomer = async (body: HttpTypes.StoreUpdateCustomer) => {
     .update(body)
     .then(({ customer }) => customer)
     .catch(medusaError)
-
   revalidateTag('customer', 'max')
-
   return updateRes
 }
 
@@ -48,7 +51,6 @@ export async function signup(_currentState: unknown, formData: FormData) {
     })
     const { customer: createdCustomer } =
       await sdk.store.customer.create(customerForm)
-
     await sdk.auth.login('customer', 'emailpass', {
       email: customerForm.email,
       password
@@ -98,13 +100,27 @@ export async function transferCart() {
   revalidateTag('cart', 'max')
 }
 
-export const addCustomerAddress = async (
+// add a retrieveAddresses function
+export const retrieveAddresses = async () => {
+  return await sdk.store.customer
+    .listAddress({
+      fields: 'id,first_name,last_name,company,address_1,address_2,city,postal_code,province,country_code,phone,is_default_billing,is_default_shipping' 
+    },{
+      next: { tags: ['customer', 'addresses'] }
+    })
+    .then(({ addresses }) => {
+      console.debug('===========================DEBUG4: retrieveAddresses//...')
+      return addresses
+    })
+    .catch(() => null)
+}
+
+export const addAddress = async (
   currentState: Record<string, unknown>,
   formData: FormData
 ): Promise<any> => {
   const isDefaultBilling = (currentState.isDefaultBilling as boolean) || false
   const isDefaultShipping = (currentState.isDefaultShipping as boolean) || false
-
   const address = {
     first_name: formData.get('first_name') as string,
     last_name: formData.get('last_name') as string,
@@ -119,11 +135,12 @@ export const addCustomerAddress = async (
     is_default_billing: isDefaultBilling,
     is_default_shipping: isDefaultShipping
   }
-
   return sdk.store.customer
     .createAddress(address, {})
     .then(async ({ customer }) => {
+      console.debug('===========================DEBUG1: addAddress, revalidateTag now...')
       revalidateTag('customer', 'max')
+      revalidateTag('addresses', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -131,13 +148,15 @@ export const addCustomerAddress = async (
     })
 }
 
-export const deleteCustomerAddress = async (
+export const deleteAddress = async (
   addressId: string
 ): Promise<void> => {
   await sdk.store.customer
     .deleteAddress(addressId)
     .then(async () => {
+      console.debug('===========================DEBUG5: deleteAddress//...revalidateTag now...')
       revalidateTag('customer', 'max')
+      revalidateTag('addresses', 'max')
       return { success: true, error: null }
     })
     .catch(err => {
@@ -145,7 +164,7 @@ export const deleteCustomerAddress = async (
     })
 }
 
-export const updateCustomerAddress = async (
+export const updateAddress = async (
   currentState: Record<string, unknown>,
   formData: FormData
 ): Promise<any> => {
@@ -178,6 +197,7 @@ export const updateCustomerAddress = async (
     .updateAddress(addressId, address)
     .then(async () => {
       revalidateTag('customer', 'max')
+      revalidateTag('addresses', 'max')
       return { success: true, error: null }
     })
     .catch(err => {

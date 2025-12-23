@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useActionState } from 'react'
 import { HttpTypes } from '@medusajs/types'
 import { Input, Label } from '@lib/components/ui'
-import { addCustomerAddress, updateCustomerAddress } from '@lib/data/customer'
+import { addAddress, updateAddress } from '@lib/data/customer'
 import { NativeSelect } from '@lib/components/ui'
 import AccountInfo from './account-info'
 
@@ -47,7 +47,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   }
 
   const [state, formAction] = useActionState(
-    billingAddress ? updateCustomerAddress : addCustomerAddress,
+    billingAddress ? updateAddress : addAddress,
     initialState
   )
 

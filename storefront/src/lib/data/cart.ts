@@ -79,7 +79,10 @@ export async function retrieveCart(cartId?: string, fields?: string) {
         next: { tags: ['cart'] }
       }
     )
-    .then(({ cart }: { cart: HttpTypes.StoreCart }) => cart)
+    .then(({ cart }: { cart: HttpTypes.StoreCart }) => {
+      console.debug('===========================DEBUG6: retrieveCart//...cart')
+      return cart
+    })
     .catch(() => null)
 }
 
