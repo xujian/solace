@@ -1,12 +1,8 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import { retrieveCustomer } from '@lib/data/customer'
 import { listRegions } from '@lib/data/regions'
-import ProfilePhone from '@modules/account/profile-phone'
-import ProfileBillingAddress from '@modules/account/profile-billing-address'
-import ProfileEmail from '@modules/account/profile-email'
-import ProfileName from '@modules/account/profile-name'
-import ProfilePassword from '@modules/account/profile-password'
+import ProfileItems from '@modules/account/profile-items'
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
   title: 'Profile',
@@ -25,17 +21,12 @@ export default async function Profile() {
     <>
       <h1>Profile</h1>
       <p className="caption">
-        View and update your profile information, including your name, email, and phone number. You can also update
-        your billing address, or change your password.
+        View and update your profile information, including your name, email,
+        and phone number. You can also update your billing address, or change
+        your password.
       </p>
       <p>&nbsp;</p>
-      <div className="flex w-full flex-col gap-y-8">
-        <ProfileName customer={customer} />
-        <ProfileEmail customer={customer} />
-        <ProfilePhone customer={customer} />
-        <ProfilePassword customer={customer} />
-        <ProfileBillingAddress customer={customer} regions={regions} />
-      </div>
+      <ProfileItems customer={customer} regions={regions} />
     </>
   )
 }

@@ -4,7 +4,7 @@ import React, { useEffect, useActionState } from 'react'
 import { HttpTypes } from '@medusajs/types'
 import { Input, Label } from '@lib/components/ui'
 import { updateCustomer } from '@lib/data/customer'
-import AccountInfo from './account-info'
+import ProfileFormContainer from './profile-form-wrapper'
 
 type MyInformationProps = {
   customer: HttpTypes.StoreCustomer
@@ -45,9 +45,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
 
   return (
     <form action={formAction} className="w-full overflow-visible">
-      <AccountInfo
-        label="Name"
-        currentInfo={`${customer.first_name} ${customer.last_name}`}
+      <ProfileFormContainer
         isSuccess={successState}
         isError={!!state?.error}
         clearState={clearState}
@@ -76,7 +74,7 @@ const ProfileName: React.FC<MyInformationProps> = ({ customer }) => {
             />
           </div>
         </div>
-      </AccountInfo>
+      </ProfileFormContainer>
     </form>
   )
 }

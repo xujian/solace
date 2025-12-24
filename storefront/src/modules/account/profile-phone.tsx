@@ -1,12 +1,10 @@
-"use client"
+'use client'
 
-import React, { useEffect, useActionState } from "react";
-
-import { Input, Label } from "@lib/components/ui"
-
-import AccountInfo from "./account-info"
-import { HttpTypes } from "@medusajs/types"
-import { updateCustomer } from "@lib/data/customer"
+import React, { useEffect, useActionState } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import { Input, Label } from '@lib/components/ui'
+import { updateCustomer } from '@lib/data/customer'
+import ProfileFormContainer from './profile-form-wrapper'
 
 type MyInformationProps = {
   customer: HttpTypes.StoreCustomer
@@ -20,7 +18,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
     formData: FormData
   ) => {
     const customer = {
-      phone: formData.get("phone") as string,
+      phone: formData.get('phone') as string
     }
 
     try {
@@ -33,7 +31,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
 
   const [state, formAction] = useActionState(updateCustomerPhone, {
     error: false,
-    success: false,
+    success: false
   })
 
   const clearState = () => {
@@ -46,15 +44,12 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
 
   return (
     <form action={formAction} className="w-full">
-      <AccountInfo
-        label="Phone"
-        currentInfo={`${customer.phone}`}
+      <ProfileFormContainer
         isSuccess={successState}
         isError={!!state.error}
         errorMessage={state.error}
         clearState={clearState}
-        data-testid="account-phone-editor"
-      >
+        data-testid="account-phone-editor">
         <div className="grid grid-cols-1 gap-y-2">
           <div className="flex flex-col gap-y-1">
             <Label htmlFor="phone">Phone</Label>
@@ -65,12 +60,12 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
               placeholder="Phone"
               autoComplete="tel"
               required
-              defaultValue={customer.phone ?? ""}
+              defaultValue={customer.phone ?? ''}
               data-testid="phone-input"
             />
           </div>
         </div>
-      </AccountInfo>
+      </ProfileFormContainer>
     </form>
   )
 }

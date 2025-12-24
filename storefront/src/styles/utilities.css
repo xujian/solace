@@ -6,7 +6,7 @@
     @apply my-4 text-2xl font-bold leading-8;
   }
   h3 {
-    @apply my-4 text-xl font-bold leading-8;
+    @apply my-4 text-xl font-bold leading-4;
   }
   .p {
     @apply p-4;
@@ -28,6 +28,9 @@
   .glass {
     @apply backdrop-blur-lg backdrop-saturate-100 backdrop-contrast-100;
   }
+  .bg-gradient {
+    @apply bg-[radial-gradient(circle_500px_at_50%_200px,#3e3e3e,transparent)]
+  }
   .text-neutral {
     @apply text-neutral-500;
   }
@@ -41,7 +44,7 @@
 
 
 .cover-image {
-  @apply h-[240px] max-h-[320px] sm:h-[240px] md:h-[320px];
+  @apply h-[calc(50vh-4rem)];
 }
 
 .cover-image img {

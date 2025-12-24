@@ -1,12 +1,9 @@
-"use client"
+'use client'
 
-import React, { useEffect, useActionState } from "react";
-
-import { Input, Label } from "@lib/components/ui"
-
-import AccountInfo from "./account-info"
-import { HttpTypes } from "@medusajs/types"
-// import { updateCustomer } from "@lib/data/customer"
+import React, { useEffect, useActionState } from 'react'
+import { HttpTypes } from '@medusajs/types'
+import { Input, Label } from '@lib/components/ui'
+import ProfileFormContainer from './profile-form-wrapper'
 
 type MyInformationProps = {
   customer: HttpTypes.StoreCustomer
@@ -21,9 +18,8 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
     formData: FormData
   ) => {
     const customer = {
-      email: formData.get("email") as string,
+      email: formData.get('email') as string
     }
-
     try {
       // await updateCustomer(customer)
       return { success: true, error: null }
@@ -34,7 +30,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
 
   const [state, formAction] = useActionState(updateCustomerEmail, {
     error: false,
-    success: false,
+    success: false
   })
 
   const clearState = () => {
@@ -47,15 +43,12 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
 
   return (
     <form action={formAction} className="w-full">
-      <AccountInfo
-        label="Email"
-        currentInfo={`${customer.email}`}
+      <ProfileFormContainer
         isSuccess={successState}
         isError={!!state.error}
         errorMessage={state.error}
         clearState={clearState}
-        data-testid="account-email-editor"
-      >
+        data-testid="account-email-editor">
         <div className="grid grid-cols-1 gap-y-2">
           <div className="flex flex-col gap-y-1">
             <Label htmlFor="email">Email</Label>
@@ -71,7 +64,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
             />
           </div>
         </div>
-      </AccountInfo>
+      </ProfileFormContainer>
     </form>
   )
 }

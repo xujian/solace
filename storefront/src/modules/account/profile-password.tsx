@@ -1,10 +1,10 @@
-"use client"
+'use client'
 
-import React, { useEffect, useActionState } from "react"
-import { Input, Label } from "@lib/components/ui"
-import AccountInfo from "./account-info"
-import { HttpTypes } from "@medusajs/types"
-import { toast } from "sonner"
+import React, { useEffect, useActionState } from 'react'
+import { toast } from 'sonner'
+import { HttpTypes } from '@medusajs/types'
+import { Input, Label } from '@lib/components/ui'
+import ProfileFormContainer from './profile-form-wrapper'
 
 type MyInformationProps = {
   customer: HttpTypes.StoreCustomer
@@ -15,7 +15,7 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
 
   // TODO: Add support for password updates
   const updatePassword = async () => {
-    toast.info("Password update is not implemented")
+    toast.info('Password update is not implemented')
   }
 
   const clearState = () => {
@@ -26,19 +26,13 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
     <form
       action={updatePassword}
       onReset={() => clearState()}
-      className="w-full"
-    >
-      <AccountInfo
-        label="Password"
-        currentInfo={
-          <span>The password is not shown for security reasons</span>
-        }
+      className="w-full">
+      <ProfileFormContainer
         isSuccess={successState}
         isError={false}
         errorMessage={undefined}
         clearState={clearState}
-        data-testid="account-password-editor"
-      >
+        data-testid="account-password-editor">
         <div className="grid grid-cols-2 gap-4">
           <div className="flex flex-col gap-y-1">
             <Label htmlFor="old_password">Old password</Label>
@@ -62,7 +56,7 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
               data-testid="new-password-input"
             />
           </div>
-          <div className="flex flex-col gap-y-1 col-span-2">
+          <div className="col-span-2 flex flex-col gap-y-1">
             <Label htmlFor="confirm_password">Confirm password</Label>
             <Input
               id="confirm_password"
@@ -74,7 +68,7 @@ const ProfilePassword: React.FC<MyInformationProps> = ({ customer }) => {
             />
           </div>
         </div>
-      </AccountInfo>
+      </ProfileFormContainer>
     </form>
   )
 }

@@ -5,14 +5,14 @@ import { HttpTypes } from '@medusajs/types'
 import { Input, Label } from '@lib/components/ui'
 import { addAddress, updateAddress } from '@lib/data/customer'
 import { NativeSelect } from '@lib/components/ui'
-import AccountInfo from './account-info'
+import ProfileFormContainer from './profile-form-wrapper'
 
-type MyInformationProps = {
+type ProfileBillingAddressProps = {
   customer: HttpTypes.StoreCustomer
   regions: HttpTypes.StoreRegion[]
 }
 
-const ProfileBillingAddress: React.FC<MyInformationProps> = ({
+const ProfileBillingAddress: React.FC<ProfileBillingAddressProps> = ({
   customer,
   regions
 }) => {
@@ -90,9 +90,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
   return (
     <form action={formAction} onReset={() => clearState()} className="w-full">
       <input type="hidden" name="addressId" value={billingAddress?.id} />
-      <AccountInfo
-        label="Billing address"
-        currentInfo={currentInfo}
+      <ProfileFormContainer
         isSuccess={successState}
         isError={!!state.error}
         clearState={clearState}
@@ -215,7 +213,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({
             })}
           </NativeSelect>
         </div>
-      </AccountInfo>
+      </ProfileFormContainer>
     </form>
   )
 }
