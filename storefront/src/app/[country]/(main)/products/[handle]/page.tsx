@@ -79,7 +79,7 @@ function getImagesForVariant(
   }
 
   const variant = product.variants!.find(v => v.id === selectedVariantId)
-  if (!variant || !variant.images.length) {
+  if (!variant || !variant.images || !variant.images.length) {
     return product.images
   }
 
@@ -119,7 +119,7 @@ const SkeletonRelatedProducts = () => {
           <div className="h-10 w-48 animate-pulse bg-gray-100"></div>
         </div>
       </div>
-      <ul className="small:grid-cols-3 medium:grid-cols-4 grid flex-1 grid-cols-2 gap-x-6 gap-y-8">
+      <ul className="sm:grid-cols-3 md:grid-cols-4 grid flex-1 grid-cols-2 gap-x-6 gap-y-8">
         {repeat(3).map(index => (
           <li key={index}>
             <SkeletonProductPreview />
@@ -180,7 +180,7 @@ export default async function ProductPage(props: Props) {
           {product.collection && (
             <LocalizedClientLink
               href={`/collections/${product.collection.handle}`}
-              className="text-medium text-ui-fg-muted hover:text-ui-fg-subtle">
+              className="text-base text-muted-foreground hover:text-muted-foreground">
               <Badge className="bg-amber-600 text-white hover:border-white hover:bg-amber-700">
                 {product.collection.title}
               </Badge>
@@ -194,7 +194,7 @@ export default async function ProductPage(props: Props) {
             <ProductActions product={product} colors={variantColors} />
           </Suspense>
           <p
-            className="text-medium text-ui-fg-subtle whitespace-pre-line"
+            className="text-base text-muted-foreground whitespace-pre-line"
             data-testid="product-description">
             {product.description}
           </p>

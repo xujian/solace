@@ -5,8 +5,8 @@ import React from "react"
 const Help = () => {
   return (
     <div className="mt-6">
-      <div className="text-base-semi">Need help?</div>
-      <div className="text-base-regular my-2">
+      <div className="text-base font-semibold">Need help?</div>
+      <div className="text-base my-2">
         <ul className="gap-y-2 flex flex-col">
           <li>
             <LocalizedClientLink href="/contact">Contact</LocalizedClientLink>

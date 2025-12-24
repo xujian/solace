@@ -88,8 +88,8 @@ const AccountNavLink = ({
   return (
     <LocalizedClientLink
       href={href}
-      className={cn('text-ui-fg-subtle hover:text-ui-fg-base', {
-        'text-ui-fg-base font-semibold': active
+      className={cn('text-muted-foreground hover:text-foreground', {
+        'text-foreground font-semibold': active
       })}
       data-testid={dataTestId}>
       {children}

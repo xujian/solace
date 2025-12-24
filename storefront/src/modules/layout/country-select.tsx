@@ -16,9 +16,10 @@ type CountryOption = {
 
 type CountrySelectProps = {
   toggleState: StateType
+  regions?: HttpTypes.StoreRegion[] | null
 }
 
-const CountrySelect = ({ toggleState }: CountrySelectProps) => {
+const CountrySelect = ({ toggleState, regions: regionsProp }: CountrySelectProps) => {
   const { country, region } = useSession()
   const [current, setCurrent] = useState<
     { country: string | undefined; region: string; label: string | undefined } | undefined
@@ -29,7 +30,10 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
   const { state, close } = toggleState
 
   const options = useMemo(() => {
-    return [region]
+    // If regionsProp is provided use it, otherwise use current region from session converted to array
+    const regionsToUse = regionsProp || [region]
+    
+    return regionsToUse
       ?.map(r => {
         return r?.countries?.map(c => ({
           country: c.iso_2,
@@ -65,10 +69,10 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
         if (!open) close()
       }}>
       <SelectTrigger className="h-auto w-full border-none p-0 py-1 shadow-none focus:ring-0">
-        <div className="txt-compact-small flex items-start gap-x-2">
+        <div className="text-sm flex items-start gap-x-2">
           <span>Shipping to:</span>
           {current && (
-            <span className="txt-compact-small flex items-center gap-x-2">
+            <span className="text-sm flex items-center gap-x-2">
               {/* @ts-ignore */}
               <ReactCountryFlag
                 svg
@@ -83,7 +87,7 @@ const CountrySelect = ({ toggleState }: CountrySelectProps) => {
           )}
         </div>
       </SelectTrigger>
-      <SelectContent className="text-small-regular no-scrollbar rounded-rounded z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll text-black uppercase drop-shadow-md">
+      <SelectContent className="text-sm no-scrollbar rounded-md z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll text-black uppercase drop-shadow-md">
         {options?.map((o, index) => {
           return (
             <SelectItem key={index} value={o?.country ?? ''} className="cursor-pointer px-3 py-2 hover:bg-gray-200">

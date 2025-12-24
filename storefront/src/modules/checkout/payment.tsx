@@ -105,11 +105,11 @@ const Payment = ({
         paidByGiftcard
           ? (
               <div className="flex w-1/3 flex-col">
-                <p className="txt-medium-plus text-ui-fg-base mb-1">
+                <p className="text-base font-medium text-foreground mb-1">
                   Payment method
                 </p>
                 <p
-                  className="txt-medium text-ui-fg-subtle"
+                  className="text-base text-muted-foreground"
                   data-testid="payment-method-summary">
                   Gift card
                 </p>

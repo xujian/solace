@@ -7,9 +7,10 @@ import Thumbnail from "@modules/products/thumbnail"
 
 type ItemProps = {
   data: HttpTypes.StoreCartLineItem | HttpTypes.StoreOrderLineItem
+  currencyCode: string
 }
 
-const Item = ({ data }: ItemProps) => {
+const Item = ({ data, currencyCode }: ItemProps) => {
   return (
     <div className="flex items-center justify-between gap-4" data-testid="product-row">
       <div className="w-24">
@@ -17,7 +18,7 @@ const Item = ({ data }: ItemProps) => {
       </div>
       <div className="flex-1 text-left">
         <p
-          className="txt-medium-plus text-ui-fg-base"
+          className="text-base font-medium text-foreground"
           data-testid="product-name">
           {data.product_title}
         </p>
@@ -25,19 +26,19 @@ const Item = ({ data }: ItemProps) => {
       </div>
       <div className="flex flex-col items-end h-full justify-center">
         <div className="flex gap-x-1 ">
-          <p className="text-ui-fg-muted">
+          <p className="text-muted-foreground">
             <span data-testid="product-quantity">{data.quantity}</span>x{" "}
           </p>
           <LineItemUnitPrice
             item={data}
             style="tight"
-            currencyCode={data.currency_code}
+            currencyCode={currencyCode}
           />
         </div>
         <LineItemPrice
           item={data}
           style="tight"
-          currencyCode={data.currency_code}
+          currencyCode={currencyCode}
         />
       </div>
     </div>

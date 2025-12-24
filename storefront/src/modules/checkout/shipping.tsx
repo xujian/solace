@@ -200,9 +200,9 @@ const Shipping: React.FC<ShippingProps> = ({ cart, methods }) => {
                 className={cn(
                   'flex cursor-pointer items-start justify-between rounded border px-4 py-4 hover:bg-muted',
                   {
-                    'border-ui-border-interactive':
+                    'border-primary':
                       method.id === shippingMethodId,
-                    'hover:shadow-brders-none cursor-not-allowed': isDisabled
+                    'hover:shadow-none cursor-not-allowed': isDisabled
                   }
                 )}
                 onClick={() => {
@@ -213,11 +213,11 @@ const Shipping: React.FC<ShippingProps> = ({ cart, methods }) => {
                 <div className="flex items-center gap-x-4">
                   <RadioGroupItem value={method.id} />
                   <div className="flex flex-col">
-                    <h4 className="text-base-regular">{method.name}</h4>
-                    <p className="caption text-sm">{method.type.description}</p>
+                    <h4 className="text-base">{method.name}</h4>
+                    <p className="text-sm text-muted-foreground">{method.type.description}</p>
                   </div>
                 </div>
-                <span className="text-ui-fg-base justify-self-end">
+                <span className="text-foreground justify-self-end">
                   {
                     getMethodType(method) === 'shipping'
                     ? method.price_type === 'flat'
@@ -262,9 +262,9 @@ const Shipping: React.FC<ShippingProps> = ({ cart, methods }) => {
                   className={cn(
                     'flex cursor-pointer items-center justify-between rounded border px-4 py-4 hover:bg-muted',
                     {
-                      'border-ui-border-interactive':
+                      'border-primary':
                         method.id === shippingMethodId,
-                      'hover:shadow-brders-none cursor-not-allowed':
+                      'hover:shadow-none cursor-not-allowed':
                         method.insufficient_inventory
                     }
                   )}
@@ -276,8 +276,8 @@ const Shipping: React.FC<ShippingProps> = ({ cart, methods }) => {
                   <div className="flex items-start gap-x-4">
                     <RadioGroupItem value={method.id} />
                     <div className="flex flex-col">
-                      <h4 className="text-base-regular">{method.name}</h4>
-                      <p className="caption">
+                      <h4 className="text-base">{method.name}</h4>
+                      <p className="text-sm text-muted-foreground">
                         {formatAddress(
                           (method as any).service_zone?.fulfillment_set
                             ?.location?.address

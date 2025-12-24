@@ -31,8 +31,8 @@ export default async function RelatedProducts({ product }: RelatedProductsProps)
   return (
     <div className="product-page-constraint">
       <div className="mb-16 flex flex-col items-center text-center">
-        <span className="text-base-regular mb-6 text-gray-600">Related products</span>
-        <p className="text-2xl-regular text-ui-fg-base max-w-lg">You might also want to check out these products.</p>
+        <span className="text-base mb-6 text-gray-600">Related products</span>
+        <p className="text-2xl text-foreground max-w-lg">You might also want to check out these products.</p>
       </div>
 
       <ul className="sm:grid-cols-3 md:grid-cols-4 grid grid-cols-2 gap-x-6 gap-y-8">

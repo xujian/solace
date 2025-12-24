@@ -24,6 +24,7 @@ const Items = ({ order }: ItemsProps) => {
                 <Item
                   key={item.id}
                   data={item}
+                  currencyCode={order.currency_code}
                 />
               )
             })

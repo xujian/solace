@@ -98,8 +98,8 @@ const ShippingAddress = ({
   return (
     <>
       {customer && (addressesInRegion?.length || 0) > 0 && (
-        <div className="border-ui-border-base rounded-rounded mb-6 flex flex-col gap-y-4 border p-5">
-          <p className="text-small-regular">
+        <div className="border-border rounded-md mb-6 flex flex-col gap-y-4 border p-5">
+          <p className="text-sm">
             {`Hi ${customer.first_name}, do you want to use one of your saved addresses?`}
           </p>
           <AddressSelect

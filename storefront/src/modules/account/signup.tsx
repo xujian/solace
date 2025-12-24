@@ -30,10 +30,10 @@ const Signup = ({ setCurrentView }: Props) => {
       className="flex max-w-[600px] flex-col overflow-hidden"
       data-testid="register-page">
       <CardHeader>
-        <h1 className="text-large-semi mb-6 uppercase">
+        <h1 className="text-lg font-semibold mb-6 uppercase">
           Become a Medusa Store Member
         </h1>
-        <p className="text-neutral">
+        <p className="text-muted-foreground">
           Create your Medusa Store Member profile, and get access to an enhanced
           shopping experience.
         </p>
@@ -111,7 +111,7 @@ const Signup = ({ setCurrentView }: Props) => {
           </Field>
           <ErrorMessage error={message} data-testid="register-error" />
 
-          <p className="text-neutral mt-6">
+          <p className="text-muted-foreground mt-6">
             By creating an account, you agree to Medusa Store&apos;s{' '}
             <LocalizedClientLink
               href="/content/privacy-policy"
@@ -137,7 +137,7 @@ const Signup = ({ setCurrentView }: Props) => {
       </CardContent>
       <CardFooter className="bg-secondary">
         <div className="flex w-full flex-col items-center justify-center">
-          <p className="text-neutral my-4">Already a member?</p>
+          <p className="text-muted-foreground my-4">Already a member?</p>
           <Button
             className="w-full"
             onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}>

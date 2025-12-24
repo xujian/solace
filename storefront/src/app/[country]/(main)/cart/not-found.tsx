@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="flex min-h-[calc(100vh-64px)] flex-col items-center justify-center">
-      <h1 className="text-2xl-semi text-ui-fg-base">Page not found</h1>
-      <p className="text-small-regular text-ui-fg-base">
+      <h1 className="text-2xl font-semibold text-foreground">Page not found</h1>
+      <p className="text-sm text-foreground">
         The cart you tried to access does not exist. Clear your cookies and try again.
       </p>
       <InteractiveLink href="/">Go to frontpage</InteractiveLink>

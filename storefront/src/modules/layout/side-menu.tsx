@@ -38,14 +38,14 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
         )}
 
         <PopoverContent
-          className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-[51] inset-x-0 text-sm text-ui-fg-on-color m-2 backdrop-blur-2xl p-0 border-none"
+          className="flex flex-col absolute w-full pr-4 sm:pr-0 sm:w-1/3 2xl:w-1/4 sm:min-w-min h-[calc(100vh-1rem)] z-[51] inset-x-0 text-sm text-white m-2 backdrop-blur-2xl p-0 border-none"
           align="start"
           side="bottom"
           sideOffset={0}
           onInteractOutside={e => e.preventDefault()}>
           <div
             data-testid="nav-menu-popup"
-            className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-rounded justify-between p-6">
+            className="flex flex-col h-full bg-[rgba(3,7,18,0.5)] rounded-md justify-between p-6">
             <div className="flex justify-end" id="xmark">
               <button data-testid="close-menu-button" onClick={() => setPopoverOpen(false)}>
                 <X />
@@ -57,7 +57,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   <li key={name}>
                     <LocalizedClientLink
                       href={href}
-                      className="text-3xl leading-10 hover:text-ui-fg-disabled"
+                      className="text-3xl leading-10 hover:text-muted-foreground"
                       onClick={() => setPopoverOpen(false)}
                       data-testid={`${name.toLowerCase()}-link`}>
                       {name}
@@ -73,7 +73,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
                   className={cn('transition-transform duration-150', toggleState.state ? '-rotate-90' : '')}
                 />
               </div>
-              <p className="flex justify-between txt-compact-small">
+              <p className="flex justify-between text-xs">
                 © {new Date().getFullYear()} Medusa Store. All rights reserved.
               </p>
             </div>

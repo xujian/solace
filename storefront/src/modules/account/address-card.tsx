@@ -120,7 +120,7 @@ const AddressCard: React.FC<EditAddressProps> = ({
             </DropdownMenuContent>
           </DropdownMenu>
         </CardHeader>
-        <CardContent className="text-base-regular flex flex-col text-left">
+        <CardContent className="text-base flex flex-col text-left">
           <span data-testid="address-address">
             {data.address_1}
             {data.address_2 && <span>, {data.address_2}</span>}
@@ -139,7 +139,7 @@ const AddressCard: React.FC<EditAddressProps> = ({
           className="max-w-3xl p-0"
           data-testid="edit-address-modal">
           <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4">
-            <DialogTitle className="text-3xl-regular">Edit address</DialogTitle>
+            <DialogTitle className="text-3xl">Edit address</DialogTitle>
           </DialogHeader>
           <AddressForm
             formAction={formAction}

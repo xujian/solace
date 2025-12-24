@@ -48,7 +48,7 @@ const AddAddress = ({ addresses }: { addresses: HttpTypes.StoreCustomerAddress[]
       </DialogTrigger>
       <DialogContent className="overflow-hidden p-0" data-testid="add-address-modal">
         <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4">
-          <DialogTitle className="text-3xl-regular">Add address</DialogTitle>
+          <DialogTitle className="text-3xl">Add address</DialogTitle>
         </DialogHeader>
         <AddressForm
           formAction={formAction}

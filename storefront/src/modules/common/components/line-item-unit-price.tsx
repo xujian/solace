@@ -23,12 +23,12 @@ const LineItemUnitPrice = ({
   )
 
   return (
-    <div className="flex flex-col text-ui-fg-muted justify-center h-full">
+    <div className="flex flex-col text-muted-foreground justify-center h-full">
       {hasReducedPrice && (
         <>
           <p>
             {style === "default" && (
-              <span className="text-ui-fg-muted">Original: </span>
+              <span className="text-muted-foreground">Original: </span>
             )}
             <span
               className="line-through"
@@ -41,13 +41,13 @@ const LineItemUnitPrice = ({
             </span>
           </p>
           {style === "default" && (
-            <span className="text-ui-fg-interactive">-{percentage_diff}%</span>
+            <span className="text-primary">-{percentage_diff}%</span>
           )}
         </>
       )}
       <span
-        className={cn("text-base-regular", {
-          "text-ui-fg-interactive": hasReducedPrice,
+        className={cn("text-base", {
+          "text-primary": hasReducedPrice,
         })}
         data-testid="product-unit-price"
       >

@@ -39,7 +39,7 @@ const AddressSelect = ({
       <div className="relative">
         <PopoverTrigger asChild>
           <button
-            className="relative w-full flex justify-between items-center px-4 py-[10px] text-lef cursor-default focus:outline-none border rounded-rounded focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base-regular"
+            className="relative w-full flex justify-between items-center px-4 py-[10px] text-lef cursor-default focus:outline-none border rounded-md focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-gray-300 focus-visible:ring-offset-2 focus-visible:border-gray-300 text-base"
             data-testid="shipping-address-select"
           >
             <span className="block truncate">
@@ -55,7 +55,7 @@ const AddressSelect = ({
           </button>
         </PopoverTrigger>
         <PopoverContent
-          className="absolute z-20 w-full overflow-auto text-small-regular border border-top-0 max-h-60 focus:outline-none sm:text-sm p-0"
+          className="absolute z-20 w-full overflow-auto text-sm border border-top-0 max-h-60 focus:outline-none sm:text-sm p-0"
           data-testid="shipping-address-options"
           align="start"
           sideOffset={0}
@@ -70,20 +70,29 @@ const AddressSelect = ({
                 onClick={() => handleSelect(address.id)}
               >
                 <div className="flex gap-x-4 items-start">
-                  <Radio
-                    checked={selectedAddress?.id === address.id}
+                  <div
+                    className={cn(
+                      "flex items-center justify-center w-4 h-4 rounded-full border border-primary",
+                      {
+                        "bg-primary": selectedAddress?.id === address.id,
+                      }
+                    )}
                     data-testid="shipping-address-radio"
-                  />
+                  >
+                    {selectedAddress?.id === address.id && (
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary-foreground" />
+                    )}
+                  </div>
                   <div className="flex flex-col">
-                    <span className="text-left text-base-semi">
+                    <span className="text-left text-base font-semibold">
                       {address.first_name} {address.last_name}
                     </span>
                     {address.company && (
-                      <span className="text-small-regular text-ui-fg-base">
+                      <span className="text-sm text-foreground">
                         {address.company}
                       </span>
                     )}
-                    <div className="flex flex-col text-left text-base-regular mt-2">
+                    <div className="flex flex-col text-left text-base mt-2">
                       <span>
                         {address.address_1}
                         {address.address_2 && (

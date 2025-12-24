@@ -36,9 +36,9 @@ export default async function OrderConfirmedPage(props: Props) {
         className="flex h-full w-full max-w-4xl flex-col gap-4 py-10"
         data-testid="order-complete-container">
         <h1>Thank you!</h1>
-        <p className="caption">Your order was placed successfully.</p>
+        <p className="text-sm text-muted-foreground">Your order was placed successfully.</p>
         <OrderDetails order={order} />
-        <h2 className="text-3xl-regular flex flex-row">Summary</h2>
+        <h2 className="text-3xl flex flex-row">Summary</h2>
         <Items order={order} />
         <CartTotals totals={order} />
         <ShippingDetails order={order} />

@@ -74,7 +74,7 @@ export default async function Dashboard() {
         <span data-testid="welcome-message" data-value={customer?.first_name}>
           Hello {customer?.first_name}
         </span>
-        <span className="text-ui-fg-base text-sm">
+        <span className="text-foreground text-sm">
           Signed in as:{' '}
           <span
             className="font-semibold"

@@ -34,9 +34,9 @@ export default async function Footer() {
                     })) || null
 
                   return (
-                    <li className="flex flex-col gap-2 text-ui-fg-subtle txt-small" key={c.id}>
+                    <li className="flex flex-col gap-2 text-muted-foreground text-sm" key={c.id}>
                       <LocalizedClientLink
-                        className={cn('hover:text-ui-fg-base', children && 'txt-small-plus')}
+                        className={cn('hover:text-foreground', children && 'text-sm font-medium')}
                         href={`/categories/${c.handle}`}
                         data-testid="category-link">
                         {c.name}
@@ -47,7 +47,7 @@ export default async function Footer() {
                             children.map(child => (
                               <li key={child.id}>
                                 <LocalizedClientLink
-                                  className="hover:text-ui-fg-base"
+                                  className="hover:text-foreground"
                                   href={`/categories/${child.handle}`}
                                   data-testid="category-link">
                                   {child.name}
@@ -66,12 +66,12 @@ export default async function Footer() {
             <div className="flex flex-col gap-y-2">
               <h3 className="mb-4">Collections</h3>
               <ul
-                className={cn('grid grid-cols-1 gap-2 text-ui-fg-subtle txt-small', {
+                className={cn('grid grid-cols-1 gap-2 text-muted-foreground text-sm', {
                   'grid-cols-2': (collections?.length || 0) > 3
                 })}>
                 {collections?.slice(0, 6).map(c => (
                   <li key={c.id}>
-                    <LocalizedClientLink className="hover:text-ui-fg-base" href={`/collections/${c.handle}`}>
+                    <LocalizedClientLink className="hover:text-foreground" href={`/collections/${c.handle}`}>
                       {c.title}
                     </LocalizedClientLink>
                   </li>
@@ -81,13 +81,13 @@ export default async function Footer() {
           )}
           <div className="flex flex-col gap-y-2">
             <h3 className="mb-4">Info</h3>
-            <ul className="grid grid-cols-1 gap-y-2 text-ui-fg-subtle txt-small">
+            <ul className="grid grid-cols-1 gap-y-2 text-muted-foreground text-sm">
               <li>
                 <a
                   href="https://github.com/medusajs"
                   target="_blank"
                   rel="noreferrer"
-                  className="hover:text-ui-fg-base">
+                  className="hover:text-foreground">
                   About Us
                 </a>
               </li>
@@ -96,7 +96,7 @@ export default async function Footer() {
         </div>
       </div>
       <div className="flex mt-8 text-gray-500 w-full justify-between">
-        <p className="txt-compact-small">© {new Date().getFullYear()} Ars Breeze. All rights reserved.</p>
+        <p className="text-xs">© {new Date().getFullYear()} Ars Breeze. All rights reserved.</p>
       </div>
     </footer>
   )

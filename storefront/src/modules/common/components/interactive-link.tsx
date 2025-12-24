@@ -21,10 +21,10 @@ const InteractiveLink = ({
       onClick={onClick}
       {...props}
     >
-      <span className="text-ui-fg-interactive">{children}</span>
+      <span className="text-primary">{children}</span>
       <ExternalLink
         className="group-hover:rotate-45 ease-in-out duration-150"
-        color="var(--fg-interactive)"
+        color="currentColor"
       />
     </LocalizedClientLink>
   )

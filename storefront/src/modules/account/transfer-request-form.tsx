@@ -26,7 +26,7 @@ export default function TransferRequestForm() {
       <div className="grid w-full items-center gap-x-8 gap-y-4 sm:grid-cols-2">
         <div className="flex flex-col gap-y-1">
           <h3>Order transfers</h3>
-          <p className="caption">
+          <p className="text-muted-foreground text-sm">
             Can&apos;t find the order you are looking for?
             <br /> Connect an order to your account.
           </p>
@@ -47,7 +47,7 @@ export default function TransferRequestForm() {
         </form>
       </div>
       {!state.success && state.error && (
-        <p className="text-base-regular text-right text-rose-500">
+        <p className="text-base text-right text-rose-500">
           {state.error}
         </p>
       )}
@@ -56,10 +56,10 @@ export default function TransferRequestForm() {
           <div className="flex items-center gap-x-2">
             <CheckCircle className="h-4 w-4 text-emerald-500" />
             <div className="flex flex-col gap-y-1">
-              <p className="text-medim-pl text-neutral-950">
+              <p className="text-sm font-medium text-neutral-950">
                 Transfer for order {state.order?.id} requested
               </p>
-              <p className="text-base-regular text-neutral-600">
+              <p className="text-base text-neutral-600">
                 Transfer request email sent to {state.order?.email}
               </p>
             </div>

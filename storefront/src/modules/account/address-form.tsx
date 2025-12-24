@@ -126,7 +126,7 @@ const AddressForm = ({
         </Field>
 
         {formState.error && (
-          <div className="text-small-regular text-rose-500 py-2" data-testid="address-error">
+          <div className="text-sm text-rose-500 py-2" data-testid="address-error">
             {formState.error}
           </div>
         )}
