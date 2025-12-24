@@ -26,11 +26,10 @@ const RichTitle = ({ title }: { title: string }) => {
   // split title into lines by '\n'
   const lines = title.split('\\n')
   return (
-    <h2 className="text-4xl font-bold">
+    <h2 className="text-6xl leading-none font-bold">
       {lines.map((line, index) => (
-        <span key={index} className="inline-block">
+        <span key={index} className="block">
           <RenderFlipWords line={line} />
-          {index < lines.length - 1 && <br />}
         </span>
       ))}
     </h2>
@@ -43,15 +42,15 @@ const Hero = ({ data }: { data: BannerData }) => {
   return (
     <section className="hero full-bleed">
       <div className="cover-image">
-        <Image src={image.url} alt={image.alternativeText || ''} width={2048} height={400} />
+        <Image src={image.url} alt={image.alternativeText || ''} width={2048} height={600} />
       </div>
-      <div className="p-4 items-start flex flex-col justify-center">
+      <div className="h-[50vh] p-4 items-start flex flex-col justify-center">
         <RichTitle title={title} />
         <div className="flex items-center gap-4">
-          <LocalizedClientLink href={cta.link} className="hover:text-ui-fg-base flex-1 items-start">
+          <LocalizedClientLink href={cta.link} className="flex-1 items-start">
             <Button className='rounded-full'>{cta.text}</Button>
           </LocalizedClientLink>
-          <p className="text-ui-fg-subtle text-base flex-1 text-gray-300 font-normal">{text}</p>
+          <p className="text-muted-foreground flex-1 font-normal">{text}</p>
         </div>
       </div>
     </section>
