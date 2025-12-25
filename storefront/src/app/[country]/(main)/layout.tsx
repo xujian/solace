@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 import { retrieveCart } from '@lib/data/cart'
 import { CartProvider } from '@lib/context/cart-context'
+import { InteractiveProvider } from '@lib/context/interactive-context'
 
 export default async function PageLayout(props: 
   { 
@@ -20,14 +21,16 @@ export default async function PageLayout(props:
   const cart = await retrieveCart()
 
   return (
-    <CartProvider data={cart}>
-      <Nav />
-      <Suspense fallback={null}>
-        <CartCustomerLayer />
-      </Suspense>
-      <main className="page-body">{props.children}</main>
-      {props.modal}
-      <Footer />
-    </CartProvider>
+    <InteractiveProvider>
+      <CartProvider data={cart}>
+          <Nav />
+          <Suspense fallback={null}>
+            <CartCustomerLayer />
+          </Suspense>
+          <main className="page-body">{props.children}</main>
+          {props.modal}
+          <Footer />
+      </CartProvider>
+    </InteractiveProvider>
   )
 }
