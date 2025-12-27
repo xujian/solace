@@ -1,6 +1,13 @@
 'use client'
 
-import { Dialog, DialogContent, DialogHeader } from '@lib/components/ui/dialog'
+import { Button } from '@lib/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+} from '@lib/components/ui/dialog'
 import { Drawer, DrawerContent } from '@lib/components/ui/drawer'
 import { Sheet, SheetContent } from '@lib/components/ui/sheet'
 import { DialogTitle } from '@radix-ui/react-dialog'
@@ -9,7 +16,7 @@ import {
   createContext,
   ReactNode,
   useContext,
-  useState
+  useState,
 } from 'react'
 import { toast as sonner } from 'sonner'
 
@@ -24,6 +31,15 @@ interface DrawerConfig extends BaseInteractiveConfig {}
 
 interface DialogConfig extends BaseInteractiveConfig {
   center?: boolean
+}
+
+interface ConfirmConfig extends DialogConfig {
+  title?: string
+  cancelText?: string
+  okText?: string
+  variant?: 'destructive' | 'default'
+  onOk?: () => void
+  onCancel?: () => void
 }
 
 interface ToastOptions extends BaseInteractiveConfig {
@@ -59,6 +75,10 @@ interface InteractiveContext {
     props?: T,
     config?: DialogConfig
   ) => void
+  confirm: (
+    message: string | ReactNode,
+    config?: ConfirmConfig
+  ) => Promise<boolean> | void
   toast: (message: string, config?: ToastOptions) => void
   clear: () => void
 }
@@ -78,10 +98,49 @@ interface OverlayState {
   config?: SheetConfig | DrawerConfig | DialogConfig
 }
 
+const Confirmation: InteractiveContent<{
+  description: string | ReactNode
+  title: string
+  okText: string
+  cancelText: string
+  variant: 'destructive' | 'default'
+} & InteractiveContentProps> = ({
+  description,
+  title,
+  cancelText,
+  okText,
+  variant,
+  onOk,
+  onCancel,
+}) => {
+  return (
+    <>
+      <DialogHeader>
+        <DialogTitle>{title}</DialogTitle>
+        <DialogDescription>{description}</DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <Button variant="outline" onClick={onCancel}>
+          {cancelText}
+        </Button>
+        <Button variant={variant} onClick={onOk}>
+          {okText}
+        </Button>
+      </DialogFooter>
+    </>
+  )
+}
+
 export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [overlayState, setOverlayState] = useState<OverlayState | null>(null)
 
+  /**
+   * opens a sheet (from side)
+   * @param Component 
+   * @param props 
+   * @param config 
+   */
   const sheet = <T extends object>(
     Component: InteractiveContent<T>,
     props?: T,
@@ -91,6 +150,12 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
     setIsOpen(true)
   }
 
+  /**
+   * opens a drawer (from below)
+   * @param Component 
+   * @param props 
+   * @param config 
+   */
   const drawer = <T extends object>(
     Component: InteractiveContent<T>,
     props?: T,
@@ -100,6 +165,12 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
     setIsOpen(true)
   }
 
+  /**
+   * opens a dialog (always centered)
+   * @param Component 
+   * @param props 
+   * @param config 
+   */
   const dialog = <T extends object>(
     Component: InteractiveContent<T>,
     props?: T,
@@ -109,6 +180,57 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
     setIsOpen(true)
   }
 
+  /**
+   * opens a confirmation dialog 
+   * @param message 
+   * @param config 
+   * @returns 
+   */
+  const confirm = (
+    message: string | ReactNode,
+    config?: ConfirmConfig
+  ): Promise<boolean> | void => {
+    if (config?.onOk) {
+      dialog(
+        Confirmation,
+        {
+          description: message,
+          title: config?.title || 'Confirm',
+          cancelText: config?.cancelText || 'Cancel',
+          okText: config?.okText || 'OK',
+          variant: config?.variant || 'default',
+          onOk: config?.onOk,
+          onCancel: config?.onCancel,
+        },
+        config
+      )
+      return
+    }
+    return new Promise<boolean>((resolve) => {
+      dialog(
+        Confirmation,
+        {
+          description: message,
+          title: config?.title || 'Confirm',
+          cancelText: config?.cancelText || 'Cancel',
+          okText: config?.okText || 'OK',
+          variant: config?.variant || 'default',
+          onOk: () => resolve(true),
+          onCancel: () => {
+            config?.onCancel?.()
+            resolve(false)
+          },
+        },
+        config
+      )
+    })
+  }
+
+  /**
+   * opens a toast
+   * @param message 
+   * @param config 
+   */
   const toast = (message: string, config?: ToastOptions) => {
     const type = config?.type || 'info'
     switch (type) {
@@ -164,7 +286,7 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
 
   return (
     <InteractiveContext.Provider
-      value={{ sheet, drawer, dialog, toast, clear }}>
+      value={{ sheet, drawer, dialog, confirm, toast, clear }}>
       {children}
       <Sheet open={isOpen && type === 'sheet'} onOpenChange={setIsOpen}>
         <SheetContent
@@ -211,6 +333,7 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
  * $.sheet(<Component>, props, config)
  * $.drawer(<Component>, props, config)
  * $.dialog(<Component>, props, config)
+ * $.confirm("Are you sure?", config)
  * @returns
  */
 export const useInteractive = () => {

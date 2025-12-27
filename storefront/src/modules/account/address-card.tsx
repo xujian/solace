@@ -49,10 +49,14 @@ const AddressCard: React.FC<EditAddressProps> = ({
   }
 
   const removeAddress = async () => {
-    setRemoving(true)
-    await deleteAddress(data.id)
-    setRemoving(false)
-    router.refresh()
+    $.confirm('Are you sure you want to remove this address?').then((ok) => {
+      if (ok) {
+        setRemoving(true)
+        deleteAddress(data.id)
+        setRemoving(false)
+        router.refresh()
+      }
+    })
   }
 
   return (
