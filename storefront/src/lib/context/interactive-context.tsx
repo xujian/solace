@@ -1,15 +1,16 @@
 'use client'
 
-import React, {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  ComponentType
-} from 'react'
-import { Dialog, DialogContent } from '@lib/components/ui/dialog'
+import { Dialog, DialogContent, DialogHeader } from '@lib/components/ui/dialog'
 import { Drawer, DrawerContent } from '@lib/components/ui/drawer'
 import { Sheet, SheetContent } from '@lib/components/ui/sheet'
+import { DialogTitle } from '@radix-ui/react-dialog'
+import {
+  ComponentType,
+  createContext,
+  ReactNode,
+  useContext,
+  useState
+} from 'react'
 import { toast as sonner } from 'sonner'
 
 interface BaseInteractiveConfig {
@@ -30,24 +31,36 @@ interface ToastOptions extends BaseInteractiveConfig {
   duration?: number
 }
 
+export type InteractiveContentProps = {
+  onCancel?: () => void
+  onOk?: () => void
+}
+
+export type MakeInteractiveContent<T extends object> = T &
+  InteractiveContentProps
+/*
+ * Comppnents that embed into interactive overlays
+ **/
+export type InteractiveContent<T extends object> = ComponentType<T>
+
 interface InteractiveContext {
   sheet: <T extends object>(
-    Component: ComponentType<T>,
-    props: T,
+    Component: InteractiveContent<T>,
+    props?: T,
     config?: SheetConfig
   ) => void
   drawer: <T extends object>(
-    Component: ComponentType<T>,
-    props: T,
+    Component: InteractiveContent<T>,
+    props?: T,
     config?: DrawerConfig
   ) => void
   dialog: <T extends object>(
-    Component: ComponentType<T>,
-    props: T,
+    Component: InteractiveContent<T>,
+    props?: T,
     config?: DialogConfig
   ) => void
   toast: (message: string, config?: ToastOptions) => void
-  close: () => void
+  clear: () => void
 }
 
 const InteractiveContext = createContext<InteractiveContext | null>(null)
@@ -60,7 +73,7 @@ type OverlayType = 'sheet' | 'drawer' | 'dialog'
 
 interface OverlayState {
   type: OverlayType
-  Component: ComponentType<any>
+  Component: InteractiveContent<any>
   props?: any
   config?: SheetConfig | DrawerConfig | DialogConfig
 }
@@ -70,7 +83,7 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
   const [overlayState, setOverlayState] = useState<OverlayState | null>(null)
 
   const sheet = <T extends object>(
-    Component: ComponentType<T>,
+    Component: InteractiveContent<T>,
     props?: T,
     config?: SheetConfig
   ) => {
@@ -79,7 +92,7 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
   }
 
   const drawer = <T extends object>(
-    Component: ComponentType<T>,
+    Component: InteractiveContent<T>,
     props?: T,
     config?: DrawerConfig
   ) => {
@@ -88,7 +101,7 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
   }
 
   const dialog = <T extends object>(
-    Component: ComponentType<T>,
+    Component: InteractiveContent<T>,
     props?: T,
     config?: DialogConfig
   ) => {
@@ -114,7 +127,10 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
     }
   }
 
-  const close = () => {
+  /**
+   * close all the overlays
+   */
+  const clear = () => {
     setIsOpen(false)
   }
 
@@ -133,11 +149,22 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
     }
   }
 
+  const onOk = () => {
+    clear()
+    props?.onOk?.()
+  }
+
+  const onCancel = () => {
+    clear()
+    props?.onCancel?.()
+  }
+
   // Helper for Vaul (Drawer) dismissal
   const isDismissible = config?.dismissible !== false
 
   return (
-    <InteractiveContext.Provider value={{ sheet, drawer, dialog, toast, close }}>
+    <InteractiveContext.Provider
+      value={{ sheet, drawer, dialog, toast, clear }}>
       {children}
       <Sheet open={isOpen && type === 'sheet'} onOpenChange={setIsOpen}>
         <SheetContent
@@ -145,7 +172,9 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
           className={config?.className}
           onInteractOutside={handleInteractOutside}
           onEscapeKeyDown={handleEscapeKeyDown}>
-          {type === 'sheet' && Component && <Component {...props} />}
+          {type === 'sheet' && Component && (
+            <Component {...props} onCancel={onCancel} onOk={onOk} />
+          )}
         </SheetContent>
       </Sheet>
       <Drawer
@@ -153,15 +182,22 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
         onOpenChange={setIsOpen}
         dismissible={isDismissible}>
         <DrawerContent className={config?.className}>
-          {type === 'drawer' && Component && <Component {...props} />}
+          {type === 'drawer' && Component && (
+            <Component {...props} onCancel={onCancel} onOk={onOk} />
+          )}
         </DrawerContent>
       </Drawer>
       <Dialog open={isOpen && type === 'dialog'} onOpenChange={setIsOpen}>
+        <DialogHeader>
+          <DialogTitle></DialogTitle>
+        </DialogHeader>
         <DialogContent
           className={config?.className}
           onInteractOutside={handleInteractOutside}
           onEscapeKeyDown={handleEscapeKeyDown}>
-          {type === 'dialog' && Component && <Component {...props} />}
+          {type === 'dialog' && Component && (
+            <Component {...props} onCancel={onCancel} onOk={onOk} />
+          )}
         </DialogContent>
       </Dialog>
     </InteractiveContext.Provider>
@@ -172,9 +208,9 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
  * @description call this hook to open an interactive component
  * @usage
  * const $ = useInteractive()
- * $.sheet(<Component>, {})
- * $.drawer()
- * $.dialog()
+ * $.sheet(<Component>, props, config)
+ * $.drawer(<Component>, props, config)
+ * $.dialog(<Component>, props, config)
  * @returns
  */
 export const useInteractive = () => {
