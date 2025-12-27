@@ -38,7 +38,10 @@
     border-color: var(--color-border);
   }
   .grid-auto {
-    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+  }
+  .nav-button {
+    @apply w-12 h-12 [&>svg]:size-5 rounded-full;
   }
 }
 

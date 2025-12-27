@@ -1,6 +1,5 @@
 'use client'
 
-
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import {
@@ -21,7 +20,7 @@ const ProfileIcon = () => {
   return (
     <Popover>
       <PopoverTrigger className="relative" asChild>
-        <Button size="icon" variant="ghost">
+        <Button variant="ghost" size="icon" className="nav-button">
           <UserIcon />
         </Button>
       </PopoverTrigger>

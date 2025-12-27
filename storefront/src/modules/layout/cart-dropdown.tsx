@@ -78,7 +78,7 @@ const CartDropdown = () => {
     <Popover open={visible} onOpenChange={onOpenChange}>
       <PopoverTrigger asChild>
         <div className="relative">
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="nav-button">
             <ShoppingCartIcon />
           </Button>
           <Badge className="absolute top-0 right-0 h-4 w-4 text-xs items-center justify-center bg-primary">

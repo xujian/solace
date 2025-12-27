@@ -24,7 +24,7 @@ const SideMenu = ({ regions }: { regions: HttpTypes.StoreRegion[] | null }) => {
     <div className="flex items-center h-full">
       <Popover open={popoverOpen} onOpenChange={setPopoverOpen}>
         <PopoverTrigger asChild>
-          <Button variant="ghost" size="icon" className="">
+          <Button variant="ghost" size="icon" className="nav-button">
             <MenuIcon />
           </Button>
         </PopoverTrigger>
