@@ -1,25 +1,41 @@
-import React from 'react'
+import { Button, Field, FieldLabel, Input } from '@lib/components/ui'
+import { MakeInteractiveContent } from '@lib/context'
+import { addAddress, updateAddress } from '@lib/data/customer'
 import { HttpTypes } from '@medusajs/types'
-import { Button, DialogFooter, Input, Field, FieldLabel } from '@lib/components/ui'
+import addresses from '@modules/checkout/addresses'
 import CountrySelect from '@modules/checkout/country-select'
+import React, { useActionState, useEffect } from 'react'
 
-interface AddressFormProps {
-  formAction: (payload: FormData) => void
-  formState: { error?: string | null }
-  isPending: boolean
-  onCancel: () => void
+type AddressFormProps = MakeInteractiveContent<{
   defaultValues?: HttpTypes.StoreCustomerAddress
   children?: React.ReactNode
-}
+}>
 
+/**
+ * form to edit for add an address
+ * @returns 
+ */
 const AddressForm = ({
-  formAction,
-  formState,
-  isPending,
+  onOk,
   onCancel,
   defaultValues,
   children,
 }: AddressFormProps) => {
+
+  const action = defaultValues?.id ? updateAddress : addAddress
+
+  const [formState, formAction, isPending] = useActionState(action, {
+    isDefaultShipping: addresses.length === 0,
+    success: false,
+    error: null
+  })
+
+  useEffect(() => {
+    if (formState.success) {
+      onOk?.()
+    }
+  }, [formState.success])
+
   return (
     <form action={formAction} data-lpignore="true" autoComplete="off">
       {children}
@@ -124,14 +140,16 @@ const AddressForm = ({
             data-testid="phone-input"
           />
         </Field>
-
+        { defaultValues?.id && 
+          <input type="hidden" name="addressId" value={defaultValues.id} />
+        }
         {formState.error && (
           <div className="text-sm text-rose-500 py-2" data-testid="address-error">
             {formState.error}
           </div>
         )}
       </div>
-      <DialogFooter className="bg-muted p-4">
+      <div className="flex justify-end gap-2">
         <Button
           type="reset"
           variant="secondary"
@@ -144,7 +162,7 @@ const AddressForm = ({
         <Button data-testid="save-button" type="submit" isLoading={isPending}>
           Save
         </Button>
-      </DialogFooter>
+      </div>
     </form>
   )
 }

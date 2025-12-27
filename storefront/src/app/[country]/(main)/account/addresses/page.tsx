@@ -29,6 +29,7 @@ export default async function AddressesPage () {
         {addresses.map(address => {
           return <AddressCard data={address} key={address.id} />
         })}
+        <AddAddress addresses={addresses} />
       </div>
       {
         addresses.length === 0 && (
@@ -37,9 +38,6 @@ export default async function AddressesPage () {
           </div>
         )
       }
-      <div className="flex items-center justify-center py-10 gap-y-4">
-        <AddAddress addresses={addresses} />
-      </div>
     </>
   )
 }

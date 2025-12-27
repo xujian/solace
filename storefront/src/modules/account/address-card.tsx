@@ -1,7 +1,5 @@
 'use client'
 
-import React, { useActionState, useEffect, useState } from 'react'
-import { HttpTypes } from '@medusajs/types'
 import {
   Button,
   Card,
@@ -9,19 +7,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@lib/components/ui'
-import { deleteAddress, updateAddress } from '@lib/data/customer'
-import useToggleState from '@lib/hooks/use-toggle-state'
+import { useInteractive } from '@lib/context'
+import { deleteAddress } from '@lib/data/customer'
 import { cn } from '@lib/util'
-import AddressForm from './address-form'
+import { HttpTypes } from '@medusajs/types'
 import {
   Edit,
   MoreVertical,
@@ -29,6 +23,8 @@ import {
   Trash2 as Trash
 } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import AddressForm from './address-form'
 
 type EditAddressProps = {
   data: HttpTypes.StoreCustomerAddress
@@ -39,34 +35,18 @@ const AddressCard: React.FC<EditAddressProps> = ({
   data,
   isActive = false
 }) => {
+  const $ = useInteractive()
   const router = useRouter()
   const [removing, setRemoving] = useState(false)
-  const [successState, setSuccessState] = useState(false)
-  const { state, open, close: closeModal } = useToggleState(false)
 
-  const [formState, formAction, isPending] = useActionState(updateAddress, {
-    success: false,
-    error: null,
-    addressId: data.id
-  })
-
-  const close = () => {
-    setSuccessState(false)
-    closeModal()
+  const openAddressDialog = () => {
+    $.dialog(AddressForm, {
+      defaultValues: data,
+      onOk: () => {
+        router.refresh()
+      }
+    })
   }
-
-  useEffect(() => {
-    if (successState) {
-      close()
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [successState])
-
-  useEffect(() => {
-    if (formState.success) {
-      setSuccessState(true)
-    }
-  }, [formState])
 
   const removeAddress = async () => {
     setRemoving(true)
@@ -78,10 +58,10 @@ const AddressCard: React.FC<EditAddressProps> = ({
   return (
     <>
       <Card
-        className={cn('address-card h-full w-full transition-colors')}
+        className={cn('address-card h-full w-full transition-colors min-h-50')}
         data-testid="address-card">
-        <CardHeader className="flex flex-row items-start justify-between space-y-0">
-          <div className="flex flex-col gap-1.5">
+        <CardHeader className="flex flex-row items-start justify-between p-4">
+          <div className="flex flex-col">
             <CardTitle data-testid="address-name">
               {data.first_name} {data.last_name}
             </CardTitle>
@@ -93,15 +73,15 @@ const AddressCard: React.FC<EditAddressProps> = ({
           </div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button size="icon" variant="ghost" className="h-8 w-8">
-                <MoreVertical className="h-4 w-4" />
+              <Button size="icon" variant="ghost">
+                <MoreVertical />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem
-                onClick={open}
+                onClick={openAddressDialog}
                 data-testid="address-edit-button">
-                <Edit className="mr-2 h-4 w-4" />
+                <Edit />
                 Edit
               </DropdownMenuItem>
               <DropdownMenuItem
@@ -110,17 +90,13 @@ const AddressCard: React.FC<EditAddressProps> = ({
                   removeAddress()
                 }}
                 data-testid="address-delete-button">
-                {removing ? (
-                  <Spinner className="mr-2 h-4 w-4 animate-spin" />
-                ) : (
-                  <Trash className="mr-2 h-4 w-4" />
-                )}
+                {removing ? <Spinner /> : <Trash />}
                 Remove
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </CardHeader>
-        <CardContent className="text-base flex flex-col text-left">
+        <CardContent className="flex flex-col p-4 text-base">
           <span data-testid="address-address">
             {data.address_1}
             {data.address_2 && <span>, {data.address_2}</span>}
@@ -134,23 +110,6 @@ const AddressCard: React.FC<EditAddressProps> = ({
           </span>
         </CardContent>
       </Card>
-      <Dialog open={state} onOpenChange={open => !open && close()}>
-        <DialogContent
-          className="max-w-3xl p-0"
-          data-testid="edit-address-modal">
-          <DialogHeader className="flex flex-row items-center justify-between p-6 pb-4">
-            <DialogTitle className="text-3xl">Edit address</DialogTitle>
-          </DialogHeader>
-          <AddressForm
-            formAction={formAction}
-            formState={formState}
-            isPending={isPending}
-            onCancel={close}
-            defaultValues={data}>
-            <input type="hidden" name="addressId" value={data.id} />
-          </AddressForm>
-        </DialogContent>
-      </Dialog>
     </>
   )
 }
