@@ -75,10 +75,14 @@ interface InteractiveContext {
     props?: T,
     config?: DialogConfig
   ) => void
-  confirm: (
+  confirm(
     message: string | ReactNode,
-    config?: ConfirmConfig
-  ) => Promise<boolean> | void
+    config: ConfirmConfig & { onOk: () => void }
+  ): void
+  confirm(
+    message: string | ReactNode,
+    config?: Omit<ConfirmConfig, 'onOk'>
+  ): Promise<boolean>
   toast: (message: string, config?: ToastOptions) => void
   clear: () => void
 }
@@ -186,10 +190,18 @@ export const InteractiveProvider = ({ children }: InteractiveProviderProps) => {
    * @param config 
    * @returns 
    */
-  const confirm = (
+  function confirm(
+    message: string | ReactNode,
+    config: ConfirmConfig & { onOk: () => void }
+  ): void
+  function confirm(
+    message: string | ReactNode,
+    config?: Omit<ConfirmConfig, 'onOk'>
+  ): Promise<boolean>
+  function confirm(
     message: string | ReactNode,
     config?: ConfirmConfig
-  ): Promise<boolean> | void => {
+  ): Promise<boolean> | void {
     if (config?.onOk) {
       dialog(
         Confirmation,
