@@ -1,27 +1,26 @@
-import { Button, Field, FieldLabel, Input } from '@lib/components/ui'
-import { MakeInteractiveContent } from '@lib/context'
-import { addAddress, updateAddress } from '@lib/data/customer'
+import React, { useActionState, useEffect } from 'react'
 import { HttpTypes } from '@medusajs/types'
+import { Button, Field, FieldLabel, Input } from '@lib/components/ui'
+import { addAddress, updateAddress } from '@lib/data/customer'
+import { MakeInteractiveContentProps } from '@arsbreeze/interactive'
 import addresses from '@modules/checkout/addresses'
 import CountrySelect from '@modules/checkout/country-select'
-import React, { useActionState, useEffect } from 'react'
 
-type AddressFormProps = MakeInteractiveContent<{
+type AddressFormProps = MakeInteractiveContentProps<{
   defaultValues?: HttpTypes.StoreCustomerAddress
   children?: React.ReactNode
 }>
 
 /**
  * form to edit for add an address
- * @returns 
+ * @returns
  */
 const AddressForm = ({
-  onOk,
-  onCancel,
+  onComplete,
+  onAbort,
   defaultValues,
-  children,
+  children
 }: AddressFormProps) => {
-
   const action = defaultValues?.id ? updateAddress : addAddress
 
   const [formState, formAction, isPending] = useActionState(action, {
@@ -32,7 +31,7 @@ const AddressForm = ({
 
   useEffect(() => {
     if (formState.success) {
-      onOk?.()
+      onComplete?.()
     }
   }, [formState.success])
 
@@ -140,11 +139,13 @@ const AddressForm = ({
             data-testid="phone-input"
           />
         </Field>
-        { defaultValues?.id && 
+        {defaultValues?.id && (
           <input type="hidden" name="addressId" value={defaultValues.id} />
-        }
+        )}
         {formState.error && (
-          <div className="text-sm text-rose-500 py-2" data-testid="address-error">
+          <div
+            className="py-2 text-sm text-rose-500"
+            data-testid="address-error">
             {formState.error}
           </div>
         )}
@@ -153,10 +154,9 @@ const AddressForm = ({
         <Button
           type="reset"
           variant="secondary"
-          onClick={onCancel}
+          onClick={onAbort}
           className="h-10"
-          data-testid="cancel-button"
-        >
+          data-testid="cancel-button">
           Cancel
         </Button>
         <Button data-testid="save-button" type="submit" isLoading={isPending}>

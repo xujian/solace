@@ -1,7 +1,7 @@
 'use client'
+import { useInteractive } from '@arsbreeze/interactive'
 import { HttpTypes } from '@medusajs/types'
 import { Card, CardContent } from '@lib/components/ui'
-import { useInteractive } from '@lib/context/interactive-context'
 import AddressForm from './address-form'
 import { Plus } from 'lucide-react'
 
@@ -20,7 +20,7 @@ const AddAddress = ({
 
   return (
     <Card
-      className="cursor-pointer border-dotted hover:bg-muted min-h-50"
+      className="min-h-50 cursor-pointer border-dotted hover:bg-muted"
       onClick={open}>
       <CardContent className="flex h-full w-full flex-col items-center justify-center p-0">
         <Plus className="size-12" />

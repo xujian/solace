@@ -1,5 +1,9 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+import React, { useState } from 'react'
+import { useInteractive } from '@arsbreeze/interactive'
+import { HttpTypes } from '@medusajs/types'
 import {
   Button,
   Card,
@@ -12,19 +16,15 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@lib/components/ui'
-import { useInteractive } from '@lib/context'
 import { deleteAddress } from '@lib/data/customer'
 import { cn } from '@lib/util'
-import { HttpTypes } from '@medusajs/types'
+import AddressForm from './address-form'
 import {
   Edit,
   MoreVertical,
   LoaderCircle as Spinner,
   Trash2 as Trash
 } from 'lucide-react'
-import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
-import AddressForm from './address-form'
 
 type EditAddressProps = {
   data: HttpTypes.StoreCustomerAddress
@@ -40,16 +40,22 @@ const AddressCard: React.FC<EditAddressProps> = ({
   const [removing, setRemoving] = useState(false)
 
   const openAddressDialog = () => {
-    $.dialog(AddressForm, {
-      defaultValues: data,
-      onOk: () => {
-        router.refresh()
+    $.dialog(
+      AddressForm,
+      {
+        defaultValues: data,
+        onComplete: () => {
+          router.refresh()
+        }
+      },
+      {
+        title: 'Edit Address'
       }
-    })
+    )
   }
 
   const removeAddress = async () => {
-    $.confirm('Are you sure you want to remove this address?').then((ok) => {
+    $.confirm('Are you sure you want to remove this address?').then(ok => {
       if (ok) {
         setRemoving(true)
         deleteAddress(data.id)
@@ -62,7 +68,7 @@ const AddressCard: React.FC<EditAddressProps> = ({
   return (
     <>
       <Card
-        className={cn('address-card h-full w-full transition-colors min-h-50')}
+        className={cn('address-card h-full min-h-50 w-full transition-colors')}
         data-testid="address-card">
         <CardHeader className="flex flex-row items-start justify-between p-4">
           <div className="flex flex-col">
