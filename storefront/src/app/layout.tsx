@@ -3,6 +3,7 @@ import { Metadata } from 'next'
 import { ThemeProvider } from '@modules/common/components/theme-provider'
 import { Toaster } from '@lib/components/ui/sonner'
 import NextTopLoader from 'nextjs-toploader'
+import '@arsbreeze/interactive/styles.css'
 import 'styles/app.css'
 
 export const metadata: Metadata = {
