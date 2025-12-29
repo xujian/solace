@@ -15,7 +15,7 @@
     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
-    "@arsbreeze/interactive": "^1.0.0",
+    "@arsbreeze/interactive": "^1.0.1",
     "@hookform/resolvers": "^5.2.2",
     "@medusajs/js-sdk": "^2.12.3",
     "@radix-ui/react-accordion": "^1.2.12",
