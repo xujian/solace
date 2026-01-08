@@ -5,7 +5,7 @@ import { listRegions } from '@lib/data/regions'
 import LocalizedClientLink from '@modules/common/components/localized-client-link'
 import ProfileIcon from '@modules/common/components/profile-icon'
 import { NavMenu } from '@modules/home/nav-menu'
-import CartDropdown from '@modules/layout/cart-dropdown'
+import CartIcon from '@modules/layout/cart-icon'
 import SideMenu from '@modules/layout/side-menu'
 import { ShoppingCartIcon } from 'lucide-react'
 
@@ -40,7 +40,7 @@ export default async function Nav({ minimal = false }: NavProps) {
                 <ShoppingCartIcon />
               </LocalizedClientLink>
             }>
-            <CartDropdown />
+            <CartIcon />
           </Suspense>
         )}
       </div>

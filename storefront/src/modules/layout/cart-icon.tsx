@@ -13,7 +13,7 @@ import { ShoppingCartIcon, X } from 'lucide-react'
 
 import { useCart } from '@lib/context/cart-context'
 
-const CartDropdown = () => {
+const CartIcon = () => {
   const cart = useCart()
   const [activeTimer, setActiveTimer] = useState<ReturnType<typeof setTimeout> | undefined>(undefined)
   const [visible, setVisible] = useState(false)
@@ -163,4 +163,4 @@ const CartDropdown = () => {
   )
 }
 
-export default CartDropdown
+export default CartIcon
