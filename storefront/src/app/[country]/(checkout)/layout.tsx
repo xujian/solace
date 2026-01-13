@@ -1,3 +1,4 @@
+import { InteractiveProvider } from '@arsbreeze/interactive'
 import { CartProvider } from '@lib/context/cart-context'
 import { retrieveCart } from '@lib/data/cart'
 import Nav from '@modules/layout/nav'
@@ -10,10 +11,12 @@ export default async function CheckoutLayout({
   const cart = await retrieveCart()
   return (
     <CartProvider data={cart}>
-      <Nav minimal />
-      <main className="page-body" data-testid="checkout-container">
-        {children}
-      </main>
+      <InteractiveProvider>
+        <Nav minimal />
+        <main className="page-body" data-testid="checkout-container">
+          {children}
+        </main>
+      </InteractiveProvider>
     </CartProvider>
   )
 }

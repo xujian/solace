@@ -19,8 +19,8 @@ export default async function PageLayout(props: {
   const cart = await retrieveCart()
 
   return (
-    <InteractiveProvider>
-      <CartProvider data={cart}>
+    <CartProvider data={cart}>
+      <InteractiveProvider>
         <Nav />
         <Suspense fallback={null}>
           <CartCustomerLayer />
@@ -28,7 +28,7 @@ export default async function PageLayout(props: {
         <main className="page-body">{props.children}</main>
         {props.modal}
         <Footer />
-      </CartProvider>
-    </InteractiveProvider>
+      </InteractiveProvider>
+    </CartProvider>
   )
 }
