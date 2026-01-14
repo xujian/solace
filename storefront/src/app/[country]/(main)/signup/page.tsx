@@ -21,7 +21,7 @@ export default function SignupPage() {
           alt="Join us"
         />
       </div>
-      <div className="flex w-full flex-row items-center justify-center">
+      <div className="flex w-full flex-row items-center justify-center p-4 rounded-lg bg-neutral-200 md:bg-none">
         <div className="w-full max-w-[400px]">
           <h1 className="mb-2 text-3xl font-bold">Create an account</h1>
           <p className="mb-8 text-muted-foreground">
