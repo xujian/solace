@@ -149,8 +149,8 @@ importers:
   storefront:
     dependencies:
       '@arsbreeze/interactive':
-        specifier: ^1.0.1
-        version: 1.0.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sonner@2.0.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(tailwindcss@4.1.18)
+        specifier: ^1.0.6
+        version: 1.0.6(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sonner@2.0.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(tailwindcss@4.1.18)
       '@hookform/resolvers':
         specifier: ^5.2.2
         version: 5.2.2(react-hook-form@7.68.0(react@19.2.1))
@@ -466,8 +466,8 @@ packages:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@arsbreeze/interactive@1.0.1':
-    resolution: {integrity: sha512-ijKMKKEhaPhlu/9jRIMO9c0933xrfiTV/+4gRPQkSSCLA9Y4EvqVwGyKBdYl+9JACD5OV057zeOfPy7d4ikgNQ==}
+  '@arsbreeze/interactive@1.0.6':
+    resolution: {integrity: sha512-FwvY+TdO4FUDNzE5SI5mflZJndHcjrVIbrt4J/bLxkmhz0oUaKXuF5mwQ1JsmabYhxHyAx46Pu+6gCOCKF7NyQ==}
     peerDependencies:
       react: '>=19'
       sonner: '*'
@@ -2179,6 +2179,7 @@ packages:
   '@koa/router@12.0.2':
     resolution: {integrity: sha512-sYcHglGKTxGF+hQ6x67xDfkE9o+NhVlRHBqq6gLywaMc6CojK/5vFZByphdonKinYlMLkEkacm+HEse9HzwgTA==}
     engines: {node: '>= 12'}
+    deprecated: Please upgrade to v15 or higher. All reported bugs in this version are fixed in newer releases, dependencies have been updated, and security has been improved.
 
   '@lezer/common@1.3.0':
     resolution: {integrity: sha512-L9X8uHCYU310o99L3/MpJKYxPzXPOS7S0NmBaM7UO/x2Kb2WbmMLSkfvdr1KxRIFYOpbY0Jhn7CfLSUDzL8arQ==}
@@ -13940,7 +13941,7 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@arsbreeze/interactive@1.0.1(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sonner@2.0.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(tailwindcss@4.1.18)':
+  '@arsbreeze/interactive@1.0.6(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)(sonner@2.0.7(react-dom@19.2.1(react@19.2.1))(react@19.2.1))(tailwindcss@4.1.18)':
     dependencies:
       '@radix-ui/react-dialog': 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       '@radix-ui/react-slot': 1.2.4(@types/react@19.2.7)(react@19.2.1)
@@ -23003,7 +23004,7 @@ snapshots:
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/permissions': 5.31.1
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/utils': 5.31.1
       '@testing-library/dom': 10.1.0
@@ -23200,7 +23201,7 @@ snapshots:
       '@strapi/database': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)
       '@strapi/design-system': 2.0.0-rc.30(@babel/runtime@7.28.4)(@codemirror/autocomplete@6.19.1)(@codemirror/language@6.11.3)(@codemirror/lint@6.9.2)(@codemirror/search@6.5.11)(@codemirror/state@6.5.2)(@codemirror/theme-one-dark@6.1.3)(@codemirror/view@6.38.8)(@strapi/icons@2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)))(@types/react-dom@19.2.3(@types/react@19.2.6))(@types/react@19.2.6)(codemirror@5.65.20)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
       '@strapi/icons': 2.0.0-rc.30(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(styled-components@6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0))
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/utils': 5.31.1
       date-fns: 2.30.0
       date-fns-tz: 2.0.1(date-fns@2.30.0)
@@ -23301,7 +23302,7 @@ snapshots:
       '@strapi/generators': 5.31.1(@types/node@20.19.25)
       '@strapi/logger': 5.31.1
       '@strapi/permissions': 5.31.1
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/utils': 5.31.1
       '@vercel/stega': 0.1.2
@@ -23736,7 +23737,7 @@ snapshots:
       '@strapi/openapi': 5.31.1
       '@strapi/permissions': 5.31.1
       '@strapi/review-workflows': 5.31.1(2e5e5497c3df96a31049cb4e82682e57)
-      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)
+      '@strapi/types': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)
       '@strapi/typescript-utils': 5.31.1
       '@strapi/upload': 5.31.1(a876007fe5fbbdf726992d102b4a2519)
       '@strapi/utils': 5.31.1
@@ -23839,6 +23840,36 @@ snapshots:
       - webpack-cli
       - webpack-dev-server
       - webpack-plugin-serve
+
+  '@strapi/types@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.4.4)':
+    dependencies:
+      '@casl/ability': 6.5.0
+      '@koa/cors': 5.0.0
+      '@koa/router': 12.0.2
+      '@strapi/database': 5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)
+      '@strapi/logger': 5.31.1
+      '@strapi/permissions': 5.31.1
+      '@strapi/utils': 5.31.1
+      commander: 8.3.0
+      json-logic-js: 2.0.5
+      koa: 2.16.1
+      koa-body: 6.0.1
+      node-schedule: 2.1.1
+      typedoc: 0.25.10(typescript@5.4.4)
+      typedoc-github-wiki-theme: 1.1.0(typedoc-plugin-markdown@3.17.1(typedoc@0.25.10(typescript@5.9.3)))(typedoc@0.25.10(typescript@5.9.3))
+      typedoc-plugin-markdown: 3.17.1(typedoc@0.25.10(typescript@5.9.3))
+      zod: 3.25.67
+    transitivePeerDependencies:
+      - '@types/node'
+      - better-sqlite3
+      - mysql
+      - mysql2
+      - pg
+      - pg-native
+      - sqlite3
+      - supports-color
+      - tedious
+      - typescript
 
   '@strapi/types@5.31.1(@types/node@20.19.25)(better-sqlite3@12.4.1)(typescript@5.9.3)':
     dependencies:
@@ -32433,6 +32464,14 @@ snapshots:
     dependencies:
       handlebars: 4.7.8
       typedoc: 0.25.10(typescript@5.9.3)
+
+  typedoc@0.25.10(typescript@5.4.4):
+    dependencies:
+      lunr: 2.3.9
+      marked: 4.3.0
+      minimatch: 9.0.5
+      shiki: 0.14.7
+      typescript: 5.4.4
 
   typedoc@0.25.10(typescript@5.9.3):
     dependencies:

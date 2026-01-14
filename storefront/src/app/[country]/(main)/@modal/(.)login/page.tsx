@@ -4,31 +4,31 @@ import {
   Dialog,
   DialogContent, DialogHeader, DialogTitle
 } from '@lib/components/ui'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import LoginForm from '@modules/account/login-form'
 import { useRouter } from 'next/navigation'
+import { useInteractive } from '@arsbreeze/interactive'
 
 export default function Login() {
   const router = useRouter()
-  const [ open, setOpen ] = useState(true)
+  const $ = useInteractive()
 
-  const handleClose = (value: boolean) => {
-    setOpen(value)
-    if (!value) {
-      router.back()
-    }
-  }
+  useEffect(() => {
+    $.dialog(LoginForm, {
+      onComplete: (): void => {
+        console.log('INTERACTIVE MODAL: login onComplete called')
+        router.back()
+      },
+      onAbort: (): void => {
+        console.log('INTERACTIVE MODAL: login onAbort called')
+        router.back()
+      }
+    }, {
+      title: 'Login'
+    })
+  }, [])
 
   return (
-    <Dialog open={open} onOpenChange={handleClose}>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>
-            Login
-          </DialogTitle>
-        </DialogHeader>
-        <LoginForm />
-      </DialogContent>
-    </Dialog>
+    <></>
   )
 }

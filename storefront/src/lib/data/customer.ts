@@ -44,6 +44,7 @@ export async function signup(_currentState: unknown, formData: FormData) {
     last_name: formData.get('last_name') as string,
     phone: formData.get('phone') as string
   }
+  
   try {
     const token = await sdk.auth.register('customer', 'emailpass', {
       email: customerForm.email,
@@ -57,28 +58,23 @@ export async function signup(_currentState: unknown, formData: FormData) {
     })
     revalidateTag('customer', 'max')
     await transferCart()
-    return createdCustomer
+    return { success: true, error: null }
   } catch (error: any) {
-    return error.toString()
+    return { success: false, error: error.toString() }
   }
 }
 
 export async function login(_currentState: unknown, formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
+  
   try {
-    await sdk.auth
-      .login('customer', 'emailpass', { email, password })
-      .then(async () => {
-        revalidateTag('customer', 'max')
-      })
-  } catch (error: any) {
-    return error.toString()
-  }
-  try {
+    await sdk.auth.login('customer', 'emailpass', { email, password })
+    revalidateTag('customer', 'max')
     await transferCart()
+    return { success: true, error: null }
   } catch (error: any) {
-    return error.toString()
+    return { success: false, error: error.toString() }
   }
 }
 
@@ -87,12 +83,11 @@ export async function signout(region: string) {
   revalidateTag('customer', 'max')
   await removeCartId()
   revalidateTag('cart', 'max')
-  redirect(`/${region}/account`)
+  // redirect(`/${region}/account`)
 }
 
 export async function transferCart() {
   const cartId = await getCartId()
-
   if (!cartId) {
     return
   }

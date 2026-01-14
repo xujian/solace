@@ -1,6 +1,6 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useState } from 'react'
 import {
   Field,
   FieldLabel,
@@ -10,18 +10,27 @@ import {
 } from '@lib/components/ui'
 import { login } from '@lib/data/customer'
 import ErrorMessage from '@modules/checkout/error-message'
-import { useRouter } from 'next/navigation'
+import { MakeInteractiveContentProps } from '@arsbreeze/interactive'
 
-export default function LoginForm() {
-  const [message, action, pending] = useActionState(login, null)
-  const router = useRouter()
+export type LoginFormProps = {
+}
 
-  const back = () => {
-    router.back()
+export default function LoginForm({ onComplete, onAbort }: MakeInteractiveContentProps<LoginFormProps>) {
+  const [state, setState] = useState<{ success: boolean, error: string | null }>({ success: false, error: null })
+  const [pending, setPending] = useState(false)
+
+  const handleAction = async (formData: FormData) => {
+    setPending(true)
+    const result = await login(null, formData)
+    setState(result)
+    setPending(false)
+    if (result.success) {
+      onComplete?.()
+    }
   }
 
   return (
-    <form className="flex w-full flex-col gap-y-2" action={action}>
+    <form className="flex w-full flex-col gap-y-2" action={handleAction}>
       <Field>
         <FieldLabel>Email</FieldLabel>
         <FieldContent>
@@ -51,9 +60,9 @@ export default function LoginForm() {
           />
         </FieldContent>
       </Field>
-      <ErrorMessage error={message} data-testid="login-error-message" />
+      <ErrorMessage error={state?.error} data-testid="login-error-message" />
       <div className='flex gap-2 justify-end items-center my-4'>
-        <Button variant="outline" onClick={back} className='flex-1'>Cancel</Button>
+        <Button variant="outline" onClick={onAbort} className='flex-1'>Cancel</Button>
         <Button
           isLoading={pending}
           data-testid="sign-in-button"
