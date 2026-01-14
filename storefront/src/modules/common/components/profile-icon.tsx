@@ -52,7 +52,7 @@ const ProfileIcon = () => {
               <Button className="w-full">Sign in</Button>
             </Link>
             <LocalizedClientLink
-              href="/account?mode=signup">
+              href="/signup">
               <Button className="w-full">Sign up</Button>
             </LocalizedClientLink>
           </div>

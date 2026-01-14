@@ -18,5 +18,5 @@
 }
 
 .response-grid {
-  @apply grid gap-4 grid-cols-1 md:grid-cols-2 items-center justify-center auto-rows-fr md:auto-cols-fr
+  @apply grid gap-4 grid-cols-1 md:grid-cols-2 items-center content-center justify-center auto-rows-fr md:auto-cols-fr
 }

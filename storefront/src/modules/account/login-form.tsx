@@ -11,6 +11,7 @@ import {
 import { login } from '@lib/data/customer'
 import ErrorMessage from '@modules/checkout/error-message'
 import { MakeInteractiveContentProps } from '@arsbreeze/interactive'
+import LocalizedClientLink from '@modules/common/components/localized-client-link'
 
 export type LoginFormProps = {
 }
@@ -62,7 +63,7 @@ export default function LoginForm({ onComplete, onAbort }: MakeInteractiveConten
       </Field>
       <ErrorMessage error={state?.error} data-testid="login-error-message" />
       <div className='flex gap-2 justify-end items-center my-4'>
-        <Button variant="outline" onClick={onAbort} className='flex-1'>Cancel</Button>
+        {onAbort && <Button variant="outline" onClick={onAbort} className='flex-1'>Cancel</Button>}
         <Button
           isLoading={pending}
           data-testid="sign-in-button"
@@ -70,6 +71,15 @@ export default function LoginForm({ onComplete, onAbort }: MakeInteractiveConten
           type="submit">
           Sign in
         </Button>
+      </div>
+
+      <div className="mt-4 text-center text-sm">
+        <p className="text-muted-foreground">
+          Don&apos;t have an account?{' '}
+          <LocalizedClientLink href="/signup" className="text-foreground font-semibold underline">
+            Join us
+          </LocalizedClientLink>
+        </p>
       </div>
     </form>
   )
