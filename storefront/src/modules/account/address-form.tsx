@@ -152,7 +152,7 @@ const AddressForm = ({
       </div>
       <div className="flex justify-end gap-2">
         <Button
-          type="reset"
+          type="button"
           variant="secondary"
           onClick={onAbort}
           className="h-10"

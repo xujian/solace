@@ -128,7 +128,7 @@ export default function SignupForm({ onComplete, onAbort }: MakeInteractiveConte
           Join Solace
         </Button>
         {onAbort && (
-          <Button variant="ghost" onClick={onAbort} className='w-full'>Cancel</Button>
+          <Button type="button" variant="ghost" onClick={onAbort} className='w-full'>Cancel</Button>
         )}
       </div>
     </form>

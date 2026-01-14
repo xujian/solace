@@ -63,7 +63,7 @@ export default function LoginForm({ onComplete, onAbort }: MakeInteractiveConten
       </Field>
       <ErrorMessage error={state?.error} data-testid="login-error-message" />
       <div className='flex gap-2 justify-end items-center my-4'>
-        {onAbort && <Button variant="outline" onClick={onAbort} className='flex-1'>Cancel</Button>}
+        {onAbort && <Button type="button" variant="outline" onClick={onAbort} className='flex-1'>Cancel</Button>}
         <Button
           isLoading={pending}
           data-testid="sign-in-button"
