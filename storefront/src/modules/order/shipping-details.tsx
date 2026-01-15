@@ -11,7 +11,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card>
+        <Card className="bg-muted">
           <CardHeader>
             <MapPin />
             <CardTitle className="text-muted-foreground text-sm">Shipping Address</CardTitle>
@@ -34,7 +34,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
             </p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-muted">
           <CardHeader>
             <Phone />
             <CardTitle className="text-muted-foreground text-sm">Contact</CardTitle>
@@ -46,7 +46,7 @@ const ShippingDetails = ({ order }: ShippingDetailsProps) => {
             <p className="">{order.email}</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-muted">
           <CardHeader>
             <Truck />
             <CardTitle className="text-muted-foreground text-sm">Method</CardTitle>

@@ -1,8 +1,11 @@
+'use client'
+
 import { useMemo } from 'react'
 import { HttpTypes } from '@medusajs/types'
-import { Button, Card, CardContent, CardFooter, CardHeader, Badge } from '@lib/components/ui'
+import { Button, Card, CardContent, CardHeader, Badge } from '@lib/components/ui'
 import { convertToLocale } from '@lib/util/money'
-import LocalizedClientLink from '@modules/common/components/localized-client-link'
+import { useInteractive } from '@arsbreeze/interactive'
+import OrderDetailsView from './order'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@lib/util'
@@ -12,6 +15,14 @@ type OrderCardProps = {
 }
 
 const OrderRow = ({ order }: OrderCardProps) => {
+  const $ = useInteractive()
+
+  const openOrderDetails = () => {
+    $.drawer(OrderDetailsView, { order: order.id }, { 
+      title: `Order`
+    })
+  }
+
   const numberOfLines = useMemo(() => {
     return (
       order.items?.reduce((acc, item) => {
@@ -25,7 +36,7 @@ const OrderRow = ({ order }: OrderCardProps) => {
   }, [order])
 
   return (
-    <Card className="order-item" data-testid="order-item">
+    <Card className="order-item bg-muted" data-testid="order-item">
       <CardHeader>
         <div className='flex flex-row items-center gap-x-2'>
           <Badge>{order.display_id}</Badge>
@@ -44,11 +55,13 @@ const OrderRow = ({ order }: OrderCardProps) => {
             </span>
           </div>
           <div>
-            <LocalizedClientLink href={`/account/orders/${order.id}`}>
-              <Button className='cursor-pointer' data-testid="order-details-link">
-                Details
-              </Button>
-            </LocalizedClientLink>
+            <Button 
+              className='cursor-pointer' 
+              data-testid="order-details-link"
+              onClick={openOrderDetails}
+            >
+              Details
+            </Button>
           </div>
         </div>
       </CardHeader>
