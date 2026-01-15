@@ -68,7 +68,7 @@ const AddressCard: React.FC<EditAddressProps> = ({
   return (
     <>
       <Card
-        className={cn('address-card h-full min-h-50 w-full transition-colors')}
+        className={cn('address-card h-full min-h-50 w-full transition-colors bg-muted hover:bg-muted/50 cursor-pointer')}
         data-testid="address-card">
         <CardHeader className="flex flex-row items-start justify-between p-4">
           <div className="flex flex-col">
