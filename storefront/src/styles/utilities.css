@@ -43,6 +43,18 @@
   .nav-button {
     @apply w-12 h-12 [&>svg]:size-5 rounded-full;
   }
+  .logo {
+    display: inline-block;
+    background-color: currentColor;
+    mask-image: url('/logo.svg');
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+    -webkit-mask-image: url('/logo.svg');
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+  }
 }
 
 

@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Suspense } from 'react'
 import { StoreRegion } from '@medusajs/types'
 import { listRegions } from '@lib/data/regions'
@@ -23,8 +22,8 @@ export default async function Nav({ minimal = false }: NavProps) {
         <NavMenu />
       </div>
       <div className="flex h-full items-center">
-        <LocalizedClientLink href="/" className="" data-testid="nav-store-link">
-          <Image src="/logo.svg" alt="Logo" width={100} height={100} />
+        <LocalizedClientLink href="/" className="flex items-center" data-testid="nav-store-link">
+          <div className="logo w-32 h-10 text-foreground" />
         </LocalizedClientLink>
       </div>
 
