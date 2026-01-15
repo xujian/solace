@@ -162,7 +162,40 @@
   --shadow-md: var(--shadow-md);
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
+  --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  @keyframes enter-from-right {
+    from { opacity: 0; transform: translateX(200px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes enter-from-left {
+    from { opacity: 0; transform: translateX(-200px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes exit-to-right {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(200px); }
+  }
+  @keyframes exit-to-left {
+    from { opacity: 1; transform: translateX(0); }
+    to { opacity: 0; transform: translateX(-200px); }
+  }
+  @keyframes scale-in {
+    from { opacity: 0; transform: rotateX(-30deg) scale(0.9); }
+    to { opacity: 1; transform: rotateX(0deg) scale(1); }
+  }
+  @keyframes scale-out {
+    from { opacity: 1; transform: rotateX(0deg) scale(1); }
+    to { opacity: 0; transform: rotateX(-10deg) scale(0.95); }
+  }
+
+  --animate-enter-from-right: enter-from-right 0.25s ease;
+  --animate-enter-from-left: enter-from-left 0.25s ease;
+  --animate-exit-to-right: exit-to-right 0.25s ease;
+  --animate-exit-to-left: exit-to-left 0.25s ease;
+  --animate-scale-in: scale-in 0.2s ease;
+  --animate-scale-out: scale-out 0.2s ease;
 }
 
 body {
