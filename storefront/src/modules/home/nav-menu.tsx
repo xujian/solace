@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import * as React from 'react'
 import {
   NavigationMenu,
@@ -8,99 +7,67 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle
+  NavigationMenuTrigger
 } from '@lib/components/ui'
-import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-react'
 
-const collections: { title: string; href: string; description: string }[] = [
-  {
-    title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
-    description:
-      'A modal dialog that interrupts the user with important content and expects a response.'
-  },
-  {
-    title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
-    description: 'For sighted users to preview content available behind a link.'
-  },
-  {
-    title: 'Progress',
-    href: '/docs/primitives/progress',
-    description:
-      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.'
-  },
-  {
-    title: 'Scroll-area',
-    href: '/docs/primitives/scroll-area',
-    description: 'Visually or semantically separates content.'
-  },
-  {
-    title: 'Tabs',
-    href: '/docs/primitives/tabs',
-    description:
-      'A set of layered sections of content—known as tab panels—that are displayed one at a time.'
-  },
-  {
-    title: 'Tooltip',
-    href: '/docs/primitives/tooltip',
-    description:
-      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.'
-  }
-]
+import { HttpTypes } from '@medusajs/types'
+import LocalizedClientLink from '@modules/common/components/localized-client-link'
+import Image from 'next/image'
 
-export function NavMenu() {
+interface NavMenuProps {
+  collections: HttpTypes.StoreCollection[]
+  categories: HttpTypes.StoreProductCategory[]
+}
+
+export function NavMenu({ collections, categories }: NavMenuProps) {
 
   return (
     <NavigationMenu>
       <NavigationMenuList className="flex-wrap">
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bg-transparent">Collections</NavigationMenuTrigger>
-          <NavigationMenuContent className="p-4">
-            <ul className="grid gap-2 sm:w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+          <NavigationMenuContent className="p-4 flex flex-col gap-2">
+            <h4 className="text-sm font-bold">Collections</h4>
+            <ul className="grid grid-cols-2 gap sm:w-[400px] md:grid-cols-3 lg:w-[600px] lg:grid-cols-4">
               {collections.map(collection => (
                 <ListItem
-                  key={collection.title}
+                  key={collection.id}
                   title={collection.title}
-                  href={collection.href}>
-                  {collection.description}
-                </ListItem>
+                  href={`/collections/${collection.handle}`}
+                  image={collection.products?.[0]?.thumbnail}
+                />
               ))}
             </ul>
+            <div className="flex justify-end">
+              <LocalizedClientLink
+                href={`/collections`}
+                className="text-sm font-bold text-muted-foreground tracking-tighter">
+                View All
+              </LocalizedClientLink>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger className="bg-transparent">Categories</NavigationMenuTrigger>
-          <NavigationMenuContent className="p-4">
-            <ul className="grid w-[300px] gap-4">
-              <li>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Collections</div>
-                    <div className="text-muted-foreground">
-                      Browse all components in the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Documentation</div>
-                    <div className="text-muted-foreground">
-                      Learn how to use the library.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-                <NavigationMenuLink asChild>
-                  <Link href="#">
-                    <div className="font-medium">Blog</div>
-                    <div className="text-muted-foreground">
-                      Read our latest blog posts.
-                    </div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
+          <NavigationMenuContent className="p-4 flex flex-col gap-2">
+            <h4 className="text-sm font-bold">Categories</h4>
+            <ul className="grid grid-cols-4 gap w-[400px] md:w-[600px]">
+              {categories.map(category => (
+                <ListItem
+                  key={category.id}
+                  title={category.name}
+                  href={`/categories/${category.handle}`}
+                  image={category.products?.[0]?.thumbnail}
+                />
+              ))}
             </ul>
+            <div className="flex justify-end">
+              <LocalizedClientLink
+                href={`/collections`}
+                className="text-sm font-bold text-muted-foreground tracking-tighter">
+                View All
+              </LocalizedClientLink>
+            </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -108,21 +75,48 @@ export function NavMenu() {
   )
 }
 
+interface ListItemProps extends React.ComponentPropsWithoutRef<'li'> {
+  title: string
+  href: string
+  image?: string | null
+}
+
 function ListItem({
   title,
-  children,
   href,
+  image,
   ...props
-}: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
+}: ListItemProps) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
-          <div className="text-sm leading-none font-medium">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </Link>
+        <LocalizedClientLink
+          href={href}
+          className="group relative flex aspect-square w-full items-end overflow-hidden rounded-md border bg-muted no-underline transition-all"
+        >
+          {image ? (
+            <Image
+              src={image!}
+              alt={title}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center">
+              <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">Shop</span>
+            </div>
+          )}
+
+          {/* Gradient Overlay for Readability */}
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent opacity-80 transition-opacity group-hover:opacity-100" />
+
+          {/* Compact Title Overlay */}
+          <div className="relative z-10 w-full p-2 text-center">
+            <div className="truncate text-[10px] font-bold tracking-tight text-white uppercase drop-shadow-md">
+              {title}
+            </div>
+          </div>
+        </LocalizedClientLink>
       </NavigationMenuLink>
     </li>
   )
