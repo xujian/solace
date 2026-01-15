@@ -1,113 +1,113 @@
 'use client'
-import { useSession } from '@lib/context/session-context'
-import { useParams, usePathname } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+
+import React, { useMemo } from 'react'
+import { usePathname } from 'next/navigation'
 import ReactCountryFlag from 'react-country-flag'
 import { HttpTypes } from '@medusajs/types'
-import { Select, SelectContent, SelectItem, SelectTrigger } from '@lib/components/ui'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from '@lib/components/ui'
 import { updateRegion } from '@lib/data/cart'
-import { StateType } from '@lib/hooks/use-toggle-state'
+import { useSession } from '@lib/context/session-context'
 
-type CountryOption = {
-  country: string
-  region: string
-  label: string
-}
-
-type CountrySelectProps = {
-  toggleState: StateType
+interface CountrySelectProps {
   regions?: HttpTypes.StoreRegion[] | null
+  children?: React.ReactNode
 }
 
-const CountrySelect = ({ toggleState, regions: regionsProp }: CountrySelectProps) => {
-  const { country, region } = useSession()
-  const [current, setCurrent] = useState<
-    { country: string | undefined; region: string; label: string | undefined } | undefined
-  >(undefined)
+export const CountryLabel: React.FC = () => {
+  const { country: currentCountryCode, region: currentRegion } = useSession()
 
-  const currentPath = usePathname().split(`/${country}`)[1]
+  const labelData = useMemo(() => {
+    if (!currentRegion || !currentCountryCode) return null
+    const country = currentRegion.countries?.find(
+      c => c.iso_2 === currentCountryCode
+    )
+    return {
+      code: currentCountryCode,
+      name: country?.display_name || ''
+    }
+  }, [currentRegion, currentCountryCode])
 
-  const { state, close } = toggleState
+  if (!labelData) return null
+
+  return (
+    <div className="flex items-center gap-x-2">
+      <ReactCountryFlag
+        svg
+        className="rounded-xs"
+        style={{ width: '16px', height: '12px' }}
+        countryCode={labelData.code}
+      />
+      <span className="font-semibold">{labelData.name}</span>
+    </div>
+  )
+}
+
+const CountrySelect: React.FC<CountrySelectProps> = ({
+  regions: regionsProp,
+  children
+}) => {
+  const { country: currentCountryCode, region: currentRegion } = useSession()
+  const pathname = usePathname()
 
   const options = useMemo(() => {
-    // If regionsProp is provided use it, otherwise use current region from session converted to array
-    const regionsToUse = regionsProp || [region]
-    
+    const regionsToUse = regionsProp || (currentRegion ? [currentRegion] : [])
+
     return regionsToUse
-      ?.map(r => {
-        return r?.countries?.map(c => ({
-          country: c.iso_2,
-          region: r.id,
-          label: c.display_name
-        }))
-      })
-      .flat()
-      .sort((a, b) => (a?.label ?? '').localeCompare(b?.label ?? ''))
-  }, [])
+      .flatMap(r =>
+        r.countries?.map(c => ({
+          country: c.iso_2 || '',
+          regionId: r.id,
+          label: c.display_name || ''
+        })) || []
+      )
+      .sort((a, b) => a.label.localeCompare(b.label))
+  }, [regionsProp, currentRegion])
 
-  useEffect(() => {
-    if (region) {
-      const option = options?.find(o => o?.region === region.id)
-      setCurrent(option)
-    }
-  }, [options, region])
+  const handleChange = async (value: string) => {
+    const option = options.find(o => o.country === value)
+    if (!option) return
 
-  const handleChange = (value: string) => {
-    const option = options?.find(o => o?.country === value)
-    if (option) {
-      updateRegion(option.country!, currentPath || '/')
-      close()
-    }
+    const pathParts = pathname.split('/')
+    const pathWithoutCountry = `/${pathParts.slice(2).join('/')}`
+
+    await updateRegion(option.country, pathWithoutCountry)
   }
 
   return (
-    <Select
-      value={country || ''}
-      onValueChange={handleChange}
-      open={state}
-      onOpenChange={open => {
-        if (!open) close()
-      }}>
-      <SelectTrigger className="h-auto w-full border-none p-0 py-1 shadow-none focus:ring-0">
-        <div className="text-sm flex items-start gap-x-2">
-          <span>Shipping to:</span>
-          {current && (
-            <span className="text-sm flex items-center gap-x-2">
-              {/* @ts-ignore */}
-              <ReactCountryFlag
-                svg
-                style={{
-                  width: '16px',
-                  height: '16px'
-                }}
-                countryCode={current.country ?? ''}
-              />
-              {current.label}
-            </span>
-          )}
-        </div>
-      </SelectTrigger>
-      <SelectContent className="text-sm no-scrollbar rounded-md z-[900] max-h-[442px] w-full min-w-[320px] overflow-y-scroll text-black uppercase drop-shadow-md">
-        {options?.map((o, index) => {
-          return (
-            <SelectItem key={index} value={o?.country ?? ''} className="cursor-pointer px-3 py-2 hover:bg-gray-200">
-              <div className="flex items-center gap-x-2">
-                {/* @ts-ignore */}
-                <ReactCountryFlag
-                  svg
-                  style={{
-                    width: '16px',
-                    height: '16px'
-                  }}
-                  countryCode={o?.country ?? ''}
-                />{' '}
-                {o?.label}
-              </div>
-            </SelectItem>
-          )
-        })}
-      </SelectContent>
-    </Select>
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild className="group cursor-pointer">
+        {children}
+      </DropdownMenuTrigger>
+      <DropdownMenuContent
+        align="start"
+        className="max-h-72 min-w-[240px] rounded border bg-muted p-1 shadow-2xl backdrop-blur-xl">
+        <DropdownMenuLabel className="px-2 py-1.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+          Select Region
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        {options.map(option => (
+          <DropdownMenuItem
+            key={option.country}
+            onClick={() => handleChange(option.country)}
+            className="flex cursor-pointer items-center gap-x-3 rounded-lg px-3 py-2 text-sm transition-colors">
+            <ReactCountryFlag
+              svg
+              className="rounded-xs"
+              style={{ width: '18px', height: '14px' }}
+              countryCode={option.country}
+            />
+            <span className="font-medium">{option.label}</span>
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }
 
