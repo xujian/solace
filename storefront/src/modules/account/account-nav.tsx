@@ -48,21 +48,31 @@ const AccountNav = ({
     }
   ]
 
+  const activeValue = items.find((item) => {
+    const localizedHref = `/${country}${item.href}`
+    if (item.value === 'overview') {
+      return route === localizedHref
+    }
+    return route.startsWith(localizedHref)
+  })?.value || 'overview'
+
   return (
-    <Tabs className="account-nav flex items-center justify-center w-full" defaultValue="overview">
+    <Tabs 
+      className="account-nav flex items-center justify-center w-full" 
+      value={activeValue}>
       <TabsList>
         {items.map((item) => (
-          <TabsTrigger value={item.value} key={item.value}>
+          <TabsTrigger value={item.value} key={item.value} asChild>
             <LocalizedClientLink
               href={item.href}
               className="flex items-center justify-between"
-              data-testid="profile-link">
-            <div className="flex items-center gap-x-2">
-              {item.icon}
-              <span>{item.label}</span>
-            </div>
-          </LocalizedClientLink>
-        </TabsTrigger>
+              data-testid={`${item.value}-link`}>
+              <div className="flex items-center gap-x-2">
+                {item.icon}
+                <span>{item.label}</span>
+              </div>
+            </LocalizedClientLink>
+          </TabsTrigger>
         ))}
       </TabsList>
     </Tabs>
